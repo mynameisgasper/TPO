@@ -44,11 +44,35 @@
 - Diagram predstavlja interakcijo med akterji in funkcionalnostmi (kdo lahko kaj počne).
 - Akterji so tipično uporabniške vloge, lahko pa gre tudi za zunanje komponente (sistemi), ki komunicirajo z našo aplikacijo.
 
+### 4.1 Zunanji sistemi
+#### 4.1.1 Pretvornik Valut
+#### 4.1.2 Google Maps
+
 ## 5. Funkcionalne zahteve
 
 V tem razdelku podrobno opišite posamezne funkcionalnosti, ki jih vaša aplikacija ponuja svojim uporabnikom. Za vsako funkcionalnost navedite naslednje podatke:
 
 ### TO-DO Naziv zahteve
+
+1. registracija uporabnika (MUST)
+2. prijava uporabnika (MUST)
+3. urejanje uporabniškega profila (MUST)
+
+4. kreacija povpraševanja (MUST)
+5. vzdrževanje povpraševanja (MUST)
+6. branje povpračevajna (MUST)
+7. odzvi na povpraševanje (SHOULD HAVE)
+
+8. kreacija oglasa (MUST) 
+9. vzdrževanje oglasa (MUST)
+10. branje oglasa (MUST)
+11. odziv na oglas (SHOULD HAVE)
+
+12. dodaj profil pod "hitre kontakte" (COULD HAVE)
+13. podaj oceno profilu (COULD HAVE)
+14. podaj komentar profilu (WOULD HAVE)
+15. ogled zgodovine sprehodov (WOULD HAVE)
+
 
 #### Povzetek funkcionalnosti
 
