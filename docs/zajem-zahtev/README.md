@@ -132,8 +132,26 @@ V tem razdelku podrobno opišite posamezne funkcionalnosti, ki jih vaša aplikac
 
 - Navedite splošne omejitve, ki jih moramo upoštevati v več funkcionalnostih ali celo skozi celoten razvoj aplikacije.
 
+### 6.1 Zahteve izdelka
+- sistem mora biti na voljo 99% časa
+- sistem mora biti dosegljiv na javno dostopnem spletnem naslovu
+- sistem uporabniku ne sme omogočati dostopa uporabniku do podatkov, do katerih ni pooblaščen.
+- latenca zahtev ne sme presegati 500ms
+- spletna stran deluje na večini mobilnih naprav
+- sistem mora za komunikacijo uporabljati SSL certifikat (enkripcija)
+### 6.2 Organizacijske zahteve
+- sistem mora imeti implementiran "ali si robot" preverjanje
+- sistem mora omogočati vsaj enega administratorja
+- sistem mora omogočati hranjenje varnostnih kopij 
+### 6.3 Zunanje zahteve
+- sistem ne sme vsebovati vulgarnih besed
+- sistem mora imeti obvezna obvestila o hranjenju podaktov in piškotkov
+- sistem mora imeti izpostavljene ustrezne legalne dokumente
+
 ## 7. Prototipi vmesnikov
 
 **TO-DO**
 
 - Navesti je potrebno: zaslonske maske, sistemske vmesnike in vmesnike do naprav, vključno z referencami do primerov uporabe.
+
+
