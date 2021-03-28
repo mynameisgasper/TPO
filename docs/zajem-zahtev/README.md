@@ -22,8 +22,13 @@
 
 **TO-DO**
 
-- Opredelite glavne tipe uporabnikov vaše aplikacije glede na funkcionalnosti, ki jih imajo na voljo.
 - Zelo pomembno je, da uporabniške vloge konsistentno imenujete. Na primer, če ste definirali vlogo **učitelj**, morate povsod uporabljati samostalnik **učitelj**, ne pa morda **profesor** ali **pedagog**. Tehniška besedila žal ne morejo dosegati leposlovnih standardov, tudi če so še tako dobro napisana.
+
+### 2.1 **Admin** - use. - nadzor nad registriranimi uporabniki, podatkovno bazo oglasov, povpraševanj...
+### 2.1 - **Organizacija** - lahko dela vse in še oglase
+### 2.1 **Samostojni skrbnik** - lagko delas vse kar je dol in se odziva na povpraševanje lastnikov
+### 2.1 **Lastnik psa** - lahko izda povpraševanje za pomoč in gleda oglase
+### 2.1 **Neprijavljen uporabnik** - oglase organizacij
 
 ## 3. Slovar pojmov
 
