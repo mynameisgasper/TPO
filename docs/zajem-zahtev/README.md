@@ -58,20 +58,18 @@ V tem razdelku podrobno opišite posamezne funkcionalnosti, ki jih vaša aplikac
 2. prijava uporabnika (MUST)
 3. urejanje uporabniškega profila (MUST)
 
-4. kreacija povpraševanja (MUST)
-5. vzdrževanje povpraševanja (MUST)
-6. branje povpračevajna (MUST)
-7. odzvi na povpraševanje (SHOULD HAVE)
+4. kreacija oglasa (MUST) 
+5. vzdrževanje oglasa (MUST)
+6. branje oglasa (MUST)
+7. odziv na oglas (SHOULD HAVE)
 
-8. kreacija oglasa (MUST) 
-9. vzdrževanje oglasa (MUST)
-10. branje oglasa (MUST)
-11. odziv na oglas (SHOULD HAVE)
+8. ogled lokacije prevzema (MUST)
+9. pretvorba valute (SHOULD HAVE)
 
-12. dodaj profil pod "hitre kontakte" (COULD HAVE)
-13. podaj oceno profilu (COULD HAVE)
-14. podaj komentar profilu (WOULD HAVE)
-15. ogled zgodovine sprehodov (WOULD HAVE)
+10. dodaj profil pod "hitre kontakte" (COULD HAVE)
+11. podaj oceno profilu (COULD HAVE)
+12. podaj komentar profilu (WOULD HAVE)
+13. ogled zgodovine sprehodov (WOULD HAVE)
 
 
 #### Povzetek funkcionalnosti
