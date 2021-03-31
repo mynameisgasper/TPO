@@ -2,9 +2,9 @@
 
 |                             |                                                         |
 | :-------------------------- | :------------------------------------------------------ |
-| **Naziv projekta**          | **TO-DO** naziv projekta                                |
-| **Člani projektne skupine** | **TO-DO** 1. član, 2. član, 3. član, 4. član in 5. član |
-| **Kraj in datum**           | **TO-DO** kraj, datum                                   |
+| **Naziv projekta**          | Dog Walkers                           |
+| **Člani projektne skupine** | Gašper Božič, Gašper Kolbezen, Grega Kranjec, Matevž Vreš in Gašper Štepec |
+| **Kraj in datum**           | Ljubljana, April 2021                                  |
 
 ## Povzetek projekta
 
@@ -20,11 +20,18 @@
 
 ## 2. Uporabniške vloge
 
-####  **Admin** - nadzor nad registriranimi uporabniki, podatkovno bazo oglasov, povpraševanji
-####  **Skrbnik psov** - ne more kreirati oglasa, se pa lahko odzove na oglas, lahko ocenjuje in komentira profile in lahko si ogleda lokacijo prevzema psa...
-####  **Lastnik psa** - na volju mu je celotna aplikacija brez dodatnih premium funkcionalnosti in kreiranje oglasov
-#### **Premium uporabnik** - poleg osnovnih funkcionalnosti in kreiranja oglasov lahko dodaja hitre kontakte in pregleda zgodovino sprehodov
-####  **Neprijavljen uporabnik** - lahko si ogleda oglase organizacije ne more pa jih kreirati ali si ogledati lokacije
+
+
+**Neprijavljen uporabnik**  
+Neprijavljen uporabnik si lahko ogleda seznam vseh oglase ter posamezne oglase. Vsak oglas ima vsebuje tudi funkcionalnosti lokacije prevzema psa ter pretvorbe valut, tako da ju vidi tudi neprijavljen uporabnik. Vsak neprijavljen uporabnik se ima možnost tudi registrirati ali prijaviti v sistem.
+**Skrbnik psov**  
+Skrbnik psov je prvi izmed prijavljenih uporabnikov. Vsi prijavljenih uporabniki imajo naslednje funkcionalnosti: vse kar ima neprijavljen uporabnik, urejanje uporabniškega profila, iskanje oglasov, podajanje ocene ter podajanje komentarja profilu. Skrbnik psov ima še možnost se odzvati na oglase psov, ki potrebujejo skrbnika.
+**Lastnik psa**  
+Lastnik psa ima vse funkcionalnosti prijavljenega uporabnika, ki so našteti pri Skrbniku psov, hkrati pa ima še možnost ustvarjanja, urejanja ter brisanje posameznega oglasa, ki ga je objavil sam.
+**Premium uporabnik**  
+Premium uporabnik združuje vse funkcionalnosti Skrbnika psov ter Lastnika psa ter dodaja še možnost ogleda zgodovine skrbi nad psom ter dodajanja profilov pod hitre kontakte.
+**Admin**  
+Admin ima vse funkcionalnosti Skrbnika psov ter možnost brisanja katerega koli oglasa na portalu DogWalkers.
 
 ## 3. Slovar pojmov
 
@@ -59,6 +66,7 @@ V tem razdelku podrobno opišite posamezne funkcionalnosti, ki jih vaša aplikac
 | ogled profila | | | | 
 | kreacija oglasa  | | | | 
 | vzdrževanje oglasa | | | | 
+| brisanje oglasa | | | | 
 | pregled vseh oglasov | | | | 
 | dodaj profil pod "hitre kontakte"| | | | 
 
