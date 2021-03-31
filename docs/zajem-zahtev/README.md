@@ -214,17 +214,17 @@ Sistem mora podpirati možnost (gumb) nalaganja profilne slike omejene velikosti
 MUST have
 
 ### **Sprejemni testi**
-**TO-DO** (dopolni?)
+**TO-DO** (mrbit za dopolnit?)
 
-Izberi svoj profil in izberi urejanje, spremeni vnosno/-a polje/-a za osebne podatke, in shrani urejanje.
+- Izberi svoj profil in izberi urejanje, spremeni vnosno/-a polje/-a za osebne podatke, in shrani urejanje.
 
-Izberi svoj profil in izberi urejanje, spremeni vnosno polje za telefonsko številko in vnesi črkovne znake.
+- Izberi svoj profil in izberi urejanje, spremeni vnosno polje za telefonsko številko in vnesi črkovne znake.
 
-Izberi svoj profil in izberi urejanje, dopolni vnosno polje za opis in vnesi preveliko število znakov.
+- Izberi svoj profil in izberi urejanje, dopolni vnosno polje za opis in vnesi preveliko število znakov.
 
-Izberi svoj profil in izberi urejanje, spremeni vnosno polje za geslo in vnesi znake, ki so izven uporabljenega kodirnega unicode standarda.
+- Izberi svoj profil in izberi urejanje, spremeni vnosno polje za geslo in vnesi znake, ki so izven uporabljenega kodirnega unicode standarda.
 
-Izberi svoj profil in izberi urejanje, spremeni vnosno/-a polje/-a in ne shrani urejanja.
+- Izberi svoj profil in izberi urejanje, spremeni vnosno/-a polje/-a in ne shrani urejanja.
 
 
 ### **Naziv Zahteve**
@@ -238,7 +238,7 @@ TO-DO : nekje bo treba upoštevat in napisat še kaj glede profilov, ki še nima
 **Admin, Lastnik Psa, Premium Uporabnik in Skrbnik Psa** lahko podajo kvantitativno oceno profilu s katerim so vsaj enkrat stopili v kontakt oziroma opravili medsebojno storitev, katere v namen nudi aplikacija. 
 
 ### **Osnovni Tok**
-**TO-DO ZA POPRAVIT MALO**
+**TO-DO ZA POPRAVIT MALO KO BO VEČ ZAHTEV DEFINIRANIH!!**
 1. Prijavljen uporabnik izbere funkcionalnost ogled profila drugega uporabnika.
 2. Sistem odpre zavihek s pregledom profila izbranega uporabnika in prikaže njegove podatke.
 3. Sistem omogoči urejanje ocene v kolikor sta uporabnika že opravila vsaj eno namensko storitev aplikacije oziroma imata zgodovino.
@@ -272,11 +272,12 @@ Ocena profila, kateremu je uporabnik spreminjal svojo oceno se spremeni. Spremem
 COULD have
 
 ### **Sprejemni testi**
-**TO-DO** treba je dopolnit še za izjemne tokove in mal lepš napisat use skp
-Izberi profil uporabnika, ki je lastnik psa, če si skrbnik psa (velja tudi za premium, admin) in si že opravil storitev s tem lastnikom psa in izberi urejanje ocene.
+**TO-DO** treba je dopolnit še za izjemne tokove in mal lepš napisat use skp!!
+
+- Izberi profil uporabnika, ki je lastnik psa, če si skrbnik psa (velja tudi za premium, admin) in si že opravil storitev s tem lastnikom psa in izberi urejanje ocene.
 Podaj oceno z lestvice in shrani spremembe.
 
-Izberi profil uporabnika, ki je skrbnik psa, če si lastnik psa (velja tudi za premium, admin) in si že opravil storitev s tem skrbnikom psa in izberi urejanje ocene.
+- Izberi profil uporabnika, ki je skrbnik psa, če si lastnik psa (velja tudi za premium, admin) in si že opravil storitev s tem skrbnikom psa in izberi urejanje ocene.
 Podaj oceno z lestvice in shrani spremembe.
 
 
