@@ -28,7 +28,7 @@ Aplikacija ponuja 3 različne profile. Skrbnik psov, lastnik psa ter premium upo
 Neprijavljen uporabnik si lahko ogleda seznam vseh oglase ter posamezne oglase. Oglase lahko tudi išče preko vgrajenega iskalnika. Vsak oglas ima vsebuje tudi funkcionalnosti lokacije prevzema psa ter pretvorbe valut, tako da ju vidi tudi neprijavljen uporabnik. Vsak neprijavljen uporabnik se ima možnost tudi registrirati ali prijaviti v sistem.  
   
 **Skrbnik psov**  
-Skrbnik psov je prvi izmed prijavljenih uporabnikov. Vsi **prijavljenih uporabniki** imajo naslednje funkcionalnosti: ogled seznama vseh oglasov ter posamezne oglase (s pripadujočima lokacija prezema psa ter pretvorba valut), urejanje uporabniškega profila, iskanje oglasov, podajanje ocene ter podajanje komentarja profilu. Skrbnik psov ima še možnost se odzvati na oglase psov, ki potrebujejo skrbnika.  
+Skrbnik psov je prvi izmed prijavljenih uporabnikov. Vsi **prijavljenih uporabniki** imajo naslednje funkcionalnosti: ogled seznama vseh oglasov ter posamezne oglase (s pripadujočima lokacija prevzema psa ter pretvorba valut), urejanje uporabniškega profila, iskanje oglasov, podajanje ocene ter podajanje komentarja profilu. Skrbnik psov ima še možnost se odzvati na oglase psov, ki potrebujejo skrbnika.  
   
 **Lastnik psa**  
 Lastnik psa ima vse funkcionalnosti **prijavljenega uporabnika**, ki so našteti pri Skrbniku psov, hkrati pa ima še možnost ustvarjanja, urejanja ter brisanje posameznega oglasa, ki ga je objavil sam.  
@@ -37,7 +37,7 @@ Lastnik psa ima vse funkcionalnosti **prijavljenega uporabnika**, ki so našteti
 Premium uporabnik združuje vse funkcionalnosti Skrbnika psov ter Lastnika psa ter dodaja še možnost ogleda zgodovine sprehodov psov ter dodajanja profilov pod hitre kontakte.  
   
 **Admin**  
-Admin ima vse funkcionalnosti Skrbnika psov ter dodajanje in možnost urejanja in brisanja katerega koli oglasa na portalu DogWalkers.  
+Admin ima vse funkcionalnosti Skrbnika psov ter dodajanje in možnost urejanja in brisanja katerega koli oglasa na portalu DogWalkers kot tudi brisanje vseh komentarjev na profilih uporabnikov.  
 
 ## 3. Slovar pojmov
 
@@ -66,7 +66,8 @@ V tem razdelku podrobno opišite posamezne funkcionalnosti, ki jih vaša aplikac
 | vzdrževanje oglasa | | | | 
 | brisanje oglasa | | | | 
 | pregled vseh oglasov | | | | 
-| dodaj profil pod "hitre kontakte"| | | | 
+| dodaj profil pod "hitre kontakte" | | | | 
+| brisanje komentarjev | | | | 
 
 ### **Naziv Zahteve**
 
@@ -172,7 +173,7 @@ Geslo novega uporabnika mora biti zgoščeno s standaradom SHA-2
 ### **Osnovni Tok**
 
 1. Prijavljen uporabnik izbere funkcionalnost ogled lastnega profila.
-2. Sistem odpre zavihek s pregledom profila z uporabnikovimi podatki: ime, geslo, opis, e-poštni naslov, telefonska številka.
+2. Sistem odpre zavihek s pregledom profila z uporabnikovimi podatki: ime, geslo, opis, e-poštni naslov, telefonska številka, kot tudi komentarje tega profila s strani drugih uporabnikov in oceno.
 3. Prijavljen uporabnik preko izbire 'Urejaj' zahteva urejanje svojega profila.
 4. Sistem s profilnega zavihka uporabnika preusmeri na obrazec s polji, v katerih je mogoče spreminjati uporabniške podatke (ime, geslo, opis, e-poštni naslov, telefonska številka).
 5. Prijavljeni uporabnik spremeni željena vnosna polja.
@@ -194,6 +195,10 @@ Prijavljen uporabnik spremeni vnosna polja in uporabi preveliko število znakov 
 Prijavljen uporabnik spremeni vnosna polja in uporabi nepravilne znake v poljih, ki zahtevajo poseben format (e-poštni naslov, telefonska številka).
 Sistem ne dovoli shranjevanja in opozori na napačen format znakov v teh vnosnih poljih.
 
+- Prijavljen uporabnik izbere funkcionalnost ogled profila in izbere urejanje.
+Prijavljen uporabnik spremeni vnosna polja vendar ne potrdi shranjevanja sprememb. Spremembe
+v urejanju se ne shranijo.
+
 ### **Pogoji**
 Uporabnik mora biti registriran v sistemu in prijavljen.
 
@@ -205,18 +210,76 @@ sistema, ko si ogledajo njegov profil.
 **TO-DO**
 Sistem mora podpirati možnost (gumb) nalaganja profilne slike omejene velikosti iz uporabnikovega računalnika v sistem na profil??? => če damo to potem je treba popravit/dopolnit tokove
 
-### **Prioriteta:** MUST have
+### **Prioriteta:**
+MUST have
 
 ### **Sprejemni testi**
 **TO-DO** (dopolni?)
 
-Izberi svoj profil in izberi urejanje, spremeni vnosno polje/-a za osebne podatke, in shrani urejanje.
+Izberi svoj profil in izberi urejanje, spremeni vnosno/-a polje/-a za osebne podatke, in shrani urejanje.
 
 Izberi svoj profil in izberi urejanje, spremeni vnosno polje za telefonsko številko in vnesi črkovne znake.
 
 Izberi svoj profil in izberi urejanje, dopolni vnosno polje za opis in vnesi preveliko število znakov.
 
 Izberi svoj profil in izberi urejanje, spremeni vnosno polje za geslo in vnesi znake, ki so izven uporabljenega kodirnega unicode standarda.
+
+Izberi svoj profil in izberi urejanje, spremeni vnosno/-a polje/-a in ne shrani urejanja.
+
+
+### **Naziv Zahteve**
+
+**Podaj oceno profilu**
+
+### **Povzetek funkcionalnosti**
+
+TO-DO : nekje bo treba upoštevat in napisat še kaj glede profilov, ki še nimajo ocene.
+
+**Admin, Lastnik Psa, Premium Uporabnik in Skrbnik Psa** lahko podajo kvantitativno oceno profilu s katerim so vsaj enkrat stopili v kontakt oziroma opravili medsebojno storitev, katere v namen nudi aplikacija. 
+
+### **Osnovni Tok**
+**TO-DO ZA POPRAVIT MALO**
+1. Prijavljen uporabnik izbere funkcionalnost ogled profila drugega uporabnika.
+2. Sistem odpre zavihek s pregledom profila izbranega uporabnika in prikaže njegove podatke.
+3. Sistem omogoči urejanje ocene v kolikor sta uporabnika že opravila vsaj eno namensko storitev aplikacije oziroma imata zgodovino.
+4. Prijavljen uporabnik preko funkcionalnosti za ocenjevanje izbere urejanje ocene.
+5. Sistem uporabniku omgoči izbiro ocene z lestvice.
+6. Uporabnik izbere oceno in potrdi izbor.
+7. Sistem posodobi skupno oceno ravnokar ocenjenega profila glede na podano oceno.
+
+### **Alternativni Tok** 
+**TO-DO**
+
+### **Izjemni Tokovi** 
+- Prijavljen uporabnik izbere funkcionalnost ogled profila drugega uporabnika in izbere urejanje ocene.
+Prijavljen uporabnik spremeni oceno z lestvice in ne shrani izbire.
+Sistem ne spremeni ocene in ohrani staro vrednost.
+
+- Prijavljen uporabnik izbere funkcionalnost ogled profila drugega uporabnika.
+Prijavljen uporabnik s tem uporabnikom še ni opravil nobene storitve, zato mu je urejanje
+ocene onemogočeno. Sistem zakrije izbiro urejanja ocene in izpiše obvestilo.
+
+### **Pogoji**
+Uporabnik mora biti registriran v sistemu in prijavljen. Uporabnik, ki želi podati oceno drugemu uporabniku, mora imeti s tem uporabnikom že zgodovino sodelovanja oziroma opravljenih storitev preko aplikacije, sicer medsebojno ocenjevanje med uporabnikoma ni omogočeno na njunih profilih.
+
+### **Posledice**
+Ocena profila, kateremu je uporabnik spreminjal svojo oceno se spremeni. Spremembe so vidne tudi ostalim uporabnikom v sklopu skupne ocene uporabnika, ko si ogledajo njegov profil.
+
+### **Posebnosti**
+**TO-DO**
+
+### **Prioriteta:**
+COULD have
+
+### **Sprejemni testi**
+**TO-DO** treba je dopolnit še za izjemne tokove in mal lepš napisat use skp
+Izberi profil uporabnika, ki je lastnik psa, če si skrbnik psa (velja tudi za premium, admin) in si že opravil storitev s tem lastnikom psa in izberi urejanje ocene.
+Podaj oceno z lestvice in shrani spremembe.
+
+Izberi profil uporabnika, ki je skrbnik psa, če si lastnik psa (velja tudi za premium, admin) in si že opravil storitev s tem skrbnikom psa in izberi urejanje ocene.
+Podaj oceno z lestvice in shrani spremembe.
+
+
 
 ## 6. Nefunkcionalne zahteve
 
