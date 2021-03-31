@@ -53,27 +53,18 @@
 V tem razdelku podrobno opišite posamezne funkcionalnosti, ki jih vaša aplikacija ponuja svojim uporabnikom. Za vsako funkcionalnost navedite naslednje podatke:
 
 ### TO-DO Naziv zahteve
-
-1. registracija uporabnika (MUST)
-2. prijava uporabnika (MUST)
-3. urejanje uporabniškega profila (MUST)
-
-4. kreacija oglasa (MUST) 
-5. vzdrževanje oglasa (MUST)
-6. pregled vseh oglasov (MUST)
-7. ogled posameznega oglasa (MUST)
-8. odziv na oglas (SHOULD HAVE)
-9. iskanje oglasov - search (COULD HAVE)
-
-
-10. ogled lokacije prevzema (MUST)
-11. pretvorba valute (SHOULD HAVE)
-
-12. ogled profila (MUST)
-13. dodaj profil pod "hitre kontakte" (MUST)
-14. podaj oceno profilu (COULD HAVE)
-15. podaj komentar profilu (WOULD HAVE)
-16. ogled zgodovine sprehodov (WOULD HAVE)
+|MUST|SHOULD HAVE|COULD HAVE|WOULD HAVE|
+| :-- | :-- | :-- | :-- |
+| registracija uporabnika (MUST) | odziv na oglas (SHOULD HAVE) |  iskanje oglasov - search (COULD HAVE) | podaj komentar profilu (WOULD HAVE) |
+| prijava uporabnika (MUST) | pretvorba valute (SHOULD HAVE) |  podaj oceno profilu (COULD HAVE) |   ogled zgodovine sprehodov (WOULD HAVE) |
+| urejanje uporabniškega profila (MUST) | | | |
+| ogled posameznega oglasa (MUST)| | | | | 
+| ogled lokacije prevzema (MUST)| | | | | 
+| ogled profila (MUST)| | | | 
+| kreacija oglasa (MUST) | | | | 
+| vzdrževanje oglasa (MUST)| | | | 
+| pregled vseh oglasov (MUST)| | | | 
+| dodaj profil pod "hitre kontakte" (MUST)|
 
 
 #### Povzetek funkcionalnosti
