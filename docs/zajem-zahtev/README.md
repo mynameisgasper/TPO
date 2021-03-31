@@ -137,14 +137,14 @@ Geslo novega uporabnika mora biti zgoščeno s standaradom SHA-2
 
 ### **Osnovni Tok**
 
-1. Neprijavleni uporabnik izbere funkcionalnost prijava
+1. Neprijavljeni uporabnik izbere funkcionalnost prijava
 2. Sistem odpre okno z vpisnimi polji za uporabniško ime / e-poštni naslov in geslo
 3. Neprijavleni uporabnik vnese podatke za prijavo
 4. Sistem preveri, če vneseni uporabniški račun obstaja in če je geslo pravilno
 5. Sistem javi, da je prijava uspela, prijavleni uporabnik je preosmerjen na domačo stran.
 
 ### **Izjemni Tok** 
-1. Neprijavleni uporabnik izbere funkcionalnost prijava
+1. Neprijavljeni uporabnik izbere funkcionalnost prijava
 2. Sistem odpre okno z vpisnimi polji za uporabniško ime / e-poštni naslov in geslo
 3. Neprijavleni uporabnik vnese podatke za prijavo
 4. Sistem preveri, če vneseni uporabniški račun obstaja in če je geslo pravilno
@@ -160,6 +160,63 @@ Geslo novega uporabnika mora biti zgoščeno s standaradom SHA-2
   - začetno stanje sistema,
   - vhod in
   - pričakovan rezultat.
+
+### **Naziv Zahteve**
+
+**Urejanje uporabniškega profila**
+
+### **Povzetek funkcionalnosti**
+
+**Admin, Lastnik Psa, Premium Uporabnik in Skrbnik Psa** lahko urejajo nastavitve lastnega profila, ko so prijavljeni v aplikacijo. 
+
+### **Osnovni Tok**
+
+1. Prijavljen uporabnik izbere funkcionalnost ogled lastnega profila.
+2. Sistem odpre zavihek s pregledom profila z uporabnikovimi podatki: ime, geslo, opis, e-poštni naslov, telefonska številka.
+3. Prijavljen uporabnik preko izbire 'Urejaj' zahteva urejanje svojega profila.
+4. Sistem s profilnega zavihka uporabnika preusmeri na obrazec s polji, v katerih je mogoče spreminjati uporabniške podatke (ime, geslo, opis, e-poštni naslov, telefonska številka).
+5. Prijavljeni uporabnik spremeni željena vnosna polja.
+6. Prijavljeni uporabnik izbere funkcionalnost shrani.
+7. Sistem preveri ali so spremenjeni podatki zapisani z dovoljenimi znaki in omejene dolžine ter shrani spremembe in uporabnika iz obrazca vrne na ogled profila.
+
+### **Alternativni Tok** 
+**TO-DO**
+
+### **Izjemni Tokovi** 
+- Prijavljen uporabnik izbere funkcionalnost ogled profila in izbere urejanje.
+Prijavljen uporabnik spremeni vnosna polja in uporabi nedovoljene znake.
+Sistem ne dovoli shranjevanja in opozori na uporabljene nedovoljene znake.
+
+- Prijavljen uporabnik izbere funkcionalnost ogled profila in izbere urejanje.
+Prijavljen uporabnik spremeni vnosna polja in uporabi preveliko število znakov za vnosno polje. Sistem ne dovoli shranjevanja in opozori na predolgo dolžino znakov v teh vnosnih poljih.
+
+- Prijavljen uporabnik izbere funkcionalnost ogled profila in izbere urejanje.
+Prijavljen uporabnik spremeni vnosna polja in uporabi nepravilne znake v poljih, ki zahtevajo poseben format (e-poštni naslov, telefonska številka).
+Sistem ne dovoli shranjevanja in opozori na napačen format znakov v teh vnosnih poljih.
+
+### **Pogoji**
+Uporabnik mora biti registriran v sistemu in prijavljen.
+
+### **Posledice**
+Uporabnikovi osebni podatki so spremenjeni. Spremembe so vidne tudi ostalim uporabnikom
+sistema, ko si ogledajo njegov profil.
+
+### **Posebnosti**
+**TO-DO**
+Sistem mora podpirati možnost (gumb) nalaganja profilne slike omejene velikosti iz uporabnikovega računalnika v sistem na profil??? => če damo to potem je treba popravit/dopolnit tokove
+
+### **Prioriteta:** MUST have
+
+### **Sprejemni testi**
+**TO-DO** (dopolni?)
+
+Izberi svoj profil in izberi urejanje, spremeni vnosno polje/-a za osebne podatke, in shrani urejanje.
+
+Izberi svoj profil in izberi urejanje, spremeni vnosno polje za telefonsko številko in vnesi črkovne znake.
+
+Izberi svoj profil in izberi urejanje, dopolni vnosno polje za opis in vnesi preveliko število znakov.
+
+Izberi svoj profil in izberi urejanje, spremeni vnosno polje za geslo in vnesi znake, ki so izven uporabljenega kodirnega unicode standarda.
 
 ## 6. Nefunkcionalne zahteve
 
