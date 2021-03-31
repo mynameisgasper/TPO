@@ -48,27 +48,19 @@
 
 V tem razdelku podrobno opišite posamezne funkcionalnosti, ki jih vaša aplikacija ponuja svojim uporabnikom. Za vsako funkcionalnost navedite naslednje podatke:
 
-### **Naziv zahteve**
-
-1. registracija uporabnika (MUST)
-2. prijava uporabnika (MUST)
-3. urejanje uporabniškega profila (MUST)
-
-4. ustvarjanje oglasa (MUST) 
-5. vzdrževanje oglasa (MUST)
-6. pregled vseh oglasov (MUST)
-7. ogled posameznega oglasa (MUST)
-8. odziv na oglas (SHOULD HAVE)
-9. iskanje oglasov - search (COULD HAVE)
-
-10. ogled lokacije prevzema (MUST)
-11. pretvorba valute (SHOULD HAVE)
-
-12. ogled profila (MUST)
-13. dodaj profil pod "hitre kontakte" (MUST)
-14. podaj oceno profilu (COULD HAVE)
-15. podaj komentar profilu (WOULD HAVE)
-16. ogled zgodovine sprehodov (WOULD HAVE)
+### TO-DO Naziv zahteve
+|MUST|SHOULD HAVE|COULD HAVE|WOULD HAVE|
+| :-- | :-- | :-- | :-- |
+| registracija uporabnika| odziv na oglas  |  iskanje oglasov - search  | podaj komentar profilu  |
+| prijava uporabnika  | pretvorba valute  |  podaj oceno profilu  |   ogled zgodovine sprehodov  |
+| urejanje uporabniškega profila  | | | |
+| ogled posameznega oglasa | | | | | 
+| ogled lokacije prevzema | | | | | 
+| ogled profila | | | | 
+| kreacija oglasa  | | | | 
+| vzdrževanje oglasa | | | | 
+| pregled vseh oglasov | | | | 
+| dodaj profil pod "hitre kontakte"| | | | 
 
 ### **Naziv Zahteve**
 
