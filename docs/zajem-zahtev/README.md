@@ -72,7 +72,7 @@ V tem razdelku podrobno opišite posamezne funkcionalnosti, ki jih vaša aplikac
 
 ### **Osnovni Tok**
 
-1. Neprijavleni uporabnik izbere funkcionalnost ustvari račun
+1. Neprijavleni uporabnik  izbere funkcionalnost ustvari račun
 2. Sistem odpre okno z vpisnimi polji za uporabniško ime, e-poštni naslov in geslo
 3. Neprijavleni uporabnik vpiše uporabniško ime, e-poštni naslov in nastavi geslo
 4. Študent pritisne gumb za registracijo
@@ -81,24 +81,12 @@ V tem razdelku podrobno opišite posamezne funkcionalnosti, ki jih vaša aplikac
 
 ### **Izjemni Tok** 
 
-1. Neprijavleni uporabnik izbere funkcionalnost ustvari račun
+1. Neprijavleni uporabnik v orodni vrstici izbere funkcionalnost ustvari račun
 2. Sistem odpre okno z vpisnimi polji za uporabniško ime, e-poštni naslov in geslo
 3. Neprijavleni uporabnik vpiše uporabniško ime, e-poštni naslov in nastavi geslo
 4. Študent pritisne gumb za registracijo
 4. Sistem preveri, če so vsi vnosi veljavni in če morda uporabnik s tem uporabniškim imenom ali e-poštnim naslovom obstaja
 5. Sistem javi, da uporabnik s tem uporabniškim imenom ali e-poštnim naslovom že obstaja oz. da se geslo ne ujema z podanimi omejitavmi
-
-
-
-
-**TO-DO**
-
-- **Povzetek funkcionalnosti** v enem ali največ nekaj stavkih.
-- Prvi stavek naj se prične z nazivom uporabniške vloge (ali uporabniških vlog, če se funkcionalnost nanaša na več kot eno vlogo), nato pa naj sledita beseda **lahko** in navedba funkcionalnosti.
-
-#### Osnovni tok
-
-**TO-DO**
 
 #### Alternativni tok(ovi)
 
@@ -106,17 +94,23 @@ V tem razdelku podrobno opišite posamezne funkcionalnosti, ki jih vaša aplikac
 
 - Navesti je potrebno vse alternativne tokove, ki jih označite kot **Alternativni tok 1**, **Alternativni tok 2**, itd.
 
-#### Pogoji
+#### **Pogoji**
 
 **TO-DO**
 
-- Navesti je potrebno pogoje, ki morajo biti izpolnjeni, da se funkcionalnost lahko prične izvajati?
+- Kateri pogoji morajo biti izpolnjeni, da se funkcionalnost lahko prične izvajati?
+
+- Pri funkcionalnosti Prijava na izpit mora biti uporabnik v sistem prijavljen kot študent ali referent. Če ni prijavljen ali pa če je prijavljen kot učitelj ali skrbnik, mu funkcionalnost ni na voljo.
+
+Uporabnik ne sme biti prijavlen 
 
 #### Posledice
 
 **TO-DO**
 
 - Navedite, kakšen je rezultat izvedbe osnovnega toka funkcionalnosti?
+
+Ustvarjen je nov uporabniški račun
 
 #### Posebnosti
 
@@ -125,11 +119,31 @@ V tem razdelku podrobno opišite posamezne funkcionalnosti, ki jih vaša aplikac
 - Ali realizacija funkcionalnosti zahteva kakšne posebnosti, kot je npr. dodatna strojna oprema?
 - Se je potrebno držati kakšnih posebnih standardov?
 
-#### Prioritete identificiranih funkcionalnosti
+Geslo novega uporabnika mora biti zgoščeno s standaradom SHA-2
 
-**TO-DO**
+### **Naziv Zahteve**
 
-- Za identificirane funkcionalnosti se z metodo **MoSCoW** (MUST have, SHOULD have, COULD have in WOULD have) določi prioritete.
+**Prijava uporabnika**
+
+### **Povzetek funkcionalnosti**
+
+**Admin, Lastnik Psa, Premium Uporabnik in Skrbnik Psa** se lahko prijavijo v sistem. 
+
+### **Osnovni Tok**
+
+1. Neprijavleni uporabnik izbere funkcionalnost prijava
+2. Sistem odpre okno z vpisnimi polji za uporabniško ime / e-poštni naslov in geslo
+3. Neprijavleni uporabnik vnese podatke za prijavo
+4. Sistem preveri, če vneseni uporabniški račun obstaja in če je geslo pravilno
+5. Sistem javi, da je prijava uspela, prijavleni uporabnik je preosmerjen na domačo stran.
+
+### **Izjemni Tok** 
+1. Neprijavleni uporabnik izbere funkcionalnost prijava
+2. Sistem odpre okno z vpisnimi polji za uporabniško ime / e-poštni naslov in geslo
+3. Neprijavleni uporabnik vnese podatke za prijavo
+4. Sistem preveri, če vneseni uporabniški račun obstaja in če je geslo pravilno
+5. Sistem neprijavlenem uporabniku sporoči da ta uporabnik ne obstaja ali pa da je geslo napačno; prijava ni uspela 
+
 
 #### Sprejemni testi
 
