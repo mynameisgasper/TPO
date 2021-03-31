@@ -23,15 +23,19 @@
 
 
 **Neprijavljen uporabnik**  
-Neprijavljen uporabnik si lahko ogleda seznam vseh oglase ter posamezne oglase. Vsak oglas ima vsebuje tudi funkcionalnosti lokacije prevzema psa ter pretvorbe valut, tako da ju vidi tudi neprijavljen uporabnik. Vsak neprijavljen uporabnik se ima možnost tudi registrirati ali prijaviti v sistem.
+Neprijavljen uporabnik si lahko ogleda seznam vseh oglase ter posamezne oglase. Oglase lahko tudi išče preko vgrajenega iskalnika. Vsak oglas ima vsebuje tudi funkcionalnosti lokacije prevzema psa ter pretvorbe valut, tako da ju vidi tudi neprijavljen uporabnik. Vsak neprijavljen uporabnik se ima možnost tudi registrirati ali prijaviti v sistem.  
+  
 **Skrbnik psov**  
-Skrbnik psov je prvi izmed prijavljenih uporabnikov. Vsi prijavljenih uporabniki imajo naslednje funkcionalnosti: vse kar ima neprijavljen uporabnik, urejanje uporabniškega profila, iskanje oglasov, podajanje ocene ter podajanje komentarja profilu. Skrbnik psov ima še možnost se odzvati na oglase psov, ki potrebujejo skrbnika.
+Skrbnik psov je prvi izmed prijavljenih uporabnikov. Vsi **prijavljenih uporabniki** imajo naslednje funkcionalnosti: ogled seznama vseh oglasov ter posamezne oglase (s pripadujočima lokacija prezema psa ter pretvorba valut), urejanje uporabniškega profila, iskanje oglasov, podajanje ocene ter podajanje komentarja profilu. Skrbnik psov ima še možnost se odzvati na oglase psov, ki potrebujejo skrbnika.  
+  
 **Lastnik psa**  
-Lastnik psa ima vse funkcionalnosti prijavljenega uporabnika, ki so našteti pri Skrbniku psov, hkrati pa ima še možnost ustvarjanja, urejanja ter brisanje posameznega oglasa, ki ga je objavil sam.
+Lastnik psa ima vse funkcionalnosti **prijavljenega uporabnika**, ki so našteti pri Skrbniku psov, hkrati pa ima še možnost ustvarjanja, urejanja ter brisanje posameznega oglasa, ki ga je objavil sam.  
+  
 **Premium uporabnik**  
-Premium uporabnik združuje vse funkcionalnosti Skrbnika psov ter Lastnika psa ter dodaja še možnost ogleda zgodovine skrbi nad psom ter dodajanja profilov pod hitre kontakte.
+Premium uporabnik združuje vse funkcionalnosti Skrbnika psov ter Lastnika psa ter dodaja še možnost ogleda zgodovine sprehodov psov ter dodajanja profilov pod hitre kontakte.  
+  
 **Admin**  
-Admin ima vse funkcionalnosti Skrbnika psov ter možnost brisanja katerega koli oglasa na portalu DogWalkers.
+Admin ima vse funkcionalnosti Skrbnika psov ter dodajanje in možnost urejanja in brisanja katerega koli oglasa na portalu DogWalkers.  
 
 ## 3. Slovar pojmov
 
@@ -41,15 +45,7 @@ Admin ima vse funkcionalnosti Skrbnika psov ter možnost brisanja katerega koli 
 
 ## 4. Diagram primerov uporabe
 
-**TO-DO**
-
-- Narišite diagram primerov uporabe v jeziku UML.
-- Diagram predstavlja interakcijo med akterji in funkcionalnostmi (kdo lahko kaj počne).
-- Akterji so tipično uporabniške vloge, lahko pa gre tudi za zunanje komponente (sistemi), ki komunicirajo z našo aplikacijo.
-
-### 4.1 Zunanji sistemi
-#### 4.1.1 Pretvornik Valut
-#### 4.1.2 Google Maps
+![Use Case Diagram](../img/UseCaseDiagram.png)  
 
 ## 5. Funkcionalne zahteve
 
