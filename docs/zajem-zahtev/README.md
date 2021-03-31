@@ -20,15 +20,11 @@
 
 ## 2. Uporabniške vloge
 
-**TO-DO**
-
-- Zelo pomembno je, da uporabniške vloge konsistentno imenujete. Na primer, če ste definirali vlogo **učitelj**, morate povsod uporabljati samostalnik **učitelj**, ne pa morda **profesor** ali **pedagog**. Tehniška besedila žal ne morejo dosegati leposlovnih standardov, tudi če so še tako dobro napisana.
-
-### 2.1 **Admin** - use. - nadzor nad registriranimi uporabniki, podatkovno bazo oglasov, povpraševanj...
-### 2.1 - **Skrbnik psov** - ne more kreirati oglasa, se pa lahko odzove na oglas, lahko ocenjuje pa komentira profile, ogled lokacij prevzema psa...
-### 2.1 **Lastnik psa** - lahko delas vse kar je gor in kreira ureja briše oglase
-### 2.1 **Premium uporabnik** - lahko vse kar je gor in dodaje profil pod hitre kontakte ter ogled zgodovine sprehodov
-### 2.1 **Neprijavljen uporabnik** - oglase organizacij
+####  **Admin** - nadzor nad registriranimi uporabniki, podatkovno bazo oglasov, povpraševanji
+####  **Skrbnik psov** - ne more kreirati oglasa, se pa lahko odzove na oglas, lahko ocenjuje in komentira profile in lahko si ogleda lokacijo prevzema psa...
+####  **Lastnik psa** - na volju mu je celotna aplikacija brez dodatnih premium funkcionalnosti in kreiranje oglasov
+#### **Premium uporabnik** - poleg osnovnih funkcionalnosti in kreiranja oglasov lahko dodaja hitre kontakte in pregleda zgodovino sprehodov
+####  **Neprijavljen uporabnik** - lahko si ogleda oglase organizacije ne more pa jih kreirati ali si ogledati lokacije
 
 ## 3. Slovar pojmov
 
@@ -52,19 +48,18 @@
 
 V tem razdelku podrobno opišite posamezne funkcionalnosti, ki jih vaša aplikacija ponuja svojim uporabnikom. Za vsako funkcionalnost navedite naslednje podatke:
 
-### TO-DO Naziv zahteve
+### **Naziv zahteve**
 
 1. registracija uporabnika (MUST)
 2. prijava uporabnika (MUST)
 3. urejanje uporabniškega profila (MUST)
 
-4. kreacija oglasa (MUST) 
+4. ustvarjanje oglasa (MUST) 
 5. vzdrževanje oglasa (MUST)
 6. pregled vseh oglasov (MUST)
 7. ogled posameznega oglasa (MUST)
 8. odziv na oglas (SHOULD HAVE)
 9. iskanje oglasov - search (COULD HAVE)
-
 
 10. ogled lokacije prevzema (MUST)
 11. pretvorba valute (SHOULD HAVE)
@@ -75,8 +70,34 @@ V tem razdelku podrobno opišite posamezne funkcionalnosti, ki jih vaša aplikac
 15. podaj komentar profilu (WOULD HAVE)
 16. ogled zgodovine sprehodov (WOULD HAVE)
 
+### **Naziv Zahteve**
 
-#### Povzetek funkcionalnosti
+**Registracija uporabnika**
+
+### **Povzetek funkcionalnosti**
+
+**Neprijavlen (neregistriran) uporabnik** lahko ustvari nov uporabniški račun. 
+
+### **Osnovni Tok**
+
+1. Neprijavleni uporabnik izbere funkcionalnost ustvari račun
+2. Sistem odpre okno z vpisnimi polji za uporabniško ime, e-poštni naslov in geslo
+3. Neprijavleni uporabnik vpiše uporabniško ime, e-poštni naslov in nastavi geslo
+4. Študent pritisne gumb za registracijo
+4. Sistem preveri, če so vsi vnosi veljavni in če morda uporabnik s tem uporabniškim imenom ali e-poštnim naslovom obstaja
+5. Sistem potrdi registracijo in na e-poštni naslov novega uporabnika pošlje potrditveno sporočilo
+
+### **Izjemni Tok** 
+
+1. Neprijavleni uporabnik izbere funkcionalnost ustvari račun
+2. Sistem odpre okno z vpisnimi polji za uporabniško ime, e-poštni naslov in geslo
+3. Neprijavleni uporabnik vpiše uporabniško ime, e-poštni naslov in nastavi geslo
+4. Študent pritisne gumb za registracijo
+4. Sistem preveri, če so vsi vnosi veljavni in če morda uporabnik s tem uporabniškim imenom ali e-poštnim naslovom obstaja
+5. Sistem javi, da uporabnik s tem uporabniškim imenom ali e-poštnim naslovom že obstaja oz. da se geslo ne ujema z podanimi omejitavmi
+
+
+
 
 **TO-DO**
 
