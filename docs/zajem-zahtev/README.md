@@ -25,9 +25,9 @@
 - Zelo pomembno je, da uporabniške vloge konsistentno imenujete. Na primer, če ste definirali vlogo **učitelj**, morate povsod uporabljati samostalnik **učitelj**, ne pa morda **profesor** ali **pedagog**. Tehniška besedila žal ne morejo dosegati leposlovnih standardov, tudi če so še tako dobro napisana.
 
 ### 2.1 **Admin** - use. - nadzor nad registriranimi uporabniki, podatkovno bazo oglasov, povpraševanj...
-### 2.1 - **Organizacija** - lahko dela vse in še oglase
-### 2.1 **Samostojni skrbnik** - lagko delas vse kar je dol in se odziva na povpraševanje lastnikov
-### 2.1 **Lastnik psa** - lahko izda povpraševanje za pomoč in gleda oglase
+### 2.1 - **Skrbnik psov** - ne more kreirati oglasa, se pa lahko odzove na oglas, lahko ocenjuje pa komentira profile, ogled lokacij prevzema psa...
+### 2.1 **Lastnik psa** - lahko delas vse kar je gor in kreira ureja briše oglase
+### 2.1 **Premium uporabnik** - lahko vse kar je gor in dodaje profil pod hitre kontakte ter ogled zgodovine sprehodov
 ### 2.1 **Neprijavljen uporabnik** - oglase organizacij
 
 ## 3. Slovar pojmov
