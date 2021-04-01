@@ -266,7 +266,7 @@ MUST have
 
 TO-DO : nekje bo treba upoštevat in napisat še kaj glede profilov, ki še nimajo ocene.
 
-**Admin, Navaden uporabnik, Premium Uporabnik in Organizacija** lahko podajo kvantitativno oceno profilu s katerim so vsaj enkrat stopili v kontakt oziroma opravili medsebojno storitev, katere v namen nudi aplikacija. 
+**Admin, Navaden uporabnik, Premium Uporabnik in Organizacija** lahko podajo kvantitativno oceno profilu s katerim so vsaj enkrat stopili v kontakt oziroma opravili medsebojno storitev, katere namen nudi aplikacija. 
 
 
 ### **Osnovni Tok**
@@ -367,7 +367,7 @@ MUST have
   - vhod in
   - pričakovan rezultat.
 
-### 5.4 **OGLED POSAMEZNEGA OGLASA**
+### **5.6  OGLED POSAMEZNEGA OGLASA**
 
 ### **Povzetek funkcionalnosti**
 
@@ -410,7 +410,7 @@ MUST have
 - Odpri profil nekega uporabnika in poskusi odpreti oglas na profilni strani
 
 
-### **5.4 OGLED LOKACIJE PREVZEMA**
+### **5.7 OGLED LOKACIJE PREVZEMA**
 
 ### **Povzetek funkcionalnosti**
 
@@ -441,6 +441,66 @@ MUST have
 ### **Sprejemni testi**
 
 - Preiskusi odpreti zemljevid na posameznem oglasu
+
+
+### **5.8 PODAJ KOMENTAR PROFILU**
+
+
+### **Povzetek funkcionalnosti**
+
+TO-DO : nekje bo treba upoštevat in napisat še kaj glede profilov, ki še nimajo komentarja.
+
+**Admin, Navaden uporabnik, Premium Uporabnik in Organizacija** lahko podajo komentar profilu s katerim so vsaj enkrat stopili v kontakt oziroma opravili medsebojno storitev, katere namen nudi aplikacija. 
+
+
+### **Osnovni Tok**
+**TO-DO ZA POPRAVIT MALO KO BO VEČ ZAHTEV DEFINIRANIH!!**
+1. Prijavljen uporabnik izbere funkcionalnost ogled profila drugega uporabnika.
+2. Sistem odpre zavihek s pregledom profila izbranega uporabnika in prikaže njegove podatke.
+3. Sistem omogoči urejanje komentarja profila v kolikor sta uporabnika že opravila vsaj eno namensko storitev aplikacije oziroma imata zgodovino.
+4. Prijavljen uporabnik preko funkcionalnosti za komentiranje izbere urejanje koemntarja.
+5. Sistem uporabniku omgoči vnosno polje za komentar.
+6. Uporabnik napiše komentar in izbere shrani.
+7. Sistem posodobi komentar na tem profilu.
+
+
+### **Alternativni Tok** 
+**TO-DO**
+
+
+### **Izjemni Tokovi** 
+- Prijavljen uporabnik izbere funkcionalnost ogled profila drugega uporabnika in izbere urejanje komentarja.
+Prijavljen uporabnik napiše komentar v vnosno polje in ne shrani urejanja.
+Sistem ne spremeni komentarja in ohrani staro vrednost.
+
+- Prijavljen uporabnik izbere funkcionalnost ogled profila drugega uporabnika in izbere urejanje komentarja.
+Prijavljen uporabnik napiše komentar v vnosno polje in uporabi nedovoljene znake.
+Sistem ne dovoli shranjevanja komentarja in izpiše obvestilo.
+
+- Prijavljen uporabnik izbere funkcionalnost ogled profila drugega uporabnika.
+Prijavljen uporabnik s tem uporabnikom še ni opravil nobene storitve, zato mu je urejanje
+komentarja onemogočeno. Sistem zakrije izbiro urejanja in podajanja komentarja in izpiše obvestilo.
+
+
+### **Pogoji**
+Uporabnik mora biti registriran v sistemu in prijavljen. Uporabnik, ki želi podati komentar drugemu uporabniku, mora imeti s tem uporabnikom že zgodovino sodelovanja oziroma opravljenih storitev preko aplikacije, sicer medsebojno podajanje komentarjev med uporabnikoma ni omogočeno na njunih profilih.
+
+
+### **Posledice**
+Na profilu, ki je bil komentiran se pojavi nov komentar osebe, ki ga je napisala oziroma se posodbi njen že obstoječi komentar. Spremembe so vidne tudi ostalim uporabnikom, ko si ogledajo komentirani profil.
+
+
+### **Posebnosti**
+**TO-DO**
+
+
+### **Prioriteta:**
+WOULD have
+
+
+### **Sprejemni testi**
+**TO-DO**
+
 
 ## 6. Nefunkcionalne zahteve
 
