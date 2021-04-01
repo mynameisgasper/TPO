@@ -99,56 +99,38 @@ V tem razdelku podrobno opišite posamezne funkcionalnosti, ki jih vaša aplikac
 5. Sistem javi, da uporabnik s tem uporabniškim imenom ali e-poštnim naslovom že obstaja oz. da se geslo ne ujema z podanimi omejitavmi
 
 
-#### Alternativni tok(ovi)
+### Alternativni tok(ovi)
 
-**TO-DO**
+Za prijavo ni alternativnih tokov.
 
-- Navesti je potrebno vse alternativne tokove, ki jih označite kot **Alternativni tok 1**, **Alternativni tok 2**, itd.
-
-
-#### **Pogoji**
-
-**TO-DO**
-
-- Kateri pogoji morajo biti izpolnjeni, da se funkcionalnost lahko prične izvajati?
-
-- Pri funkcionalnosti Prijava na izpit mora biti uporabnik v sistem prijavljen kot študent ali referent. Če ni prijavljen ali pa če je prijavljen kot učitelj ali skrbnik, mu funkcionalnost ni na voljo.
+### **Pogoji**
 
 Uporabnik ne sme biti prijavlen 
 
-
-#### Posledice
-
-**TO-DO**
-
-- Navedite, kakšen je rezultat izvedbe osnovnega toka funkcionalnosti?
+### **Posledice**
 
 Ustvarjen je nov uporabniški račun
 
 
-#### Posebnosti
+### **Posebnosti**
 
-**TO-DO**
-
-- Ali realizacija funkcionalnosti zahteva kakšne posebnosti, kot je npr. dodatna strojna oprema?
-- Se je potrebno držati kakšnih posebnih standardov?
 
 Geslo novega uporabnika mora biti zgoščeno s standaradom SHA-2
 
 
-### **Prioriteta:**
+### **Prioriteta**
 MUST have
 
 
-#### Sprejemni testi
+### **Sprejemni testi**
 
-**TO-DO**
+- Poskusi se registrirati z uporabniškim imenom, ki že obstaja
 
-- Navedite sprejmne teste, kjer opišete:
-  - funkcijo, ki se testira,
-  - začetno stanje sistema,
-  - vhod in
-  - pričakovan rezultat.
+- Poskusi se registrirati s e-poštnim naslovom, ki je že v uporabi
+
+- Poskusi se registrirati z napačnimi znaki v e-poštnem naslovu (brez @ ali domene)
+
+- Poskusi se registrirati z gesli, ki se ne ujemata
   
   
 ### **5.2 PRIJAVA UPORABNIKA**
@@ -156,7 +138,7 @@ MUST have
 
 ### **Povzetek funkcionalnosti**
 
-**Admin, Lastnik Psa, Premium Uporabnik in Skrbnik Psa** se lahko prijavijo v sistem. 
+**Admin, Navaden uporabnik, Premium Uporabnik in Organizacija** se lahko prijavijo v sistem. 
 
 
 ### **Osnovni Tok**
@@ -173,42 +155,21 @@ MUST have
 2. Sistem odpre okno z vpisnimi polji za uporabniško ime / e-poštni naslov in geslo
 3. Neprijavleni uporabnik vnese podatke za prijavo
 4. Sistem preveri, če vneseni uporabniški račun obstaja in če je geslo pravilno
-5. Sistem neprijavlenem uporabniku sporoči da ta uporabnik ne obstaja ali pa da je geslo napačno; prijava ni uspela 
-
+5. Sistem neprijavlenem uporabniku sporoči da ta uporabnik ne obstaja in/ali da je geslo napačno; prijava ni uspela 
 
 #### **Alternativni tok(ovi)**
 
-**TO-DO**
-
-- Navesti je potrebno vse alternativne tokove, ki jih označite kot **Alternativni tok 1**, **Alternativni tok 2**, itd.
-
+Ni alternativnih tokov.
 
 #### **Pogoji**
 
-**TO-DO**
-
-- Kateri pogoji morajo biti izpolnjeni, da se funkcionalnost lahko prične izvajati?
-
-- Pri funkcionalnosti Prijava na izpit mora biti uporabnik v sistem prijavljen kot študent ali referent. Če ni prijavljen ali pa če je prijavljen kot učitelj ali skrbnik, mu funkcionalnost ni na voljo.
-
 Uporabnik ne sme biti prijavlen 
-
 
 #### **Posledice**
 
-**TO-DO**
-
-- Navedite, kakšen je rezultat izvedbe osnovnega toka funkcionalnosti?
-
 Ustvarjen je nov uporabniški račun
 
-
 #### **Posebnosti**
-
-**TO-DO**
-
-- Ali realizacija funkcionalnosti zahteva kakšne posebnosti, kot je npr. dodatna strojna oprema?
-- Se je potrebno držati kakšnih posebnih standardov?
 
 Geslo novega uporabnika mora biti zgoščeno s standaradom SHA-2
 
@@ -219,22 +180,18 @@ MUST have
 
 #### **Sprejemni testi**
 
-**TO-DO**
+- Poskusi se prijaviti z napačnim uporabniškim imenom.
 
-- Navedite sprejmne teste, kjer opišete:
-  - funkcijo, ki se testira,
-  - začetno stanje sistema,
-  - vhod in
-  - pričakovan rezultat.
+- Poskusi se prijaviti z napačnim geslom.
 
-  
-  
+- Poskusi se prijaviti večkrat zaporedoma z napačnimi vnosi, dokler sistem ne blokira prijave. 
+
 ### **5.3 UREJANJE UPORABNIŠKEGA PROFILA**
 
 
 ### **Povzetek funkcionalnosti**
 
-**Admin, Lastnik Psa, Premium Uporabnik in Skrbnik Psa** lahko urejajo nastavitve lastnega profila, ko so prijavljeni v aplikacijo. 
+**Admin, Navaden uporabnik, Premium Uporabnik in Organizacija** lahko urejajo nastavitve lastnega profila, ko so prijavljeni v aplikacijo. 
 
 
 ### **Osnovni Tok**
@@ -309,7 +266,7 @@ MUST have
 
 TO-DO : nekje bo treba upoštevat in napisat še kaj glede profilov, ki še nimajo ocene.
 
-**Admin, Lastnik Psa, Premium Uporabnik in Skrbnik Psa** lahko podajo kvantitativno oceno profilu s katerim so vsaj enkrat stopili v kontakt oziroma opravili medsebojno storitev, katere v namen nudi aplikacija. 
+**Admin, Navaden uporabnik, Premium Uporabnik in Organizacija** lahko podajo kvantitativno oceno profilu s katerim so vsaj enkrat stopili v kontakt oziroma opravili medsebojno storitev, katere v namen nudi aplikacija. 
 
 
 ### **Osnovni Tok**
@@ -410,8 +367,42 @@ MUST have
   - vhod in
   - pričakovan rezultat.
 
+### 5.4 **OGLED POSAMEZNEGA OGLASA**
 
-  
+### **Povzetek funkcionalnosti**
+
+Vsi uporabniki si lahko ogledajo posamezni oglas. 
+
+### **Osnovni Tok**
+
+1. Uporabnik odpre aplikacijo, prikažejo se mu vsi oglasi.
+2. Uporabnik pritisne na oglas
+3. Na zaslonu se izpišejo vse informacije o oglasu
+
+### **Alternativni tok 1**
+
+1. Uporabnik odpre aplikacijo, prikažeju se mu vsi oglasi
+2. Uporabnik odpre profil enega od lastnikov psa
+3. Na zaslonu se izpišejo informacije o profilu in oglasi tega lastnika
+3. Uporabnik med oglasi lastnika izbere oglas
+4. Na zaslonu se izpišejo vse informacije o oglasu 
+
+### **Pogoji** 
+
+Ni posebnih pogojev
+
+### **Posledice**
+
+Odpre se oglas
+
+
+### **Posebnosti**
+
+Ni posebnisti
+
+### **Prioriteta**
+MUST have
+
   
 ## 6. Nefunkcionalne zahteve
 
