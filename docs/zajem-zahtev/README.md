@@ -398,12 +398,50 @@ Odpre se oglas
 
 ### **Posebnosti**
 
-Ni posebnisti
+Ni posebnosti
 
 ### **Prioriteta**
 MUST have
 
-  
+### **Sprejemni testi**
+
+- Pritisni na oglas, preveri če se odpre. 
+
+- Odpri profil nekega uporabnika in poskusi odpreti oglas na profilni strani
+
+
+### **5.4 OGLED LOKACIJE PREVZEMA**
+
+### **Povzetek funkcionalnosti**
+
+Vsi uporabniki si lahko ogledajo lokacijo prevzema posameznega oglasa.
+
+### **Osnovni Tok**
+
+1. Uporabnik odpre oglas
+2. Na oglasu pritisne na gumb "prikaži lokacijo prevzema"
+3. Izpiše se google zemljevid na katerem je označena lokacija prevzema
+
+
+### **Pogoji** 
+
+Ni posebnih pogojev
+
+### **Posledice**
+
+Odpre se zemljevid
+
+### **Posebnosti**
+
+Ni posebnosti
+
+### **Prioriteta**
+MUST have
+
+### **Sprejemni testi**
+
+- Preiskusi odpreti zemljevid na posameznem oglasu
+
 ## 6. Nefunkcionalne zahteve
 
 **TO-DO**
