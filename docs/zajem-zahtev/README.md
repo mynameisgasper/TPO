@@ -261,7 +261,8 @@ MUST have
   - Izberi svoj profil 
   - Izberi urejanje
   - Spremeni vnosno polje za ime v "@!./"
-  - Shrani spremembe
+  - Shrani spremembe  
+
 **3.** Pričakovan rezultat je opozorilo (v obliki pojavnega okna), ki opozarja na uporabo nedovoljenih znakov. Spremembe se **NE** shranijo.
   
   
@@ -327,6 +328,7 @@ COULD have
   - Izbere urejanje ocene  
   - Poda oceno z lestvice  
   - Shrani spremembe  
+
 **3.** Pričakovan rezultat je shranjena ocena.  
 
   
@@ -370,8 +372,9 @@ MUST have
 #### **Sprejemni testi**
 
 **1.** Uporabnik mora imeti stabilno internetno povezavo. Prijava ni potrebna.  
-**2.** Testiramo ali se prikaže pregled vseh oglasov  
+**2.** Testiramo ali se prikaže pregled vseh oglasov
   - Uporabnik gre na spletni naslov aplikacije Dog Walkers.  
+
 **3.** Pričakovan rezultat je prikazan pregled vseh oglasov.  
 
 ### **5.6  OGLED POSAMEZNEGA OGLASA**
@@ -506,11 +509,11 @@ WOULD have
 
 
 ### **Sprejemni testi**
-**1.** Uporabnik mora biti registriran in prijavljen v sistem. Izbran profil mora biti (za pravilno shranjevanje komentarja)  lastnik psa, uporabnik, ki testira pa skrbnik psa. Uporabnik mora imeti opravljeno storitev s tem lastnikom psa. Za potrebe testa mora biti ta pogoj **NEIZPOLNJEN**
-**2.** Testiramo ali funkcija za komentar profila zazna neizpolnjen pogoj in ga ne shrani.
+**1.** Uporabnik mora biti registriran in prijavljen v sistem. Izbran profil mora biti (za pravilno shranjevanje komentarja)  lastnik psa, uporabnik, ki testira pa skrbnik psa. Uporabnik mora imeti opravljeno storitev s tem lastnikom psa. Za potrebe testa mora biti ta pogoj **NEIZPOLNJEN**  
+**2.** Testiramo ali funkcija za komentar profila zazna neizpolnjen pogoj in ga ne shrani.  
   - Uporabnik gre na profil lastnika psa, ki **NE** izpolnjuje 2. pogoj napisan v točki 1.  
   - Izbere dodajanje komentarja
-**3.** Pričakovan rezultat je opozorilo (v obliki pojavnega okna), ki opozarja na neizpolnjen pogoj. Polje za dodajanje komentarja se ne pojavi.
+**3.** Pričakovan rezultat je opozorilo (v obliki pojavnega okna), ki opozarja na neizpolnjen pogoj. Polje za dodajanje komentarja se ne pojavi.  
 
 
 ## 6. Nefunkcionalne zahteve
