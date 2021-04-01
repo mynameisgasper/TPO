@@ -210,20 +210,29 @@ MUST have
 
 
 ### **Izjemni Tokovi** 
-- Prijavljen uporabnik izbere funkcionalnost ogled profila in izbere urejanje.
-Prijavljen uporabnik spremeni vnosna polja in uporabi nedovoljene znake.
-Sistem ne dovoli shranjevanja in opozori na uporabljene nedovoljene znake.
+**1.**  
+  **1.1.** Prijavljen uporabnik izbere funkcionalnost ogled profila   
+  **1.2.** Izbere urejanje uporabniškega profila  
+  **1.3.** Prijavljen uporabnik spremeni vnosna polja in uporabi nedovoljene znake.  
+  **1.4.** Sistem ne dovoli shranjevanja in opozori na uporabljene nedovoljene znake.  
 
-- Prijavljen uporabnik izbere funkcionalnost ogled profila in izbere urejanje.
-Prijavljen uporabnik spremeni vnosna polja in uporabi preveliko število znakov za vnosno polje. Sistem ne dovoli shranjevanja in opozori na predolgo dolžino znakov v teh vnosnih poljih.
+**2.**  
+  **2.1.** Prijavljen uporabnik izbere funkcionalnost ogled profila  
+  **2.2.** Izbere urejanje uporabniškega profila  
+  **2.3.** Prijavljen uporabnik spremeni vnosna polja in uporabi preveliko število znakov za vnosno polje.   
+  **2.4.** Sistem ne dovoli shranjevanja in opozori na predolgo dolžino znakov v teh vnosnih poljih.  
 
-- Prijavljen uporabnik izbere funkcionalnost ogled profila in izbere urejanje.
-Prijavljen uporabnik spremeni vnosna polja in uporabi nepravilne znake v poljih, ki zahtevajo poseben format (e-poštni naslov, telefonska številka).
-Sistem ne dovoli shranjevanja in opozori na napačen format znakov v teh vnosnih poljih.
+**3.**  
+  **3.1.** Prijavljen uporabnik izbere funkcionalnost ogled profila  
+  **3.2.** Izbere urejanje uporabniškega profila  
+  **3.3.** Prijavljen uporabnik spremeni vnosna polja in uporabi nepravilne znake v poljih, ki zahtevajo poseben format (e-poštni naslov, telefonska številka).  
+  **3.4.** Sistem ne dovoli shranjevanja in opozori na napačen format znakov v teh vnosnih poljih.  
 
-- Prijavljen uporabnik izbere funkcionalnost ogled profila in izbere urejanje.
-Prijavljen uporabnik spremeni vnosna polja vendar ne potrdi shranjevanja sprememb. Spremembe
-v urejanju se ne shranijo.
+**4.**  
+  **4.1.** Prijavljen uporabnik izbere funkcionalnost ogled profila   
+  **4.2.** Izbere urejanje uporabnikega profila  
+  **4.3.** Prijavljen uporabnik spremeni vnosna polja vendar ne potrdi shranjevanja sprememb.   
+  **4.4.** Spremembev urejanju se ne shranijo.  
 
 
 ### **Pogoji**
@@ -240,23 +249,20 @@ sistema, ko si ogledajo njegov profil.
 Sistem mora podpirati možnost (gumb) nalaganja profilne slike omejene velikosti iz uporabnikovega računalnika v sistem na profil??? => če damo to potem je treba popravit/dopolnit tokove
 
 
-### **Prioriteta:**
+### **Prioriteta**
 MUST have
 
 
 ### **Sprejemni testi**
-**TO-DO** (mrbit za dopolnit?)
+**TO-DO** (mrbit za dopolnit?)  
 
-- Izberi svoj profil in izberi urejanje, spremeni vnosno/-a polje/-a za osebne podatke, in shrani urejanje.
-
-- Izberi svoj profil in izberi urejanje, spremeni vnosno polje za telefonsko številko in vnesi črkovne znake.
-
-- Izberi svoj profil in izberi urejanje, dopolni vnosno polje za opis in vnesi preveliko število znakov.
-
-- Izberi svoj profil in izberi urejanje, spremeni vnosno polje za geslo in vnesi znake, ki so izven uporabljenega kodirnega unicode standarda.
-
-- Izberi svoj profil in izberi urejanje, spremeni vnosno/-a polje/-a in ne shrani urejanja.
-
+**1.** Uporabnik mora biti registriran in prijavljen pred začetkom testa.
+**2.** Testiramo sprejem nedovoljenih znakov v polju za ime.
+  - Izberi svoj profil 
+  - Izberi urejanje
+  - Spremeni vnosno polje za ime v "@!./"
+  - Shrani spremembe
+**3.** Pričakovan rezultat je opozorilo (v obliki pojavnega okna), ki opozarja na uporabo nedovoljenih znakov. Spremembe se **NE** shranijo.
   
   
 ### **5.4 PODAJ OCENO PROFILU**
@@ -285,13 +291,16 @@ TO-DO : nekje bo treba upoštevat in napisat še kaj glede profilov, ki še nima
 
 
 ### **Izjemni Tokovi** 
-- Prijavljen uporabnik izbere funkcionalnost ogled profila drugega uporabnika in izbere urejanje ocene.
-Prijavljen uporabnik spremeni oceno z lestvice in ne shrani izbire.
-Sistem ne spremeni ocene in ohrani staro vrednost.
+**1.**  
+  **1.1.**  Prijavljen uporabnik izbere funkcionalnost ogled profila drugega uporabnika.
+  **1.2.**  Izbere urejanje ocene.
+  **1.3.**  Prijavljen uporabnik spremeni oceno z lestvice in ne shrani izbire.
+  **1.4.**  Sistem ne spremeni ocene in ohrani staro vrednost.
 
-- Prijavljen uporabnik izbere funkcionalnost ogled profila drugega uporabnika.
-Prijavljen uporabnik s tem uporabnikom še ni opravil nobene storitve, zato mu je urejanje
-ocene onemogočeno. Sistem zakrije izbiro urejanja ocene in izpiše obvestilo.
+**2.**  
+  **2.1.**  Prijavljen uporabnik izbere funkcionalnost ogled profila drugega uporabnika.  
+  **2.2.**  Prijavljen uporabnik s tem uporabnikom še ni opravil nobene storitve, zato mu je urejanje ocene onemogočeno.  
+  **2.3.**  Sistem zakrije izbiro urejanja ocene in izpiše obvestilo.
 
 
 ### **Pogoji**
@@ -311,13 +320,14 @@ COULD have
 
 
 ### **Sprejemni testi**
-**TO-DO** treba je dopolnit še za izjemne tokove in mal lepš napisat use skp!!
 
-- Izberi profil uporabnika, ki je lastnik psa, če si skrbnik psa (velja tudi za premium, admin) in si že opravil storitev s tem lastnikom psa in izberi urejanje ocene.
-Podaj oceno z lestvice in shrani spremembe.
-
-- Izberi profil uporabnika, ki je skrbnik psa, če si lastnik psa (velja tudi za premium, admin) in si že opravil storitev s tem skrbnikom psa in izberi urejanje ocene.
-Podaj oceno z lestvice in shrani spremembe.
+**1.** Uporabnik mora biti registriran in prijavljen v sistem. Izbran profil za ocenjevanje mora biti lastnik psa, uporabnik, ki testira pa skrbnik psa. Uporabnik mora imeti opravljeno storitev s tem lastnikom psa.  
+**2.** Testiramo ali se ocena profila shrani.
+  - Uporabnik gre na profil lastnika psa, ki izpolnjuje pogoje napisane v točki 1.  
+  - Izbere urejanje ocene  
+  - Poda oceno z lestvice  
+  - Shrani spremembe  
+**3.** Pričakovan rezultat je shranjena ocena.  
 
   
   
@@ -359,13 +369,10 @@ MUST have
 
 #### **Sprejemni testi**
 
-**TO-DO**
-
-- Navedite sprejmne teste, kjer opišete:
-  - funkcijo, ki se testira,
-  - začetno stanje sistema,
-  - vhod in
-  - pričakovan rezultat.
+**1.** Uporabnik mora imeti stabilno internetno povezavo. Prijava ni potrebna.  
+**2.** Testiramo ali se prikaže pregled vseh oglasov  
+  - Uporabnik gre na spletni naslov aplikacije Dog Walkers.  
+**3.** Pričakovan rezultat je prikazan pregled vseh oglasov.  
 
 ### **5.6  OGLED POSAMEZNEGA OGLASA**
 
@@ -499,7 +506,11 @@ WOULD have
 
 
 ### **Sprejemni testi**
-**TO-DO**
+**1.** Uporabnik mora biti registriran in prijavljen v sistem. Izbran profil mora biti (za pravilno shranjevanje komentarja)  lastnik psa, uporabnik, ki testira pa skrbnik psa. Uporabnik mora imeti opravljeno storitev s tem lastnikom psa. Za potrebe testa mora biti ta pogoj **NEIZPOLNJEN**
+**2.** Testiramo ali funkcija za komentar profila zazna neizpolnjen pogoj in ga ne shrani.
+  - Uporabnik gre na profil lastnika psa, ki **NE** izpolnjuje 2. pogoj napisan v točki 1.  
+  - Izbere dodajanje komentarja
+**3.** Pričakovan rezultat je opozorilo (v obliki pojavnega okna), ki opozarja na neizpolnjen pogoj. Polje za dodajanje komentarja se ne pojavi.
 
 
 ## 6. Nefunkcionalne zahteve
