@@ -69,8 +69,8 @@ V tem razdelku podrobno opišite posamezne funkcionalnosti, ki jih vaša aplikac
 | brisanje komentarjev | | | | 
 
 
-  
-  
+
+
 ### **5.1 REGISTRACIJA UPORABNIKA**
 
 
@@ -515,6 +515,52 @@ WOULD have
   - Izbere dodajanje komentarja
 **3.** Pričakovan rezultat je opozorilo (v obliki pojavnega okna), ki opozarja na neizpolnjen pogoj. Polje za dodajanje komentarja se ne pojavi.  
 
+### **5.8 OGLED PROFILA**
+
+### **Povzetek funkcionalnosti**
+Vsak **prijavljen uporabnik** ima možnost ogleda profila kateregakoli drugega uporabnika. Na strani profila so prikazani splošni javni podatki uporabnika.
+### **Osnovni tok**
+1. Uporabnik izbere funkcionalnost brskanja po profilih
+2. Sistem prikaže vnosno polje za niz, s katerim uporabnik poizveduje po podatkovni bazi uporabnikov
+3. Uporabnik ob izvedbi iskanja (pritisk na gumb "išči" oz. pritisk na tipko *enter*) inicializira poizvedbo
+4. Uporabniku se prikaže seznam najboljših ustrezanj glede na ime uporabnikov.
+5. Uporabnik izbere željen element seznama, in s klikom nanj sproži povezavo na stran profila uporabnika
+6. Na strani profila so nato izpisani vsi javni podatki izbranega uporabnika
+
+### **Izjemni tok**
+1. Uporabnik izbere funkcionalnost brskanja po profilih
+2. Sistem prikaže vnosno polje za niz, s katerim uporabnik poizveduje po podatkovni bazi uporabnikov
+3. Uporabnik ob izvedbi iskanja (pritisk na gumb "išči" oz. pritisk na tipko *enter*) inicializira poizvedbo
+4. V primeru, da poizvedba na najde niti enega ustreznega ujemanja, se uporabniku prikaže sporočilo o prazni poizvedbi
+5. uporabnik lahko nato ponovno vpiše niz v vnosno polje za brskanje oz zapusti funckionalost.
+
+### **Alternativni tokovi**
+#### **Ogled profila preko oglasa**
+Ob vsakem oglasu je zapisan tudi uporabnik, ki ga je ustvaril.
+1. Uporabnik si ogleduje oglase. 
+2. Za nek specifičen oglas si želi ogledati profil uporabnika, ki ga je ustvaril
+3. S klikom na ime ustvarjatelja (ime se nahaja ob prikazu oglasa in služi kot povezava do strani profila uporabnika) sistem uporabnika preumseri na stran profila ustvarjatelja.
+
+#### **Ogled profile preko zgodovine sprehodov - SAMO PREMIUM UPROABNIKI**
+Ob vsakem zapisu sprehoda je podana tudi povezava na stran profila sprehajalca/skrbnika v obliki imena sprehajalca
+1. Uporabnik si ogleduje zgodovino sprehodov sovjega/ih psa/ov
+2. Uporabni si želi ogledati profil sprehajalca/skrbnika, ki je sprehajal njegovega psa
+3. S klikom na povezavo (ime sprehajalca) sistem uporabnika preusmeri na stran profila sprehajalca/skrbnika
+
+### **Pogoji**
+Uporabnik mora biti privaljen v sistem, za drugega izmed alternativnih tokov pa mora imeti poleg omenjenega tudi vlogo **premium uporabnika**.
+
+### **Posledice**
+Uporabniku so izpostavljeni javni podatki drugega uporabnika, ki jih lahko uporabnik uporabi za kontakt oz. subjetkivno oceno ogledanega uporabnika.
+
+### **Posebnosti**
+Pri ogledaovanju profila uporabnika ni posebnih posebnosti.
+
+### Prioriteta
+MUST have
+
+### Sprejemni testi
+- poskusi navigirati na stran profila uporabniškega računa, ki ne obstaja
 
 ## 6. Nefunkcionalne zahteve
 
