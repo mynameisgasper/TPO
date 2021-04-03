@@ -61,7 +61,7 @@ V tem razdelku podrobno opišite posamezne funkcionalnosti, ki jih vaša aplikac
 | **ogled posameznega oglasa** | | | | | 
 | **ogled lokacije prevzema** | | | | | 
 | **ogled profila** | | | | 
-| kreacija oglasa  | | | | 
+| **kreacija oglasa**  | | | | 
 | vzdrževanje oglasa | | | | 
 | brisanje oglasa | | | | 
 | **pregled vseh oglasov** | | | | 
