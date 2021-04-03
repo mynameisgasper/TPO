@@ -55,7 +55,7 @@ V tem razdelku podrobno opišite posamezne funkcionalnosti, ki jih vaša aplikac
 ### TO-DO Naziv zahteve
 |MUST|SHOULD HAVE|COULD HAVE|WOULD HAVE|
 | :-- | :-- | :-- | :-- |
-| **registracija uporabnika**| odziv na oglas  |  iskanje oglasov - search  | **podaj komentar profilu**  |
+| **registracija uporabnika**| **odziv na oglas**  |  **iskanje oglasov - search**  | **podaj komentar profilu**  |
 | **prijava uporabnika**  | pretvorba valute  |  **podaj oceno profilu**  |   ogled zgodovine sprehodov  |
 | **urejanje uporabniškega profila**  | | | |
 | **ogled posameznega oglasa** | | | | | 
@@ -63,7 +63,7 @@ V tem razdelku podrobno opišite posamezne funkcionalnosti, ki jih vaša aplikac
 | **ogled profila** | | | | 
 | **kreacija oglasa**  | | | | 
 | **vzdrževanje oglasa** | | | | 
-| brisanje oglasa | | | | 
+| **brisanje oglasa** | | | | 
 | **pregled vseh oglasov** | | | | 
 | dodaj profil pod "hitre kontakte" | | | | 
 | brisanje komentarjev | | | | 
@@ -603,7 +603,7 @@ MUST have
 - poskusi ustvariti oglas brez opisa
 - poskusi ustvariti oglas brez označene lokacije prevzema
 
-### 5.10 VZDRŽEVANJE OGLASA
+### 5.11 VZDRŽEVANJE OGLASA
 ### **Povzetek funkcionalnosti**
 Vsak **prijavljen uporabnik**, ki je ustvaril vsaj en oglas ima možnost vzdrževanja svojih oglasov
 ### **Osnovni tok**
@@ -645,6 +645,134 @@ MUST have
 - prijavi se z navadnim uporabnikom, in poskusi urediti oglas, ki ne obstaja (navigaija preko url-ja)
 - poskusi posodobiti oglas s praznim vnosnim poljem za opis oglasa
 - poskusi posodobiti oglas s praznim vnosnim poljem za lokacijo prevzema
+
+### 5.12 VZDRŽEVANJE OGLASA
+### **Povzetek funkcionalnosti**
+Vsak **prijavljen uporabnik**, ki je ustvaril vsaj en oglas ima možnost izbirsa kateregakoli svojega oglasa
+### **Osnovni tok**
+1. Uporabnik navigira na svoj profil
+2. Uporabnik navigira na razdelek "moji oglasi"
+3. Uporabniku se prikaže seznam trenutno aktivnih oglasov
+4. Uporabnik si izbere oglas, ki ga želi izbrisati
+5. Uporabniku se nato prikaže master-detail vzorec oglasa z vnosnimi polji, ki so že populirana z že prej vnešenimi podatki
+7. Uporabniku je prikazan tudi gumb "izbris oglasa"
+8. Uporabnik pritisne na gumb "izbris oglasa" - odpre se dialog okno, ki zahteva dodatno potrditev in opozori uporabnika, da je dejanvost nepovratna.
+9. Uporabnik potrdi izbris, oglas je izbrisan
+
+### **Izjemni tok**
+1. Uporabnik navigira na svoj profil
+2. Uporabnik navigira na razdelek "moji oglasi"
+3. Uporabniku se prikaže seznam trenutno aktivnih oglasov
+4. Uporabnik si izbere oglas, ki ga želi izbrisati
+5. Uporabniku se nato prikaže master-detail vzorec oglasa z vnosnimi polji, ki so že populirana z že prej vnešenimi podatki
+7. Uporabniku je prikazan tudi gumb "izbris oglasa"
+8. Uporabnik pritisne na gumb "izbris oglasa" - odpre se dialog okno, ki zahteva dodatno potrditev in opozori uporabnika, da je dejanvost nepovratna.
+9. Uporabnik zapusti stran z odprtim pojavnim oknom oz. pojavno okno izgubi fokus - poskus izbrisa se razveljavi
+
+### **Alternativni tokovi**
+Izbris oglasa nima alternativnih tokov, saj je to funkcionalnost možno izvesti le preko osnovnega toka
+
+### **Pogoji**
+Uporabnik mora biti prijavljen v sistem in imeti že ustvarjene oglase.
+
+### **Posledice**
+Po izbrisu oglasa se zapis oglasa in vsi odzivi na ta oglas (odzivi se zbrišejo le, če je implementirana funkcionalnost **odziv na oglas** ) izbrišejo iz podatkovne baze. Vsem uporabnikom, ki so se odzvali na ta oglas se pošlje obvestilo, da je bil oglas izbirsan oz. je postal neveljaven (uporabnikom se pošljejo obvestila le, če je implementirana funkcionalnost **odziv na oglas** )
+
+### **Posebnosti**
+Pri izbrisu oglasa se mora uporabnik zavedati, da so poleg samega oglasa izbrisani zudi vsi odzivi, ki so shranjeni v sistemu in se nanašajo na ta oglas.
+
+### Prioriteta
+MUST have
+
+### Sprejemni testi
+- preko api klicev poskusi izbrisati oglas, ki ne pripada uporabniko s katerim smo prijavljeni
+
+### 5.13 ODZIV NA OGLAS
+### **Povzetek funkcionalnosti**
+Vsak **prijavljen uporabnik** se lahko odzove na poljuben oglas, ki si ga ogleduje
+### **Osnovni tok**
+1. Uporabnik brska po oglasih in zagleda oglas, ki ustreza njegovim potrebam
+2. Uporabnik klikne na gumb "kontakt" ob prikazanem oglasu
+3. Uporabnika se preusmeri na novo stran, kjer so prikazana vnosna polja, v katera mora uporabnik vpisati:
+   - svojo elektronsko pošto ali telefonsko številko (obvezno)
+   - zadeva sporočila (obvezno)
+   - telo sporočila (obvezno)
+   - dodatne podrobnosti (neobvezno)
+4. Po izpolnjenih vnosnih poljih, kjer morajo biti vnosi skladni z zahtevmi, uporabnik pritisne na gumb "pošlji"
+5. Kreatorju oglasa se pošlje poizvedba, uporabnika pa se preusmeri na domačo stran
+
+### **Izjemni tok**
+1. Uporabnik brska po oglasih in zagleda oglas, ki ustreza njegovim potrebam
+2. Uporabnik klikne na gumb "kontakt" ob prikazanem oglasu
+3. Uporabnika se preusmeri na novo stran, kjer so prikazana vnosna polja, v katera mora uporabnik vpisati:
+   - svojo elektronsko pošto ali telefonsko številko (obvezno)
+   - zadeva sporočila (obvezno)
+   - telo sporočila (obvezno)
+   - dodatne podrobnosti (neobvezno)
+4. Po izpolnjenih vnosnih poljih, kjer vnosi niso skladni z zahtevami, uporabnik pritisne na gumb "pošlji"
+5. Sistem uporabniku sporoči napako in ga pozove naj pregleda svoje vnose in jih ustrezno popravi/dopolne.
+
+### **Alternativni tokovi**
+Odziv na oglas nima alternativnih tokov, odziv je možno izvesti le preko osnovnega toka
+
+### **Pogoji**
+Uporabnik mora biti prijavljen v sistem.
+
+### **Posledice**
+Po poslanem odzivu se kreatorju oglasa pod razdelkom "odzivi oglasa" pri oglasu, na katerega se je nekdo odzval, doda nov element (odziv), ki ga lahko nato kreator oglasa pregleda in nato kontaktira pošiljatelja preko elektronske pošte ali telefonske številke.
+
+### **Posebnosti**
+Pri odzivu na oglas je potrebno paziti, da so podatki o pošiljatelju zapisni v pravilnem formatu.
+
+### Prioriteta
+SHOULD have
+
+### Sprejemni testi
+- poskušamo se odzvati na oglas z neprijavljenim uporabnikom
+- poskušamo poslati odziv z nepravilno izpolnjenim vnosnim obrazcem
+
+### 5.13 ISKANJE OGLASOV - SEARCH
+### **Povzetek funkcionalnosti**
+Vsak **prijavljen uporabnik** lahko brska po bazi oglasov, kjer lahko nastavi ustrezne filtre - lahko si ogleduje oglase le v določenem območju, ključnih besedah, itd.
+### **Osnovni tok**
+1. Uporabnik brska po oglasih
+2. Uporabnik v vnosno polje, namenjeno za filtriranje po ključnih besedah, vpiše niz znakov (ključne besede, ločene s presledki)
+3. Uporabnik pritsne na gumb "išči"
+4. Uporabniku se prikaže seznam vseh ustreznih oglasov glede na njegov vnos v iskalno polje.
+
+### **Izjemni tok**
+1. Uporabnik brska po oglasih
+2. Uporabnik v vnosno polje, namenjeno za filtriranje po ključnih besedah, vpiše niz znakov (ključne besede, ločene s presledki), kjer nizi vsebujejo nedovoljene znake
+3. Uporabnik pritsne na gumb "išči"
+4. Sistem uporabniku sporoči, da je iskalni niz napačno vnešen, ter izpostavi nedovoljene znake v nizu.
+
+### **Alternativni tokovi**
+***samo filter lokacije***
+1. Uporabnik brska po oglasih
+2. Uporabnik v polje za filtriranje lokacij vpiše lokacijo/ombočje
+3. Uporabnik pritsne na gumb "išči"
+4. Uporabniku se prikaže seznam vseh ustreznih oglasov glede na vnešeno lokacijo/območje.
+***filter lokacije in iskalni niz***
+1. Uporabnik brska po oglasih
+2. Uporabnik v polje za filtriranje lokacij vpiše lokacijo/ombočje ter v polje za iskanje vpiše poljuben iskalni niz
+3. Uporabnik pritsne na gumb "išči"
+4. Uporabniku se prikaže seznam vseh ustreznih oglasov glede na vnešeno lokacijo/območje in vnešen iskalni niz
+
+### **Pogoji**
+Uporabnik mora biti prijavljen v sistem.
+
+### **Posledice**
+Uporabniku se prikaže izolirana/filtrirana množica oglasov
+
+### **Posebnosti**
+Ni posebnih posebnosti
+
+### Prioriteta
+COULD have
+
+### Sprejemni testi
+- poskušamo filtrirati lokacije z lokacijo, ki ne obstaja
+- poskušamo iskati z iskalnim nizom, ki vsebuje nedovoljene znake
 
 
 ## 6. Nefunkcionalne zahteve
