@@ -515,7 +515,7 @@ WOULD have
   - Izbere dodajanje komentarja
 **3.** Pričakovan rezultat je opozorilo (v obliki pojavnega okna), ki opozarja na neizpolnjen pogoj. Polje za dodajanje komentarja se ne pojavi.  
 
-### **5.8 OGLED PROFILA**
+### **5.9 OGLED PROFILA**
 
 ### **Povzetek funkcionalnosti**
 Vsak **prijavljen uporabnik** ima možnost ogleda profila kateregakoli drugega uporabnika. Na strani profila so prikazani splošni javni podatki uporabnika.
@@ -561,6 +561,10 @@ MUST have
 
 ### Sprejemni testi
 - poskusi navigirati na stran profila uporabniškega računa, ki ne obstaja
+
+### 5.10 KREACIJA OGLASA
+
+
 
 ## 6. Nefunkcionalne zahteve
 
