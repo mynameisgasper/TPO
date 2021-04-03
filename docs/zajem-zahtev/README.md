@@ -33,7 +33,7 @@ Organizacija je uporabniška vloga namenjena podjetje, ki želijo ponuditi svoje
 Navaden uporabnik je uporabniška vloga namenjena tako skrbnikom psov kot tudi lastnikom psov saj se ti vlogi pogosto mešajo. Ima vse funkcionalnosti **Organizacije** oz. **prijavljenega uporabnika**, hkrati pa ima dodatno še možnost se odzivati na oglase ostalih uporabnikov.  
    
 **Premium uporabnik**  
-Premium uporabnik združuje vse funkcionalnosti Skrbnika psov ter Lastnika psa ter dodaja še možnost ogleda zgodovine sprehodov psov ter dodajanja profilov pod hitre kontakte. Premium uporabniku se tudi ne prikazujejo oglasi. 
+Premium uporabnik združuje vse funkcionalnosti Skrbnika psov ter Lastnika psa ter dodaja še možnost ogleda zgodovine sprehodov psov ter dodajanja profilov pod hitre kontakte. Premium uporabniku se tudi ne prikazujejo reklamni oglasi. 
   
 **Admin**  
 Admin ima vse funkcionalnosti Skrbnika psov ter dodajanje in možnost urejanja in brisanja katerega koli oglasa na portalu DogWalkers kot tudi brisanje vseh komentarjev na profilih uporabnikov.  
