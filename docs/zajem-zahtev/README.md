@@ -774,6 +774,83 @@ COULD have
 - poskušamo filtrirati lokacije z lokacijo, ki ne obstaja
 - poskušamo iskati z iskalnim nizom, ki vsebuje nedovoljene znake
 
+### **5.14 BRISANJE KOMENTARJEV**
+
+### **Povzetek funkcionalnosti**
+**Admin** lahko iz profila briše komentarje. 
+
+### **Osnovni tok**
+1. Sistem ob odprtju profila preveri, če je uporabnik pooblaščen za brisanje posameznega komentarja
+2. Pri vseh komentarjih se pojavi gumb *izbriši komentar*
+3. **Admin** na odprtem oglasu ob komentarju pritisne gumb *izbriši komentar*
+4. Sistem poiskusi izbrisati komentar
+5. Komentar je izbrisan, **Admin** je o tem obveščen
+
+### **Izjemni tok**
+1. Sistem ob odprtju profila preveri, če je uporabnik pooblaščen za brisanje posameznega komentarja
+2. Pri vseh komentarjih se pojavi gumb *izbriši komentar*
+3. Sistem poiskusi izbrisati komentar
+4. Nek drug **admin** je ta komentar že izbrisal, vendar trenutni **admin** strani še ni posodobil. 
+5. **Admin** je obveščen, da je bil komentar že izbrisan
+
+### **Pogoji**
+
+Uporabnik mora biti pooblaščen za brisanje posameznega komentarja. 
+
+### **Posledice**
+
+Komentar je izbrisan,
+
+### **Posebnosti**
+
+**TO-DO**
+
+### **Prioriteta**
+
+WOULD have
+
+### **Sprejemni testi**
+
+- Napiši komentar z Navadnim oz. Premium uprabnikom in ga oddaj. Poiskusi ga izbrisati z admin računom.
+
+
+### **5.15 OGLED ZGODOVINE SPREHODOV**
+
+### **Povzetek funkcionalnosti**
+**Premium Uporabnik** si lahko ogleda zgodovino sprehodov njegovega/ih psa/ov
+
+### **Osnovni tok**
+1. Uporabnik izbere funkcionalnost *ogled lastnega profila*
+2. Uporabnik na svojem profilu izbere funkcionalnost *zgodovina sprehodov*
+3. Sistem preveri če ima uporabnik pravico dostopa do te funkcionalnosti
+4. Na zaslonu se izpiše zgodovina vseh sprehodov
+
+### **Izjemni tok**
+1. Uporabnik izbere funkcionalnost *ogled lastnega profila*
+2. Uporabnik na svojem profilu izbere funkcionalnost *zgodovina sprehodov*
+3. Sistem preveri če ima uporabnik pravico dostopa do te funkcionalnosti
+4. Uporabnik ni **Premium Uporabnik** dostop je zavrnjen
+5. Uporabnik je preusmerjen na "pop-up" okno, kjer lahko kupu **premium** račun
+
+### **Pogoji**
+
+Uporabnik mora biti prijavlen v sistem in biti lastnik **premium** računa
+
+### **Posebnosti**
+
+**TO-DO**
+
+### **Prioriteta**
+
+WOULD have
+
+### **Sprejemni testi**
+
+- Prijavi se v račun s pravicami **Navadnega uporabnika** in preveri če lahko dostopaš funkcionalnost "ogled zgodovine sprehodov".
+
+- V sistem zapiši en opravljen sprehod in preveri, če se ta izpiše v zgodovino sprehodov. 
+
+
 
 ## 6. Nefunkcionalne zahteve
 
