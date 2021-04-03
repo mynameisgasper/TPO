@@ -55,16 +55,16 @@ V tem razdelku podrobno opišite posamezne funkcionalnosti, ki jih vaša aplikac
 ### TO-DO Naziv zahteve
 |MUST|SHOULD HAVE|COULD HAVE|WOULD HAVE|
 | :-- | :-- | :-- | :-- |
-| registracija uporabnika| odziv na oglas  |  iskanje oglasov - search  | podaj komentar profilu  |
-| prijava uporabnika  | pretvorba valute  |  podaj oceno profilu  |   ogled zgodovine sprehodov  |
-| urejanje uporabniškega profila  | | | |
-| ogled posameznega oglasa | | | | | 
-| ogled lokacije prevzema | | | | | 
+| **registracija uporabnika**| odziv na oglas  |  iskanje oglasov - search  | **podaj komentar profilu**  |
+| **prijava uporabnika**  | pretvorba valute  |  **podaj oceno profilu**  |   ogled zgodovine sprehodov  |
+| **urejanje uporabniškega profila**  | | | |
+| **ogled posameznega oglasa** | | | | | 
+| **ogled lokacije prevzema** | | | | | 
 | ogled profila | | | | 
 | kreacija oglasa  | | | | 
 | vzdrževanje oglasa | | | | 
 | brisanje oglasa | | | | 
-| pregled vseh oglasov | | | | 
+| **pregled vseh oglasov** | | | | 
 | dodaj profil pod "hitre kontakte" | | | | 
 | brisanje komentarjev | | | | 
 
