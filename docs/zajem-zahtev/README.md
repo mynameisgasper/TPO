@@ -62,7 +62,7 @@ V tem razdelku podrobno opišite posamezne funkcionalnosti, ki jih vaša aplikac
 | **ogled lokacije prevzema** | | | | | 
 | **ogled profila** | | | | 
 | **kreacija oglasa**  | | | | 
-| vzdrževanje oglasa | | | | 
+| **vzdrževanje oglasa** | | | | 
 | brisanje oglasa | | | | 
 | **pregled vseh oglasov** | | | | 
 | dodaj profil pod "hitre kontakte" | | | | 
@@ -603,7 +603,48 @@ MUST have
 - poskusi ustvariti oglas brez opisa
 - poskusi ustvariti oglas brez označene lokacije prevzema
 
+### 5.10 VZDRŽEVANJE OGLASA
+### **Povzetek funkcionalnosti**
+Vsak **prijavljen uporabnik**, ki je ustvaril vsaj en oglas ima možnost vzdrževanja svojih oglasov
+### **Osnovni tok**
+1. Uporabnik navigira na svoj profil
+2. Uporabnik navigira na razdelek "moji oglasi"
+3. Uporabniku se prikaže seznam trenutno aktivnih oglasov
+4. Uporabnik si izbere oglas, ki ga želi urejati/vzdrževati
+5. Uporabniku se nato prikaže master-detail vzorec oglasa z vnosnimi polji, ki so že populirana z že prej vnešenimi podatki
+6. Uporabnik v vnosnih poljih dela poljubne spremembe, kjer se drži zahtev vsebine oglasa
+7. Po končanih spremembah uporabnik pritisne na gumb "posodobi oglas"
 
+### **Izjemni tok**
+1. Uporabnik navigira na svoj profil
+2. Uporabnik navigira na razdelek "moji oglasi"
+3. Uporabniku se prikaže seznam trenutno aktivnih oglasov
+4. Uporabnik si izbere oglas, ki ga želi urejati/vzdrževati
+5. Uporabniku se nato prikaže master-detail vzorec oglasa z vnosnimi polji, ki so že populirana z že prej vnešenimi podatki
+6. Uporabnik v vnosnih poljih dela poljubne spremembe ampak se pri tem ne drži zahtev glede vsebine
+7. Po končanih spremembah uporabnik pritisne na gumb "posodobi oglas"
+8. Sistem uporabniku javi napako in mu sporoči, da so podatki vnešeni v vnosna polja nepopolni/nepravilni
+9. Uporabnik mora za uspešno posodobitev ponovno pregledati vnešene podatke in jih po potrebi doploniti/popraviti
+
+### **Alternativni tokovi**
+Vzdrževanje oglasa nima alternativnih tokov, saj je oglas lahko vzdrževan le preko osnovnega toka
+
+### **Pogoji**
+Uporabnik mora biti prijavljen v sistem in imeti že ustvarjene oglase.
+
+### **Posledice**
+Po posodobitvi oglasa se nova verzija oglasa zapiše v sistem. Po zapisu je nato vsem uporabnikom, ki brskajo po oglasih, prikazana najnovejša verzija oglasa.
+
+### **Posebnosti**
+Uporabnik lahko posodobi slikovno gradivo oglasa v obliki videoposnetka le, če ima uporabnik vlogo **premium uporabnika**.
+
+### Prioriteta
+MUST have
+
+### Sprejemni testi
+- prijavi se z navadnim uporabnikom, in poskusi urediti oglas, ki ne obstaja (navigaija preko url-ja)
+- poskusi posodobiti oglas s praznim vnosnim poljem za opis oglasa
+- poskusi posodobiti oglas s praznim vnosnim poljem za lokacijo prevzema
 
 
 ## 6. Nefunkcionalne zahteve
