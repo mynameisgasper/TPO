@@ -563,6 +563,46 @@ MUST have
 - poskusi navigirati na stran profila uporabniškega računa, ki ne obstaja
 
 ### 5.10 KREACIJA OGLASA
+### **Povzetek funkcionalnosti**
+Vsak **prijavljen uporabnik** ima možnost ustvaritve novega oglasa, v katerem lahko nudi pomoč pri osrkbi (sprehajanje) ali pa povpraševanje po pomoči za oskrbo (sprehajanje)
+### **Osnovni tok**
+1. Uporabnik izbere funkcionalnost "ustvari nov oglas"
+2. Uporabnik izbere tip oglasa, kjer ločimo tip "povpraševanja" in "ponudbe"
+3. Uporabnik v zahtevana vnosna polja vnese zahtevano vsebino za oglasa, ki vključuje:
+   - slikovno gradivo oglasa (neobvezno)
+   - opis oglasa (obvezno)
+   - lokacija prevzema psa (obvezno)
+   - dodatne podrobnosti (neobvezno)
+4. Uporabnik nato pritisne na gumb "objavi oglas"
+5. Sistem kreira nov oglas s podano vsebino in ga objavi na spletni strani - oglas je sedaj dostopen in viden javnosti
+
+### **Izjemni tok**
+1. Uporabnik izbere funkcionalnost "ustvari nov oglas"
+2. Uporabnik izbere tip oglasa, kjer ločimo tip "povpraševanja" in "ponudbe"
+3. Uporabnik v zahtevana vnosna polja zahtevane vsebine ne vnese v celoti
+4. Uporabnik nato pritisne na gumb "objavi oglas"
+5. Sistem uporabniku prikaže obvestilo o neveljavnem obrazcu, ki ga mora uporabnik nato popraviti
+
+### **Alternativni tokovi**
+Kreacija oglasa nima alternativnih tokov, saj je lahko ustvarjena le preko osnovnega toka
+
+### **Pogoji**
+Uporabnik mora biti privaljen v sistem.
+
+### **Posledice**
+Ustvarjen je nov oglas, ki se prikazuje ostalim uporabnikom, ki brskajo po oglasih in z njim lahko interaktirajo oz. se nanj odzovejo. Kreator oglasa je posledično bolj izpostavljen uporabnikom spletne platforme.
+
+### **Posebnosti**
+Slikovno gradivo oglasa lahko vsebujo videoposnetke le, če ima uporabnik vlogo **premium uporabnika**
+
+### Prioriteta
+MUST have
+
+### Sprejemni testi
+- prijavi se z navadnim uporabnikom, in poskusi ustvariti oglas, kjer je v slikovnem gradivu dodan videoposnetek
+- poskusi ustvariti oglas brez opisa
+- poskusi ustvariti oglas brez označene lokacije prevzema
+
 
 
 
