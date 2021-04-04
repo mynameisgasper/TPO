@@ -646,7 +646,7 @@ MUST have
 - poskusi posodobiti oglas s praznim vnosnim poljem za opis oglasa
 - poskusi posodobiti oglas s praznim vnosnim poljem za lokacijo prevzema
 
-### 5.12 VZDRŽEVANJE OGLASA
+### 5.12 BRISANJE OGLASA
 ### **Povzetek funkcionalnosti**
 Vsak **prijavljen uporabnik**, ki je ustvaril vsaj en oglas ima možnost izbirsa kateregakoli svojega oglasa
 ### **Osnovni tok**
@@ -731,7 +731,7 @@ SHOULD have
 - poskušamo se odzvati na oglas z neprijavljenim uporabnikom
 - poskušamo poslati odziv z nepravilno izpolnjenim vnosnim obrazcem
 
-### 5.13 ISKANJE OGLASOV - SEARCH
+### 5.14 ISKANJE OGLASOV - SEARCH
 ### **Povzetek funkcionalnosti**
 Vsak **prijavljen uporabnik** lahko brska po bazi oglasov, kjer lahko nastavi ustrezne filtre - lahko si ogleduje oglase le v določenem območju, ključnih besedah, itd.
 ### **Osnovni tok**
@@ -774,7 +774,7 @@ COULD have
 - poskušamo filtrirati lokacije z lokacijo, ki ne obstaja
 - poskušamo iskati z iskalnim nizom, ki vsebuje nedovoljene znake
 
-### **5.14 BRISANJE KOMENTARJEV**
+### **5.15 BRISANJE KOMENTARJEV**
 
 ### **Povzetek funkcionalnosti**
 **Admin** lahko iz profila briše komentarje. 
@@ -814,7 +814,7 @@ WOULD have
 - Napiši komentar z Navadnim oz. Premium uprabnikom in ga oddaj. Poiskusi ga izbrisati z admin računom.
 
 
-### **5.15 OGLED ZGODOVINE SPREHODOV**
+### **5.16 OGLED ZGODOVINE SPREHODOV**
 
 ### **Povzetek funkcionalnosti**
 **Premium Uporabnik** si lahko ogleda zgodovino sprehodov njegovega/ih psa/ov
@@ -850,7 +850,76 @@ WOULD have
 
 - V sistem zapiši en opravljen sprehod in preveri, če se ta izpiše v zgodovino sprehodov. 
 
+### **5.17 DODAJ PROFIL POD "HITRE KONTAKTE"**
 
+### **Povzetek funkcionalnosti**
+**Premium Uporabnik** lahko profile doda na seznam, preko katerega lahko do njih nato hitro dostopa
+
+### **Osnovni tok**
+1. Prijavljen uporabnik izbere funkcionalnost ogled profila drugega uporabnika.
+2. Sistem preveri, če je uporabnikov račun tipa **premium uporabnik**
+3. Uporabnik pritisne na gumb "Dodaj med hitre kontakte"
+4. Prikazan profil se uporabniku shrani med "hitre kontakte"
+
+### **Izjemni tok**
+1. Prijavljen uporabnik izbere funkcionalnost ogled profila drugega uporabnika.
+2. Sistem preveri, če je uporabnikov račun tipa **premium uporabnik**
+4. Uporabnik pritisne na gumb "Dodaj med hitre kontakte"
+5. Uporabnik ni **Premium Uporabnik** dostop je zavrnjen
+6. Uporabnik je preusmerjen na "pop-up" okno, kjer lahko kupi **premium** račun
+
+### **Pogoji**
+
+Uporabnik mora biti prijavlen v sistem in biti lastnik **premium** računa
+
+### **Posebnosti**
+
+**TO-DO**
+
+### **Prioriteta**
+
+MUST have
+
+### **Sprejemni testi**
+
+- Prijavi se v račun s pravicami **Navadnega uporabnika** in preveri če si profil lahko shraniš med "hitre kontakte".
+
+- Prijavi se v račun s pravicami **Premium uporabnika** in preveri če si profil lahko shraniš med "hitre kontakte". 
+
+### **5.18 PRETVORBA VALUTE**
+
+### **Povzetek funkcionalnosti**
+Prijavljenemu uporabniku se cene prikažejo v izbrani valuti
+
+### **Osnovni tok**
+1. Prijavljen uporabnik izbere funkcionalnost ogled posameznega oglasa
+2. Sistem preveri ali ima oglas dodano ceno
+3. Sistem preveri katero valuto ima uporabnik izbrano
+4. Sistem ceno pretvori v izbrano valuto
+5. Na zaslonu se cena prikaže v izbrani valuti
+
+### **Izjemni tok**
+1. Prijavljen uporabnik izbere funkcionalnost ogled posameznega oglasa
+2. Sistem preveri ali ima oglas dodano ceno
+3. Sistem preveri katero valuto ima uporabnik izbrano
+4. Sistem poskusi pretvoriti ceno a to zaradi odpovedi strežnika ne uspe
+5. Na zaslonu se cena prikaže v originalni valuti
+
+### **Pogoji**
+
+Uporabnik mora biti prijavlen v sistem
+
+### **Posebnosti**
+
+Funkcionalnost zahteva dostopnost in delovanje zunanjega sistema
+
+### **Prioriteta**
+
+SHOULD have
+
+### **Sprejemni testi**
+
+- Prijavi se v uporabniški račun in si izberi valuto. Nato preveri če se ti cene na oglasih pokažejo v izbrani valuti. 
 
 ## 6. Nefunkcionalne zahteve
 
