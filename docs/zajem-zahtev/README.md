@@ -31,10 +31,10 @@ Organizacija je uporabniška vloga namenjena podjetje, ki želijo ponuditi svoje
 Navaden uporabnik je uporabniška vloga namenjena tako skrbnikom psov kot tudi lastnikom psov saj se ti vlogi pogosto mešajo. Ima vse funkcionalnosti **Organizacije** oz. **prijavljenega uporabnika**, hkrati pa ima dodatno še možnost se odzivati na oglase ostalih uporabnikov.  
    
 **Premium uporabnik**  
-Premium uporabnik združuje vse funkcionalnosti Skrbnika psov ter Lastnika psa ter dodaja še možnost ogleda zgodovine sprehodov psov ter dodajanja profilov pod hitre kontakte. Premium uporabniku se tudi ne prikazujejo reklame. 
+Premium uporabnik ima vse funkcionalnosti navadnega uporabnika ter dodaja še možnost ogleda zgodovine sprehodov psov ter dodajanja profilov pod hitre kontakte. Premium uporabniku se tudi ne prikazujejo reklame. 
   
 **Admin**  
-Admin ima vse funkcionalnosti Skrbnika psov ter dodajanje in možnost urejanja in brisanja katerega koli oglasa na portalu DogWalkers kot tudi brisanje vseh komentarjev na profilih uporabnikov.  
+Admin ima vse funkcionalnosti kot premium uporabnik in možnost urejanja in brisanja katerega koli oglasa na portalu DogWalkers kot tudi brisanje vseh komentarjev na profilih uporabnikov.  
 
 ## 3. Slovar pojmov
 
@@ -555,8 +555,8 @@ Vsak **prijavljen uporabnik**, ki je ustvaril vsaj en oglas ima možnost izbrisa
 4. Uporabnik si izbere oglas, ki ga želi izbrisati
 5. Uporabniku se nato prikaže master-detail vzorec oglasa z vnosnimi polji, ki so že populirana z že prej vnešenimi podatki
 6. Sistem preveri ali ima uporabnik pravice za izbris oglasa
-7. Uporabniku je prikazan gumb "izbris oglasa"
-8. Uporabnik pritisne na gumb "izbris oglasa" - odpre se dialog okno, ki zahteva dodatno potrditev in opozori uporabnika, da je dejanvost nepovratna.
+7. Uporabniku je prikazan gumb za izbris oglasa
+8. Uporabnik pritisne na gumb za izbris oglasa - odpre se dialog okno, ki zahteva dodatno potrditev in opozori uporabnika, da je dejanvost nepovratna.
 9. Uporabnik potrdi izbris, oglas je izbrisan
 
 ### **Izjemni tok**
@@ -566,8 +566,8 @@ Vsak **prijavljen uporabnik**, ki je ustvaril vsaj en oglas ima možnost izbrisa
 4. Uporabnik si izbere oglas, ki ga želi izbrisati
 5. Uporabniku se nato prikaže master-detail vzorec oglasa z vnosnimi polji, ki so že populirana z že prej vnešenimi podatki
 6. Sistem preveri ali ima uporabnik pravice za izbris oglasa
-7. Uporabniku je prikazan gumb "izbris oglasa"
-8. Uporabnik pritisne na gumb "izbris oglasa" - odpre se dialog okno, ki zahteva dodatno potrditev in opozori uporabnika, da je dejanvost nepovratna.
+7. Uporabniku je prikazan gumb za izbris oglasa
+8. Uporabnik pritisne na gumb za izbris oglasa - odpre se dialog okno, ki zahteva dodatno potrditev in opozori uporabnika, da je dejanvost nepovratna.
 9. Uporabnik zapusti stran z odprtim pojavnim oknom oz. pojavno okno izgubi fokus - poskus izbrisa se razveljavi
 
 ### **Alternativni tokovi**
@@ -587,10 +587,10 @@ MUST have
 
 ### Sprejemni testi
 - Prijavi se v sistem kot uporabnik, ki ima vsaj en oglas in poskusi izbrisati enega od svojih oglasov
-- Prijavi se Prijavi se v sistem kot uporabnik, ki ima vsaj en oglas in izberi gumb "izbris oglasa" a ne potrdi izbire ampak ponovno naloži stran.
+- Prijavi se Prijavi se v sistem kot uporabnik, ki ima vsaj en oglas in izberi gumb za izbris oglasa a ne potrdi izbire ampak ponovno naloži stran.
 
 
-### **5.11 DODAJ PROFIL POD "HITRE KONTAKTE"**
+### **5.11 DODAJANJE UPORABNIKA MED "HITRE KONTAKTE"**
 
 ### **Povzetek funkcionalnosti**
 **Premium Uporabnik** lahko profile doda na seznam, preko katerega lahko do njih nato hitro dostopa
@@ -630,8 +630,81 @@ MUST have
 
 - Prijavi se v račun s pravicami **Premium uporabnika** in si nek profil poskusi shraniti med "hitre kontakte". 
 
+### **5.12 OGLED "HITRIH KONTAKTOV"**
 
-### 5.12 ODZIV NA OGLAS
+### **Povzetek funkcionalnosti**
+**Premium Uporabnik** lahko profile, ki jih je dodal na seznam, preko katerega lahko do njih nato hitro dostopa, iz seznama tudi odstrani
+
+### **Osnovni tok**
+1. Premium uporabnik ali admin se prijavi v sistem
+2. Uporabnik pritisne na gumb "Hitri kontakti"
+3. Uporabniku se prikaže stran s hitrimi kontakti
+
+### **Izjemni tok**
+Funkcionalnost nima izjemnega toka
+
+### **Alternativni tokovi**
+Funkcionalnost nima alternativnih tokov
+
+### **Pogoji**
+
+Uporabnik mora biti prijavljen v sistem in biti lastnik **premium** računa ali admin
+
+### **Posebnosti**
+
+Funkcionalnost nima posebnosti
+
+### **Posledice**
+
+Uporabniku se prikaže stran s "hitrimi kontakti"
+
+### **Prioriteta**
+
+MUST have
+
+### **Sprejemni testi**
+
+- Prijavi se v račun s pravicami **Premium uporabnika** in si oglej "hitre kontakte".
+
+
+
+### **5.13 ODSTRANI PROFIL IZ "HITRIH KONTAKTOV"**
+
+### **Povzetek funkcionalnosti**
+**Premium Uporabnik** lahko profile, ki jih je dodal na seznam, preko katerega lahko do njih nato hitro dostopa, iz seznama tudi odstrani
+
+### **Osnovni tok**
+1. Prijavljen uporabnik izbere funkcionalnost ogled hitrih kontaktov
+2. Sistem preveri, če je uporabnikov račun tipa **premium uporabnik** ali **admin**
+3. Uporabnik pritisne na gumb za izbris profila iz hitrih kontaktov
+4. Sistem izbriše profil iz hitrih kontaktov
+
+### **Izjemni tok**
+
+Funkcionalnost nima izjemnih tokov
+
+### **Pogoji**
+
+Uporabnik mora biti prijavljen v sistem in biti lastnik **premium** računa ali **admin**
+
+### **Posebnosti**
+
+Funkcionalnost nima posebnosti
+
+### **Posledice**
+
+Profil se uporabniku izbriše iz hitrih kontaktov
+
+### **Prioriteta**
+
+MUST have
+
+### **Sprejemni testi**
+
+- Prijavi se v račun s pravicami **Premium uporabnika** in si nek profil poskusi izbrisati iz "hitrih kontaktov".
+
+
+### 5.14 ODZIV NA OGLAS
 
 ### **Povzetek funkcionalnosti**
 Vsak **prijavljen uporabnik** se lahko odzove na poljuben oglas, ki si ga ogleduje
@@ -686,7 +759,7 @@ SHOULD have
 - Poskusi se odzvati na oglas z neprijavljenim uporabnikom
 
 
-### **5.13 PRETVORBA VALUTE**
+### **5.15 PRETVORBA VALUTE**
 
 ### **Povzetek funkcionalnosti**
 Prijavljenemu uporabniku se cene prikažejo v izbrani valuti
@@ -722,7 +795,7 @@ SHOULD have
 - Prijavi se v uporabniški račun in si izberi valuto. Nato preveri če se ti cene na oglasih pokažejo v izbrani valuti. 
 
 
-### **5.14 PODAJ OCENO PROFILU**
+### **5.16 PODAJ OCENO PROFILU**
 
 ### **Povzetek funkcionalnosti**
 
@@ -790,7 +863,7 @@ COULD have
 
 **3.** Pričakovan rezultat je shranjena ocena.  
 
-### 5.15 ISKANJE OGLASOV - SEARCH
+### 5.17 ISKANJE OGLASOV - SEARCH
 ### **Povzetek funkcionalnosti**
 Vsak **prijavljen uporabnik** lahko brska po bazi oglasov, kjer lahko nastavi ustrezne filtre - lahko si ogleduje oglase le v določenem območju, ključnih besedah, itd.
 ### **Osnovni tok**
@@ -837,7 +910,7 @@ COULD have
 - Prijavi se v sistem in poskusi iskati oglase s filtrom in iskalnim nizom
 
 
-### **5.16 PODAJ KOMENTAR PROFILU**
+### **5.18 PODAJ KOMENTAR PROFILU**
 
 ### **Povzetek funkcionalnosti**
 
@@ -893,7 +966,7 @@ WOULD have
   - Izbere dodajanje komentarja
 **3.** Pričakovan rezultat je opozorilo (v obliki pojavnega okna), ki opozarja na neizpolnjen pogoj. Polje za dodajanje komentarja se ne pojavi.  
 
-### **5.17 BRISANJE KOMENTARJEV**
+### **5.19 BRISANJE KOMENTARJEV**
 
 ### **Povzetek funkcionalnosti**
 **Admin** lahko iz profila briše komentarje. 
@@ -932,7 +1005,7 @@ WOULD have
 
 - Napiši komentar z Navadnim oz. Premium uprabnikom in ga oddaj. Poiskusi ga izbrisati z admin računom.
 
-### **5.18 OGLED ZGODOVINE SPREHODOV**
+### **5.20 OGLED ZGODOVINE SPREHODOV**
 
 ### **Povzetek funkcionalnosti**
 **Premium Uporabnik** si lahko ogleda zgodovino sprehodov njegovega/ih psa/ov
