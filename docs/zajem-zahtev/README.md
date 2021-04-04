@@ -21,8 +21,6 @@ Aplikacija ponuja 3 različne profile: navaden uporabnik, organizacija ter premi
 
 ## 2. Uporabniške vloge
 
-
-
 **Neprijavljen uporabnik**  
 Neprijavljen uporabnik si lahko ogleda seznam vseh oglase ter posamezne oglase. Oglase lahko tudi išče preko vgrajenega iskalnika. Vsak oglas ima vsebuje tudi funkcionalnosti lokacije prevzema psa ter pretvorbe valut, tako da ju vidi tudi neprijavljen uporabnik. Vsak neprijavljen uporabnik se ima možnost tudi registrirati ali prijaviti v sistem.  
   
@@ -56,7 +54,7 @@ V tem razdelku podrobno opišite posamezne funkcionalnosti, ki jih vaša aplikac
 |MUST|SHOULD HAVE|COULD HAVE|WOULD HAVE|
 | :-- | :-- | :-- | :-- |
 | **registracija uporabnika**| **odziv na oglas**  |  **iskanje oglasov - search**  | **podaj komentar profilu**  |
-| **prijava uporabnika**  | pretvorba valute  |  **podaj oceno profilu**  |   ogled zgodovine sprehodov  |
+| **prijava uporabnika**  | **pretvorba valute**  |  **podaj oceno profilu**  |   **ogled zgodovine sprehodov**  |
 | **urejanje uporabniškega profila**  | | | |
 | **ogled posameznega oglasa** | | | | | 
 | **ogled lokacije prevzema** | | | | | 
@@ -65,19 +63,14 @@ V tem razdelku podrobno opišite posamezne funkcionalnosti, ki jih vaša aplikac
 | **vzdrževanje oglasa** | | | | 
 | **brisanje oglasa** | | | | 
 | **pregled vseh oglasov** | | | | 
-| dodaj profil pod "hitre kontakte" | | | | 
-| brisanje komentarjev | | | | 
-
-
-
+| **dodaj profil pod "hitre kontakte"** | | | | 
+| **brisanje komentarjev** | | | | 
 
 ### **5.1 REGISTRACIJA UPORABNIKA**
-
 
 ### **Povzetek funkcionalnosti**
 
 **Neprijavlen (neregistriran) uporabnik** lahko ustvari nov uporabniški račun. 
-
 
 ### **Osnovni Tok**
 
@@ -88,7 +81,6 @@ V tem razdelku podrobno opišite posamezne funkcionalnosti, ki jih vaša aplikac
 4. Sistem preveri, če so vsi vnosi veljavni in če morda uporabnik s tem uporabniškim imenom ali e-poštnim naslovom obstaja
 5. Sistem potrdi registracijo in na e-poštni naslov novega uporabnika pošlje potrditveno sporočilo
 
-
 ### **Izjemni Tok** 
 
 1. Neprijavleni uporabnik v orodni vrstici izbere funkcionalnost ustvari račun
@@ -98,22 +90,20 @@ V tem razdelku podrobno opišite posamezne funkcionalnosti, ki jih vaša aplikac
 4. Sistem preveri, če so vsi vnosi veljavni in če morda uporabnik s tem uporabniškim imenom ali e-poštnim naslovom obstaja
 5. Sistem javi, da uporabnik s tem uporabniškim imenom ali e-poštnim naslovom že obstaja oz. da se geslo ne ujema z podanimi omejitavmi
 
-
 ### Alternativni tok(ovi)
 
-Za prijavo ni alternativnih tokov.
+Za prijavo ni alternativnih tokov
 
 ### **Pogoji**
 
-Uporabnik ne sme biti prijavlen 
+Uporabnik ne sme biti prijavljen 
 
 ### **Posledice**
 
-Ustvarjen je nov uporabniški račun
+V bazi je ustvarjen nov uporabniški račun za katerega se generira profilna stran
 
 
 ### **Posebnosti**
-
 
 Geslo novega uporabnika mora biti zgoščeno s standaradom SHA-2
 
@@ -124,6 +114,8 @@ MUST have
 
 ### **Sprejemni testi**
 
+- Poskusi se registrirati z veljavnimi podatki
+
 - Poskusi se registrirati z uporabniškim imenom, ki že obstaja
 
 - Poskusi se registrirati s e-poštnim naslovom, ki je že v uporabi
@@ -133,8 +125,7 @@ MUST have
 - Poskusi se registrirati z gesli, ki se ne ujemata
   
   
-### **5.2 PRIJAVA UPORABNIKA**
-
+### **5.2 PRIJAVA UPORABNIKA**  
 
 ### **Povzetek funkcionalnosti**
 
@@ -163,11 +154,13 @@ Ni alternativnih tokov.
 
 #### **Pogoji**
 
-Uporabnik ne sme biti prijavlen 
+Uporabnik ne sme biti prijavljen 
 
 #### **Posledice**
 
-Ustvarjen je nov uporabniški račun
+**Preveri če to je posledica??**
+
+Uporabnik ima dostop do funkcionalnosti, ki zahtevajo prijavljenega uporabnika
 
 #### **Posebnosti**
 
@@ -179,6 +172,8 @@ MUST have
 
 
 #### **Sprejemni testi**
+
+- Poskusi se prijaviti z veljavnimi podatki.
 
 - Poskusi se prijaviti z napačnim uporabniškim imenom.
 
@@ -206,8 +201,7 @@ MUST have
 
 
 ### **Alternativni Tok** 
-**TO-DO**
-
+Ni alternativnih tokov.
 
 ### **Izjemni Tokovi** 
 **1.**  
@@ -240,8 +234,7 @@ Uporabnik mora biti registriran v sistemu in prijavljen.
 
 
 ### **Posledice**
-Uporabnikovi osebni podatki so spremenjeni. Spremembe so vidne tudi ostalim uporabnikom
-sistema, ko si ogledajo njegov profil.
+Uporabnikovi osebni podatki so spremenjeni. Spremembe so vidne tudi ostalim uporabnikom sistema, ko si ogledajo njegov profil.
 
 
 ### **Posebnosti**
@@ -265,75 +258,13 @@ MUST have
 
 **3.** Pričakovan rezultat je opozorilo (v obliki pojavnega okna), ki opozarja na uporabo nedovoljenih znakov. Spremembe se **NE** shranijo.
   
+- Prijavi se v sistem in poskusi spremeniti podatke na svojem profilu z dovoljenimi znaki
+- Prijavi se v sistem in poskusi spremeniti podatke na svojem profilu z nedovoljenimi znaki
+- Prijavi se v sistem in poskusi spremeniti podatke na svojem profilu tako, da v vsaj eno vnosno polje vneseš preveč znakov
+- Prijavi se v sistem in poskusi spremeniti email naslov brez '@' znaka
+- Prijavi se v sistem, izberi urejanje svojega profila, spremeni nekaj podatkov a ne shrani sprememb. Nato ponovno naloži svoj profil.
   
-### **5.4 PODAJ OCENO PROFILU**
-
-
-### **Povzetek funkcionalnosti**
-
-TO-DO : nekje bo treba upoštevat in napisat še kaj glede profilov, ki še nimajo ocene.
-
-**Admin, Navaden uporabnik, Premium Uporabnik in Organizacija** lahko podajo kvantitativno oceno profilu s katerim so vsaj enkrat stopili v kontakt oziroma opravili medsebojno storitev, katere namen nudi aplikacija. 
-
-
-### **Osnovni Tok**
-**TO-DO ZA POPRAVIT MALO KO BO VEČ ZAHTEV DEFINIRANIH!!**
-1. Prijavljen uporabnik izbere funkcionalnost ogled profila drugega uporabnika.
-2. Sistem odpre zavihek s pregledom profila izbranega uporabnika in prikaže njegove podatke.
-3. Sistem omogoči urejanje ocene v kolikor sta uporabnika že opravila vsaj eno namensko storitev aplikacije oziroma imata zgodovino.
-4. Prijavljen uporabnik preko funkcionalnosti za ocenjevanje izbere urejanje ocene.
-5. Sistem uporabniku omgoči izbiro ocene z lestvice.
-6. Uporabnik izbere oceno in potrdi izbor.
-7. Sistem posodobi skupno oceno ravnokar ocenjenega profila glede na podano oceno.
-
-
-### **Alternativni Tok** 
-**TO-DO**
-
-
-### **Izjemni Tokovi** 
-**1.**  
-  **1.1.**  Prijavljen uporabnik izbere funkcionalnost ogled profila drugega uporabnika.
-  **1.2.**  Izbere urejanje ocene.
-  **1.3.**  Prijavljen uporabnik spremeni oceno z lestvice in ne shrani izbire.
-  **1.4.**  Sistem ne spremeni ocene in ohrani staro vrednost.
-
-**2.**  
-  **2.1.**  Prijavljen uporabnik izbere funkcionalnost ogled profila drugega uporabnika.  
-  **2.2.**  Prijavljen uporabnik s tem uporabnikom še ni opravil nobene storitve, zato mu je urejanje ocene onemogočeno.  
-  **2.3.**  Sistem zakrije izbiro urejanja ocene in izpiše obvestilo.
-
-
-### **Pogoji**
-Uporabnik mora biti registriran v sistemu in prijavljen. Uporabnik, ki želi podati oceno drugemu uporabniku, mora imeti s tem uporabnikom že zgodovino sodelovanja oziroma opravljenih storitev preko aplikacije, sicer medsebojno ocenjevanje med uporabnikoma ni omogočeno na njunih profilih.
-
-
-### **Posledice**
-Ocena profila, kateremu je uporabnik spreminjal svojo oceno se spremeni. Spremembe so vidne tudi ostalim uporabnikom v sklopu skupne ocene uporabnika, ko si ogledajo njegov profil.
-
-
-### **Posebnosti**
-**TO-DO**
-
-
-### **Prioriteta:**
-COULD have
-
-
-### **Sprejemni testi**
-
-**1.** Uporabnik mora biti registriran in prijavljen v sistem. Izbran profil za ocenjevanje mora biti lastnik psa, uporabnik, ki testira pa skrbnik psa. Uporabnik mora imeti opravljeno storitev s tem lastnikom psa.  
-**2.** Testiramo ali se ocena profila shrani.
-  - Uporabnik gre na profil lastnika psa, ki izpolnjuje pogoje napisane v točki 1.  
-  - Izbere urejanje ocene  
-  - Poda oceno z lestvice  
-  - Shrani spremembe  
-
-**3.** Pričakovan rezultat je shranjena ocena.  
-
-  
-  
-### **5.5 PREGLED VSEH OGLASOV**
+### **5.4 PREGLED VSEH OGLASOV**
 
 
 ### **Povzetek funkcionalnosti**
@@ -350,7 +281,7 @@ Vsi uporabniki si lahko ogledajo seznam vseh oglasov s sliko psa ter osnovnimi p
 
 Funckionalnost nima izjemnih tokov.
 
-#### **Alternativni tok(ovi)**
+#### **Alternativni tok**
 
 Funkcionalnost nima alternativnih tokov
 
@@ -359,7 +290,7 @@ Funkcionalnost nima alternativnih tokov
 Funkcionalnost nima nobenih pogojev za izvedbo.
 
 #### **Posledice**
-
+**Preveri če to je posledica??**
 Prikaže se seznam vseh aplikacij z nekaj osnovnimi podatki vsakega oglasa ter sliko psa ter ceno če je oglas skrbnika psov ali organizacije.
 
 ### Posebnosti
@@ -371,13 +302,16 @@ MUST have
 
 #### **Sprejemni testi**
 
+- Odpri spletno aplikacijo Dog Walkers in preveri ali se naložijo oglasi.
+
 **1.** Uporabnik mora imeti stabilno internetno povezavo. Prijava ni potrebna.  
 **2.** Testiramo ali se prikaže pregled vseh oglasov
   - Uporabnik gre na spletni naslov aplikacije Dog Walkers.  
 
 **3.** Pričakovan rezultat je prikazan pregled vseh oglasov.  
 
-### **5.6  OGLED POSAMEZNEGA OGLASA**
+
+### **5.5  OGLED POSAMEZNEGA OGLASA**
 
 ### **Povzetek funkcionalnosti**
 
@@ -403,8 +337,9 @@ Ni posebnih pogojev
 
 ### **Posledice**
 
-Odpre se oglas
+**Preveri če to je posledica??**
 
+Odpre se oglas
 
 ### **Posebnosti**
 
@@ -420,7 +355,7 @@ MUST have
 - Odpri profil nekega uporabnika in poskusi odpreti oglas na profilni strani
 
 
-### **5.7 OGLED LOKACIJE PREVZEMA**
+### **5.6 OGLED LOKACIJE PREVZEMA**
 
 ### **Povzetek funkcionalnosti**
 
@@ -438,6 +373,7 @@ Vsi uporabniki si lahko ogledajo lokacijo prevzema posameznega oglasa.
 Ni posebnih pogojev
 
 ### **Posledice**
+**Preveri če to je posledica??**
 
 Odpre se zemljevid
 
@@ -453,72 +389,11 @@ MUST have
 - Preiskusi odpreti zemljevid na posameznem oglasu
 
 
-### **5.8 PODAJ KOMENTAR PROFILU**
-
-
-### **Povzetek funkcionalnosti**
-
-TO-DO : nekje bo treba upoštevat in napisat še kaj glede profilov, ki še nimajo komentarja.
-
-**Admin, Navaden uporabnik, Premium Uporabnik in Organizacija** lahko podajo komentar profilu s katerim so vsaj enkrat stopili v kontakt oziroma opravili medsebojno storitev, katere namen nudi aplikacija. 
-
-
-### **Osnovni Tok**
-**TO-DO ZA POPRAVIT MALO KO BO VEČ ZAHTEV DEFINIRANIH!!**
-1. Prijavljen uporabnik izbere funkcionalnost ogled profila drugega uporabnika.
-2. Sistem odpre zavihek s pregledom profila izbranega uporabnika in prikaže njegove podatke.
-3. Sistem omogoči urejanje komentarja profila v kolikor sta uporabnika že opravila vsaj eno namensko storitev aplikacije oziroma imata zgodovino.
-4. Prijavljen uporabnik preko funkcionalnosti za komentiranje izbere urejanje koemntarja.
-5. Sistem uporabniku omgoči vnosno polje za komentar.
-6. Uporabnik napiše komentar in izbere shrani.
-7. Sistem posodobi komentar na tem profilu.
-
-
-### **Alternativni Tok** 
-**TO-DO**
-
-
-### **Izjemni Tokovi** 
-- Prijavljen uporabnik izbere funkcionalnost ogled profila drugega uporabnika in izbere urejanje komentarja.
-Prijavljen uporabnik napiše komentar v vnosno polje in ne shrani urejanja.
-Sistem ne spremeni komentarja in ohrani staro vrednost.
-
-- Prijavljen uporabnik izbere funkcionalnost ogled profila drugega uporabnika in izbere urejanje komentarja.
-Prijavljen uporabnik napiše komentar v vnosno polje in uporabi nedovoljene znake.
-Sistem ne dovoli shranjevanja komentarja in izpiše obvestilo.
-
-- Prijavljen uporabnik izbere funkcionalnost ogled profila drugega uporabnika.
-Prijavljen uporabnik s tem uporabnikom še ni opravil nobene storitve, zato mu je urejanje
-komentarja onemogočeno. Sistem zakrije izbiro urejanja in podajanja komentarja in izpiše obvestilo.
-
-
-### **Pogoji**
-Uporabnik mora biti registriran v sistemu in prijavljen. Uporabnik, ki želi podati komentar drugemu uporabniku, mora imeti s tem uporabnikom že zgodovino sodelovanja oziroma opravljenih storitev preko aplikacije, sicer medsebojno podajanje komentarjev med uporabnikoma ni omogočeno na njunih profilih.
-
-
-### **Posledice**
-Na profilu, ki je bil komentiran se pojavi nov komentar osebe, ki ga je napisala oziroma se posodbi njen že obstoječi komentar. Spremembe so vidne tudi ostalim uporabnikom, ko si ogledajo komentirani profil.
-
-
-### **Posebnosti**
-**TO-DO**
-
-
-### **Prioriteta:**
-WOULD have
-
-
-### **Sprejemni testi**
-**1.** Uporabnik mora biti registriran in prijavljen v sistem. Izbran profil mora biti (za pravilno shranjevanje komentarja)  lastnik psa, uporabnik, ki testira pa skrbnik psa. Uporabnik mora imeti opravljeno storitev s tem lastnikom psa. Za potrebe testa mora biti ta pogoj **NEIZPOLNJEN**  
-**2.** Testiramo ali funkcija za komentar profila zazna neizpolnjen pogoj in ga ne shrani.  
-  - Uporabnik gre na profil lastnika psa, ki **NE** izpolnjuje 2. pogoj napisan v točki 1.  
-  - Izbere dodajanje komentarja
-**3.** Pričakovan rezultat je opozorilo (v obliki pojavnega okna), ki opozarja na neizpolnjen pogoj. Polje za dodajanje komentarja se ne pojavi.  
-
-### **5.9 OGLED PROFILA**
+### **5.7 OGLED PROFILA**
 
 ### **Povzetek funkcionalnosti**
 Vsak **prijavljen uporabnik** ima možnost ogleda profila kateregakoli drugega uporabnika. Na strani profila so prikazani splošni javni podatki uporabnika.
+
 ### **Osnovni tok**
 1. Uporabnik izbere funkcionalnost brskanja po profilih
 2. Sistem prikaže vnosno polje za niz, s katerim uporabnik poizveduje po podatkovni bazi uporabnikov
@@ -551,18 +426,24 @@ Ob vsakem zapisu sprehoda je podana tudi povezava na stran profila sprehajalca/s
 Uporabnik mora biti privaljen v sistem, za drugega izmed alternativnih tokov pa mora imeti poleg omenjenega tudi vlogo **premium uporabnika**.
 
 ### **Posledice**
+**Preveri če to je posledica??**
+
 Uporabniku so izpostavljeni javni podatki drugega uporabnika, ki jih lahko uporabnik uporabi za kontakt oz. subjetkivno oceno ogledanega uporabnika.
 
 ### **Posebnosti**
-Pri ogledaovanju profila uporabnika ni posebnih posebnosti.
+Pri ogledaovanju profila uporabnika ni posebnosti.
 
 ### Prioriteta
 MUST have
 
 ### Sprejemni testi
-- poskusi navigirati na stran profila uporabniškega računa, ki ne obstaja
 
-### 5.10 KREACIJA OGLASA
+- Prijavi se kot navaden uporabnik in poišči ter si oglej profil drugega uporabnika
+- Preko iskanja poskusi navigirati na stran profila uporabniškega računa, ki ne obstaja
+- Prijavi se v sistem in izberi funkcionalnost **ogled oglasa**, nato si preko oglasa poskusi ogledati profil uporabnika, ki ga je ustvaril
+- Prijavi se kot **premium uporabnik** in si preko zgodovine sprehodov poskusi ogledati profil enega izmed uporabnikov
+
+### 5.8 KREACIJA OGLASA
 ### **Povzetek funkcionalnosti**
 Vsak **prijavljen uporabnik** ima možnost ustvaritve novega oglasa, v katerem lahko nudi pomoč pri osrkbi (sprehajanje) ali pa povpraševanje po pomoči za oskrbo (sprehajanje)
 ### **Osnovni tok**
@@ -587,7 +468,7 @@ Vsak **prijavljen uporabnik** ima možnost ustvaritve novega oglasa, v katerem l
 Kreacija oglasa nima alternativnih tokov, saj je lahko ustvarjena le preko osnovnega toka
 
 ### **Pogoji**
-Uporabnik mora biti privaljen v sistem.
+Uporabnik mora biti prijavljen v sistem.
 
 ### **Posledice**
 Ustvarjen je nov oglas, ki se prikazuje ostalim uporabnikom, ki brskajo po oglasih in z njim lahko interaktirajo oz. se nanj odzovejo. Kreator oglasa je posledično bolj izpostavljen uporabnikom spletne platforme.
@@ -603,7 +484,7 @@ MUST have
 - poskusi ustvariti oglas brez opisa
 - poskusi ustvariti oglas brez označene lokacije prevzema
 
-### 5.11 VZDRŽEVANJE OGLASA
+### 5.9 VZDRŽEVANJE OGLASA
 ### **Povzetek funkcionalnosti**
 Vsak **prijavljen uporabnik**, ki je ustvaril vsaj en oglas ima možnost vzdrževanja svojih oglasov
 ### **Osnovni tok**
@@ -646,16 +527,17 @@ MUST have
 - poskusi posodobiti oglas s praznim vnosnim poljem za opis oglasa
 - poskusi posodobiti oglas s praznim vnosnim poljem za lokacijo prevzema
 
-### 5.12 BRISANJE OGLASA
+### 5.10 BRISANJE OGLASA
 ### **Povzetek funkcionalnosti**
-Vsak **prijavljen uporabnik**, ki je ustvaril vsaj en oglas ima možnost izbirsa kateregakoli svojega oglasa
+Vsak **prijavljen uporabnik**, ki je ustvaril vsaj en oglas ima možnost izbrisa kateregakoli svojega oglasa
 ### **Osnovni tok**
 1. Uporabnik navigira na svoj profil
 2. Uporabnik navigira na razdelek "moji oglasi"
 3. Uporabniku se prikaže seznam trenutno aktivnih oglasov
 4. Uporabnik si izbere oglas, ki ga želi izbrisati
 5. Uporabniku se nato prikaže master-detail vzorec oglasa z vnosnimi polji, ki so že populirana z že prej vnešenimi podatki
-7. Uporabniku je prikazan tudi gumb "izbris oglasa"
+6. Sistem preveri ali ima uporabnik pravice za izbris oglasa
+7. Uporabniku je prikazan gumb "izbris oglasa"
 8. Uporabnik pritisne na gumb "izbris oglasa" - odpre se dialog okno, ki zahteva dodatno potrditev in opozori uporabnika, da je dejanvost nepovratna.
 9. Uporabnik potrdi izbris, oglas je izbrisan
 
@@ -665,7 +547,8 @@ Vsak **prijavljen uporabnik**, ki je ustvaril vsaj en oglas ima možnost izbirsa
 3. Uporabniku se prikaže seznam trenutno aktivnih oglasov
 4. Uporabnik si izbere oglas, ki ga želi izbrisati
 5. Uporabniku se nato prikaže master-detail vzorec oglasa z vnosnimi polji, ki so že populirana z že prej vnešenimi podatki
-7. Uporabniku je prikazan tudi gumb "izbris oglasa"
+6. Sistem preveri ali ima uporabnik pravice za izbris oglasa
+7. Uporabniku je prikazan gumb "izbris oglasa"
 8. Uporabnik pritisne na gumb "izbris oglasa" - odpre se dialog okno, ki zahteva dodatno potrditev in opozori uporabnika, da je dejanvost nepovratna.
 9. Uporabnik zapusti stran z odprtim pojavnim oknom oz. pojavno okno izgubi fokus - poskus izbrisa se razveljavi
 
@@ -685,96 +568,11 @@ Pri izbrisu oglasa se mora uporabnik zavedati, da so poleg samega oglasa izbrisa
 MUST have
 
 ### Sprejemni testi
-- preko api klicev poskusi izbrisati oglas, ki ne pripada uporabniko s katerim smo prijavljeni
+- Prijavi se v sistem kot uporabnik, ki ima vsaj en oglas in poskusi izbrisati enega od svojih oglasov
+- Prijavi se Prijavi se v sistem kot uporabnik, ki ima vsaj en oglas in izberi gumb "izbris oglasa" a ne potrdi izbire ampak ponovno naloži stran.
 
-### 5.13 ODZIV NA OGLAS
-### **Povzetek funkcionalnosti**
-Vsak **prijavljen uporabnik** se lahko odzove na poljuben oglas, ki si ga ogleduje
-### **Osnovni tok**
-1. Uporabnik brska po oglasih in zagleda oglas, ki ustreza njegovim potrebam
-2. Uporabnik klikne na gumb "kontakt" ob prikazanem oglasu
-3. Uporabnika se preusmeri na novo stran, kjer so prikazana vnosna polja, v katera mora uporabnik vpisati:
-   - svojo elektronsko pošto ali telefonsko številko (obvezno)
-   - zadeva sporočila (obvezno)
-   - telo sporočila (obvezno)
-   - dodatne podrobnosti (neobvezno)
-4. Po izpolnjenih vnosnih poljih, kjer morajo biti vnosi skladni z zahtevmi, uporabnik pritisne na gumb "pošlji"
-5. Kreatorju oglasa se pošlje poizvedba, uporabnika pa se preusmeri na domačo stran
 
-### **Izjemni tok**
-1. Uporabnik brska po oglasih in zagleda oglas, ki ustreza njegovim potrebam
-2. Uporabnik klikne na gumb "kontakt" ob prikazanem oglasu
-3. Uporabnika se preusmeri na novo stran, kjer so prikazana vnosna polja, v katera mora uporabnik vpisati:
-   - svojo elektronsko pošto ali telefonsko številko (obvezno)
-   - zadeva sporočila (obvezno)
-   - telo sporočila (obvezno)
-   - dodatne podrobnosti (neobvezno)
-4. Po izpolnjenih vnosnih poljih, kjer vnosi niso skladni z zahtevami, uporabnik pritisne na gumb "pošlji"
-5. Sistem uporabniku sporoči napako in ga pozove naj pregleda svoje vnose in jih ustrezno popravi/dopolne.
-
-### **Alternativni tokovi**
-Odziv na oglas nima alternativnih tokov, odziv je možno izvesti le preko osnovnega toka
-
-### **Pogoji**
-Uporabnik mora biti prijavljen v sistem.
-
-### **Posledice**
-Po poslanem odzivu se kreatorju oglasa pod razdelkom "odzivi oglasa" pri oglasu, na katerega se je nekdo odzval, doda nov element (odziv), ki ga lahko nato kreator oglasa pregleda in nato kontaktira pošiljatelja preko elektronske pošte ali telefonske številke.
-
-### **Posebnosti**
-Pri odzivu na oglas je potrebno paziti, da so podatki o pošiljatelju zapisni v pravilnem formatu.
-
-### Prioriteta
-SHOULD have
-
-### Sprejemni testi
-- poskušamo se odzvati na oglas z neprijavljenim uporabnikom
-- poskušamo poslati odziv z nepravilno izpolnjenim vnosnim obrazcem
-
-### 5.14 ISKANJE OGLASOV - SEARCH
-### **Povzetek funkcionalnosti**
-Vsak **prijavljen uporabnik** lahko brska po bazi oglasov, kjer lahko nastavi ustrezne filtre - lahko si ogleduje oglase le v določenem območju, ključnih besedah, itd.
-### **Osnovni tok**
-1. Uporabnik brska po oglasih
-2. Uporabnik v vnosno polje, namenjeno za filtriranje po ključnih besedah, vpiše niz znakov (ključne besede, ločene s presledki)
-3. Uporabnik pritsne na gumb "išči"
-4. Uporabniku se prikaže seznam vseh ustreznih oglasov glede na njegov vnos v iskalno polje.
-
-### **Izjemni tok**
-1. Uporabnik brska po oglasih
-2. Uporabnik v vnosno polje, namenjeno za filtriranje po ključnih besedah, vpiše niz znakov (ključne besede, ločene s presledki), kjer nizi vsebujejo nedovoljene znake
-3. Uporabnik pritsne na gumb "išči"
-4. Sistem uporabniku sporoči, da je iskalni niz napačno vnešen, ter izpostavi nedovoljene znake v nizu.
-
-### **Alternativni tokovi**
-***samo filter lokacije***
-1. Uporabnik brska po oglasih
-2. Uporabnik v polje za filtriranje lokacij vpiše lokacijo/ombočje
-3. Uporabnik pritsne na gumb "išči"
-4. Uporabniku se prikaže seznam vseh ustreznih oglasov glede na vnešeno lokacijo/območje.
-***filter lokacije in iskalni niz***
-1. Uporabnik brska po oglasih
-2. Uporabnik v polje za filtriranje lokacij vpiše lokacijo/ombočje ter v polje za iskanje vpiše poljuben iskalni niz
-3. Uporabnik pritsne na gumb "išči"
-4. Uporabniku se prikaže seznam vseh ustreznih oglasov glede na vnešeno lokacijo/območje in vnešen iskalni niz
-
-### **Pogoji**
-Uporabnik mora biti prijavljen v sistem.
-
-### **Posledice**
-Uporabniku se prikaže izolirana/filtrirana množica oglasov
-
-### **Posebnosti**
-Ni posebnih posebnosti
-
-### Prioriteta
-COULD have
-
-### Sprejemni testi
-- poskušamo filtrirati lokacije z lokacijo, ki ne obstaja
-- poskušamo iskati z iskalnim nizom, ki vsebuje nedovoljene znake
-
-### **5.15 BRISANJE KOMENTARJEV**
+### **5.11 BRISANJE KOMENTARJEV**
 
 ### **Povzetek funkcionalnosti**
 **Admin** lahko iz profila briše komentarje. 
@@ -794,16 +592,16 @@ COULD have
 5. **Admin** je obveščen, da je bil komentar že izbrisan
 
 ### **Pogoji**
-
+Implementirana mora biti funkcionalnost "Podaj komentar profilu".
 Uporabnik mora biti pooblaščen za brisanje posameznega komentarja. 
 
 ### **Posledice**
 
-Komentar je izbrisan,
+Komentar je izbrisan.
 
 ### **Posebnosti**
 
-**TO-DO**
+Funkcionalnost nima posebnosti.
 
 ### **Prioriteta**
 
@@ -814,43 +612,7 @@ WOULD have
 - Napiši komentar z Navadnim oz. Premium uprabnikom in ga oddaj. Poiskusi ga izbrisati z admin računom.
 
 
-### **5.16 OGLED ZGODOVINE SPREHODOV**
-
-### **Povzetek funkcionalnosti**
-**Premium Uporabnik** si lahko ogleda zgodovino sprehodov njegovega/ih psa/ov
-
-### **Osnovni tok**
-1. Uporabnik izbere funkcionalnost *ogled lastnega profila*
-2. Uporabnik na svojem profilu izbere funkcionalnost *zgodovina sprehodov*
-3. Sistem preveri če ima uporabnik pravico dostopa do te funkcionalnosti
-4. Na zaslonu se izpiše zgodovina vseh sprehodov
-
-### **Izjemni tok**
-1. Uporabnik izbere funkcionalnost *ogled lastnega profila*
-2. Uporabnik na svojem profilu izbere funkcionalnost *zgodovina sprehodov*
-3. Sistem preveri če ima uporabnik pravico dostopa do te funkcionalnosti
-4. Uporabnik ni **Premium Uporabnik** dostop je zavrnjen
-5. Uporabnik je preusmerjen na "pop-up" okno, kjer lahko kupu **premium** račun
-
-### **Pogoji**
-
-Uporabnik mora biti prijavlen v sistem in biti lastnik **premium** računa
-
-### **Posebnosti**
-
-**TO-DO**
-
-### **Prioriteta**
-
-WOULD have
-
-### **Sprejemni testi**
-
-- Prijavi se v račun s pravicami **Navadnega uporabnika** in preveri če lahko dostopaš funkcionalnost "ogled zgodovine sprehodov".
-
-- V sistem zapiši en opravljen sprehod in preveri, če se ta izpiše v zgodovino sprehodov. 
-
-### **5.17 DODAJ PROFIL POD "HITRE KONTAKTE"**
+### **5.12 DODAJ PROFIL POD "HITRE KONTAKTE"**
 
 ### **Povzetek funkcionalnosti**
 **Premium Uporabnik** lahko profile doda na seznam, preko katerega lahko do njih nato hitro dostopa
@@ -870,11 +632,15 @@ WOULD have
 
 ### **Pogoji**
 
-Uporabnik mora biti prijavlen v sistem in biti lastnik **premium** računa
+Uporabnik mora biti prijavljen v sistem in biti lastnik **premium** računa
 
 ### **Posebnosti**
 
-**TO-DO**
+Funkcionalnost nima posebnosti
+
+### **Posledice**
+
+Profil se uporabniku prikaže med "hitrimi kontakti"
 
 ### **Prioriteta**
 
@@ -882,11 +648,67 @@ MUST have
 
 ### **Sprejemni testi**
 
-- Prijavi se v račun s pravicami **Navadnega uporabnika** in preveri če si profil lahko shraniš med "hitre kontakte".
+- Prijavi se v račun s pravicami **Navadnega uporabnika** in si nek profil poskusi shraniti med "hitre kontakte".
 
-- Prijavi se v račun s pravicami **Premium uporabnika** in preveri če si profil lahko shraniš med "hitre kontakte". 
+- Prijavi se v račun s pravicami **Premium uporabnika** in si nek profil poskusi shraniti med "hitre kontakte". 
 
-### **5.18 PRETVORBA VALUTE**
+
+### 5.13 ODZIV NA OGLAS
+
+### **Povzetek funkcionalnosti**
+Vsak **prijavljen uporabnik** se lahko odzove na poljuben oglas, ki si ga ogleduje
+### **Osnovni tok**
+1. Prijavljen uporabnik brska po oglasih in zagleda oglas, ki ustreza njegovim potrebam
+2. Uporabnik klikne na gumb "kontakt" ob prikazanem oglasu
+3. Sistem preveri ali je uporabnik prijavljen
+4. Uporabnika se preusmeri na novo stran, kjer so prikazana vnosna polja, v katera mora uporabnik vpisati:
+   - svojo elektronsko pošto ali telefonsko številko (obvezno)
+   - zadeva sporočila (obvezno)
+   - telo sporočila (obvezno)
+   - dodatne podrobnosti (neobvezno)
+5. Po izpolnjenih vnosnih poljih, kjer morajo biti vnosi skladni z zahtevmi, uporabnik pritisne na gumb "pošlji"
+6. Kreatorju oglasa se pošlje poizvedba, uporabnika pa se preusmeri na domačo stran
+
+### **Izjemni tok**
+1. Prijavljen uporabnik brska po oglasih in zagleda oglas, ki ustreza njegovim potrebam
+2. Uporabnik klikne na gumb "kontakt" ob prikazanem oglasu
+3. Sistem preveri ali je uporabnik prijavljen
+4. Uporabnika se preusmeri na novo stran, kjer so prikazana vnosna polja, v katera mora uporabnik vpisati:
+   - svojo elektronsko pošto ali telefonsko številko (obvezno)
+   - zadeva sporočila (obvezno)
+   - telo sporočila (obvezno)
+   - dodatne podrobnosti (neobvezno)
+5. Po izpolnjenih vnosnih poljih, kjer vnosi niso skladni z zahtevami, uporabnik pritisne na gumb "pošlji"
+6. Sistem uporabniku sporoči napako in ga pozove naj pregleda svoje vnose in jih ustrezno popravi/dopolne.
+
+### **Izjemni tok**
+1. Neprijavljen uporabnik brska po oglasih in zagleda oglas, ki ustreza njegovim potrebam
+2. Uporabnik klikne na gumb "kontakt" ob prikazanem oglasu
+3. Sistem preveri ali je uporabnik prijavljen
+4. Uporabnika se preusmeri na stran za registracijo
+
+### **Alternativni tokovi**
+Odziv na oglas nima alternativnih tokov, odziv je možno izvesti le preko osnovnega toka
+
+### **Pogoji**
+Uporabnik mora biti prijavljen v sistem.
+
+### **Posledice**
+Po poslanem odzivu se kreatorju oglasa pod razdelkom "odzivi oglasa" pri oglasu, na katerega se je nekdo odzval, doda nov element (odziv), ki ga lahko nato kreator oglasa pregleda in nato kontaktira pošiljatelja preko elektronske pošte ali telefonske številke.
+
+### **Posebnosti**
+Pri odzivu na oglas je potrebno paziti, da so podatki o pošiljatelju zapisni v pravilnem formatu.
+
+### Prioriteta
+SHOULD have
+
+### Sprejemni testi
+- Prijavi se v sistem in se poskusi odzvati na oglas z vnosom ustreznih podatkov
+- Prijavi se v sistem in se poskusi odzvati na oglas z vnosom neustreznih podatkov
+- Poskusi se odzvati na oglas z neprijavljenim uporabnikom
+
+
+### **5.14 PRETVORBA VALUTE**
 
 ### **Povzetek funkcionalnosti**
 Prijavljenemu uporabniku se cene prikažejo v izbrani valuti
@@ -921,11 +743,216 @@ SHOULD have
 
 - Prijavi se v uporabniški račun in si izberi valuto. Nato preveri če se ti cene na oglasih pokažejo v izbrani valuti. 
 
+
+### **5.15 PODAJ OCENO PROFILU**
+
+### **Povzetek funkcionalnosti**
+
+TO-DO : nekje bo treba upoštevat in napisat še kaj glede profilov, ki še nimajo ocene.
+//samo daš oceno 0 ?
+
+**Admin, Navaden uporabnik, Premium Uporabnik in Organizacija** lahko podajo kvantitativno oceno profilu s katerim so vsaj enkrat stopili v kontakt oziroma opravili medsebojno storitev, katere namen nudi aplikacija. 
+
+
+### **Osnovni Tok**
+**TO-DO ZA POPRAVIT MALO KO BO VEČ ZAHTEV DEFINIRANIH!!**
+1. Prijavljen uporabnik izbere funkcionalnost ogled profila drugega uporabnika.
+2. Sistem odpre zavihek s pregledom profila izbranega uporabnika in prikaže njegove podatke.
+3. Sistem omogoči urejanje ocene v kolikor sta uporabnika že opravila vsaj eno namensko storitev aplikacije oziroma imata zgodovino.
+4. Prijavljen uporabnik preko funkcionalnosti za ocenjevanje izbere urejanje ocene.
+5. Sistem uporabniku omgoči izbiro ocene z lestvice.
+6. Uporabnik izbere oceno in potrdi izbor.
+7. Sistem posodobi skupno oceno ravnokar ocenjenega profila glede na podano oceno.
+
+
+### **Alternativni Tok** 
+Funkcionalnost nima alternativnih tokov.
+
+### **Izjemni Tokovi** 
+**1.**  
+  **1.1.**  Prijavljen uporabnik izbere funkcionalnost ogled profila drugega uporabnika.
+  **1.2.**  Izbere urejanje ocene.
+  **1.3.**  Prijavljen uporabnik spremeni oceno z lestvice in ne shrani izbire.
+  **1.4.**  Sistem ne spremeni ocene in ohrani staro vrednost.
+
+**2.**  
+  **2.1.**  Prijavljen uporabnik izbere funkcionalnost ogled profila drugega uporabnika.  
+  **2.2.**  Prijavljen uporabnik s tem uporabnikom še ni opravil nobene storitve, zato mu je urejanje ocene onemogočeno.  
+  **2.3.**  Sistem zakrije izbiro urejanja ocene in izpiše obvestilo.
+
+
+### **Pogoji**
+Uporabnik mora biti registriran v sistemu in prijavljen. Uporabnik, ki želi podati oceno drugemu uporabniku, mora imeti s tem uporabnikom že zgodovino sodelovanja oziroma opravljenih storitev preko aplikacije, sicer medsebojno ocenjevanje med uporabnikoma ni omogočeno na njunih profilih.
+
+
+### **Posledice**
+Ocena profila, kateremu je uporabnik spreminjal svojo oceno se spremeni. Spremembe so vidne tudi ostalim uporabnikom v sklopu skupne ocene uporabnika, ko si ogledajo njegov profil.
+
+
+### **Posebnosti**
+Funkcionalnost nima posebnosti
+
+
+### **Prioriteta:**
+COULD have
+
+
+### **Sprejemni testi**
+
+- Prijavi se v sistem kot uporabnik, ki ima zgodovino z drugim uporabnikom in temu uporabniku poskusi dodati oceno
+- Prijavi se v sistem kot uporabnik, ki ima zgodovino z drugim uporabnikom in temu uporabniku poskusi dodati oceno, a izbire ne potrdi ampak ponovno naloži stran. Preveri če je ocena ostala nespremenjena
+- Prijavi se v sistem kot uporabnik in poskusi dodati oceno uporabniku s katerim nimaš zgodovine
+
+**1.** Uporabnik mora biti registriran in prijavljen v sistem. Izbran profil za ocenjevanje mora biti lastnik psa, uporabnik, ki testira pa skrbnik psa. Uporabnik mora imeti opravljeno storitev s tem lastnikom psa.  
+**2.** Testiramo ali se ocena profila shrani.
+  - Uporabnik gre na profil lastnika psa, ki izpolnjuje pogoje napisane v točki 1.  
+  - Izbere urejanje ocene  
+  - Poda oceno z lestvice  
+  - Shrani spremembe  
+
+**3.** Pričakovan rezultat je shranjena ocena.  
+
+### 5.16 ISKANJE OGLASOV - SEARCH
+### **Povzetek funkcionalnosti**
+Vsak **prijavljen uporabnik** lahko brska po bazi oglasov, kjer lahko nastavi ustrezne filtre - lahko si ogleduje oglase le v določenem območju, ključnih besedah, itd.
+### **Osnovni tok**
+1. Uporabnik brska po oglasih
+2. Uporabnik v vnosno polje, namenjeno za filtriranje po ključnih besedah, vpiše niz znakov (ključne besede, ločene s presledki)
+3. Uporabnik pritsne na gumb "išči"
+4. Uporabniku se prikaže seznam vseh ustreznih oglasov glede na njegov vnos v iskalno polje.
+
+### **Izjemni tok**
+1. Uporabnik brska po oglasih
+2. Uporabnik v vnosno polje, namenjeno za filtriranje po ključnih besedah, vpiše niz znakov (ključne besede, ločene s presledki), kjer nizi vsebujejo nedovoljene znake
+3. Uporabnik pritsne na gumb "išči"
+4. Sistem uporabniku sporoči, da je iskalni niz napačno vnešen, ter izpostavi nedovoljene znake v nizu.
+
+### **Alternativni tokovi**
+***samo filter lokacije***
+1. Uporabnik brska po oglasih
+2. Uporabnik v polje za filtriranje lokacij vpiše lokacijo/ombočje
+3. Uporabnik pritsne na gumb "išči"
+4. Uporabniku se prikaže seznam vseh ustreznih oglasov glede na vnešeno lokacijo/območje.
+
+***filter lokacije in iskalni niz***
+1. Uporabnik brska po oglasih
+2. Uporabnik v polje za filtriranje lokacij vpiše lokacijo/ombočje ter v polje za iskanje vpiše poljuben iskalni niz
+3. Uporabnik pritsne na gumb "išči"
+4. Uporabniku se prikaže seznam vseh ustreznih oglasov glede na vnešeno lokacijo/območje in vnešen iskalni niz
+
+### **Pogoji**
+Uporabnik mora biti prijavljen v sistem.
+
+### **Posledice**
+Uporabniku se prikaže izolirana/filtrirana množica oglasov
+
+### **Posebnosti**
+Ni posebnih posebnosti
+
+### Prioriteta
+COULD have
+
+### Sprejemni testi
+- Prijavi se v sistem in poskusi iskati oglase z iskalnim nizom, ki vsebuje samo dovoljene znake
+- Prijavi se v sistem in poskusi iskati oglase z iskalnim nizom, ki vsebuje nedovoljene znake
+- Prijavi se v sistem in poskusi iskati oglase s filtrom
+- Prijavi se v sistem in poskusi iskati oglase s filtrom in iskalnim nizom
+
+
+### **5.17 PODAJ KOMENTAR PROFILU**
+
+### **Povzetek funkcionalnosti**
+
+TO-DO : nekje bo treba upoštevat in napisat še kaj glede profilov, ki še nimajo komentarja.
+
+**Admin, Navaden uporabnik, Premium Uporabnik in Organizacija** lahko podajo komentar profilu s katerim so vsaj enkrat stopili v kontakt oziroma opravili medsebojno storitev, katere namen nudi aplikacija. 
+
+
+### **Osnovni Tok**
+**TO-DO ZA POPRAVIT MALO KO BO VEČ ZAHTEV DEFINIRANIH!!**
+1. Prijavljen uporabnik izbere funkcionalnost ogled profila drugega uporabnika.
+2. Sistem omogoči urejanje komentarja profila v kolikor sta uporabnika že opravila vsaj eno namensko storitev aplikacije oziroma imata zgodovino.
+3. Prijavljen uporabnik preko funkcionalnosti za komentiranje izbere urejanje koemntarja.
+4. Sistem uporabniku omgoči vnosno polje za komentar.
+5. Uporabnik napiše komentar in izbere shrani.
+6. Sistem posodobi komentar na tem profilu.
+
+
+### **Alternativni Tok** 
+Funkcionalnost nima alternativnih tokov
+
+
+### **Izjemni Tokovi** 
+
+- Prijavljen uporabnik izbere funkcionalnost ogled profila drugega uporabnika in izbere urejanje komentarja.
+Prijavljen uporabnik napiše komentar v vnosno polje in ne shrani urejanja.
+Sistem ne spremeni komentarja in ohrani staro vrednost.
+
+- Prijavljen uporabnik izbere funkcionalnost ogled profila drugega uporabnika in izbere urejanje komentarja.
+Prijavljen uporabnik napiše komentar v vnosno polje in uporabi nedovoljene znake.
+Sistem ne dovoli shranjevanja komentarja in izpiše obvestilo.
+
+- Prijavljen uporabnik izbere funkcionalnost ogled profila drugega uporabnika.
+Prijavljen uporabnik s tem uporabnikom še ni opravil nobene storitve, zato mu je urejanje
+komentarja onemogočeno. Sistem zakrije izbiro urejanja in podajanja komentarja in izpiše obvestilo.
+
+### **Pogoji**
+Uporabnik mora biti registriran v sistemu in prijavljen. Uporabnik, ki želi podati komentar drugemu uporabniku, mora imeti s tem uporabnikom že zgodovino sodelovanja oziroma opravljenih storitev preko aplikacije, sicer medsebojno podajanje komentarjev med uporabnikoma ni omogočeno na njunih profilih.
+
+### **Posledice**
+Na profilu, ki je bil komentiran se pojavi nov komentar osebe, ki ga je napisala oziroma se posodbi njen že obstoječi komentar. Spremembe so vidne tudi ostalim uporabnikom, ko si ogledajo komentirani profil.
+
+### **Posebnosti**
+Funkcionalnost nima posebnosti
+
+### **Prioriteta:**
+WOULD have
+
+### **Sprejemni testi**
+**1.** Uporabnik mora biti registriran in prijavljen v sistem. Izbran profil mora biti (za pravilno shranjevanje komentarja)  lastnik psa, uporabnik, ki testira pa skrbnik psa. Uporabnik mora imeti opravljeno storitev s tem lastnikom psa. Za potrebe testa mora biti ta pogoj **NEIZPOLNJEN**  
+**2.** Testiramo ali funkcija za komentar profila zazna neizpolnjen pogoj in ga ne shrani.  
+  - Uporabnik gre na profil lastnika psa, ki **NE** izpolnjuje 2. pogoj napisan v točki 1.  
+  - Izbere dodajanje komentarja
+**3.** Pričakovan rezultat je opozorilo (v obliki pojavnega okna), ki opozarja na neizpolnjen pogoj. Polje za dodajanje komentarja se ne pojavi.  
+
+### **5.18 OGLED ZGODOVINE SPREHODOV**
+
+### **Povzetek funkcionalnosti**
+**Premium Uporabnik** si lahko ogleda zgodovino sprehodov njegovega/ih psa/ov
+
+### **Osnovni tok**
+1. Uporabnik izbere funkcionalnost *ogled lastnega profila*
+2. Uporabnik na svojem profilu izbere funkcionalnost *zgodovina sprehodov*
+3. Sistem preveri če ima uporabnik pravico dostopa do te funkcionalnosti
+4. Na zaslonu se izpiše zgodovina vseh sprehodov
+
+### **Izjemni tok**
+1. Uporabnik izbere funkcionalnost *ogled lastnega profila*
+2. Uporabnik na svojem profilu izbere funkcionalnost *zgodovina sprehodov*
+3. Sistem preveri če ima uporabnik pravico dostopa do te funkcionalnosti
+4. Uporabnik ni **Premium Uporabnik** dostop je zavrnjen
+5. Uporabnik je preusmerjen na "pop-up" okno, kjer lahko kupu **premium** račun
+
+### **Pogoji**
+
+Uporabnik mora biti prijavlen v sistem in biti lastnik **premium** računa
+
+### **Posebnosti**
+
+Funkcionalnost nima posebnosti
+
+### **Prioriteta**
+
+WOULD have
+
+### **Sprejemni testi**
+
+- Prijavi se v račun s pravicami **Navadnega uporabnika** in preveri če lahko dostopaš funkcionalnost "ogled zgodovine sprehodov".
+
+- V sistem zapiši en opravljen sprehod in preveri, če se ta izpiše v zgodovino sprehodov. 
+
 ## 6. Nefunkcionalne zahteve
 
-**TO-DO**
-
-- Navedite splošne omejitve, ki jih moramo upoštevati v več funkcionalnostih ali celo skozi celoten razvoj aplikacije.
 
 ### 6.1 Zahteve izdelka
 - sistem mora biti na voljo 99% časa
