@@ -714,7 +714,9 @@ Vsak **prijavljen uporabnik** se lahko odzove na poljuben oglas, ki si ga ogledu
 3. Sistem preveri ali je uporabnik prijavljen
 4. Uporabnika se preusmeri na novo stran, kjer je prikazano vnosno polje za sporočilo
 5. Po izpolnjenem vnosnem polju, kjer mora biti vnos skladen z zahtevmi, uporabnik pritisne na gumb "pošlji"
-6. Kreatorju oglasa se pošlje poizvedba, uporabnika pa se preusmeri na domačo stran
+6. Kreatorju oglasa se pošlje poizvedba
+7. V bazo podatkov se zapiše interakcija med uporabnikoma
+8. Uporabnika se preusmeri nazaj na oglas
 
 ### **Izjemni tok**
 1. Prijavljen uporabnik brska po oglasih in zagleda oglas, ki ustreza njegovim potrebam
@@ -825,7 +827,7 @@ Funkcionalnost nima alternativnih tokov.
 
 
 ### **Pogoji**
-Uporabnik mora biti registriran v sistemu in prijavljen. Uporabnik, ki želi podati oceno drugemu uporabniku, mora imeti s tem uporabnikom že zgodovino sodelovanja oziroma opravljenih storitev preko aplikacije, sicer medsebojno ocenjevanje med uporabnikoma ni omogočeno na njunih profilih.
+Uporabnik mora biti registriran v sistemu in prijavljen. Uporabnika morata imeti v bazi zapisano vsaj eno interakcijo.
 
 
 ### **Posledice**
@@ -940,7 +942,7 @@ Prijavljen uporabnik s tem uporabnikom še ni opravil nobene storitve, zato mu j
 komentarja onemogočeno. Sistem zakrije izbiro urejanja in podajanja komentarja in izpiše obvestilo.
 
 ### **Pogoji**
-Uporabnik mora biti registriran v sistemu in prijavljen. Uporabnik, ki želi podati komentar drugemu uporabniku, mora imeti s tem uporabnikom že zgodovino sodelovanja oziroma opravljenih storitev preko aplikacije, sicer medsebojno podajanje komentarjev med uporabnikoma ni omogočeno na njunih profilih.
+Uporabnik mora biti registriran v sistemu in prijavljen. Uporabnik mora biti registriran v sistemu in prijavljen. Uporabnika morata imeti v bazi zapisano vsaj eno interakcijo.
 
 ### **Posledice**
 Na profilu, ki je bil komentiran se pojavi nov komentar osebe, ki ga je napisala oziroma se posodbi njen že obstoječi komentar. Spremembe so vidne tudi ostalim uporabnikom, ko si ogledajo komentirani profil.
