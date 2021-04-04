@@ -712,24 +712,16 @@ Vsak **prijavljen uporabnik** se lahko odzove na poljuben oglas, ki si ga ogledu
 1. Prijavljen uporabnik brska po oglasih in zagleda oglas, ki ustreza njegovim potrebam
 2. Uporabnik klikne na gumb "kontakt" ob prikazanem oglasu
 3. Sistem preveri ali je uporabnik prijavljen
-4. Uporabnika se preusmeri na novo stran, kjer so prikazana vnosna polja, v katera mora uporabnik vpisati:
-   - svojo elektronsko pošto ali telefonsko številko (obvezno)
-   - zadeva sporočila (obvezno)
-   - telo sporočila (obvezno)
-   - dodatne podrobnosti (neobvezno)
-5. Po izpolnjenih vnosnih poljih, kjer morajo biti vnosi skladni z zahtevmi, uporabnik pritisne na gumb "pošlji"
+4. Uporabnika se preusmeri na novo stran, kjer je prikazano vnosno polje za sporočilo
+5. Po izpolnjenem vnosnem polju, kjer mora biti vnos skladen z zahtevmi, uporabnik pritisne na gumb "pošlji"
 6. Kreatorju oglasa se pošlje poizvedba, uporabnika pa se preusmeri na domačo stran
 
 ### **Izjemni tok**
 1. Prijavljen uporabnik brska po oglasih in zagleda oglas, ki ustreza njegovim potrebam
 2. Uporabnik klikne na gumb "kontakt" ob prikazanem oglasu
 3. Sistem preveri ali je uporabnik prijavljen
-4. Uporabnika se preusmeri na novo stran, kjer so prikazana vnosna polja, v katera mora uporabnik vpisati:
-   - svojo elektronsko pošto ali telefonsko številko (obvezno)
-   - zadeva sporočila (obvezno)
-   - telo sporočila (obvezno)
-   - dodatne podrobnosti (neobvezno)
-5. Po izpolnjenih vnosnih poljih, kjer vnosi niso skladni z zahtevami, uporabnik pritisne na gumb "pošlji"
+4. Uporabnika se preusmeri na novo stran, kjer je prikazano vnosno polje za sporočilo
+5. Po izpolnjenem vnosnem polju, kjer vnos ni skladen z zahtevmi, uporabnik pritisne na gumb "pošlji"
 6. Sistem uporabniku sporoči napako in ga pozove naj pregleda svoje vnose in jih ustrezno popravi/dopolne.
 
 ### **Izjemni tok**
