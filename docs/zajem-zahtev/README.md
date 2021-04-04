@@ -31,7 +31,7 @@ Organizacija je uporabniška vloga namenjena podjetje, ki želijo ponuditi svoje
 Navaden uporabnik je uporabniška vloga namenjena tako skrbnikom psov kot tudi lastnikom psov saj se ti vlogi pogosto mešajo. Ima vse funkcionalnosti **Organizacije** oz. **prijavljenega uporabnika**, hkrati pa ima dodatno še možnost se odzivati na oglase ostalih uporabnikov.  
    
 **Premium uporabnik**  
-Premium uporabnik združuje vse funkcionalnosti Skrbnika psov ter Lastnika psa ter dodaja še možnost ogleda zgodovine sprehodov psov ter dodajanja profilov pod hitre kontakte. Premium uporabniku se tudi ne prikazujejo reklamni oglasi. 
+Premium uporabnik združuje vse funkcionalnosti Skrbnika psov ter Lastnika psa ter dodaja še možnost ogleda zgodovine sprehodov psov ter dodajanja profilov pod hitre kontakte. Premium uporabniku se tudi ne prikazujejo reklame. 
   
 **Admin**  
 Admin ima vse funkcionalnosti Skrbnika psov ter dodajanje in možnost urejanja in brisanja katerega koli oglasa na portalu DogWalkers kot tudi brisanje vseh komentarjev na profilih uporabnikov.  
@@ -40,7 +40,25 @@ Admin ima vse funkcionalnosti Skrbnika psov ter dodajanje in možnost urejanja i
 
 **TO-DO**
 
-- Natančno opredelite vse têrmine, ki jih boste uporabljali v nadaljevanju dokumenta.
+Natančno opredelite vse têrmine, ki jih boste uporabljali v nadaljevanju dokumenta.
+
+- **Uporabnik:** Kdorkoli, ki uporablja sistem.
+- **Račun:** Zapis v sistemu, ki uporabniku opredeljuje eno izmed uporabniških vlog.
+- **Registracija:** Postopek s katerim se uporabniku ustvari račun.
+- **Registriran uporabnik:** Uporabnik, ki ima v sistemu ustvarjen račun.
+- **Prijavljen uporabnik:** Uporabnik, ki je prijavljen v sistem.
+- **Neprijavljen uporabnik:** Termin se nanaša na uporabniško vlogo z istim imenom.
+- **Navaden uporabnik:** Termin se nanaša na uporabniško vlogo z istim imenom.
+- **Premium uporabnik:** Termin se nanaša na uporabniško vlogo z istim imenom.
+- **Admin:** Termin se nanaša na uporabniško vlogo z istim imenom.
+- **Organizacija:** Termin se nanaša na uporabniško vlogo z istim imenom.
+- **Oglas:** ?? Core functionality
+- **Reklama:** Obvestila s propagandnim namenom
+- **Profil:** Stran ki prikazuje podatke o registriranem uporabniku.
+- **Prijava:** Postopek s katerim uporabnika sistem prepozna kot registriranega uporabnika.
+- **Ocena:** Število z intervala [1, 5], ki predstavlja mnenje uporabnikov o nekem drugem uporabniku.
+- **Zgodovina:** ?? za "uporabnika imata zgodovino"
+
 
 ## 4. Diagram primerov uporabe
 
@@ -55,7 +73,7 @@ V tem razdelku podrobno opišite posamezne funkcionalnosti, ki jih vaša aplikac
 | :-- | :-- | :-- | :-- |
 | **registracija uporabnika**| **odziv na oglas**  |  **iskanje oglasov - search**  | **podaj komentar profilu**  |
 | **prijava uporabnika**  | **pretvorba valute**  |  **podaj oceno profilu**  |   **ogled zgodovine sprehodov**  |
-| **urejanje uporabniškega profila**  | | | |
+| **urejanje uporabniškega profila**  | | | **brisanje komentarjev** |
 | **ogled posameznega oglasa** | | | | | 
 | **ogled lokacije prevzema** | | | | | 
 | **ogled profila** | | | | 
@@ -64,13 +82,13 @@ V tem razdelku podrobno opišite posamezne funkcionalnosti, ki jih vaša aplikac
 | **brisanje oglasa** | | | | 
 | **pregled vseh oglasov** | | | | 
 | **dodaj profil pod "hitre kontakte"** | | | | 
-| **brisanje komentarjev** | | | | 
+| | | | | 
 
 ### **5.1 REGISTRACIJA UPORABNIKA**
 
 ### **Povzetek funkcionalnosti**
 
-**Neprijavlen (neregistriran) uporabnik** lahko ustvari nov uporabniški račun. 
+**Neprijavljen (neregistriran) uporabnik** lahko ustvari nov uporabniški račun. 
 
 ### **Osnovni Tok**
 
@@ -572,47 +590,7 @@ MUST have
 - Prijavi se Prijavi se v sistem kot uporabnik, ki ima vsaj en oglas in izberi gumb "izbris oglasa" a ne potrdi izbire ampak ponovno naloži stran.
 
 
-### **5.11 BRISANJE KOMENTARJEV**
-
-### **Povzetek funkcionalnosti**
-**Admin** lahko iz profila briše komentarje. 
-
-### **Osnovni tok**
-1. Sistem ob odprtju profila preveri, če je uporabnik pooblaščen za brisanje posameznega komentarja
-2. Pri vseh komentarjih se pojavi gumb *izbriši komentar*
-3. **Admin** na odprtem oglasu ob komentarju pritisne gumb *izbriši komentar*
-4. Sistem poiskusi izbrisati komentar
-5. Komentar je izbrisan, **Admin** je o tem obveščen
-
-### **Izjemni tok**
-1. Sistem ob odprtju profila preveri, če je uporabnik pooblaščen za brisanje posameznega komentarja
-2. Pri vseh komentarjih se pojavi gumb *izbriši komentar*
-3. Sistem poiskusi izbrisati komentar
-4. Nek drug **admin** je ta komentar že izbrisal, vendar trenutni **admin** strani še ni posodobil. 
-5. **Admin** je obveščen, da je bil komentar že izbrisan
-
-### **Pogoji**
-Implementirana mora biti funkcionalnost "Podaj komentar profilu".
-Uporabnik mora biti pooblaščen za brisanje posameznega komentarja. 
-
-### **Posledice**
-
-Komentar je izbrisan.
-
-### **Posebnosti**
-
-Funkcionalnost nima posebnosti.
-
-### **Prioriteta**
-
-WOULD have
-
-### **Sprejemni testi**
-
-- Napiši komentar z Navadnim oz. Premium uprabnikom in ga oddaj. Poiskusi ga izbrisati z admin računom.
-
-
-### **5.12 DODAJ PROFIL POD "HITRE KONTAKTE"**
+### **5.11 DODAJ PROFIL POD "HITRE KONTAKTE"**
 
 ### **Povzetek funkcionalnosti**
 **Premium Uporabnik** lahko profile doda na seznam, preko katerega lahko do njih nato hitro dostopa
@@ -653,7 +631,7 @@ MUST have
 - Prijavi se v račun s pravicami **Premium uporabnika** in si nek profil poskusi shraniti med "hitre kontakte". 
 
 
-### 5.13 ODZIV NA OGLAS
+### 5.12 ODZIV NA OGLAS
 
 ### **Povzetek funkcionalnosti**
 Vsak **prijavljen uporabnik** se lahko odzove na poljuben oglas, ki si ga ogleduje
@@ -708,7 +686,7 @@ SHOULD have
 - Poskusi se odzvati na oglas z neprijavljenim uporabnikom
 
 
-### **5.14 PRETVORBA VALUTE**
+### **5.13 PRETVORBA VALUTE**
 
 ### **Povzetek funkcionalnosti**
 Prijavljenemu uporabniku se cene prikažejo v izbrani valuti
@@ -744,7 +722,7 @@ SHOULD have
 - Prijavi se v uporabniški račun in si izberi valuto. Nato preveri če se ti cene na oglasih pokažejo v izbrani valuti. 
 
 
-### **5.15 PODAJ OCENO PROFILU**
+### **5.14 PODAJ OCENO PROFILU**
 
 ### **Povzetek funkcionalnosti**
 
@@ -770,9 +748,9 @@ Funkcionalnost nima alternativnih tokov.
 
 ### **Izjemni Tokovi** 
 **1.**  
-  **1.1.**  Prijavljen uporabnik izbere funkcionalnost ogled profila drugega uporabnika.
-  **1.2.**  Izbere urejanje ocene.
-  **1.3.**  Prijavljen uporabnik spremeni oceno z lestvice in ne shrani izbire.
+  **1.1.**  Prijavljen uporabnik izbere funkcionalnost ogled profila drugega uporabnika.  
+  **1.2.**  Izbere urejanje ocene.  
+  **1.3.**  Prijavljen uporabnik spremeni oceno z lestvice in ne shrani izbire.  
   **1.4.**  Sistem ne spremeni ocene in ohrani staro vrednost.
 
 **2.**  
@@ -812,7 +790,7 @@ COULD have
 
 **3.** Pričakovan rezultat je shranjena ocena.  
 
-### 5.16 ISKANJE OGLASOV - SEARCH
+### 5.15 ISKANJE OGLASOV - SEARCH
 ### **Povzetek funkcionalnosti**
 Vsak **prijavljen uporabnik** lahko brska po bazi oglasov, kjer lahko nastavi ustrezne filtre - lahko si ogleduje oglase le v določenem območju, ključnih besedah, itd.
 ### **Osnovni tok**
@@ -859,7 +837,7 @@ COULD have
 - Prijavi se v sistem in poskusi iskati oglase s filtrom in iskalnim nizom
 
 
-### **5.17 PODAJ KOMENTAR PROFILU**
+### **5.16 PODAJ KOMENTAR PROFILU**
 
 ### **Povzetek funkcionalnosti**
 
@@ -914,6 +892,45 @@ WOULD have
   - Uporabnik gre na profil lastnika psa, ki **NE** izpolnjuje 2. pogoj napisan v točki 1.  
   - Izbere dodajanje komentarja
 **3.** Pričakovan rezultat je opozorilo (v obliki pojavnega okna), ki opozarja na neizpolnjen pogoj. Polje za dodajanje komentarja se ne pojavi.  
+
+### **5.17 BRISANJE KOMENTARJEV**
+
+### **Povzetek funkcionalnosti**
+**Admin** lahko iz profila briše komentarje. 
+
+### **Osnovni tok**
+1. Sistem ob odprtju profila preveri, če je uporabnik pooblaščen za brisanje posameznega komentarja
+2. Pri vseh komentarjih se pojavi gumb *izbriši komentar*
+3. **Admin** na odprtem oglasu ob komentarju pritisne gumb *izbriši komentar*
+4. Sistem poiskusi izbrisati komentar
+5. Komentar je izbrisan, **Admin** je o tem obveščen
+
+### **Izjemni tok**
+1. Sistem ob odprtju profila preveri, če je uporabnik pooblaščen za brisanje posameznega komentarja
+2. Pri vseh komentarjih se pojavi gumb *izbriši komentar*
+3. Sistem poiskusi izbrisati komentar
+4. Nek drug **admin** je ta komentar že izbrisal, vendar trenutni **admin** strani še ni posodobil. 
+5. **Admin** je obveščen, da je bil komentar že izbrisan
+
+### **Pogoji**
+Implementirana mora biti funkcionalnost "Podaj komentar profilu".
+Uporabnik mora biti pooblaščen za brisanje posameznega komentarja. 
+
+### **Posledice**
+
+Komentar je izbrisan.
+
+### **Posebnosti**
+
+Funkcionalnost nima posebnosti.
+
+### **Prioriteta**
+
+WOULD have
+
+### **Sprejemni testi**
+
+- Napiši komentar z Navadnim oz. Premium uprabnikom in ga oddaj. Poiskusi ga izbrisati z admin računom.
 
 ### **5.18 OGLED ZGODOVINE SPREHODOV**
 
