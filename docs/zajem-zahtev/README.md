@@ -83,8 +83,8 @@ Funkcionalnost nima alternativnih tokov
   **1.2** Sistem odpre okno z vpisnimi polji za uporabniško ime, e-poštni naslov in geslo  
   **1.3** Neprijavljen uporabnik vpiše uporabniško ime, e-poštni naslov in nastavi geslo  
   **1.4** Študent pritisne gumb za registracijo  
-  *1.4* Sistem preveri, če so vsi vnosi veljavni in če morda uporabnik s tem uporabniškim imenom   ali e-poštnim naslovom obstaja  
-  **1.5** Sistem javi, da uporabnik s tem uporabniškim imenom ali e-poštnim naslovom že obstaja.   Registracija ni uspela.   
+  **1.5** Sistem preveri, če so vsi vnosi veljavni in če morda uporabnik s tem uporabniškim imenom   ali e-poštnim naslovom obstaja  
+  **1.6** Sistem javi, da uporabnik s tem uporabniškim imenom ali e-poštnim naslovom že obstaja.   Registracija ni uspela.   
 
 - **Izjemni tok 2**  
   **2.1** Neprijavljen uporabnik v orodni vrstici izbere funkcionalnost ustvari račun  
