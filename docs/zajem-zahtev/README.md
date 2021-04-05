@@ -962,8 +962,8 @@ WOULD have
   3.4 Admin navigira proč od strani  
   3.5 Sistem ne izbriše komentarja
 
-4. Izjemni tok 4:
-  4.1 Prijavljen uporabnik izbere funkcionalnost "ogled profila"
+4. Izjemni tok 4:  
+  4.1 Prijavljen uporabnik izbere funkcionalnost "ogled profila"  
   4.2 Uporabnik pritisne na gumb "Dodaj/uredi komentar"  
   4.3 Sistem preveri, če imata uporabnika v bazi zapisano vsaj eno interakcijo.  
   4.4 Sistem ne prikaže polja za urejanje in podajanje komentarja in izpiše obvestilo. 
