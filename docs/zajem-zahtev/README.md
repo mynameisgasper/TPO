@@ -76,14 +76,32 @@ Admin ima vse funkcionalnosti kot premium uporabnik in možnost urejanja in bris
 
 Funkcionalnost nima alternativnih tokov
 
-### **Izjemni Tok** 
+### **Izjemni Tok 1** 
 
 1. Neprijavljen uporabnik v orodni vrstici izbere funkcionalnost ustvari račun
 2. Sistem odpre okno z vpisnimi polji za uporabniško ime, e-poštni naslov in geslo
 3. Neprijavljen uporabnik vpiše uporabniško ime, e-poštni naslov in nastavi geslo
 4. Študent pritisne gumb za registracijo
 4. Sistem preveri, če so vsi vnosi veljavni in če morda uporabnik s tem uporabniškim imenom ali e-poštnim naslovom obstaja
-5. Sistem javi, da uporabnik s tem uporabniškim imenom ali e-poštnim naslovom že obstaja oz. da se geslo ne ujema z podanimi omejitavmi
+5. Sistem javi, da uporabnik s tem uporabniškim imenom ali e-poštnim naslovom že obstaja. Registracija ni uspela. 
+
+### **Izjemni Tok 2** 
+
+1. Neprijavljen uporabnik v orodni vrstici izbere funkcionalnost ustvari račun
+2. Sistem odpre okno z vpisnimi polji za uporabniško ime, e-poštni naslov in geslo
+3. Neprijavljen uporabnik vpiše uporabniško ime, e-poštni naslov in nastavi geslo
+4. Študent pritisne gumb za registracijo
+4. Sistem preveri, če so vnosi veljavni in če morda uporabnik s tem uporabniškim imenom ali e-poštnim naslovom obstaja
+5. Sistem javi, da se gesli ne ujemata. Registracija ni uspela.
+
+### **Izjemni Tok 3** 
+
+1. Neprijavljen uporabnik v orodni vrstici izbere funkcionalnost ustvari račun
+2. Sistem odpre okno z vpisnimi polji za uporabniško ime, e-poštni naslov in geslo
+3. Neprijavljen uporabnik vpiše uporabniško ime, e-poštni naslov in nastavi geslo
+4. Študent pritisne gumb za registracijo
+4. Sistem preveri, če so vnosi veljavni in če morda uporabnik s tem uporabniškim imenom ali e-poštnim naslovom obstaja
+5. Sistem javi, da je e-poštni naslov neveljaven. Registracija ni uspela.
 
 ### **Pogoji**
 
@@ -105,15 +123,13 @@ MUST have
 
 ### **Sprejemni testi**
 
-- Poskusi se registrirati z veljavnimi podatki
+- **Osnovni tok:** Poskusi se registrirati z veljavnimi podatki. Pričakovan rezultat je, da je registracija uspešna. 
 
-- Poskusi se registrirati z uporabniškim imenom, ki že obstaja
+- **Izjemni tok 1:** Poskusi se registrirati z uporabniškim imenom ali e-poštnim naslovom, ki že obstaja. Pričakovan rezultat je, da registracija ni uspešna. 
 
-- Poskusi se registrirati s e-poštnim naslovom, ki je že v uporabi
+- **Izjemni tok 2:** Poskusi se registrirati z gesli, ki se ne ujemata. Pričakovan rezultat je, da sistem javi, da se gesli ne ojemata; registracija je neuspešna.
 
-- Poskusi se registrirati z napačnimi znaki v e-poštnem naslovu (brez @ ali domene)
-
-- Poskusi se registrirati z gesli, ki se ne ujemata
+- **Izjemni tok 3:** Poskusi se registrirati z napačnimi znaki v e-poštnem naslovu (brez @ ali domene). Pričakovan rezultat je, da se sistem javi, da v e-poštni naslvo potrebuje @ oziroma domeno; registracija je neuspešna.
   
   
 ### **5.2 PRIJAVA UPORABNIKA**  
@@ -135,12 +151,20 @@ Funkcionalnost nima alternativnih tokov
 5. Sistem javi, da je prijava uspela, prijavleni uporabnik je preosmerjen na domačo stran.
 
 
-### **Izjemni Tok** 
-1. Neprijavljen uporabnik izbere funkcionalnost prijava
-2. Sistem odpre okno z vpisnimi polji za uporabniško ime / e-poštni naslov in geslo
-3. Neprijavleni uporabnik vnese podatke za prijavo
-4. Sistem preveri, če vneseni uporabniški račun obstaja in če je geslo pravilno
-5. Sistem neprijavlenem uporabniku sporoči da ta uporabnik ne obstaja in/ali da je geslo napačno; prijava ni uspela 
+### **Izjemni Tokovi** 
+- **Izjemni tok 1**  
+  1.1 Neprijavljen uporabnik izbere funkcionalnost prijava  
+  2.2 Sistem odpre okno z vpisnimi polji za uporabniško ime in geslo  
+  3.3 Neprijavleni uporabnik vnese podatke za prijavo  
+  4.4 Sistem preveri, če vneseni uporabniški račun obstaja in če je geslo pravilno  
+  5.5 Sistem neprijavlenem uporabniku sporoči, da ta uporabnik ne obstaja - prijava ni uspela  
+
+- **Izjemni tok 2**  
+2.1 Neprijavljen uporabnik izbere funkcionalnost prijava  
+2.2 Sistem odpre okno z vpisnimi polji za uporabniško ime in geslo  
+2.3 Neprijavleni uporabnik vnese podatke za prijavo  
+2.4 Sistem preveri, če vneseni uporabniški račun obstaja in če je geslo pravilno  
+2.5 Sistem neprijavlenem uporabniku sporoči, da je geslo napačno - prijava ni uspela   
 
 ### **Pogoji**
 
@@ -161,13 +185,11 @@ MUST have
 
 ### **Sprejemni testi**
 
-- Poskusi se prijaviti z veljavnimi podatki.
+- **Osnovni tok:** Poskusi se prijaviti z veljavnimi podatki. Pričakovan rezultat je, da je prijava uspešna. 
 
-- Poskusi se prijaviti z napačnim uporabniškim imenom.
+- **Izjemni tok 1:** Poskusi se prijaviti z napačnim uporabniškim imenom. Pričakovan rezultat je, da sistem javi, da ta uporabnik ne obstaja - prijava je neuspešna.
 
-- Poskusi se prijaviti z napačnim geslom.
-
-- Poskusi se prijaviti večkrat zaporedoma z napačnimi vnosi, dokler sistem ne blokira prijave. 
+- **Izjemni tok 2:** Poskusi se prijaviti z napačnim geslom. Pričakovan rezultat je, da sistem javi, da je geslo za tega uporabnika neveljavno - prijava je neuspešna.
 
 ### **5.3 UREJANJE UPORABNIŠKEGA PROFILA**
 
@@ -192,25 +214,25 @@ MUST have
 Funkcionalnost nima alternativnih tokov
 
 ### **Izjemni Tokovi** 
-**1.**  
+- **Izjemni tok 1:**  
   **1.1.** Prijavljen uporabnik izbere funkcionalnost ogled profila   
   **1.2.** Izbere urejanje uporabniškega profila  
   **1.3.** Prijavljen uporabnik spremeni vnosna polja in uporabi nedovoljene znake.  
   **1.4.** Sistem ne dovoli shranjevanja in opozori na uporabljene nedovoljene znake.  
 
-**2.**  
+- **Izjemni tok 2:**  
   **2.1.** Prijavljen uporabnik izbere funkcionalnost ogled profila  
   **2.2.** Izbere urejanje uporabniškega profila  
   **2.3.** Prijavljen uporabnik spremeni vnosna polja in uporabi preveliko število znakov za vnosno polje.   
   **2.4.** Sistem ne dovoli shranjevanja in opozori na predolgo dolžino znakov v teh vnosnih poljih.  
 
-**3.**  
+- **Izjemni tok 3:**  
   **3.1.** Prijavljen uporabnik izbere funkcionalnost ogled profila  
   **3.2.** Izbere urejanje uporabniškega profila  
   **3.3.** Prijavljen uporabnik spremeni vnosna polja in uporabi nepravilne znake v poljih, ki zahtevajo poseben format (e-poštni naslov, telefonska številka).  
   **3.4.** Sistem ne dovoli shranjevanja in opozori na napačen format znakov v teh vnosnih poljih.  
 
-**4.**  
+- **Izjemni tok 4:**  
   **4.1.** Prijavljen uporabnik izbere funkcionalnost ogled profila   
   **4.2.** Izbere urejanje uporabnikega profila  
   **4.3.** Prijavljen uporabnik spremeni vnosna polja vendar ne potrdi shranjevanja sprememb.   
@@ -235,11 +257,10 @@ MUST have
 
 ### **Sprejemni testi**
   
-- Prijavi se v sistem in poskusi spremeniti podatke na svojem profilu z dovoljenimi znaki
-- Prijavi se v sistem in poskusi spremeniti podatke na svojem profilu z nedovoljenimi znaki
-- Prijavi se v sistem in poskusi spremeniti podatke na svojem profilu tako, da v vsaj eno vnosno polje vneseš preveč znakov
-- Prijavi se v sistem in poskusi spremeniti email naslov brez '@' znaka
-- Prijavi se v sistem, izberi urejanje svojega profila, spremeni nekaj podatkov a ne shrani sprememb. Nato ponovno naloži svoj profil.
+- **Osnovni tok:** Prijavi se v sistem in poskusi spremeniti podatke na svojem profilu z dovoljenimi znaki. Pričakovan rezultat je, da je urejanje profila uspešno. 
+- **Izjemni tok 2:** Prijavi se v sistem in poskusi spremeniti podatke na svojem profilu tako, da v vsaj eno vnosno polje vneseš preveč znakov. Pričakovan rezultat je, da sistem javi, da je preveč znakov v vnosnih polji
+- **Izjemni tok 3:** Prijavi se v sistem in poskusi spremeniti podatke na svojem profilu z nedovoljenimi znaki. Pričakovan rezultat je, da sistem opozori, da so v polju nedovoljeni znak.
+- **Izjemni tok 4:** Prijavi se v sistem, izberi urejanje svojega profila, spremeni nekaj podatkov a ne shrani sprememb. Nato ponovno naloži svoj profil. Pričakovan rezultat je, da profil ostane enak. Spremembe se niso shranile. 
 
   
 ### **5.4 PREGLED VSEH OGLASOV**
@@ -277,7 +298,7 @@ MUST have
 
 ### **Sprejemni testi**
 
-- Odpri spletno aplikacijo Dog Walkers in preveri ali se naložijo oglasi.
+- **Osnovni tok:** Odpri spletno aplikacijo Dog Walkers in preveri ali se naložijo oglasi. Pričakovan rezultat je, da se naložijo oglasi. 
 
 
 ### **5.5  OGLED POSAMEZNEGA OGLASA**
