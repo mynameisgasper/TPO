@@ -340,8 +340,11 @@ MUST have
 
 ### **Sprejemni testi**
 
-- Pritisni na oglas, preveri če se odpre. 
-- Odpri profil nekega uporabnika in poskusi odpreti oglas na profilni strani
+-	**Osnovni tok:**  
+  Uporabnik je na funkcionalnosti Ogled oglasov. Uporabnik pritisne na oglas. Pričakovano je da se prikaže oglas.  
+-	**Alternativni tok:**  
+  Uporabnik je na spletni aplikaciji Dog Walkers. Odpre profil nekega uporabnika in pritisne na gumb "Oglej oglase". Pričakovan rezultat je da se prikaže oglas.  
+
 
 
 ### **5.6 OGLED LOKACIJE PREVZEMA**
@@ -379,7 +382,9 @@ MUST have
 
 ### **Sprejemni testi**
 
-- Poskusi odpreti zemljevid na posameznem oglasu
+-	**Osnovni tok**  
+  Posameznik je na funkcionalnosti "Ogled posameznega oglasa". Pričakovan rezultat je da se mu prikaže Google maps zemljevid, ki se lahko poveča.  
+
 
 
 ### **5.7 OGLED PROFILA**
@@ -430,10 +435,15 @@ MUST have
 
 ### **Sprejemni testi**
 
-- Prijavi se kot navaden uporabnik in poišči ter si oglej profil drugega uporabnika
-- Preko iskanja poskusi navigirati na stran profila uporabniškega računa, ki ne obstaja
-- Prijavi se v sistem in izberi funkcionalnost **ogled oglasa**, nato si preko oglasa poskusi ogledati profil uporabnika, ki ga je ustvaril
-- Prijavi se kot **premium uporabnik** in si preko zgodovine sprehodov poskusi ogledati profil enega izmed uporabnikov
+-	**Osnovni tok**  
+  Uporabnik poišče profil z iskalnikom, ki si ga želi ogledati. Izmed ponujenih rezultatov izbere pravi profil. Pričakovan rezultat je prikazan oglas.  
+-	**Alternativni tok 1**  
+  Uporabnik si izbere profil, ki si ga želi ogledati s klikom na ime uporabnika. Pričakovan rezultat je prikazan oglas.  
+-	**Alternativni tok 2**  
+  Uporabnik je Premium uporabnik na funkcionalnosti "Ogled zgodovine". S klikom na ime uporabnika izbere profil, ki si ga želi ogledati. Pričakovan rezultat je prikazan oglas.  
+-	**Izjemni tok**  
+  Uporabnik poišče profil z iskalnikom, ki si ga želi ogledati. Vnese prazen niz ali niz, ki se ne ujema z nobenim uporabnikom. Pričakovan rezultat je prikazano sporočilo o prazni poizvedbi.  
+
 
 ### 5.8 KREACIJA OGLASA
 
@@ -473,8 +483,11 @@ Funkcionalnost nima posebnosti
 MUST have
 
 ### **Sprejemni testi**
-- poskusi ustvariti oglas brez opisa
-- poskusi ustvariti oglas brez označene lokacije prevzema
+-	**Osnovni tok**
+  Uporabnik je prijavljen in klikne na gumb za kreiranje novega oglasa. Vnese željene podatke v vsa zahtevana polja. Ob pritisku na gumb pričakujemo da se kreira oglas in se pojavi kot del funkcionalnosti "Ogled vseh oglasov"  
+-	**Izjemni tok**
+  Uporabnik ni prijavljen in klikne na gumb za kreiranje novega oglasa. Vnese željene podatke v vsa zahtevana polja z izjemo opisa. Ob pritisku na gumb pričakujemo da se oglas ne kreira in se pokaže obvestilo o neveljavnem obrazcu.  
+
 
 ### 5.9 VZDRŽEVANJE OGLASA
 
