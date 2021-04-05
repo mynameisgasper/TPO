@@ -534,10 +534,6 @@ MUST have
 #### Izjemni tok
 1. Prijavi se z registriranim uporabnikom in navigiraj na razdelek "moji oglasi". Izberi poljubne oglas in nato **nepopolno** izpolni vnosna polja (pustim prazno vnosno polje za opis oglasa oz. prazno polje za lokacijo). Nato izvedemo posodobieb. **Pričakovan rezultat testa je neuspešno posodobljen oglas in obvestilo uporabniku s strani sistema, naj preveri vnosna polja**
 
-- prijavi se z navadnim uporabnikom, in poskusi urediti oglas, ki ne obstaja (navigacija preko url-ja)
-- poskusi posodobiti oglas s praznim vnosnim poljem za opis oglasa
-- poskusi posodobiti oglas s praznim vnosnim poljem za lokacijo prevzema
-
 ### 5.10 BRISANJE OGLASA
 
 ### **Povzetek funkcionalnosti**
