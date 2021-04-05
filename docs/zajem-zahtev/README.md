@@ -1049,14 +1049,14 @@ WOULD have
 **TO DO**  
 
 ### **7.2 Vmesniki do zunanjih sistemov**  
-**Pretvornik valut ECB Exchange rate**  
+#### **Pretvornik valut ECB Exchange rate**  
 Ob nalaganju strani, ki prikazuje seznam vseh oglasov, ob nalaganju posameznega oglasa ter ob kreiranju novega oglasa se bo klicala funkcija **converter(currency1, currency2, value)**, ki sprejme dva stringa kratic valut ter tabelo vrednosti imenovano *value*, ki vsebuje valute *currency1* katere želi pretvoriti v valuto *currency2*.  
 Funkcija bo vrnila tabelo vrednosti pretvorjenih v valuto *currency2*  
   
 *currency1* in *currency2* primer: 'EUR', 'USD',...  
 *value* primer: 100, 200, 233.523,...  
 
-**Google Maps API**  
+#### **Google Maps API**  
 Ob nalaganju strani, ki prikazuje posamezni oglas se bo klicala funkcija **initMap(lokacija)**, ki sprejme string naslova možnega prevzema psa.  
 Funkcija prikaže zemljevid z označeno lokacijo možnega prevzema na zemljevidu.  
   
