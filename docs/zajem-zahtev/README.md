@@ -695,11 +695,11 @@ Profil se uporabniku izbriše iz hitrih kontaktov
 MUST have
 
 ### **Sprejemni testi**
+- Osnovni tok:  
+  Prijavi se v sistem kot **Premium uporabnik** in pod hitrimi kontakti poizkusi izbrisati enega izmed hitrih kontaktov. Pričakovan rezultat je izbrisan hitri kontakt.
 
-- Prijavi se v račun s pravicami **Premium uporabnika** in si nek profil poskusi izbrisati iz "hitrih kontaktov".
 
-
-### 5.14 ODZIV NA OGLAS
+### **5.14 ODZIV NA OGLAS**
 
 ### **Povzetek funkcionalnosti**
 Vsak **prijavljen uporabnik** se lahko odzove na poljuben oglas, ki si ga ogleduje
@@ -708,24 +708,25 @@ Vsak **prijavljen uporabnik** se lahko odzove na poljuben oglas, ki si ga ogledu
 2. Uporabnik klikne na gumb "kontakt" ob prikazanem oglasu
 3. Sistem preveri ali je uporabnik prijavljen
 4. Uporabnika se preusmeri na novo stran, kjer je prikazano vnosno polje za sporočilo
-5. Po izpolnjenem vnosnem polju, kjer mora biti vnos skladen z zahtevmi, uporabnik pritisne na gumb "pošlji"
+5. Po izpolnjenem vnosnem polju, kjer mora biti vnos skladen z zahtevami, uporabnik pritisne na gumb "pošlji"
 6. Kreatorju oglasa se pošlje poizvedba
 7. V bazo podatkov se zapiše interakcija med uporabnikoma
 8. Uporabnika se preusmeri nazaj na oglas
 
 ### **Izjemni tok**
-1. Prijavljen uporabnik brska po oglasih in zagleda oglas, ki ustreza njegovim potrebam
-2. Uporabnik klikne na gumb "kontakt" ob prikazanem oglasu
-3. Sistem preveri ali je uporabnik prijavljen
-4. Uporabnika se preusmeri na novo stran, kjer je prikazano vnosno polje za sporočilo
-5. Po izpolnjenem vnosnem polju, kjer vnos ni skladen z zahtevmi, uporabnik pritisne na gumb "pošlji"
-6. Sistem uporabniku sporoči napako in ga pozove naj pregleda svoje vnose in jih ustrezno popravi/dopolne.
+1. Izjemni tok 1:  
+  1.1 Prijavljen uporabnik brska po oglasih in zagleda oglas, ki ustreza njegovim potrebam  
+  1.2 Uporabnik klikne na gumb "kontakt" ob prikazanem oglasu  
+  1.3 Sistem preveri ali je uporabnik prijavljen  
+  1.4 Uporabnika se preusmeri na novo stran, kjer je prikazano vnosno polje za sporočilo  
+  1.5 Po izpolnjenem vnosnem polju, kjer vnos ni skladen z zahtevmi, uporabnik pritisne na gumb "pošlji"  
+  1.6 Sistem uporabniku sporoči napako in ga pozove naj pregleda svoje vnose in jih ustrezno popravi/dopolne.  
 
-### **Izjemni tok**
-1. Neprijavljen uporabnik brska po oglasih in zagleda oglas, ki ustreza njegovim potrebam
-2. Uporabnik klikne na gumb "kontakt" ob prikazanem oglasu
-3. Sistem preveri ali je uporabnik prijavljen
-4. Uporabnika se preusmeri na stran za registracijo
+2. Izjemni tok 2:   
+  2.1 Neprijavljen uporabnik brska po oglasih in zagleda oglas, ki ustreza njegovim potrebam  
+  2.2 Uporabnik klikne na gumb "kontakt" ob prikazanem oglasu  
+  2.3 Sistem preveri ali je uporabnik prijavljen  
+  2.4 Uporabnika se preusmeri na stran za registracijo  
 
 ### **Alternativni tokovi**
 Odziv na oglas nima alternativnih tokov, odziv je možno izvesti le preko osnovnega toka
@@ -743,9 +744,15 @@ Pri odzivu na oglas je potrebno paziti, da so podatki o pošiljatelju zapisni v 
 SHOULD have
 
 ### **Sprejemni testi**
-- Prijavi se v sistem in se poskusi odzvati na oglas z vnosom ustreznih podatkov
-- Prijavi se v sistem in se poskusi odzvati na oglas z vnosom neustreznih podatkov
-- Poskusi se odzvati na oglas z neprijavljenim uporabnikom
+- Osnovni tok:  
+  Prijavi se v sistem in se poskusi odzvati na oglas ter podaj sporočilo. Pričakovan rezultat je, da oglaševalec
+  dobi poizvedbo, v bazo se zapiše interakcija, uporabnika pa se preusmeri nazaj na oglas.
+- Izjemni tok 1:  
+  Prijavi se v sistem in se poskusi odzvati na oglas z vnosom neustreznih podatkov. Pričakovan rezultat je, da
+  sistem poda obvestilo o neustreznih vnešenih podatkih.
+- Izjemni tok 2:  
+  Poskusi se odzvati na oglas z neprijavljenim uporabnikom. Pričakovan rezultat je, da sistem uporabnika preusmeri
+  na formo za registracijo.
 
 
 ### **5.15 PRETVORBA VALUTE**
@@ -786,8 +793,13 @@ Cene se prikažejo v uporabniku izbrani valuti
 SHOULD have
 
 ### **Sprejemni testi**
+- Osnovni tok:  
+  Prijavi se v sistem in si na profilu izberi drugo valuto. Pričakovan rezultat je, da se cene na oglasih
+  spremenijo na novo izbrano valuto.  
 
-- Prijavi se v uporabniški račun in si izberi valuto. Nato preveri, če se ti cene na oglasih pokažejo v izbrani valuti. 
+- Izjemni tok:    
+  Prijavi se v sistem in si na profilu izberi drugo valuto. Sistem preveri izbrano valuto in poizkusi pretvoriti
+  ceno, a zaradi odpovedi strežnika ne uspe. Pričakovan rezultat je nespremenjena valuta cene na oglasu.
 
 
 ### **5.16 PODAJ OCENO PROFILU**
@@ -808,17 +820,17 @@ SHOULD have
 ### **Alternativni Tok** 
 Funkcionalnost nima alternativnih tokov.
 
-### **Izjemni Tokovi** 
-**1.**  
-  **1.1.**  Prijavljen uporabnik izbere funkcionalnost ogled profila drugega uporabnika.  
-  **1.2.**  Izbere urejanje ocene.  
-  **1.3.**  Prijavljen uporabnik spremeni oceno z lestvice in ne shrani izbire.  
-  **1.4.**  Sistem ne spremeni ocene in ohrani staro vrednost.
+### **Izjemni Tok** 
+1. Izjemni tok 1:    
+  1.1 Prijavljen uporabnik izbere funkcionalnost ogled profila drugega uporabnika.    
+  1.2 Izbere urejanje ocene.   
+  1.3 Prijavljen uporabnik spremeni oceno z lestvice in ne shrani izbire.   
+  1.4 Sistem ne spremeni ocene in ohrani staro vrednost.  
 
-**2.**  
-  **2.1.**  Prijavljen uporabnik izbere funkcionalnost ogled profila drugega uporabnika.  
-  **2.2.**  Prijavljen uporabnik s tem uporabnikom še ni opravil nobene storitve, zato mu je urejanje ocene onemogočeno.  
-  **2.3.**  Sistem zakrije izbiro urejanja ocene in izpiše obvestilo.
+2. Izjemni tok 2:   
+  2.1. Prijavljen uporabnik izbere funkcionalnost ogled profila drugega uporabnika.  
+  2.2. Prijavljen uporabnik s tem uporabnikom še ni opravil nobene storitve, zato mu je urejanje ocene onemogočeno.  
+  2.3. Sistem zakrije izbiro urejanja ocene in izpiše obvestilo.
 
 
 ### **Pogoji**
@@ -837,10 +849,15 @@ COULD have
 
 
 ### **Sprejemni testi**
+- Osnovni tok:  
+  Prijavi se v sistem kot uporabnik, ki ima v bazi vsaj eno interakcijo z drugim uporabnikom in temu uporabniku poskusi dodati oceno. Pričakovan rezultat je dodana ocena in spremenjena skupna ocena ocenjenega uporabnika.
 
-- Prijavi se v sistem kot uporabnik, ki ima v bazi vsaj eno interakcijo z drugim uporabnikom in temu uporabniku poskusi dodati oceno
-- Prijavi se v sistem kot uporabnik, ki ima v bazi vsaj eno interakcijo z drugim uporabnikom in temu uporabniku poskusi dodati oceno, a izbire ne potrdi ampak ponovno naloži stran. Preveri če je ocena ostala nespremenjena
-- Prijavi se v sistem kot uporabnik in poskusi dodati oceno uporabniku s katerim nimaš zgodovine
+- Izjemni tok 1:  
+  Prijavi se v sistem kot uporabnik, ki ima v bazi vsaj eno interakcijo z drugim uporabnikom in temu uporabniku poskusi dodati oceno, a izbire ne potrdi ampak ponovno naloži stran. Pričakovan rezultat je, da je ocena ostala nespremenjena.
+
+- Izjemni tok 2:  
+  Prijavi se v sistem kot uporabnik in poskusi dodati oceno uporabniku s katerim nimaš zgodovine. Pričakovan rezultat je obvestilo, da je urejanje ocene onemogočeno, saj z uporabnikom nimaš zgodovine.
+
 
 ### **5.17 ISKANJE OGLASOV - SEARCH**
 
