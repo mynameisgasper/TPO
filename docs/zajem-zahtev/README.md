@@ -913,25 +913,60 @@ WOULD have
 ### **5.19 BRISANJE KOMENTARJEV**
 
 ### **Povzetek funkcionalnosti**
-**Admin** lahko iz profila briše komentarje. 
+**Prijavljen uporabnik** lahko iz profila izbriše svoj komentar. **Admin** pa lahko izbriše katerikoli komentar.
 
 ### **Osnovni tok**
-1. Sistem ob odprtju profila preveri, če je uporabnik pooblaščen za brisanje posameznega komentarja
-2. Pri vseh komentarjih se pojavi gumb *izbriši komentar*
-3. **Admin** na odprtem oglasu ob komentarju pritisne gumb *izbriši komentar*
-4. Sistem poiskusi izbrisati komentar
-5. Komentar je izbrisan, **Admin** je o tem obveščen
+1. Prijavljen uporabnik izbere funkcionalnost "ogled profila"
+2. Uporabnik pritisne na gumb "Dodaj/uredi komentar"
+3. Sistem preveri, če imata uporabnika v bazi zapisano vsaj eno interakcijo.
+4. Sistem uporabniku prikaže vnosno polje za komentar.
+5. Uporabnik pritisne na gumb "izbriši komentar".
+6. Sistem preveri, če komentar obstaja.
+7. Sistem odpre potrdilno okno
+8. Uporabnik pritisne na gumb za potrditev
+9. Sistem izbriše komentar na tem profilu
 
 ### **Alternativni tok**
 
-## TODO
+1. Admin izbere funkcionalnost "ogled profila"
+2. Admin pritisne na gumb za brisanje komentarja
+3. Sistem odpre potrdilno okno
+4. Admin pritisne na gumb za potrditev
+6. Sistem izbriše komentar na tem profilu
 
 ### **Izjemni tok**
-1. Sistem ob odprtju profila preveri, če je uporabnik pooblaščen za brisanje posameznega komentarja
-2. Pri vseh komentarjih se pojavi gumb *izbriši komentar*
-3. Sistem poiskusi izbrisati komentar
-4. Nek drug **admin** je ta komentar že izbrisal, vendar trenutni **admin** strani še ni posodobil. 
-5. **Admin** je obveščen, da je bil komentar že izbrisan
+1. Izjemni tok 1:  
+  1.1 Prijavljen uporabnik izbere funkcionalnost "ogled profila"  
+  1.2 Uporabnik pritisne na gumb "Dodaj/uredi komentar"  
+  1.3 Sistem preveri, če imata uporabnika v bazi zapisano vsaj eno interakcijo.  
+  1.4 Sistem uporabniku prikaže vnosno polje za komentar.  
+  1.5 Uporabnik pritisne na gumb "izbriši komentar".  
+  1.6 Sistem preveri, če komentar obstaja.  
+  1.7 Sistem uporabnika obvesti, da komentar ne obstaja.  
+
+2. Izjemni tok 2:  
+  2.1 Prijavljen uporabnik izbere funkcionalnost "ogled profila"  
+  2.2 Uporabnik pritisne na gumb "Dodaj/uredi komentar"  
+  2.3 Sistem preveri, če imata uporabnika v bazi zapisano vsaj eno interakcijo.  
+  2.4 Sistem uporabniku prikaže vnosno polje za komentar.  
+  2.5 Uporabnik pritisne na gumb "izbriši komentar".  
+  2.6 Sistem preveri, če komentar obstaja.  
+  2.7 Sistem odpre potrdilno okno  
+  2.8 Uporabnik navigira proč od strani
+  2.9 Sistem ne izbriše komentarja
+
+3. Izjemni tok 3:  
+  3.1 Admin izbere funkcionalnost "ogled profila"  
+  3.2 Admin pritisne na gumb za brisanje komentarja  
+  3.3 Sistem odpre potrdilno okno  
+  3.4 Admin navigira proč od strani  
+  3.5 Sistem ne izbriše komentarja
+
+4. Izjemni tok 4:
+  4.1 Prijavljen uporabnik izbere funkcionalnost "ogled profila"
+  4.2 Uporabnik pritisne na gumb "Dodaj/uredi komentar"  
+  4.3 Sistem preveri, če imata uporabnika v bazi zapisano vsaj eno interakcijo.  
+  4.4 Sistem ne prikaže polja za urejanje in podajanje komentarja in izpiše obvestilo. 
 
 ### **Pogoji**
 Uporabnik mora biti prijavljen kot admin. 
@@ -950,7 +985,12 @@ WOULD have
 
 ### **Sprejemni testi**
 
-- Napiši komentar z Navadnim oz. Premium uprabnikom in ga oddaj. Poiskusi ga izbrisati z admin računom.
+- Prijavi se v sistem kot uporabnik, ki ima v bazi vsaj eno interakcijo z drugim uporabnikom in temu uporabniku poskusi izbrisati komentar
+- Prijavi se v sistem kot admin in nekemu uporabniku poskusi izbrisati komentar
+- Prijavi se v sistem kot uporabnik, ki ima v bazi vsaj eno interakcijo z drugim uporabnikom in temu uporabniku poskusi izbrisati komentar ki ne obstaja
+- Prijavi se v sistem kot uporabnik, ki ima v bazi vsaj eno interakcijo z drugim uporabnikom in temu uporabniku poskusi izbrisati komentar, a izbire ne potrdi ampak ponovno naloži stran. Preveri če je komentar ostal
+- Prijavi se v sistem kot admin in nekemu uporabniku poskusi izbrisati komentar, a izbire ne potrdi ampak ponovno naloži stran. Preveri če je komentar ostal
+- Prijavi se v sistem kot uporabnik in poskusi izbrisati komentar uporabniku s katerim nimaš interakcije
 
 ### **5.20 OGLED ZGODOVINE SPREHODOV**
 
