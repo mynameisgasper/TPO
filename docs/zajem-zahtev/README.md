@@ -76,14 +76,31 @@ Admin ima vse funkcionalnosti kot premium uporabnik in možnost urejanja in bris
 
 Funkcionalnost nima alternativnih tokov
 
-### **Izjemni Tok** 
+### **Izjemni Tokovi** 
 
-1. Neprijavljen uporabnik v orodni vrstici izbere funkcionalnost ustvari račun
-2. Sistem odpre okno z vpisnimi polji za uporabniško ime, e-poštni naslov in geslo
-3. Neprijavljen uporabnik vpiše uporabniško ime, e-poštni naslov in nastavi geslo
-4. Študent pritisne gumb za registracijo
-4. Sistem preveri, če so vsi vnosi veljavni in če morda uporabnik s tem uporabniškim imenom ali e-poštnim naslovom obstaja
-5. Sistem javi, da uporabnik s tem uporabniškim imenom ali e-poštnim naslovom že obstaja oz. da se geslo ne ujema z podanimi omejitavmi
+- **Izjemni tok 1**  
+  **1.1** Neprijavljen uporabnik v orodni vrstici izbere funkcionalnost ustvari račun  
+  **1.2** Sistem odpre okno z vpisnimi polji za uporabniško ime, e-poštni naslov in geslo  
+  **1.3** Neprijavljen uporabnik vpiše uporabniško ime, e-poštni naslov in nastavi geslo  
+  **1.4** Študent pritisne gumb za registracijo  
+  **1.5** Sistem preveri, če so vsi vnosi veljavni in če morda uporabnik s tem uporabniškim imenom   ali e-poštnim naslovom obstaja  
+  **1.6** Sistem javi, da uporabnik s tem uporabniškim imenom ali e-poštnim naslovom že obstaja.   Registracija ni uspela.   
+
+- **Izjemni tok 2**  
+  **2.1** Neprijavljen uporabnik v orodni vrstici izbere funkcionalnost ustvari račun  
+  **2.2** Sistem odpre okno z vpisnimi polji za uporabniško ime, e-poštni naslov in geslo  
+  **2.3** Neprijavljen uporabnik vpiše uporabniško ime, e-poštni naslov in nastavi geslo  
+  **2.4** Študent pritisne gumb za registracijo  
+  **2.5** Sistem preveri, če so vnosi veljavni in če morda uporabnik s tem uporabniškim imenom ali e-poštnim naslovom obstaja  
+  **2.6** Sistem javi, da se gesli ne ujemata. Registracija ni uspela.  
+
+- **Izjemni tok 3**  
+  **3.1** Neprijavljen uporabnik v orodni vrstici izbere funkcionalnost ustvari račun  
+  **3.2** Sistem odpre okno z vpisnimi polji za uporabniško ime, e-poštni naslov in geslo  
+  **3.3** Neprijavljen uporabnik vpiše uporabniško ime, e-poštni naslov in nastavi geslo  
+  **3.4** Študent pritisne gumb za registracijo  
+  **3.5** Sistem preveri, če so vnosi veljavni in če morda uporabnik s tem uporabniškim imenom ali e-poštnim naslovom obstaja  
+  **3.6** Sistem javi, da je e-poštni naslov neveljaven. Registracija ni uspela.  
 
 ### **Pogoji**
 
@@ -105,15 +122,13 @@ MUST have
 
 ### **Sprejemni testi**
 
-- Poskusi se registrirati z veljavnimi podatki
+- **Osnovni tok:** Poskusi se registrirati z veljavnimi podatki. Pričakovan rezultat je, da je registracija uspešna. 
 
-- Poskusi se registrirati z uporabniškim imenom, ki že obstaja
+- **Izjemni tok 1:** Poskusi se registrirati z uporabniškim imenom ali e-poštnim naslovom, ki že obstaja. Pričakovan rezultat je, da registracija ni uspešna. 
 
-- Poskusi se registrirati s e-poštnim naslovom, ki je že v uporabi
+- **Izjemni tok 2:** Poskusi se registrirati z gesli, ki se ne ujemata. Pričakovan rezultat je, da sistem javi, da se gesli ne ojemata; registracija je neuspešna.
 
-- Poskusi se registrirati z napačnimi znaki v e-poštnem naslovu (brez @ ali domene)
-
-- Poskusi se registrirati z gesli, ki se ne ujemata
+- **Izjemni tok 3:** Poskusi se registrirati z napačnimi znaki v e-poštnem naslovu (brez @ ali domene). Pričakovan rezultat je, da se sistem javi, da v e-poštni naslvo potrebuje @ oziroma domeno; registracija je neuspešna.
   
   
 ### **5.2 PRIJAVA UPORABNIKA**  
@@ -135,12 +150,20 @@ Funkcionalnost nima alternativnih tokov
 5. Sistem javi, da je prijava uspela, prijavleni uporabnik je preosmerjen na domačo stran.
 
 
-### **Izjemni Tok** 
-1. Neprijavljen uporabnik izbere funkcionalnost prijava
-2. Sistem odpre okno z vpisnimi polji za uporabniško ime / e-poštni naslov in geslo
-3. Neprijavleni uporabnik vnese podatke za prijavo
-4. Sistem preveri, če vneseni uporabniški račun obstaja in če je geslo pravilno
-5. Sistem neprijavlenem uporabniku sporoči da ta uporabnik ne obstaja in/ali da je geslo napačno; prijava ni uspela 
+### **Izjemni Tokovi** 
+- **Izjemni tok 1**  
+  **1.1** Neprijavljen uporabnik izbere funkcionalnost prijava  
+  **1.2** Sistem odpre okno z vpisnimi polji za uporabniško ime in geslo  
+  **1.3** Neprijavleni uporabnik vnese podatke za prijavo  
+  **1.4** Sistem preveri, če vneseni uporabniški račun obstaja in če je geslo pravilno  
+  **1.5** Sistem neprijavlenem uporabniku sporoči, da ta uporabnik ne obstaja - prijava ni uspela  
+
+- **Izjemni tok 2**  
+  **2.1** Neprijavljen uporabnik izbere funkcionalnost prijava  
+  **2.2** Sistem odpre okno z vpisnimi polji za uporabniško ime in geslo  
+  **2.3** Neprijavleni uporabnik vnese podatke za prijavo  
+  **2.4** Sistem preveri, če vneseni uporabniški račun obstaja in če je geslo pravilno  
+  **2.5** Sistem neprijavlenem uporabniku sporoči, da je geslo napačno - prijava ni uspela   
 
 ### **Pogoji**
 
@@ -161,13 +184,11 @@ MUST have
 
 ### **Sprejemni testi**
 
-- Poskusi se prijaviti z veljavnimi podatki.
+- **Osnovni tok:** Poskusi se prijaviti z veljavnimi podatki. Pričakovan rezultat je, da je prijava uspešna. 
 
-- Poskusi se prijaviti z napačnim uporabniškim imenom.
+- **Izjemni tok 1:** Poskusi se prijaviti z napačnim uporabniškim imenom. Pričakovan rezultat je, da sistem javi, da ta uporabnik ne obstaja - prijava je neuspešna.
 
-- Poskusi se prijaviti z napačnim geslom.
-
-- Poskusi se prijaviti večkrat zaporedoma z napačnimi vnosi, dokler sistem ne blokira prijave. 
+- **Izjemni tok 2:** Poskusi se prijaviti z napačnim geslom. Pričakovan rezultat je, da sistem javi, da je geslo za tega uporabnika neveljavno - prijava je neuspešna.
 
 ### **5.3 UREJANJE UPORABNIŠKEGA PROFILA**
 
@@ -192,25 +213,25 @@ MUST have
 Funkcionalnost nima alternativnih tokov
 
 ### **Izjemni Tokovi** 
-**1.**  
+- **Izjemni tok 1:**  
   **1.1.** Prijavljen uporabnik izbere funkcionalnost ogled profila   
   **1.2.** Izbere urejanje uporabniškega profila  
   **1.3.** Prijavljen uporabnik spremeni vnosna polja in uporabi nedovoljene znake.  
   **1.4.** Sistem ne dovoli shranjevanja in opozori na uporabljene nedovoljene znake.  
 
-**2.**  
+- **Izjemni tok 2:**  
   **2.1.** Prijavljen uporabnik izbere funkcionalnost ogled profila  
   **2.2.** Izbere urejanje uporabniškega profila  
   **2.3.** Prijavljen uporabnik spremeni vnosna polja in uporabi preveliko število znakov za vnosno polje.   
   **2.4.** Sistem ne dovoli shranjevanja in opozori na predolgo dolžino znakov v teh vnosnih poljih.  
 
-**3.**  
+- **Izjemni tok 3:**  
   **3.1.** Prijavljen uporabnik izbere funkcionalnost ogled profila  
   **3.2.** Izbere urejanje uporabniškega profila  
   **3.3.** Prijavljen uporabnik spremeni vnosna polja in uporabi nepravilne znake v poljih, ki zahtevajo poseben format (e-poštni naslov, telefonska številka).  
   **3.4.** Sistem ne dovoli shranjevanja in opozori na napačen format znakov v teh vnosnih poljih.  
 
-**4.**  
+- **Izjemni tok 4:**  
   **4.1.** Prijavljen uporabnik izbere funkcionalnost ogled profila   
   **4.2.** Izbere urejanje uporabnikega profila  
   **4.3.** Prijavljen uporabnik spremeni vnosna polja vendar ne potrdi shranjevanja sprememb.   
@@ -235,11 +256,10 @@ MUST have
 
 ### **Sprejemni testi**
   
-- Prijavi se v sistem in poskusi spremeniti podatke na svojem profilu z dovoljenimi znaki
-- Prijavi se v sistem in poskusi spremeniti podatke na svojem profilu z nedovoljenimi znaki
-- Prijavi se v sistem in poskusi spremeniti podatke na svojem profilu tako, da v vsaj eno vnosno polje vneseš preveč znakov
-- Prijavi se v sistem in poskusi spremeniti email naslov brez '@' znaka
-- Prijavi se v sistem, izberi urejanje svojega profila, spremeni nekaj podatkov a ne shrani sprememb. Nato ponovno naloži svoj profil.
+- **Osnovni tok:** Prijavi se v sistem in poskusi spremeniti podatke na svojem profilu z dovoljenimi znaki. Pričakovan rezultat je, da je urejanje profila uspešno. 
+- **Izjemni tok 2:** Prijavi se v sistem in poskusi spremeniti podatke na svojem profilu tako, da v vsaj eno vnosno polje vneseš preveč znakov. Pričakovan rezultat je, da sistem javi, da je preveč znakov v vnosnih polji
+- **Izjemni tok 3:** Prijavi se v sistem in poskusi spremeniti podatke na svojem profilu z nedovoljenimi znaki. Pričakovan rezultat je, da sistem opozori, da so v polju nedovoljeni znak.
+- **Izjemni tok 4:** Prijavi se v sistem, izberi urejanje svojega profila, spremeni nekaj podatkov a ne shrani sprememb. Nato ponovno naloži svoj profil. Pričakovan rezultat je, da profil ostane enak. Spremembe se niso shranile. 
 
   
 ### **5.4 PREGLED VSEH OGLASOV**
@@ -277,7 +297,7 @@ MUST have
 
 ### **Sprejemni testi**
 
-- Odpri spletno aplikacijo Dog Walkers in preveri ali se naložijo oglasi.
+- **Osnovni tok:** Odpri spletno aplikacijo Dog Walkers in preveri ali se naložijo oglasi. Pričakovan rezultat je, da se naložijo oglasi. 
 
 
 ### **5.5  OGLED POSAMEZNEGA OGLASA**
@@ -320,8 +340,11 @@ MUST have
 
 ### **Sprejemni testi**
 
-- Pritisni na oglas, preveri če se odpre. 
-- Odpri profil nekega uporabnika in poskusi odpreti oglas na profilni strani
+-	**Osnovni tok:**  
+  Uporabnik je na funkcionalnosti Ogled oglasov. Uporabnik pritisne na oglas. Pričakovano je da se prikaže oglas.  
+-	**Alternativni tok:**  
+  Uporabnik je na spletni aplikaciji Dog Walkers. Odpre profil nekega uporabnika in pritisne na gumb "Oglej oglase". Pričakovan rezultat je da se prikaže oglas.  
+
 
 
 ### **5.6 OGLED LOKACIJE PREVZEMA**
@@ -359,7 +382,9 @@ MUST have
 
 ### **Sprejemni testi**
 
-- Poskusi odpreti zemljevid na posameznem oglasu
+-	**Osnovni tok**  
+  Posameznik je na funkcionalnosti "Ogled posameznega oglasa". Pričakovan rezultat je da se mu prikaže Google maps zemljevid, ki se lahko poveča.  
+
 
 
 ### **5.7 OGLED PROFILA**
@@ -410,10 +435,15 @@ MUST have
 
 ### **Sprejemni testi**
 
-- Prijavi se kot navaden uporabnik in poišči ter si oglej profil drugega uporabnika
-- Preko iskanja poskusi navigirati na stran profila uporabniškega računa, ki ne obstaja
-- Prijavi se v sistem in izberi funkcionalnost **ogled oglasa**, nato si preko oglasa poskusi ogledati profil uporabnika, ki ga je ustvaril
-- Prijavi se kot **premium uporabnik** in si preko zgodovine sprehodov poskusi ogledati profil enega izmed uporabnikov
+-	**Osnovni tok**  
+  Uporabnik poišče profil z iskalnikom, ki si ga želi ogledati. Izmed ponujenih rezultatov izbere pravi profil. Pričakovan rezultat je prikazan oglas.  
+-	**Alternativni tok 1**  
+  Uporabnik si izbere profil, ki si ga želi ogledati s klikom na ime uporabnika. Pričakovan rezultat je prikazan oglas.  
+-	**Alternativni tok 2**  
+  Uporabnik je Premium uporabnik na funkcionalnosti "Ogled zgodovine". S klikom na ime uporabnika izbere profil, ki si ga želi ogledati. Pričakovan rezultat je prikazan oglas.  
+-	**Izjemni tok**  
+  Uporabnik poišče profil z iskalnikom, ki si ga želi ogledati. Vnese prazen niz ali niz, ki se ne ujema z nobenim uporabnikom. Pričakovan rezultat je prikazano sporočilo o prazni poizvedbi.  
+
 
 ### 5.8 KREACIJA OGLASA
 
@@ -453,8 +483,11 @@ Funkcionalnost nima posebnosti
 MUST have
 
 ### **Sprejemni testi**
-- poskusi ustvariti oglas brez opisa
-- poskusi ustvariti oglas brez označene lokacije prevzema
+-	**Osnovni tok**
+  Uporabnik je prijavljen in klikne na gumb za kreiranje novega oglasa. Vnese željene podatke v vsa zahtevana polja. Ob pritisku na gumb pričakujemo da se kreira oglas in se pojavi kot del funkcionalnosti "Ogled vseh oglasov"  
+-	**Izjemni tok**
+  Uporabnik ni prijavljen in klikne na gumb za kreiranje novega oglasa. Vnese željene podatke v vsa zahtevana polja z izjemo opisa. Ob pritisku na gumb pričakujemo da se oglas ne kreira in se pokaže obvestilo o neveljavnem obrazcu.  
+
 
 ### 5.9 VZDRŽEVANJE OGLASA
 
@@ -669,11 +702,11 @@ Profil se uporabniku izbriše iz hitrih kontaktov
 MUST have
 
 ### **Sprejemni testi**
+- Osnovni tok:  
+  Prijavi se v sistem kot **Premium uporabnik** in pod hitrimi kontakti poizkusi izbrisati enega izmed hitrih kontaktov. Pričakovan rezultat je izbrisan hitri kontakt.
 
-- Prijavi se v račun s pravicami **Premium uporabnika** in si nek profil poskusi izbrisati iz "hitrih kontaktov".
 
-
-### 5.14 ODZIV NA OGLAS
+### **5.14 ODZIV NA OGLAS**
 
 ### **Povzetek funkcionalnosti**
 Vsak **prijavljen uporabnik** se lahko odzove na poljuben oglas, ki si ga ogleduje
@@ -682,24 +715,25 @@ Vsak **prijavljen uporabnik** se lahko odzove na poljuben oglas, ki si ga ogledu
 2. Uporabnik klikne na gumb "kontakt" ob prikazanem oglasu
 3. Sistem preveri ali je uporabnik prijavljen
 4. Uporabnika se preusmeri na novo stran, kjer je prikazano vnosno polje za sporočilo
-5. Po izpolnjenem vnosnem polju, kjer mora biti vnos skladen z zahtevmi, uporabnik pritisne na gumb "pošlji"
+5. Po izpolnjenem vnosnem polju, kjer mora biti vnos skladen z zahtevami, uporabnik pritisne na gumb "pošlji"
 6. Kreatorju oglasa se pošlje poizvedba
 7. V bazo podatkov se zapiše interakcija med uporabnikoma
 8. Uporabnika se preusmeri nazaj na oglas
 
 ### **Izjemni tok**
-1. Prijavljen uporabnik brska po oglasih in zagleda oglas, ki ustreza njegovim potrebam
-2. Uporabnik klikne na gumb "kontakt" ob prikazanem oglasu
-3. Sistem preveri ali je uporabnik prijavljen
-4. Uporabnika se preusmeri na novo stran, kjer je prikazano vnosno polje za sporočilo
-5. Po izpolnjenem vnosnem polju, kjer vnos ni skladen z zahtevmi, uporabnik pritisne na gumb "pošlji"
-6. Sistem uporabniku sporoči napako in ga pozove naj pregleda svoje vnose in jih ustrezno popravi/dopolne.
+1. Izjemni tok 1:  
+  1.1 Prijavljen uporabnik brska po oglasih in zagleda oglas, ki ustreza njegovim potrebam  
+  1.2 Uporabnik klikne na gumb "kontakt" ob prikazanem oglasu  
+  1.3 Sistem preveri ali je uporabnik prijavljen  
+  1.4 Uporabnika se preusmeri na novo stran, kjer je prikazano vnosno polje za sporočilo  
+  1.5 Po izpolnjenem vnosnem polju, kjer vnos ni skladen z zahtevmi, uporabnik pritisne na gumb "pošlji"  
+  1.6 Sistem uporabniku sporoči napako in ga pozove naj pregleda svoje vnose in jih ustrezno popravi/dopolne.  
 
-### **Izjemni tok**
-1. Neprijavljen uporabnik brska po oglasih in zagleda oglas, ki ustreza njegovim potrebam
-2. Uporabnik klikne na gumb "kontakt" ob prikazanem oglasu
-3. Sistem preveri ali je uporabnik prijavljen
-4. Uporabnika se preusmeri na stran za registracijo
+2. Izjemni tok 2:   
+  2.1 Neprijavljen uporabnik brska po oglasih in zagleda oglas, ki ustreza njegovim potrebam  
+  2.2 Uporabnik klikne na gumb "kontakt" ob prikazanem oglasu  
+  2.3 Sistem preveri ali je uporabnik prijavljen  
+  2.4 Uporabnika se preusmeri na stran za registracijo  
 
 ### **Alternativni tokovi**
 Odziv na oglas nima alternativnih tokov, odziv je možno izvesti le preko osnovnega toka
@@ -717,9 +751,15 @@ Pri odzivu na oglas je potrebno paziti, da so podatki o pošiljatelju zapisni v 
 SHOULD have
 
 ### **Sprejemni testi**
-- Prijavi se v sistem in se poskusi odzvati na oglas z vnosom ustreznih podatkov
-- Prijavi se v sistem in se poskusi odzvati na oglas z vnosom neustreznih podatkov
-- Poskusi se odzvati na oglas z neprijavljenim uporabnikom
+- Osnovni tok:  
+  Prijavi se v sistem in se poskusi odzvati na oglas ter podaj sporočilo. Pričakovan rezultat je, da oglaševalec
+  dobi poizvedbo, v bazo se zapiše interakcija, uporabnika pa se preusmeri nazaj na oglas.
+- Izjemni tok 1:  
+  Prijavi se v sistem in se poskusi odzvati na oglas z vnosom neustreznih podatkov. Pričakovan rezultat je, da
+  sistem poda obvestilo o neustreznih vnešenih podatkih.
+- Izjemni tok 2:  
+  Poskusi se odzvati na oglas z neprijavljenim uporabnikom. Pričakovan rezultat je, da sistem uporabnika preusmeri
+  na formo za registracijo.
 
 
 ### **5.15 PRETVORBA VALUTE**
@@ -760,8 +800,13 @@ Cene se prikažejo v uporabniku izbrani valuti
 SHOULD have
 
 ### **Sprejemni testi**
+- Osnovni tok:  
+  Prijavi se v sistem in si na profilu izberi drugo valuto. Pričakovan rezultat je, da se cene na oglasih
+  spremenijo na novo izbrano valuto.  
 
-- Prijavi se v uporabniški račun in si izberi valuto. Nato preveri, če se ti cene na oglasih pokažejo v izbrani valuti. 
+- Izjemni tok:    
+  Prijavi se v sistem in si na profilu izberi drugo valuto. Sistem preveri izbrano valuto in poizkusi pretvoriti
+  ceno, a zaradi odpovedi strežnika ne uspe. Pričakovan rezultat je nespremenjena valuta cene na oglasu.
 
 
 ### **5.16 PODAJ OCENO PROFILU**
@@ -782,17 +827,17 @@ SHOULD have
 ### **Alternativni Tok** 
 Funkcionalnost nima alternativnih tokov.
 
-### **Izjemni Tokovi** 
-**1.**  
-  **1.1.**  Prijavljen uporabnik izbere funkcionalnost ogled profila drugega uporabnika.  
-  **1.2.**  Izbere urejanje ocene.  
-  **1.3.**  Prijavljen uporabnik spremeni oceno z lestvice in ne shrani izbire.  
-  **1.4.**  Sistem ne spremeni ocene in ohrani staro vrednost.
+### **Izjemni Tok** 
+1. Izjemni tok 1:    
+  1.1 Prijavljen uporabnik izbere funkcionalnost ogled profila drugega uporabnika.    
+  1.2 Izbere urejanje ocene.   
+  1.3 Prijavljen uporabnik spremeni oceno z lestvice in ne shrani izbire.   
+  1.4 Sistem ne spremeni ocene in ohrani staro vrednost.  
 
-**2.**  
-  **2.1.**  Prijavljen uporabnik izbere funkcionalnost ogled profila drugega uporabnika.  
-  **2.2.**  Prijavljen uporabnik s tem uporabnikom še ni opravil nobene storitve, zato mu je urejanje ocene onemogočeno.  
-  **2.3.**  Sistem zakrije izbiro urejanja ocene in izpiše obvestilo.
+2. Izjemni tok 2:   
+  2.1. Prijavljen uporabnik izbere funkcionalnost ogled profila drugega uporabnika.  
+  2.2. Prijavljen uporabnik s tem uporabnikom še ni opravil nobene storitve, zato mu je urejanje ocene onemogočeno.  
+  2.3. Sistem zakrije izbiro urejanja ocene in izpiše obvestilo.
 
 
 ### **Pogoji**
@@ -811,12 +856,17 @@ COULD have
 
 
 ### **Sprejemni testi**
+- Osnovni tok:  
+  Prijavi se v sistem kot uporabnik, ki ima v bazi vsaj eno interakcijo z drugim uporabnikom in temu uporabniku poskusi dodati oceno. Pričakovan rezultat je dodana ocena in spremenjena skupna ocena ocenjenega uporabnika.
 
-- Prijavi se v sistem kot uporabnik, ki ima v bazi vsaj eno interakcijo z drugim uporabnikom in temu uporabniku poskusi dodati oceno
-- Prijavi se v sistem kot uporabnik, ki ima v bazi vsaj eno interakcijo z drugim uporabnikom in temu uporabniku poskusi dodati oceno, a izbire ne potrdi ampak ponovno naloži stran. Preveri če je ocena ostala nespremenjena
-- Prijavi se v sistem kot uporabnik in poskusi dodati oceno uporabniku s katerim nimaš zgodovine
+- Izjemni tok 1:  
+  Prijavi se v sistem kot uporabnik, ki ima v bazi vsaj eno interakcijo z drugim uporabnikom in temu uporabniku poskusi dodati oceno, a izbire ne potrdi ampak ponovno naloži stran. Pričakovan rezultat je, da je ocena ostala nespremenjena.
 
-### 5.17 ISKANJE OGLASOV - SEARCH
+- Izjemni tok 2:  
+  Prijavi se v sistem kot uporabnik in poskusi dodati oceno uporabniku s katerim nimaš zgodovine. Pričakovan rezultat je obvestilo, da je urejanje ocene onemogočeno, saj z uporabnikom nimaš zgodovine.
+
+
+### **5.17 ISKANJE OGLASOV - SEARCH**
 
 ### **Povzetek funkcionalnosti**
 Vsak **prijavljen uporabnik** lahko brska po bazi oglasov, kjer lahko nastavi ustrezne filtre - lahko si ogleduje oglase le v določenem območju, ključnih besedah, itd.
@@ -858,10 +908,14 @@ Ni posebnih posebnosti
 COULD have
 
 ### Sprejemni testi
-- Prijavi se v sistem in poskusi iskati oglase z iskalnim nizom, ki vsebuje samo dovoljene znake
-- Prijavi se v sistem in poskusi iskati oglase z iskalnim nizom, ki vsebuje nedovoljene znake
-- Prijavi se v sistem in poskusi iskati oglase s filtrom
-- Prijavi se v sistem in poskusi iskati oglase s filtrom in iskalnim nizom
+- Osnovni tok:  
+Prijavi se v sistem in poskusi iskati oglase z iskalnim nizom, ki vsebuje samo dovoljene znake. Pričakovan rezultat je izbor najdenih oglasov.
+- Izjemni tok:  
+Prijavi se v sistem in poskusi iskati oglase z iskalnim nizom, ki vsebuje nedovoljene znake. Pričakovan rezultat je prikazano obvestilo o nedovoljenih znakih.
+- Alternativni tok - samo filter lokacije:  
+Prijavi se v sistem in poskusi iskati oglase s filtrom. Pričakovan rezultat je filtriran seznam oglasov.
+- Alternativni tok - filter lokacije in iskalni niz:
+Prijavi se v sistem in poskusi iskati oglase s filtrom in iskalnim nizom. Pričakovan rezultat je filtriran izbor najdenih oglasov.
 
 
 ### **5.18 PODAJ KOMENTAR PROFILU**
@@ -885,18 +939,19 @@ Funkcionalnost nima alternativnih tokov
 
 
 ### **Izjemni Tokovi** 
+1. Izjemni tok 1:  
+1.1 Prijavljen uporabnik izbere funkcionalnost ogled profila drugega uporabnika.  
+1.2 Uporabnik izbere gumb "Dodaj/uredi komentar"  
+1.3 Sistem preveri, če imata uporabnika v bazi zapisano vsaj eno interakcijo.  
+1.4 Sistem uporabniku prikaže vnosno polje za komentar.  
+1.5 Uporabnik napiše komentar, a ne shrani, ampak navigira proč od strani.  
+1.6 Sistem ne posodobi komentarja na tem profilu.  
 
-- Prijavljen uporabnik izbere funkcionalnost ogled profila drugega uporabnika in izbere urejanje komentarja.
-Prijavljen uporabnik napiše komentar v vnosno polje in ne shrani urejanja.
-Sistem ne spremeni komentarja in ohrani staro vrednost.
-
-- Prijavljen uporabnik izbere funkcionalnost ogled profila drugega uporabnika in izbere urejanje komentarja.
-Prijavljen uporabnik napiše komentar v vnosno polje in uporabi nedovoljene znake.
-Sistem ne dovoli shranjevanja komentarja in izpiše obvestilo.
-
-- Prijavljen uporabnik izbere funkcionalnost ogled profila drugega uporabnika.
-Prijavljen uporabnik s tem uporabnikom še ni opravil nobene storitve, zato mu je urejanje
-komentarja onemogočeno. Sistem ne prikaže polja za urejanje in podajanje komentarja in izpiše obvestilo.
+2. Izjemni tok 2:  
+  2.1 Prijavljen uporabnik izbere funkcionalnost "ogled profila"  
+  2.2 Uporabnik pritisne na gumb "Dodaj/uredi komentar"  
+  2.3 Sistem preveri, če imata uporabnika v bazi zapisano vsaj eno interakcijo.  
+  2.4 Sistem ne prikaže polja za urejanje in podajanje komentarja in izpiše obvestilo. 
 
 ### **Pogoji**
 Uporabnik mora biti registriran v sistemu in prijavljen.
@@ -911,11 +966,12 @@ Funkcionalnost nima posebnosti
 WOULD have
 
 ### **Sprejemni testi**
-**1.** Uporabnik mora biti registriran in prijavljen v sistem. Izbran profil mora biti (za pravilno shranjevanje komentarja)  lastnik psa, uporabnik, ki testira pa skrbnik psa. Uporabnik mora imeti opravljeno storitev s tem lastnikom psa. Za potrebe testa mora biti ta pogoj **NEIZPOLNJEN**  
-**2.** Testiramo ali funkcija za komentar profila zazna neizpolnjen pogoj in ga ne shrani.  
-  - Uporabnik gre na profil lastnika psa, ki **NE** izpolnjuje 2. pogoj napisan v točki 1.  
-  - Izbere dodajanje komentarja
-**3.** Pričakovan rezultat je opozorilo (v obliki pojavnega okna), ki opozarja na neizpolnjen pogoj. Polje za dodajanje komentarja se ne pojavi.  
+- Osnovni tok:  
+Prijavi se v sistem kot uporabnik, ki ima v bazi vsaj eno interakcijo z drugim uporabnikom in temu uporabniku poskusi dodati komentar. Pričakovan rezultat je dodan komentar na profilu.
+- Izjemni tok 1:  
+Prijavi se v sistem kot uporabnik, ki ima v bazi vsaj eno interakcijo z drugim uporabnikom in temu uporabniku poskusi izbrisati komentar, a izbire ne potrdi ampak ponovno naloži stran. Pričakovan rezultat je nespremenjeno stanje.
+- Izjemni tok 2:  
+Prijavi se v sistem kot uporabnik in poskusi izbrisati komentar uporabniku s katerim v bazi nimaš zabeležene interakcije. Pričakovan rezultat je obvestilo o nezmožnosti dodajanja komentarja.
 
 ### **5.19 BRISANJE KOMENTARJEV**
 
@@ -992,12 +1048,15 @@ WOULD have
 
 ### **Sprejemni testi**
 
-- Prijavi se v sistem kot uporabnik, ki ima v bazi vsaj eno interakcijo z drugim uporabnikom in temu uporabniku poskusi izbrisati komentar
-- Prijavi se v sistem kot admin in nekemu uporabniku poskusi izbrisati komentar
-- Prijavi se v sistem kot uporabnik, ki ima v bazi vsaj eno interakcijo z drugim uporabnikom in temu uporabniku poskusi izbrisati komentar ki ne obstaja
-- Prijavi se v sistem kot uporabnik, ki ima v bazi vsaj eno interakcijo z drugim uporabnikom in temu uporabniku poskusi izbrisati komentar, a izbire ne potrdi ampak ponovno naloži stran. Preveri če je komentar ostal
-- Prijavi se v sistem kot admin in nekemu uporabniku poskusi izbrisati komentar, a izbire ne potrdi ampak ponovno naloži stran. Preveri če je komentar ostal
-- Prijavi se v sistem kot uporabnik in poskusi izbrisati komentar uporabniku s katerim nimaš interakcije
+- Osnovni tok:  
+Prijavi se v sistem kot uporabnik, ki ima v bazi vsaj eno interakcijo z drugim uporabnikom in temu uporabniku poskusi izbrisati komentar. Pričakovan rezultat je izbrisan komentar.
+- Alternativni tok:  
+Prijavi se v sistem kot admin in nekemu uporabniku poskusi izbrisati komentar. ričakovan rezultat je izbrisan komentar.
+- Izjemni tok 1:  
+Prijavi se v sistem kot uporabnik, ki ima v bazi vsaj eno interakcijo z drugim uporabnikom in temu uporabniku poskusi izbrisati komentar ki ne obstaja. ričakovan rezultat je obvestilo o neobstoju komentarja.
+- Prijavi se v sistem kot uporabnik, ki ima v bazi vsaj eno interakcijo z drugim uporabnikom in temu uporabniku poskusi izbrisati komentar, a izbire ne potrdi ampak ponovno naloži stran. Pričakovan rezultat je nespremenjeno stanje.
+- Prijavi se v sistem kot admin in nekemu uporabniku poskusi izbrisati komentar, a izbire ne potrdi ampak ponovno naloži stran. Pričakovan rezultat je nespremenjeno stanje.
+- Prijavi se v sistem kot uporabnik in poskusi izbrisati komentar uporabniku s katerim nimaš interakcije. Pričakovan rezultat je obvestilo o nezmožnosti dodajanja komentarja.
 
 ### **5.20 OGLED ZGODOVINE SPREHODOV**
 
@@ -1035,9 +1094,10 @@ WOULD have
 
 ### **Sprejemni testi**
 
-- Prijavi se v račun s pravicami **Navadnega uporabnika** in preveri če lahko dostopaš funkcionalnost "ogled zgodovine sprehodov".
-
-- V sistem zapiši en opravljen sprehod in preveri, če se ta izpiše v zgodovino sprehodov. 
+- Osnovni tok:  
+Prijavi se v sistem kot premium uporabnik. Na svojem profilu pritisni gumb "Zgodovina sprehodov". Pričakovan rezultat je izpis zgodovine sprehodov.  
+- Izjemni tok:  
+Prijavi se kot navaden uporabnik. Na svojem profilu pritisni gumb "Zgodovina sprehodov". Pričakovan rezultat je pop-up za nakup premium računa.
 
 ## 6. Nefunkcionalne zahteve
 
