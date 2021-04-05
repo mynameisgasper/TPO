@@ -1117,7 +1117,7 @@ Prijavi se kot navaden uporabnik. Na svojem profilu pritisni gumb "Zgodovina spr
 ## 7. Prototipi vmesnikov
 
 ### **7.1 Osnutki zaslonskih mask**
-**TO DO**  
+Zaslonske maske se nahajajo na tej [povezavi](<../img/zaslonske maske>)
 
 ### **7.2 Vmesniki do zunanjih sistemov**  
 #### **Pretvornik valut ECB Exchange rate**  
