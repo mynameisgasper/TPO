@@ -445,7 +445,7 @@ MUST have
   Uporabnik poišče profil z iskalnikom, ki si ga želi ogledati. Vnese prazen niz ali niz, ki se ne ujema z nobenim uporabnikom. Pričakovan rezultat je prikazano sporočilo o prazni poizvedbi.  
 
 
-### 5.8 KREACIJA OGLASA
+### **5.8 KREACIJA OGLASA**
 
 ### **Povzetek funkcionalnosti**
 Vsak **prijavljen uporabnik** ima možnost ustvaritve novega oglasa, v katerem lahko nudi pomoč pri osrkbi (sprehajanje) ali pa povpraševanje po pomoči za oskrbo (sprehajanje)
@@ -489,7 +489,7 @@ MUST have
   Uporabnik ni prijavljen in klikne na gumb za kreiranje novega oglasa. Vnese željene podatke v vsa zahtevana polja z izjemo opisa. Ob pritisku na gumb pričakujemo da se oglas ne kreira in se pokaže obvestilo o neveljavnem obrazcu.  
 
 
-### 5.9 VZDRŽEVANJE OGLASA
+### **5.9 VZDRŽEVANJE OGLASA**
 
 ### **Povzetek funkcionalnosti**
 Vsak **prijavljen uporabnik**, ki je ustvaril vsaj en oglas ima možnost vzdrževanja svojih oglasov
@@ -534,7 +534,7 @@ MUST have
 #### Izjemni tok
 1. Prijavi se z registriranim uporabnikom in navigiraj na razdelek "moji oglasi". Izberi poljubne oglas in nato **nepopolno** izpolni vnosna polja (pustim prazno vnosno polje za opis oglasa oz. prazno polje za lokacijo). Nato izvedemo posodobieb. **Pričakovan rezultat testa je neuspešno posodobljen oglas in obvestilo uporabniku s strani sistema, naj preveri vnosna polja**
 
-### 5.10 BRISANJE OGLASA
+### **5.10 BRISANJE OGLASA**
 
 ### **Povzetek funkcionalnosti**
 Vsak **prijavljen uporabnik**, ki je ustvaril vsaj en oglas ima možnost izbrisa kateregakoli svojega oglasa
