@@ -69,7 +69,7 @@ Natančno opredelite vse têrmine, ki jih boste uporabljali v nadaljevanju dokum
 V tem razdelku podrobno opišite posamezne funkcionalnosti, ki jih vaša aplikacija ponuja svojim uporabnikom. Za vsako funkcionalnost navedite naslednje podatke:
 
 ### TO-DO Naziv zahteve
-|MUST|SHOULD HAVE|COULD HAVE|WOULD HAVE|
+|**MUST**|**SHOULD HAVE**|**COULD HAVE**|**WOULD HAVE**|
 | :-- | :-- | :-- | :-- |
 | **registracija uporabnika**| **odziv na oglas**  |  **iskanje oglasov - search**  | **podaj komentar profilu**  |
 | **prijava uporabnika**  | **pretvorba valute**  |  **podaj oceno profilu**  |   **ogled zgodovine sprehodov**  |
@@ -169,15 +169,15 @@ Funkcionalnost nima alternativnih tokov
 4. Sistem preveri, če vneseni uporabniški račun obstaja in če je geslo pravilno
 5. Sistem neprijavlenem uporabniku sporoči da ta uporabnik ne obstaja in/ali da je geslo napačno; prijava ni uspela 
 
-#### **Pogoji**
+### **Pogoji**
 
 Uporabnik ne sme biti prijavljen 
 
-#### **Posledice**
+### **Posledice**
 
 Uporabnik ima dostop do funkcionalnosti, ki zahtevajo prijavljenega uporabnika
 
-#### **Posebnosti**
+### **Posebnosti**
 
 Geslo novega uporabnika mora biti zgoščeno s standaradom SHA-2
 
@@ -186,7 +186,7 @@ Geslo novega uporabnika mora biti zgoščeno s standaradom SHA-2
 MUST have
 
 
-#### **Sprejemni testi**
+### **Sprejemni testi**
 
 - Poskusi se prijaviti z veljavnimi podatki.
 
@@ -281,7 +281,7 @@ Vsi uporabniki si lahko ogledajo seznam vseh oglasov s sliko psa ter osnovnimi p
 
 1. Ob naložitvi aplikacije se prikaže seznam vseh oglasov, ki so naloženi po 50 v straneh.
 
-#### **Alternativni tok**
+### **Alternativni tok**
 
 Funkcionalnost nima alternativnih tokov
 
@@ -289,22 +289,22 @@ Funkcionalnost nima alternativnih tokov
 
 Funckionalnost nima izjemnih tokov.
 
-#### **Pogoji**
+### **Pogoji**
 
 Funkcionalnost nima nobenih pogojev za izvedbo.
 
-#### **Posledice**
+### **Posledice**
 
 Prikaže se seznam vseh aplikacij z nekaj osnovnimi podatki vsakega oglasa ter sliko psa ter ceno če je oglas skrbnika psov ali organizacije.
 
-### Posebnosti
+### **Posebnosti**
 
 Funkcionalnost vključuje funkcionalnost **Pretvorba valut** za prikaz cen v uporabnikovi valuti.
 
 ### **Prioriteta**
 MUST have
 
-#### **Sprejemni testi**
+### **Sprejemni testi**
 
 - Odpri spletno aplikacijo Dog Walkers in preveri ali se naložijo oglasi.
 
@@ -329,7 +329,7 @@ Vsi uporabniki si lahko ogledajo posamezni oglas.
 3. Uporabnik med oglasi lastnika izbere oglas
 4. Na zaslonu se izpišejo vse informacije o oglasu 
 
-### Izjemni tokovi
+### **Izjemni tokovi**
 Funkcionalnost nima izjemnih tokov
 
 ### **Pogoji** 
@@ -365,10 +365,10 @@ Vsi uporabniki si lahko ogledajo lokacijo prevzema posameznega oglasa.
 2. Na oglasu pritisne na gumb "prikaži lokacijo prevzema"
 3. Izpiše se google zemljevid na katerem je označena lokacija prevzema
 
-### Alternativni tokovi
+### **Alternativni tokovi**
 Funkcionalnost nima alternativnih tokov
 
-### Izjemni tokovi
+### **Izjemni tokovi**
 Funkcionalnost nima izjemnih tokov
 
 ### **Pogoji** 
@@ -434,10 +434,10 @@ Uporabniku so izpostavljeni javni podatki drugega uporabnika, ki jih lahko upora
 ### **Posebnosti**
 Pri ogledu profila uporabnika ni posebnosti.
 
-### Prioriteta
+### **Prioriteta**
 MUST have
 
-### Sprejemni testi
+### **Sprejemni testi**
 
 - Prijavi se kot navaden uporabnik in poišči ter si oglej profil drugega uporabnika
 - Preko iskanja poskusi navigirati na stran profila uporabniškega računa, ki ne obstaja
@@ -478,10 +478,10 @@ Ustvarjen je nov oglas, ki se prikazuje ostalim uporabnikom, ki brskajo po oglas
 ### **Posebnosti**
 Slikovno gradivo oglasa lahko vsebujo videoposnetke le, če ima uporabnik vlogo **premium uporabnika**
 
-### Prioriteta
+### **Prioriteta**
 MUST have
 
-### Sprejemni testi
+### **Sprejemni testi**
 - prijavi se z navadnim uporabnikom, in poskusi ustvariti oglas, kjer je v slikovnem gradivu dodan videoposnetek
 - poskusi ustvariti oglas brez opisa
 - poskusi ustvariti oglas brez označene lokacije prevzema
@@ -522,10 +522,10 @@ Po posodobitvi oglasa se nova verzija oglasa zapiše v sistem. Po zapisu je nato
 ### **Posebnosti**
 Uporabnik lahko posodobi slikovno gradivo oglasa v obliki videoposnetka le, če ima uporabnik vlogo **premium uporabnika**.
 
-### Prioriteta
+### **Prioriteta**
 MUST have
 
-### Sprejemni testi
+### **Sprejemni testi**
 - prijavi se z navadnim uporabnikom, in poskusi urediti oglas, ki ne obstaja (navigaija preko url-ja)
 - poskusi posodobiti oglas s praznim vnosnim poljem za opis oglasa
 - poskusi posodobiti oglas s praznim vnosnim poljem za lokacijo prevzema
@@ -568,10 +568,10 @@ Po izbrisu oglasa se zapis oglasa in vsi odzivi na ta oglas (odzivi se zbrišejo
 ### **Posebnosti**
 Pri izbrisu oglasa se mora uporabnik zavedati, da so poleg samega oglasa izbrisani zudi vsi odzivi, ki so shranjeni v sistemu in se nanašajo na ta oglas.
 
-### Prioriteta
+### **Prioriteta**
 MUST have
 
-### Sprejemni testi
+### **Sprejemni testi**
 - Prijavi se v sistem kot uporabnik, ki ima vsaj en oglas in poskusi izbrisati enega od svojih oglasov
 - Prijavi se Prijavi se v sistem kot uporabnik, ki ima vsaj en oglas in izberi gumb za izbris oglasa a ne potrdi izbire ampak ponovno naloži stran.
 
@@ -587,7 +587,7 @@ MUST have
 3. Uporabnik pritisne na gumb "Dodaj med hitre kontakte"
 4. Prikazan profil se uporabniku shrani med "hitre kontakte"
 
-### Alternativni tokovi
+### **Alternativni tokovi**
 Funkcionalnost nima alternativnih tokov
 
 ### **Izjemni tok**
@@ -668,7 +668,7 @@ MUST have
 3. Uporabnik pritisne na gumb za izbris profila iz hitrih kontaktov
 4. Sistem izbriše profil iz hitrih kontaktov
 
-### Alternativni tokovi
+### **Alternativni tokovi**
 Funkcionalnost nima alternativnih tokov
 
 ### **Izjemni tokovi**
@@ -736,10 +736,10 @@ Po poslanem odzivu se kreatorju oglasa pod razdelkom "odzivi oglasa" pri oglasu,
 ### **Posebnosti**
 Pri odzivu na oglas je potrebno paziti, da so podatki o pošiljatelju zapisni v pravilnem formatu.
 
-### Prioriteta
+### **Prioriteta**
 SHOULD have
 
-### Sprejemni testi
+### **Sprejemni testi**
 - Prijavi se v sistem in se poskusi odzvati na oglas z vnosom ustreznih podatkov
 - Prijavi se v sistem in se poskusi odzvati na oglas z vnosom neustreznih podatkov
 - Poskusi se odzvati na oglas z neprijavljenim uporabnikom
@@ -757,7 +757,7 @@ Prijavljenemu uporabniku se cene prikažejo v izbrani valuti
 4. Sistem ceno pretvori v izbrano valuto
 5. Na zaslonu se cena prikaže v izbrani valuti
 
-### Alternativni tokovi
+### **Alternativni tokovi**
 Funkcionalnost nima alternativnih tokov
 
 ### **Izjemni tok**
@@ -775,7 +775,7 @@ Uporabnik mora biti prijavlen v sistem
 
 Funkcionalnost zahteva dostopnost in delovanje zunanjega sistema
 
-### Posledice
+### **Posledice**
 Cene se prikažejo v uporabniku izbrani valuti
 
 ### **Prioriteta**
@@ -881,7 +881,7 @@ Uporabniku se prikaže izolirana/filtrirana množica oglasov
 ### **Posebnosti**
 Ni posebnih posebnosti
 
-### Prioriteta
+### **Prioriteta**
 COULD have
 
 ### Sprejemni testi
@@ -1006,7 +1006,7 @@ WOULD have
 
 Uporabnik mora biti prijavlen v sistem in biti lastnik **premium** računa
 
-### Posledice
+### **Posledice**
 
 Prikaže se zgodovina vseh sprehodov uporabnika
 
@@ -1027,28 +1027,28 @@ WOULD have
 ## 6. Nefunkcionalne zahteve
 
 
-### 6.1 Zahteve izdelka
+### **6.1 Zahteve izdelka**
 - sistem mora biti na voljo 99% časa
 - sistem mora biti dosegljiv na javno dostopnem spletnem naslovu
 - sistem uporabniku ne sme omogočati dostopa uporabniku do podatkov, do katerih ni pooblaščen.
 - latenca zahtev ne sme presegati 500ms
 - spletna stran deluje na večini mobilnih naprav
 - sistem mora za komunikacijo uporabljati SSL certifikat (enkripcija)
-### 6.2 Organizacijske zahteve
+### **6.2 Organizacijske zahteve**
 - sistem mora imeti implementiran "ali si robot" preverjanje
 - sistem mora omogočati vsaj enega administratorja
 - sistem mora omogočati hranjenje varnostnih kopij 
-### 6.3 Zunanje zahteve
+### **6.3 Zunanje zahteve**
 - sistem ne sme vsebovati vulgarnih besed
 - sistem mora imeti obvezna obvestila o hranjenju podaktov in piškotkov
 - sistem mora imeti izpostavljene ustrezne legalne dokumente
 
 ## 7. Prototipi vmesnikov
 
-### 7.1 Osnutki zaslonskih mask
+### **7.1 Osnutki zaslonskih mask**
 **TO DO**  
 
-### 7.2 Vmesniki do zunanjih sistemov  
+### **7.2 Vmesniki do zunanjih sistemov**  
 **Pretvornik valut ECB Exchange rate**  
 Ob nalaganju strani, ki prikazuje seznam vseh oglasov, ob nalaganju posameznega oglasa ter ob kreiranju novega oglasa se bo klicala funkcija **converter(currency1, currency2, value)**, ki sprejme dva stringa kratic valut ter tabelo vrednosti imenovano *value*, ki vsebuje valute *currency1* katere želi pretvoriti v valuto *currency2*.  
 Funkcija bo vrnila tabelo vrednosti pretvorjenih v valuto *currency2*  
