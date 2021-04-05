@@ -829,7 +829,7 @@ COULD have
 - Prijavi se v sistem kot uporabnik, ki ima v bazi vsaj eno interakcijo z drugim uporabnikom in temu uporabniku poskusi dodati oceno, a izbire ne potrdi ampak ponovno naloži stran. Preveri če je ocena ostala nespremenjena
 - Prijavi se v sistem kot uporabnik in poskusi dodati oceno uporabniku s katerim nimaš zgodovine
 
-### 5.17 ISKANJE OGLASOV - SEARCH
+### **5.17 ISKANJE OGLASOV - SEARCH**
 
 ### **Povzetek funkcionalnosti**
 Vsak **prijavljen uporabnik** lahko brska po bazi oglasov, kjer lahko nastavi ustrezne filtre - lahko si ogleduje oglase le v določenem območju, ključnih besedah, itd.
@@ -871,10 +871,14 @@ Ni posebnih posebnosti
 COULD have
 
 ### Sprejemni testi
-- Prijavi se v sistem in poskusi iskati oglase z iskalnim nizom, ki vsebuje samo dovoljene znake
-- Prijavi se v sistem in poskusi iskati oglase z iskalnim nizom, ki vsebuje nedovoljene znake
-- Prijavi se v sistem in poskusi iskati oglase s filtrom
-- Prijavi se v sistem in poskusi iskati oglase s filtrom in iskalnim nizom
+- Osnovni tok:  
+Prijavi se v sistem in poskusi iskati oglase z iskalnim nizom, ki vsebuje samo dovoljene znake. Pričakovan rezultat je izbor najdenih oglasov.
+- Izjemni tok:  
+Prijavi se v sistem in poskusi iskati oglase z iskalnim nizom, ki vsebuje nedovoljene znake. Pričakovan rezultat je prikazano obvestilo o nedovoljenih znakih.
+- Alternativni tok - samo filter lokacije:  
+Prijavi se v sistem in poskusi iskati oglase s filtrom. Pričakovan rezultat je filtriran seznam oglasov.
+- Alternativni tok - filter lokacije in iskalni niz:
+Prijavi se v sistem in poskusi iskati oglase s filtrom in iskalnim nizom. Pričakovan rezultat je filtriran izbor najdenih oglasov.
 
 
 ### **5.18 PODAJ KOMENTAR PROFILU**
@@ -898,18 +902,19 @@ Funkcionalnost nima alternativnih tokov
 
 
 ### **Izjemni Tokovi** 
+1. Izjemni tok 1:  
+1.1 Prijavljen uporabnik izbere funkcionalnost ogled profila drugega uporabnika.  
+1.2 Uporabnik izbere gumb "Dodaj/uredi komentar"  
+1.3 Sistem preveri, če imata uporabnika v bazi zapisano vsaj eno interakcijo.  
+1.4 Sistem uporabniku prikaže vnosno polje za komentar.  
+1.5 Uporabnik napiše komentar, a ne shrani, ampak navigira proč od strani.  
+1.6 Sistem ne posodobi komentarja na tem profilu.  
 
-- Prijavljen uporabnik izbere funkcionalnost ogled profila drugega uporabnika in izbere urejanje komentarja.
-Prijavljen uporabnik napiše komentar v vnosno polje in ne shrani urejanja.
-Sistem ne spremeni komentarja in ohrani staro vrednost.
-
-- Prijavljen uporabnik izbere funkcionalnost ogled profila drugega uporabnika in izbere urejanje komentarja.
-Prijavljen uporabnik napiše komentar v vnosno polje in uporabi nedovoljene znake.
-Sistem ne dovoli shranjevanja komentarja in izpiše obvestilo.
-
-- Prijavljen uporabnik izbere funkcionalnost ogled profila drugega uporabnika.
-Prijavljen uporabnik s tem uporabnikom še ni opravil nobene storitve, zato mu je urejanje
-komentarja onemogočeno. Sistem ne prikaže polja za urejanje in podajanje komentarja in izpiše obvestilo.
+2. Izjemni tok 2:  
+  2.1 Prijavljen uporabnik izbere funkcionalnost "ogled profila"  
+  2.2 Uporabnik pritisne na gumb "Dodaj/uredi komentar"  
+  2.3 Sistem preveri, če imata uporabnika v bazi zapisano vsaj eno interakcijo.  
+  2.4 Sistem ne prikaže polja za urejanje in podajanje komentarja in izpiše obvestilo. 
 
 ### **Pogoji**
 Uporabnik mora biti registriran v sistemu in prijavljen.
@@ -924,11 +929,12 @@ Funkcionalnost nima posebnosti
 WOULD have
 
 ### **Sprejemni testi**
-**1.** Uporabnik mora biti registriran in prijavljen v sistem. Izbran profil mora biti (za pravilno shranjevanje komentarja)  lastnik psa, uporabnik, ki testira pa skrbnik psa. Uporabnik mora imeti opravljeno storitev s tem lastnikom psa. Za potrebe testa mora biti ta pogoj **NEIZPOLNJEN**  
-**2.** Testiramo ali funkcija za komentar profila zazna neizpolnjen pogoj in ga ne shrani.  
-  - Uporabnik gre na profil lastnika psa, ki **NE** izpolnjuje 2. pogoj napisan v točki 1.  
-  - Izbere dodajanje komentarja
-**3.** Pričakovan rezultat je opozorilo (v obliki pojavnega okna), ki opozarja na neizpolnjen pogoj. Polje za dodajanje komentarja se ne pojavi.  
+- Osnovni tok:  
+Prijavi se v sistem kot uporabnik, ki ima v bazi vsaj eno interakcijo z drugim uporabnikom in temu uporabniku poskusi dodati komentar. Pričakovan rezultat je dodan komentar na profilu.
+- Izjemni tok 1:  
+Prijavi se v sistem kot uporabnik, ki ima v bazi vsaj eno interakcijo z drugim uporabnikom in temu uporabniku poskusi izbrisati komentar, a izbire ne potrdi ampak ponovno naloži stran. Pričakovan rezultat je nespremenjeno stanje.
+- Izjemni tok 2:  
+Prijavi se v sistem kot uporabnik in poskusi izbrisati komentar uporabniku s katerim v bazi nimaš zabeležene interakcije. Pričakovan rezultat je obvestilo o nezmožnosti dodajanja komentarja.
 
 ### **5.19 BRISANJE KOMENTARJEV**
 
@@ -1005,12 +1011,15 @@ WOULD have
 
 ### **Sprejemni testi**
 
-- Prijavi se v sistem kot uporabnik, ki ima v bazi vsaj eno interakcijo z drugim uporabnikom in temu uporabniku poskusi izbrisati komentar
-- Prijavi se v sistem kot admin in nekemu uporabniku poskusi izbrisati komentar
-- Prijavi se v sistem kot uporabnik, ki ima v bazi vsaj eno interakcijo z drugim uporabnikom in temu uporabniku poskusi izbrisati komentar ki ne obstaja
-- Prijavi se v sistem kot uporabnik, ki ima v bazi vsaj eno interakcijo z drugim uporabnikom in temu uporabniku poskusi izbrisati komentar, a izbire ne potrdi ampak ponovno naloži stran. Preveri če je komentar ostal
-- Prijavi se v sistem kot admin in nekemu uporabniku poskusi izbrisati komentar, a izbire ne potrdi ampak ponovno naloži stran. Preveri če je komentar ostal
-- Prijavi se v sistem kot uporabnik in poskusi izbrisati komentar uporabniku s katerim nimaš interakcije
+- Osnovni tok:  
+Prijavi se v sistem kot uporabnik, ki ima v bazi vsaj eno interakcijo z drugim uporabnikom in temu uporabniku poskusi izbrisati komentar. Pričakovan rezultat je izbrisan komentar.
+- Alternativni tok:  
+Prijavi se v sistem kot admin in nekemu uporabniku poskusi izbrisati komentar. ričakovan rezultat je izbrisan komentar.
+- Izjemni tok 1:  
+Prijavi se v sistem kot uporabnik, ki ima v bazi vsaj eno interakcijo z drugim uporabnikom in temu uporabniku poskusi izbrisati komentar ki ne obstaja. ričakovan rezultat je obvestilo o neobstoju komentarja.
+- Prijavi se v sistem kot uporabnik, ki ima v bazi vsaj eno interakcijo z drugim uporabnikom in temu uporabniku poskusi izbrisati komentar, a izbire ne potrdi ampak ponovno naloži stran. Pričakovan rezultat je nespremenjeno stanje.
+- Prijavi se v sistem kot admin in nekemu uporabniku poskusi izbrisati komentar, a izbire ne potrdi ampak ponovno naloži stran. Pričakovan rezultat je nespremenjeno stanje.
+- Prijavi se v sistem kot uporabnik in poskusi izbrisati komentar uporabniku s katerim nimaš interakcije. Pričakovan rezultat je obvestilo o nezmožnosti dodajanja komentarja.
 
 ### **5.20 OGLED ZGODOVINE SPREHODOV**
 
@@ -1048,9 +1057,10 @@ WOULD have
 
 ### **Sprejemni testi**
 
-- Prijavi se v račun s pravicami **Navadnega uporabnika** in preveri če lahko dostopaš funkcionalnost "ogled zgodovine sprehodov".
-
-- V sistem zapiši en opravljen sprehod in preveri, če se ta izpiše v zgodovino sprehodov. 
+- Osnovni tok:  
+Prijavi se v sistem kot premium uporabnik. Na svojem profilu pritisni gumb "Zgodovina sprehodov". Pričakovan rezultat je izpis zgodovine sprehodov.  
+- Izjemni tok:  
+Prijavi se kot navaden uporabnik. Na svojem profilu pritisni gumb "Zgodovina sprehodov". Pričakovan rezultat je pop-up za nakup premium računa.
 
 ## 6. Nefunkcionalne zahteve
 
