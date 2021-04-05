@@ -76,32 +76,31 @@ Admin ima vse funkcionalnosti kot premium uporabnik in možnost urejanja in bris
 
 Funkcionalnost nima alternativnih tokov
 
-### **Izjemni Tok 1** 
+### **Izjemni Tokovi** 
 
-1. Neprijavljen uporabnik v orodni vrstici izbere funkcionalnost ustvari račun
-2. Sistem odpre okno z vpisnimi polji za uporabniško ime, e-poštni naslov in geslo
-3. Neprijavljen uporabnik vpiše uporabniško ime, e-poštni naslov in nastavi geslo
-4. Študent pritisne gumb za registracijo
-4. Sistem preveri, če so vsi vnosi veljavni in če morda uporabnik s tem uporabniškim imenom ali e-poštnim naslovom obstaja
-5. Sistem javi, da uporabnik s tem uporabniškim imenom ali e-poštnim naslovom že obstaja. Registracija ni uspela. 
+- **Izjemni tok 1**  
+  **1.1** Neprijavljen uporabnik v orodni vrstici izbere funkcionalnost ustvari račun  
+  **1.2** Sistem odpre okno z vpisnimi polji za uporabniško ime, e-poštni naslov in geslo  
+  **1.3** Neprijavljen uporabnik vpiše uporabniško ime, e-poštni naslov in nastavi geslo  
+  **1.4** Študent pritisne gumb za registracijo  
+  *1.4* Sistem preveri, če so vsi vnosi veljavni in če morda uporabnik s tem uporabniškim imenom   ali e-poštnim naslovom obstaja  
+  **1.5** Sistem javi, da uporabnik s tem uporabniškim imenom ali e-poštnim naslovom že obstaja.   Registracija ni uspela.   
 
-### **Izjemni Tok 2** 
+- **Izjemni tok 2**  
+  **2.1** Neprijavljen uporabnik v orodni vrstici izbere funkcionalnost ustvari račun  
+  **2.2** Sistem odpre okno z vpisnimi polji za uporabniško ime, e-poštni naslov in geslo  
+  **2.3** Neprijavljen uporabnik vpiše uporabniško ime, e-poštni naslov in nastavi geslo  
+  **2.4** Študent pritisne gumb za registracijo  
+  **2.5** Sistem preveri, če so vnosi veljavni in če morda uporabnik s tem uporabniškim imenom ali e-poštnim naslovom obstaja  
+  **2.6** Sistem javi, da se gesli ne ujemata. Registracija ni uspela.  
 
-1. Neprijavljen uporabnik v orodni vrstici izbere funkcionalnost ustvari račun
-2. Sistem odpre okno z vpisnimi polji za uporabniško ime, e-poštni naslov in geslo
-3. Neprijavljen uporabnik vpiše uporabniško ime, e-poštni naslov in nastavi geslo
-4. Študent pritisne gumb za registracijo
-4. Sistem preveri, če so vnosi veljavni in če morda uporabnik s tem uporabniškim imenom ali e-poštnim naslovom obstaja
-5. Sistem javi, da se gesli ne ujemata. Registracija ni uspela.
-
-### **Izjemni Tok 3** 
-
-1. Neprijavljen uporabnik v orodni vrstici izbere funkcionalnost ustvari račun
-2. Sistem odpre okno z vpisnimi polji za uporabniško ime, e-poštni naslov in geslo
-3. Neprijavljen uporabnik vpiše uporabniško ime, e-poštni naslov in nastavi geslo
-4. Študent pritisne gumb za registracijo
-4. Sistem preveri, če so vnosi veljavni in če morda uporabnik s tem uporabniškim imenom ali e-poštnim naslovom obstaja
-5. Sistem javi, da je e-poštni naslov neveljaven. Registracija ni uspela.
+- **Izjemni tok 3**  
+  **3.1** Neprijavljen uporabnik v orodni vrstici izbere funkcionalnost ustvari račun  
+  **3.2** Sistem odpre okno z vpisnimi polji za uporabniško ime, e-poštni naslov in geslo  
+  **3.3** Neprijavljen uporabnik vpiše uporabniško ime, e-poštni naslov in nastavi geslo  
+  **3.4** Študent pritisne gumb za registracijo  
+  **3.5** Sistem preveri, če so vnosi veljavni in če morda uporabnik s tem uporabniškim imenom ali e-poštnim naslovom obstaja  
+  **3.6** Sistem javi, da je e-poštni naslov neveljaven. Registracija ni uspela.  
 
 ### **Pogoji**
 
@@ -153,18 +152,18 @@ Funkcionalnost nima alternativnih tokov
 
 ### **Izjemni Tokovi** 
 - **Izjemni tok 1**  
-  1.1 Neprijavljen uporabnik izbere funkcionalnost prijava  
-  2.2 Sistem odpre okno z vpisnimi polji za uporabniško ime in geslo  
-  3.3 Neprijavleni uporabnik vnese podatke za prijavo  
-  4.4 Sistem preveri, če vneseni uporabniški račun obstaja in če je geslo pravilno  
-  5.5 Sistem neprijavlenem uporabniku sporoči, da ta uporabnik ne obstaja - prijava ni uspela  
+  **1.1** Neprijavljen uporabnik izbere funkcionalnost prijava  
+  **1.2** Sistem odpre okno z vpisnimi polji za uporabniško ime in geslo  
+  **1.3** Neprijavleni uporabnik vnese podatke za prijavo  
+  **1.4** Sistem preveri, če vneseni uporabniški račun obstaja in če je geslo pravilno  
+  **1.5** Sistem neprijavlenem uporabniku sporoči, da ta uporabnik ne obstaja - prijava ni uspela  
 
 - **Izjemni tok 2**  
-2.1 Neprijavljen uporabnik izbere funkcionalnost prijava  
-2.2 Sistem odpre okno z vpisnimi polji za uporabniško ime in geslo  
-2.3 Neprijavleni uporabnik vnese podatke za prijavo  
-2.4 Sistem preveri, če vneseni uporabniški račun obstaja in če je geslo pravilno  
-2.5 Sistem neprijavlenem uporabniku sporoči, da je geslo napačno - prijava ni uspela   
+  **2.1** Neprijavljen uporabnik izbere funkcionalnost prijava  
+  **2.2** Sistem odpre okno z vpisnimi polji za uporabniško ime in geslo  
+  **2.3** Neprijavleni uporabnik vnese podatke za prijavo  
+  **2.4** Sistem preveri, če vneseni uporabniški račun obstaja in če je geslo pravilno  
+  **2.5** Sistem neprijavlenem uporabniku sporoči, da je geslo napačno - prijava ni uspela   
 
 ### **Pogoji**
 
