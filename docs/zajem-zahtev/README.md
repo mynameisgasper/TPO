@@ -496,6 +496,11 @@ Uporabnik lahko posodobi slikovno gradivo oglasa v obliki videoposnetka le, če 
 MUST have
 
 ### **Sprejemni testi**
+#### Osnovni tok
+1. Prijavi se z registriranim uporabnikom in navigiraj na razdelek "moji oglasi". Izberi poljuben oglas in nato izpolni vsa vnosna polja, kjer so vsa pravilno izpolnjena v skladu z zahtevami. Izvedi posodobiteb. **Pričakovan rezultat testa je uspešno posodobljen oglas, kjer so spremembne jasno vidne pri ogledu oglasa**
+#### Izjemni tok
+1. Prijavi se z registriranim uporabnikom in navigiraj na razdelek "moji oglasi". Izberi poljubne oglas in nato **nepopolno** izpolni vnosna polja (pustim prazno vnosno polje za opis oglasa oz. prazno polje za lokacijo). Nato izvedemo posodobieb. **Pričakovan rezultat testa je neuspešno posodobljen oglas in obvestilo uporabniku s strani sistema, naj preveri vnosna polja**
+
 - prijavi se z navadnim uporabnikom, in poskusi urediti oglas, ki ne obstaja (navigacija preko url-ja)
 - poskusi posodobiti oglas s praznim vnosnim poljem za opis oglasa
 - poskusi posodobiti oglas s praznim vnosnim poljem za lokacijo prevzema
@@ -542,8 +547,10 @@ Pri izbrisu oglasa se mora uporabnik zavedati, da so poleg samega oglasa izbrisa
 MUST have
 
 ### **Sprejemni testi**
-- Prijavi se v sistem kot uporabnik, ki ima vsaj en oglas in poskusi izbrisati enega od svojih oglasov
-- Prijavi se Prijavi se v sistem kot uporabnik, ki ima vsaj en oglas in izberi gumb za izbris oglasa a ne potrdi izbire ampak ponovno naloži stran.
+#### Osnovni tok
+1. Prijavimo se v sistem z registriranim uporabnikom. Nato navigiramo na stran profila in nato na razdelek "moji oglasi". Izberemo poljuben oglas in izvedemo izbris. Po tem ko se pojavi prikazno okno za potrditev izbrisa, izberemo opcijo "potrdi". **Pričakovan rezultat testa je izbrisan oglas, kar pomeni, da ga ni več v sistemu in ga uporabniki ne morejo več videit.
+#### Izjemni tok
+1. Prijavimo se v sistem z registriranim uporabnikom. Nato navigiramo na stran profila in nato na razdelek "moji oglasi". Izberemo poljuben oglas in izvedemo izbris. Po tem ko se pojavi prikazno okno za potrditev izbrisa, izberemo opcijo "prekliči". **Pričakovan rezultat testa je neizbirsan oglas, saj smo preklicali izbris - oglas je še vedno viden ostalim uporabnikom in je še vedno shranjen v sistemu**
 
 
 ### **5.11 DODAJANJE UPORABNIKA MED "HITRE KONTAKTE"**
@@ -584,10 +591,10 @@ Profil se uporabniku prikaže med "hitrimi kontakti"
 MUST have
 
 ### **Sprejemni testi**
-
-- Prijavi se v račun s pravicami **Navadnega uporabnika** in si nek profil poskusi shraniti med "hitre kontakte".
-
-- Prijavi se v račun s pravicami **Premium uporabnika** in si nek profil poskusi shraniti med "hitre kontakte". 
+#### Osnovni tok
+1. Prijavimo se z registriranim uporabnikom, ki ima vlogo **premium uporabnika** in navigiramo na stran profila nekega poljubnega uporabnika. Pritsnemo na gumb "Dodaj med hitre kontakte". **Pričakovan rezultat testa je nov vnos na seznamu hitrih kontaktov uporabnika**
+#### Izjemni tok
+1. Prijavimo se z registriranim uporabnikom, ki **nima** vloge **premium uporabnika** in navigiramo na stran profila nekega poljubnega uporabnika. Pritsnemo na gumb "Dodaj med hitre kontakte". **Pričakovan rezultat testa je obvestilo uporabniku s strani sistema, da nima dostopa do te funkcionalnosti. Nato nas more sistem preusmeriti na "pop-up" okno, kjer lahko kupimo premium račun**
 
 ### **5.12 OGLED "HITRIH KONTAKTOV"**
 
@@ -622,8 +629,8 @@ Funkcionalnost nima posebnosti
 MUST have
 
 ### **Sprejemni testi**
-
-- Prijavi se v račun s pravicami **Premium uporabnika** in si oglej "hitre kontakte".
+#### Osnovni tok
+1. Prijavimo se kot registriran uporabnik ali administrator in navigiramo na stran hitrih kontaktov z pritiskom na gumb "hitri kontakti". **Pričakovan rezultat testa stran, ki vsebuje seznam hitrih kontaktov**
 
 
 
