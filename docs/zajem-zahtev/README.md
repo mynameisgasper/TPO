@@ -1054,47 +1054,6 @@ Prijavi se v sistem kot uporabnik, ki ima v bazi vsaj eno interakcijo z drugim u
 - Prijavi se v sistem kot admin in nekemu uporabniku poskusi izbrisati komentar, a izbire ne potrdi ampak ponovno naloži stran. Pričakovan rezultat je nespremenjeno stanje.
 - Prijavi se v sistem kot uporabnik in poskusi izbrisati komentar uporabniku s katerim nimaš interakcije. Pričakovan rezultat je obvestilo o nezmožnosti dodajanja komentarja.
 
-### **5.20 OGLED ZGODOVINE SPREHODOV**
-
-### **Povzetek funkcionalnosti**
-**Premium Uporabnik** si lahko ogleda zgodovino sprehodov njegovega/ih psa/ov
-
-### **Osnovni tok**
-1. Uporabnik izbere funkcionalnost *ogled lastnega profila*
-2. Uporabnik na svojem profilu izbere funkcionalnost *zgodovina sprehodov*
-3. Sistem preveri če ima uporabnik pravico dostopa do te funkcionalnosti
-4. Na zaslonu se izpiše zgodovina vseh sprehodov
-
-### **Izjemni tok**
-1. Uporabnik izbere funkcionalnost *ogled lastnega profila*
-2. Uporabnik na svojem profilu izbere funkcionalnost *zgodovina sprehodov*
-3. Sistem preveri če ima uporabnik pravico dostopa do te funkcionalnosti
-4. Uporabnik ni **Premium Uporabnik** dostop je zavrnjen
-5. Uporabnik je preusmerjen na "pop-up" okno, kjer lahko kupu **premium** račun
-
-### **Pogoji**
-
-Uporabnik mora biti prijavlen v sistem in biti lastnik **premium** računa
-
-### **Posledice**
-
-Prikaže se zgodovina vseh sprehodov uporabnika
-
-### **Posebnosti**
-
-Funkcionalnost nima posebnosti
-
-### **Prioriteta**
-
-WOULD have
-
-### **Sprejemni testi**
-
-- Osnovni tok:  
-Prijavi se v sistem kot premium uporabnik. Na svojem profilu pritisni gumb "Zgodovina sprehodov". Pričakovan rezultat je izpis zgodovine sprehodov.  
-- Izjemni tok:  
-Prijavi se kot navaden uporabnik. Na svojem profilu pritisni gumb "Zgodovina sprehodov". Pričakovan rezultat je pop-up za nakup premium računa.
-
 ## 6. Nefunkcionalne zahteve
 
 

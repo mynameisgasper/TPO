@@ -67,9 +67,6 @@ Med **ostale** podatke pa spadajo:
 
 
 
-<div style="display:flex;width:100%">
-<div style="display:block;width:50%">
-
 ##### **2. Oglas**
 Entiteta bo vsebovala 4 **vsebinske** lastnosti:
 - Opis <div class="dataType">*(niz znakov - obvezno)*</div>
@@ -81,8 +78,6 @@ Entiteta bo vsebovala 4 **vsebinske** lastnosti:
 Poleg omenjenih pa bo vsebovala tudi:
 - Oglaševalec <div class="dataType">*(**unikatni identifikator** - obvezno)*</div>
 - **Odzivi** <div class="dataType">*(seznam **Odzivov** - privzeto prazen seznam)*</div>
-</div>
-<div style="display:block;width:50%">
 
 | Oglas                   |                                                        |
 | :-------------------------- | :------------------------------------------------------ |
@@ -92,43 +87,31 @@ Poleg omenjenih pa bo vsebovala tudi:
 | Cena | <div class="dataType">*(število - neobvezno)*</div> |
 | Oglaševalec | <div class="dataType">*(**unikatni identifikator** - obvezno)*</div> |
 | Odzivi | <div class="dataType">*(seznam **Odzivov** - privzeto prazen seznam)*</div> |
-</div>
-</div>
-
-<div style="display:flex;width:100%">
-<div style="display:block;width:50%">
 
 ##### **3. Odziv**
 Odziv je podentiteta oglasa in bo vsebovala
 - Sporočilo <div class="dataType">*(niz znakov - obvezno)*</div>
 - Pošiljatelj <div class="dataType">*(**unikatni identifikator** - obvezno)*</div>
 > Pošiljatelj v obliki unikatnega identifikatorja služi kot podpis pošiljatelja.
-</div>
-<div style="display:block;width:50%">
 
 | Odziv                   |                                                        |
 | :-------------------------- | :------------------------------------------------------ |
 | Sporočilo          | <div class="dataType">*(niz znakov - obvezno)*</div>  |
 | Pošiljatelj | <div class="dataType">*(**unikatni identifikator** - obvezno)*</div> |
-</div>
-</div>
 
-<div style="display:flex;width:100%">
-<div style="display:block;width:50%">
 
-##### **4. Komentar**<br>
+
+##### **4. Komentar**
 Komentar je podentiteta, ki se nahaja v *ostalih* podatkih vsakega uporabnika in je zgrajena iz naslednjih lastnosti:
 - Vsebina <div class="dataType">*(niz znakov - obvezno)*</div>
 - Komentator <div class="dataType">*(**unikatni identifikator** - obvezno)*</div>
-</div>
-<div style="display:block;width:50%">
 
 | Komentar                   |                                                        |
 | :-------------------------- | :------------------------------------------------------ |
 | Vsebina          | <div class="dataType">*(niz znakov - obvezno)*</div>  |
 | Komentator | <div class="dataType">*(**unikatni identifikator** - obvezno)*</div> |
-</div>
-</div>
+
+
 
 
 
