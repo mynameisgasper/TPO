@@ -1,11 +1,3 @@
-<style>
-.dataType{
-  display:inline;
-  font-size:0.8rem;
-  color:gray
-}
-</style>
-
 # Načrt sistema
 
 |                             |                                                         |
@@ -93,7 +85,7 @@ Poleg omenjenih pa bo vsebovala tudi:
 | Oglaševalec | <div class="dataType">*(**unikatni identifikator** - obvezno)*</div> |
 
 ##### **3. Odziv**
-Odziv je podentiteta oglasa in bo vsebovala
+Odziv je entiteta vezana na svoj oglas in bo vsebovala
 - Potrditev
 - Oglas in
 - Pošiljatelja.
@@ -110,7 +102,7 @@ Odziv je podentiteta oglasa in bo vsebovala
 
 
 ##### **4. Komentar**
-Komentar je podentiteta, ki se nahaja v *ostalih* podatkih vsakega uporabnika in je zgrajena iz naslednjih lastnosti:
+Komentar je entiteta vezana na svojega uporabnika in je zgrajena iz naslednjih lastnosti:
 - Uporabnika,
 - Vsebina in
 - Komentatorja.
@@ -140,6 +132,24 @@ Arhitektura **spletne aplikacije** bo zasnovana po vzorcu **model-pogled-krmilni
 
 <img src="../img/mvcVzorec.png" width="50%" style="border-radius:1rem">
 
+Vsaka entiteta bo ustrezno preslikana v sebi pripadajoč *model*. Vsakemu modelu bo pripadal samostojen *Krmilnik*, ki bo implementiral potrebne **CRUD** operacije za model, ki mu pripada. 
+
+*Pogled* modela bo na čelnem delu dinamično prikazoval potrebne obrazce za ustvarjanje novega zapisa modela v podatkovni bazi, posodabljanje že obstoječega zapisa, omogočal pa bo tudi prikaz *master-detail* vzorca in opcijo izbrisa zapisa modela iz podatkovne baze.
+
+#### **Avtentikacija**
+Dostop do podatkov bo regulirala komponenta za avtentikacijo, kjer bo sistem avtentkacije implementiran po principu **JWT**. 
+
+Vsaka HTTP zahteva po podatkih bo pred dostopom do podatkovne baze pregledana s strani *avtentikacijske komponente*, ki bo v tem scenariju delovala kot semafor za *komponento za uporavljanje s podatki*. 
+- **V primeru avtorizacije** s strani avtentikacijske komponente bo komponenta za upravaljanje s podatki izvedla transakcijo s podatkovno bazo. 
+- **V primeru zavrnitve avtorizaicije** bo na zahtevo HTTP odgovorila z ustrezno zavrnitveno kodo in sporočilom o napaki.
+
+#### **Izvorna koda aplikacije**
+Izvorna koda aplikacije se bo nahajala na oddaljenem GitHub repozitoriju, kjer bo nit razvoja razvejana na *produkcijsko* in *razvojno* vejo, *razvojna* veja pa bo po potrebi razvejana na dodatne veje za boljši pregled in nadzor.
+
+### FIZIČNI POGLED
+RESTAPI in Upravljalec varnostnih kopij bosta nameščena in se izvajala na istem spletnem strežniku, s katerim bo komuniciral spletni brskalnik odjemalca, ki bo skrbel za izvajanje in procesiranje čelnega dela aplikacije.
+
+Za gostovanje podatkovnih baz bomo uporabili **MongoDB Atlas strežnike**, kjer bo podatkovna baza z varnostno kopijo gostovana na različni lokaciji kot glavna podatkovna baza
 
 
 ## 2. Načrt strukture
