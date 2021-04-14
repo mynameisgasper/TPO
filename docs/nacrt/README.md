@@ -101,7 +101,6 @@ Poleg omenjenih pa bo vsebovala tudi:
 
 ##### **3. Odziv**
 Odziv je podentiteta oglasa in bo vsebovala
-- 
 - Potrditev
 - Oglas in
 - Pošiljatelja.
@@ -132,10 +131,9 @@ Komentar je podentiteta, ki se nahaja v *ostalih* podatkih vsakega uporabnika in
 | Komentator | <div class="dataType">*(**unikatni identifikator** - obvezno)*</div> |
 
 
-
-
-
 ### PROCESNI POGLED
+
+
 
 ## 2. Načrt strukture
 
