@@ -73,7 +73,6 @@ Med **ostale** podatke pa spadajo:
 | Javna ocena | <div class="dataType">*(necelo število - min 0.0, max 5.0 - privzeto nedefinirano)*</div> |
 | Podane ocene | <div class="dataType">*(seznam **unikatnih identifikatorjev** - privzeto prazen seznam)*</div> |
 | Hitri dostop | <div class="dataType">*(seznam **unikatnih identifikatorjev** - privzeto prazen seznam)*</div> |
-| Komentarji | <div class="dataType">*(seznam **Komentarjev** - privzeto prazen seznam)*</div> |
 
 
 
@@ -132,6 +131,8 @@ Komentar je podentiteta, ki se nahaja v *ostalih* podatkih vsakega uporabnika in
 
 
 ### PROCESNI POGLED
+Čelni del aplikacije izdelan po konceptu **Single Page Application (SPA)**. Za izvajanje bo poskrbel spletni brskalnik odjemalca. Zaledni del bo v obliki **Restful API**-ja dostopen na spletnem strežniku, kjer bo komuniciral z dvema podatkovnima bazama. API bomo razdelili na dve mikrostoritvi, kjer bo ena skrbela za korektno avtentikacijo uporabnikov, druga pa za monitoriranje dostopa do resursov v podatkovnih bazah.
+
 
 
 
