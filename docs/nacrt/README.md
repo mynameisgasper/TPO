@@ -31,12 +31,6 @@ Arhitektura **spletne aplikacije** bo zasnovana po vzorcu **model-pogled-krmilni
 
 <img src="../img/mvcVzorec.png" width="50%" style="border-radius:1rem">
 
-Razvita pa bo na osnovi **MEAN Stack** tehnologij, kjer bomo uporabljali:
-- 2 **MongodDB** podatkovni bazi
-- **Ogrodje Angular** za izdelavo čelnega dela aplikacije
-- **NodeJs** RestAPI kombinirano s knjižnjico **Express.js** za izdelavo zalednega dela aplikacije
-
-
 
 ### LOGIČNI POGLED
 #### Entitete
@@ -45,26 +39,26 @@ Za namene boljšega razumevanja smatrajte besedno zvezo **Unikatni identifikator
 
 ##### **1. Uporabnik**
 Entiteta bo razdeljena na *avtentikacijske*, *osebne* in *ostale* podatke, kjer bodo med **avtentikacijske** spadali vsi podatki, ki so potrebni za primerno avtentikacijo uporabnika, in sicer:
-- Unikatni identifikator *(dodeljen avtomatsko s strani sistema ob registraciji)* <div class="dataType">*(niz znakov - ustvarjeno samodejno)*</div>
-- Uporabniško ime <div class="dataType">*(niz znakov - obvezno)*</div>
-- Naključno generirana vrednost <div class="dataType">*(niz znakov - obvezno)*</div>
-- Zakriptirana vrednost <div class="dataType">*(niz znakov - obvezno)*</div>
-- Vloga <div class="dataType">*(celo število - min 1, max 4 - privzeto 1)*</div>
-> geslo bo v podatkovni bazi seveda primerno zakriptirano. Vloga, predstavljena s celim številom, bo lahko zasedla eno od petih možnih vrednosti, kjer bodo pomembnost oz. "moč" vloge naraščala sorazmerno z vrednostjo celega števila *(npr. 1 - organizacija, 4 - administrator)*
+- Unikatni identifikator  
+- Uporabniško ime 
+- Naključno generirana vrednost 
+- Zakriptirana vrednost 
+- Vloga 
+> **Unikatni identifikator** enitete bo dodeljen avtomatsko s strani sistema ob registraciji. **geslo** bo v podatkovni bazi seveda primerno zakriptirano s pomočjo naključne vrednosti, ki se bo uporabljala za izračun zakriptirane vrednosti in se bo v kombinaciji z **uporabniškim imenom** uporabljalo za vpis. **Vloga**, predstavljena s celim številom, bo lahko zasedla eno od petih možnih vrednosti, kjer bodo pomembnost oz. "moč" vloge naraščala sorazmerno z vrednostjo celega števila *(npr. 1 - organizacija, 4 - administrator)*
 
 **osebni** podatki bodo zajemali:
-- Polno ime <div class="dataType">*(niz znakov - obvezno)*</div>
-- Telefonsko številko <div class="dataType">*(niz znakov - obvezno)*</div>
-- Pošto, ulico in hišno številko <div class="dataType">*(niz znakov - obvezno)*</div>
-- Elektronski naslov (elektronski pošta, uporabnika) <div class="dataType">*(niz znakov - obvezno)*</div>
+- Polno ime 
+- Telefonsko številko 
+- Pošto, ulico in hišno številko 
+- Elektronski naslov (elektronski pošta, uporabnika)
 > Osebni podatki se bodo ostalim uporabnikom na strani profila prikazali z določenimi omejitvami *(npr. ostalim uporabnikom ne bo razkrita telefonska številka in pa točen naslov uporabnika, ampak zgolj kraj, v katerem prebiva)*
 
 Med **ostale** podatke pa spadajo:
-- Javna ocena <div class="dataType">*(necelo število - min 0.0, max 5.0 - privzeto nedefinirano)*</div>
-- Podane ocene <div class="dataType">*(seznam **unikatnih identifikatorjev** - privzeto prazen seznam)*</div>
-- Hitri dostop <div class="dataType">*(seznam **unikatnih identifikatorjev** - privzeto prazen seznam)*</div>
-- Komentarji <div class="dataType">*(seznam **Komentarjev** - privzeto prazen seznam)*</div>
-> *javna ocena uporabnika* se bo samodejno preračunavala glede na ocene podane s strani drugih uporabnikov. *Seznam podanih ocen uporabnikom* predstavlja zaporedje unikatnih identifikatorjev uporakov, ki jim je uporabnik že podal oceno in služi kot zapisnik, ki uporabniku preprečuje večkratno podajanje ocene istemu uporabniku. *Seznam uporabnikov s hitrim dostopom* pa predstavlja zaporedje unikatnih identifikatorjev vseh uporabnikov, ki jih je uporabnik "dodal v hitri dostop"
+- Javna ocena 
+- Podane ocene 
+- Hitri dostop 
+- Komentarji 
+> **Javna ocena uporabnika** se bo samodejno preračunavala glede na ocene podane s strani drugih uporabnikov. **Podane ocene** predstavljajo seznam unikatnih identifikatorjev uporakov, ki jim je uporabnik že podal oceno in služi kot zapisnik, ki uporabniku preprečuje večkratno podajanje ocene istemu uporabniku. **Hitri dostop** pa predstavlja seznam unikatnih identifikatorjev vseh uporabnikov, ki jih je uporabnik "dodal v hitri dostop". **Komentarji** predstavljajo seznam vseh komentarjev, ki so jih na strani profila uporabniku podali drugi uporabniki - za več podrobnosti o komentarjih si oglejte entiteto **Komentar**
 
 **Struktura**
 |                 |                                                        |
@@ -87,15 +81,16 @@ Med **ostale** podatke pa spadajo:
 
 ##### **2. Oglas**
 Entiteta bo vsebovala 4 **vsebinske** lastnosti:
-- Opis <div class="dataType">*(niz znakov - obvezno)*</div>
-- Lokacija prevzema <div class="dataType">*(niz znakov - obvezno)*</div>
-- Slika <div class="dataType">*(BLOB - neobvezno)*</div>
-- Cena <div class="dataType">*(niz znakov - neobvezno)*</div>
+- Opis 
+- Lokacija prevzema 
+- Slika 
+- Cena 
 > izmed naštetih sta slika in cena neobvezna, uporabnika si lahko podrobne informacije izmenjata preko zasebne komunikacije (elektronska pošta)
 
 Poleg omenjenih pa bo vsebovala tudi:
-- Oglaševalec <div class="dataType">*(**unikatni identifikator** - obvezno)*</div>
-- **Odzivi** <div class="dataType">*(seznam **Odzivov** - privzeto prazen seznam)*</div>
+- Oglaševalec 
+- **Odzivi**
+> Vsak oglas bo označen z Oglaševalcem, ki ga je ustvaril ter seznamom **Odzivov**, ki služi kot zapisnik interakcij ostalih uporabnikov s tem oglasom - za več informacij si oglejte entiteto **Odziv**
 
 **Struktura**
 |                 |                                                        |
@@ -125,6 +120,7 @@ Odziv je podentiteta oglasa in bo vsebovala
 Komentar je podentiteta, ki se nahaja v *ostalih* podatkih vsakega uporabnika in je zgrajena iz naslednjih lastnosti:
 - Vsebina <div class="dataType">*(niz znakov - obvezno)*</div>
 - Komentator <div class="dataType">*(**unikatni identifikator** - obvezno)*</div>
+> Komentator v obliki unikatnega identifikatorja služi kot podpis komentatorja.
 
 **Struktura**
 |                   |                                                        |
@@ -135,6 +131,8 @@ Komentar je podentiteta, ki se nahaja v *ostalih* podatkih vsakega uporabnika in
 
 
 
+
+### PROCESNI POGLED
 
 ## 2. Načrt strukture
 
