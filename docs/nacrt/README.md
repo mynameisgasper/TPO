@@ -26,12 +26,6 @@
 
 - Za prikaz uporabite enostavne prikaze, kot so blokovni ali paketni diagrami. Uporabite arhitekturne vzorce.
 
-### Uporabljene tehnologije in metode
-Arhitektura **spletne aplikacije** bo zasnovana po vzorcu **model-pogled-krmilnik** oz. **MVC** 
-
-<img src="../img/mvcVzorec.png" width="50%" style="border-radius:1rem">
-
-
 ### LOGIČNI POGLED
 #### Entitete
 Za namene boljšega razumevanja smatrajte besedno zvezo **Unikatni identifikator** kot *niz znakov*, ki se uporablja kot primarni ključ vsake entitete.
@@ -129,6 +123,10 @@ Komentar je podentiteta, ki se nahaja v *ostalih* podatkih vsakega uporabnika in
 | Vsebina          | <div class="dataType">*(niz znakov - obvezno)*</div>  |
 | Komentator | <div class="dataType">*(**unikatni identifikator** - obvezno)*</div> |
 
+#### Relacije med entitetami
+Na spodnji sliki so v neformalnem diagramu predstavljene relacije med zamišljenimi entitetami
+<img src="../img/relacije.png" style="width:50%">
+
 
 ### PROCESNI POGLED
 Čelni del aplikacije izdelan po konceptu **Single Page Application (SPA)**. Za izvajanje bo poskrbel spletni brskalnik odjemalca. Zaledni del bo v obliki **Restful API**-ja dostopen na spletnem strežniku, kjer bo komuniciral z glavno podatkovno bazo. Razdelili ga bomo na dve mikrostoritvi, ki bosta monitorirali dostop do podatkov v glavni podatkovni bazi.
@@ -137,6 +135,10 @@ Komentar je podentiteta, ki se nahaja v *ostalih* podatkih vsakega uporabnika in
 
 Poleg omenjenega bo za periodično varnostno kopiranje podatkov glavne podatkovne baze skrbel **Upravljalec varnostnih kopij**, ki bo imel dostop do glavne in varnostne kopije podatkovne baze
 
+### RAZVOJNI POGLED
+Arhitektura **spletne aplikacije** bo zasnovana po vzorcu **model-pogled-krmilnik** oz. **MVC** 
+
+<img src="../img/mvcVzorec.png" width="50%" style="border-radius:1rem">
 
 
 
