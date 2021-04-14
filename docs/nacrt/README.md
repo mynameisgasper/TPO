@@ -76,15 +76,15 @@ Entiteta bo vsebovala 4 **vsebinske** lastnosti:
 - Lokacija prevzema <div class="dataType">*(niz znakov - obvezno)*</div>
 - Slika <div class="dataType">*(BLOB - neobvezno)*</div>
 - Cena <div class="dataType">*(niz znakov - neobvezno)*</div>
-- Oglaševalec <div class="dataType">*(**unikatni identifikator** - obvezno)*</div>
 > izmed naštetih sta slika in cena neobvezna, uporabnika si lahko podrobne informacije izmenjata preko zasebne komunikacije (elektronska pošta)
 
-Poleg omenjenih pa bo vsebovala tudi
+Poleg omenjenih pa bo vsebovala tudi:
+- Oglaševalec <div class="dataType">*(**unikatni identifikator** - obvezno)*</div>
 - **Odzivi** <div class="dataType">*(seznam **Odzivov** - privzeto prazen seznam)*</div>
 </div>
 <div style="display:block;width:50%">
 
-| Komentar                   |                                                        |
+| Oglas                   |                                                        |
 | :-------------------------- | :------------------------------------------------------ |
 | Opis          | <div class="dataType">*(niz znakov - obvezno)*</div>  |
 | Lokacija prevzema | <div class="dataType">*(niz znakov - obvezno)*</div> |
