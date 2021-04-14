@@ -131,7 +131,11 @@ Komentar je podentiteta, ki se nahaja v *ostalih* podatkih vsakega uporabnika in
 
 
 ### PROCESNI POGLED
-Čelni del aplikacije izdelan po konceptu **Single Page Application (SPA)**. Za izvajanje bo poskrbel spletni brskalnik odjemalca. Zaledni del bo v obliki **Restful API**-ja dostopen na spletnem strežniku, kjer bo komuniciral z dvema podatkovnima bazama. API bomo razdelili na dve mikrostoritvi, kjer bo ena skrbela za korektno avtentikacijo uporabnikov, druga pa za monitoriranje dostopa do resursov v podatkovnih bazah.
+Čelni del aplikacije izdelan po konceptu **Single Page Application (SPA)**. Za izvajanje bo poskrbel spletni brskalnik odjemalca. Zaledni del bo v obliki **Restful API**-ja dostopen na spletnem strežniku, kjer bo komuniciral z glavno podatkovno bazo. Razdelili ga bomo na dve mikrostoritvi, ki bosta monitorirali dostop do podatkov v glavni podatkovni bazi.
+
+<img src="../img/procesniPogled.png" style="border-radius:1rem">
+
+Poleg omenjenega bo za periodično varnostno kopiranje podatkov glavne podatkovne baze skrbel **Upravljalec varnostnih kopij**, ki bo imel dostop do glavne in varnostne kopije podatkovne baze
 
 
 
