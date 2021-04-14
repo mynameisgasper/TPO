@@ -119,6 +119,12 @@ Komentar je entiteta vezana na svojega uporabnika in je zgrajena iz naslednjih l
 Na spodnji sliki so v neformalnem diagramu predstavljene relacije med zamišljenimi entitetami
 <img src="../img/relacije.png" style="width:50%">
 
+Diagram si interpretiramo na sledeč način.
+- en uporabnik lahko ustvari 0 ali več oglasov, kjer en oglas priapda točno enemu uporabniku
+- enemu uporabniku lahko pripada 0 ali več komentarjev (ki jih je podal sam, ali pa jih ostali dodali njemu), kjer en komentar pripada točno enemu uporabniku
+- en uporabnik lahko ustvari 0 ali več odzivov, kjer en odziv pripada točno enemu uporabniku
+- en oglas lahko vsebuje 0 ali več odzivov, kjer je odziv vezan na točno en oglas
+
 
 ### PROCESNI POGLED
 Čelni del aplikacije izdelan po konceptu **Single Page Application (SPA)**. Za izvajanje bo poskrbel spletni brskalnik odjemalca. Zaledni del bo v obliki **Restful API**-ja dostopen na spletnem strežniku, kjer bo komuniciral z glavno podatkovno bazo. Razdelili ga bomo na dve mikrostoritvi, ki bosta monitorirali dostop do podatkov v glavni podatkovni bazi.
