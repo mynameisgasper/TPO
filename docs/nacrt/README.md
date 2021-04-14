@@ -39,25 +39,25 @@ Za namene boljšega razumevanja smatrajte besedno zvezo **Unikatni identifikator
 
 ##### **1. Uporabnik**
 Entiteta bo razdeljena na *avtentikacijske*, *osebne* in *ostale* podatke, kjer bodo med **avtentikacijske** spadali vsi podatki, ki so potrebni za primerno avtentikacijo uporabnika, in sicer:
-- Unikatni identifikator  
-- Uporabniško ime 
-- Naključno generirana vrednost 
-- Zakriptirana vrednost 
-- Vloga 
+- Unikatni identifikator, 
+- Uporabniško ime,
+- Naključno generirano vrednost,
+- Zakriptirano vrednost in
+- Vlogo.
 > **Unikatni identifikator** enitete bo dodeljen avtomatsko s strani sistema ob registraciji. **geslo** bo v podatkovni bazi seveda primerno zakriptirano s pomočjo naključne vrednosti, ki se bo uporabljala za izračun zakriptirane vrednosti in se bo v kombinaciji z **uporabniškim imenom** uporabljalo za vpis. **Vloga**, predstavljena s celim številom, bo lahko zasedla eno od petih možnih vrednosti, kjer bodo pomembnost oz. "moč" vloge naraščala sorazmerno z vrednostjo celega števila *(npr. 1 - organizacija, 4 - administrator)*
 
 **osebni** podatki bodo zajemali:
-- Polno ime 
-- Telefonsko številko 
-- Pošto, ulico in hišno številko 
-- Elektronski naslov (elektronski pošta, uporabnika)
+- Polno ime,
+- Telefonsko številko, 
+- Pošto, ulico in hišno številko in
+- Elektronski naslov (elektronski pošta, uporabnika).
 > Osebni podatki se bodo ostalim uporabnikom na strani profila prikazali z določenimi omejitvami *(npr. ostalim uporabnikom ne bo razkrita telefonska številka in pa točen naslov uporabnika, ampak zgolj kraj, v katerem prebiva)*
 
 Med **ostale** podatke pa spadajo:
-- Javna ocena 
-- Podane ocene 
-- Hitri dostop 
-- Komentarji 
+- Javna ocena, 
+- Podane ocene, 
+- Hitri dostop in 
+- Komentarji.
 > **Javna ocena uporabnika** se bo samodejno preračunavala glede na ocene podane s strani drugih uporabnikov. **Podane ocene** predstavljajo seznam unikatnih identifikatorjev uporakov, ki jim je uporabnik že podal oceno in služi kot zapisnik, ki uporabniku preprečuje večkratno podajanje ocene istemu uporabniku. **Hitri dostop** pa predstavlja seznam unikatnih identifikatorjev vseh uporabnikov, ki jih je uporabnik "dodal v hitri dostop". **Komentarji** predstavljajo seznam vseh komentarjev, ki so jih na strani profila uporabniku podali drugi uporabniki - za več podrobnosti o komentarjih si oglejte entiteto **Komentar**
 
 **Struktura**
@@ -81,15 +81,15 @@ Med **ostale** podatke pa spadajo:
 
 ##### **2. Oglas**
 Entiteta bo vsebovala 4 **vsebinske** lastnosti:
-- Opis 
-- Lokacija prevzema 
-- Slika 
-- Cena 
+- Opis,
+- Lokacija prevzema,
+- Slika in
+- Cena. 
 > izmed naštetih sta slika in cena neobvezna, uporabnika si lahko podrobne informacije izmenjata preko zasebne komunikacije (elektronska pošta)
 
 Poleg omenjenih pa bo vsebovala tudi:
-- Oglaševalec 
-- **Odzivi**
+- Oglaševalec in
+- **Odzivi**.
 > Vsak oglas bo označen z Oglaševalcem, ki ga je ustvaril ter seznamom **Odzivov**, ki služi kot zapisnik interakcij ostalih uporabnikov s tem oglasom - za več informacij si oglejte entiteto **Odziv**
 
 **Struktura**
@@ -104,8 +104,8 @@ Poleg omenjenih pa bo vsebovala tudi:
 
 ##### **3. Odziv**
 Odziv je podentiteta oglasa in bo vsebovala
-- Sporočilo <div class="dataType">*(niz znakov - obvezno)*</div>
-- Pošiljatelj <div class="dataType">*(**unikatni identifikator** - obvezno)*</div>
+- Sporočilo in
+- Pošiljatelja.
 > Pošiljatelj v obliki unikatnega identifikatorja služi kot podpis pošiljatelja.
 
 **Struktura**
@@ -118,8 +118,8 @@ Odziv je podentiteta oglasa in bo vsebovala
 
 ##### **4. Komentar**
 Komentar je podentiteta, ki se nahaja v *ostalih* podatkih vsakega uporabnika in je zgrajena iz naslednjih lastnosti:
-- Vsebina <div class="dataType">*(niz znakov - obvezno)*</div>
-- Komentator <div class="dataType">*(**unikatni identifikator** - obvezno)*</div>
+- Vsebina in
+- Komentatorja.
 > Komentator v obliki unikatnega identifikatorja služi kot podpis komentatorja.
 
 **Struktura**
