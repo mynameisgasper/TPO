@@ -39,7 +39,6 @@ Za namene boljšega razumevanja smatrajte besedno zvezo **Unikatni identifikator
 
 ##### **1. Uporabnik**
 Entiteta bo razdeljena na *avtentikacijske*, *osebne* in *ostale* podatke, kjer bodo med **avtentikacijske** spadali vsi podatki, ki so potrebni za primerno avtentikacijo uporabnika, in sicer:
-- Unikatni identifikator, 
 - Uporabniško ime,
 - Naključno generirano vrednost,
 - Zakriptirano vrednost in
@@ -55,10 +54,9 @@ Entiteta bo razdeljena na *avtentikacijske*, *osebne* in *ostale* podatke, kjer 
 
 Med **ostale** podatke pa spadajo:
 - Javna ocena, 
-- Podane ocene, 
-- Hitri dostop in 
-- Komentarji.
-> **Javna ocena uporabnika** se bo samodejno preračunavala glede na ocene podane s strani drugih uporabnikov. **Podane ocene** predstavljajo seznam unikatnih identifikatorjev uporakov, ki jim je uporabnik že podal oceno in služi kot zapisnik, ki uporabniku preprečuje večkratno podajanje ocene istemu uporabniku. **Hitri dostop** pa predstavlja seznam unikatnih identifikatorjev vseh uporabnikov, ki jih je uporabnik "dodal v hitri dostop". **Komentarji** predstavljajo seznam vseh komentarjev, ki so jih na strani profila uporabniku podali drugi uporabniki - za več podrobnosti o komentarjih si oglejte entiteto **Komentar**
+- Podane ocene in 
+- Hitri dostop.
+> **Javna ocena uporabnika** se bo samodejno preračunavala glede na ocene podane s strani drugih uporabnikov. **Podane ocene** predstavljajo seznam unikatnih identifikatorjev uporakov, ki jim je uporabnik že podal oceno in služi kot zapisnik, ki uporabniku preprečuje večkratno podajanje ocene istemu uporabniku. **Hitri dostop** pa predstavlja seznam unikatnih identifikatorjev vseh uporabnikov, ki jih je uporabnik "dodal v hitri dostop".
 
 **Struktura**
 |                 |                                                        |
@@ -88,43 +86,48 @@ Entiteta bo vsebovala 4 **vsebinske** lastnosti:
 > izmed naštetih sta slika in cena neobvezna, uporabnika si lahko podrobne informacije izmenjata preko zasebne komunikacije (elektronska pošta)
 
 Poleg omenjenih pa bo vsebovala tudi:
-- Oglaševalec in
-- **Odzivi**.
-> Vsak oglas bo označen z Oglaševalcem, ki ga je ustvaril ter seznamom **Odzivov**, ki služi kot zapisnik interakcij ostalih uporabnikov s tem oglasom - za več informacij si oglejte entiteto **Odziv**
+- Oglaševalec
+> Vsak oglas bo označen z Oglaševalcem, ki ga je ustvaril.
 
 **Struktura**
 |                 |                                                        |
 | :-------------------------- | :------------------------------------------------------ |
+| Unikatni identifikator          | <div class="dataType">*(niz znakov - ustvarjeno samodejno)*</div>  |
 | Opis          | <div class="dataType">*(niz znakov - obvezno)*</div>  |
 | Lokacija prevzema | <div class="dataType">*(niz znakov - obvezno)*</div> |
 | Slika | <div class="dataType">*(BLOB - neobvezno)*</div> |
 | Cena | <div class="dataType">*(število - neobvezno)*</div> |
 | Oglaševalec | <div class="dataType">*(**unikatni identifikator** - obvezno)*</div> |
-| Odzivi | <div class="dataType">*(seznam **Odzivov** - privzeto prazen seznam)*</div> |
 
 ##### **3. Odziv**
 Odziv je podentiteta oglasa in bo vsebovala
-- Sporočilo in
+- 
+- Potrditev
+- Oglas in
 - Pošiljatelja.
-> Pošiljatelj v obliki unikatnega identifikatorja služi kot podpis pošiljatelja.
+> Oglas in Pošiljatelj sta v obliki unikatnega identifikatorja in služita kot identifikator oglasa in podpis pošiljatelja. Potrditev služi kot Bool-ov izraz, ki pove, ali je prišlo do dogovora.
 
 **Struktura**
 |                   |                                                        |
 | :-------------------------- | :------------------------------------------------------ |
-| Sporočilo          | <div class="dataType">*(niz znakov - obvezno)*</div>  |
+| Unikatni identifikator          | <div class="dataType">*(niz znakov - ustvarjeno samodejno)*</div>  |
+| Potrditev          | <div class="dataType">*(boolean - obvezno)*</div>  |
+| Oglas          | <div class="dataType">*(**unikatni identifikator** - obvezno)*</div>  |
 | Pošiljatelj | <div class="dataType">*(**unikatni identifikator** - obvezno)*</div> |
 
 
 
 ##### **4. Komentar**
 Komentar je podentiteta, ki se nahaja v *ostalih* podatkih vsakega uporabnika in je zgrajena iz naslednjih lastnosti:
+- Uporabnika,
 - Vsebina in
 - Komentatorja.
-> Komentator v obliki unikatnega identifikatorja služi kot podpis komentatorja.
+> Uporabnik in Komentator v obliki unikatnih identifikatorjev služita kot prejemnik komentarja in podpis komentatorja.
 
 **Struktura**
 |                   |                                                        |
 | :-------------------------- | :------------------------------------------------------ |
+| Unikatni identifikator          | <div class="dataType">*(niz znakov - ustvarjeno samodejno)*</div>  |
 | Vsebina          | <div class="dataType">*(niz znakov - obvezno)*</div>  |
 | Komentator | <div class="dataType">*(**unikatni identifikator** - obvezno)*</div> |
 
