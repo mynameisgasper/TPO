@@ -47,7 +47,8 @@ Za namene boljšega razumevanja smatrajte besedno zvezo **Unikatni identifikator
 Entiteta bo razdeljena na *avtentikacijske*, *osebne* in *ostale* podatke, kjer bodo med **avtentikacijske** spadali vsi podatki, ki so potrebni za primerno avtentikacijo uporabnika, in sicer:
 - Unikatni identifikator *(dodeljen avtomatsko s strani sistema ob registraciji)* <div class="dataType">*(niz znakov - ustvarjeno samodejno)*</div>
 - Uporabniško ime <div class="dataType">*(niz znakov - obvezno)*</div>
-- Geslo <div class="dataType">*(niz znakov - obvezno)*</div>
+- Naključno generirana vrednost <div class="dataType">*(niz znakov - obvezno)*</div>
+- Zakriptirana vrednost <div class="dataType">*(niz znakov - obvezno)*</div>
 - Vloga <div class="dataType">*(celo število - min 1, max 4 - privzeto 1)*</div>
 > geslo bo v podatkovni bazi seveda primerno zakriptirano. Vloga, predstavljena s celim številom, bo lahko zasedla eno od petih možnih vrednosti, kjer bodo pomembnost oz. "moč" vloge naraščala sorazmerno z vrednostjo celega števila *(npr. 1 - organizacija, 4 - administrator)*
 
@@ -60,10 +61,27 @@ Entiteta bo razdeljena na *avtentikacijske*, *osebne* in *ostale* podatke, kjer 
 
 Med **ostale** podatke pa spadajo:
 - Javna ocena <div class="dataType">*(necelo število - min 0.0, max 5.0 - privzeto nedefinirano)*</div>
-- Podanie ocene <div class="dataType">*(seznam **unikatnih identifikatorjev** - privzeto prazen seznam)*</div>
+- Podane ocene <div class="dataType">*(seznam **unikatnih identifikatorjev** - privzeto prazen seznam)*</div>
 - Hitri dostop <div class="dataType">*(seznam **unikatnih identifikatorjev** - privzeto prazen seznam)*</div>
-- Komentarjev <div class="dataType">*(seznam **Komentarjev** - privzeto prazen seznam)*</div>
+- Komentarji <div class="dataType">*(seznam **Komentarjev** - privzeto prazen seznam)*</div>
 > *javna ocena uporabnika* se bo samodejno preračunavala glede na ocene podane s strani drugih uporabnikov. *Seznam podanih ocen uporabnikom* predstavlja zaporedje unikatnih identifikatorjev uporakov, ki jim je uporabnik že podal oceno in služi kot zapisnik, ki uporabniku preprečuje večkratno podajanje ocene istemu uporabniku. *Seznam uporabnikov s hitrim dostopom* pa predstavlja zaporedje unikatnih identifikatorjev vseh uporabnikov, ki jih je uporabnik "dodal v hitri dostop"
+
+**Struktura**
+|                 |                                                        |
+| :-------------------------- | :------------------------------------------------------ |
+| Unikatni identifikator          | <div class="dataType">*(niz znakov - ustvarjeno samodejno)*</div>  |
+| Uporabniško ime | <div class="dataType">*(niz znakov - obvezno)*</div> |
+| Naključno generirana vrednost | <div class="dataType">*(niz znakov - obvezno)*</div> |
+| Zakriptirana vrednost | <div class="dataType">*(niz znakov - obvezno)*</div> |
+| Vloga | <div class="dataType">*(celo število - min 1, max 4 - privzeto 1)*</div> |
+| Polno ime | <div class="dataType">*(niz znakov - obvezno)*</div> |
+| Telefonska številka | <div class="dataType">*(niz znakov - obvezno)*</div> |
+| Pošta, ulica in hišna številka | <div class="dataType">*(niz znakov - obvezno)*</div> |
+| Elektronski naslov | <div class="dataType">*(niz znakov - obvezno)*</div> |
+| Javna ocena | <div class="dataType">*(necelo število - min 0.0, max 5.0 - privzeto nedefinirano)*</div> |
+| Podane ocene | <div class="dataType">*(seznam **unikatnih identifikatorjev** - privzeto prazen seznam)*</div> |
+| Hitri dostop | <div class="dataType">*(seznam **unikatnih identifikatorjev** - privzeto prazen seznam)*</div> |
+| Komentarji | <div class="dataType">*(seznam **Komentarjev** - privzeto prazen seznam)*</div> |
 
 
 
@@ -79,7 +97,8 @@ Poleg omenjenih pa bo vsebovala tudi:
 - Oglaševalec <div class="dataType">*(**unikatni identifikator** - obvezno)*</div>
 - **Odzivi** <div class="dataType">*(seznam **Odzivov** - privzeto prazen seznam)*</div>
 
-| Oglas                   |                                                        |
+**Struktura**
+|                 |                                                        |
 | :-------------------------- | :------------------------------------------------------ |
 | Opis          | <div class="dataType">*(niz znakov - obvezno)*</div>  |
 | Lokacija prevzema | <div class="dataType">*(niz znakov - obvezno)*</div> |
@@ -94,7 +113,8 @@ Odziv je podentiteta oglasa in bo vsebovala
 - Pošiljatelj <div class="dataType">*(**unikatni identifikator** - obvezno)*</div>
 > Pošiljatelj v obliki unikatnega identifikatorja služi kot podpis pošiljatelja.
 
-| Odziv                   |                                                        |
+**Struktura**
+|                   |                                                        |
 | :-------------------------- | :------------------------------------------------------ |
 | Sporočilo          | <div class="dataType">*(niz znakov - obvezno)*</div>  |
 | Pošiljatelj | <div class="dataType">*(**unikatni identifikator** - obvezno)*</div> |
@@ -106,7 +126,8 @@ Komentar je podentiteta, ki se nahaja v *ostalih* podatkih vsakega uporabnika in
 - Vsebina <div class="dataType">*(niz znakov - obvezno)*</div>
 - Komentator <div class="dataType">*(**unikatni identifikator** - obvezno)*</div>
 
-| Komentar                   |                                                        |
+**Struktura**
+|                   |                                                        |
 | :-------------------------- | :------------------------------------------------------ |
 | Vsebina          | <div class="dataType">*(niz znakov - obvezno)*</div>  |
 | Komentator | <div class="dataType">*(**unikatni identifikator** - obvezno)*</div> |
