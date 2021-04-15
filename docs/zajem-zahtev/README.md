@@ -392,33 +392,15 @@ MUST have
 ### **Povzetek funkcionalnosti**
 Vsak **prijavljen uporabnik** ima možnost ogleda profila kateregakoli drugega uporabnika. Na strani profila so prikazani splošni javni podatki uporabnika.
 
-### **Osnovni tok**
-1. Uporabnik izbere funkcionalnost brskanja po profilih
-2. Sistem prikaže vnosno polje za niz, s katerim uporabnik poizveduje po podatkovni bazi uporabnikov
-3. Uporabnik ob izvedbi iskanja (pritisk na gumb "išči" oz. pritisk na tipko *enter*) inicializira poizvedbo
-4. Uporabniku se prikaže seznam najboljših ustrezanj glede na ime uporabnikov.
-5. Uporabnik izbere željen element seznama, in s klikom nanj sproži povezavo na stran profila uporabnika
-6. Na strani profila so nato izpisani vsi javni podatki izbranega uporabnika
+### **Osnovni tok**  
+1. Uporabnik izbere profil, ki ga želi pogledati  
+2. Prikaže se mu profil z vsemi javnimi podatki izbranega uporabnika  
 
-### **Alternativni tokovi**
-#### **Ogled profila preko oglasa**
-Ob vsakem oglasu je zapisan tudi uporabnik, ki ga je ustvaril.
-1. Uporabnik si ogleduje oglase. 
-2. Za nek specifičen oglas si želi ogledati profil uporabnika, ki ga je ustvaril
-3. S klikom na ime ustvarjatelja (ime se nahaja ob prikazu oglasa in služi kot povezava do strani profila uporabnika) sistem uporabnika preumseri na stran profila ustvarjatelja.
-
-#### **Ogled profile preko zgodovine sprehodov - SAMO PREMIUM UPROABNIKI**
-Ob vsakem zapisu sprehoda je podana tudi povezava na stran profila sprehajalca/skrbnika v obliki imena sprehajalca
-1. Uporabnik si ogleduje zgodovino sprehodov sovjega/ih psa/ov
-2. Uporabni si želi ogledati profil sprehajalca/skrbnika, ki je sprehajal njegovega psa
-3. S klikom na povezavo (ime sprehajalca) sistem uporabnika preusmeri na stran profila sprehajalca/skrbnika
+### **Alternativni tokovi**  
+Funkcionalnost nima alternativnih tokov.  
 
 ### **Izjemni tokovi**
-1. Uporabnik izbere funkcionalnost brskanja po profilih
-2. Sistem prikaže vnosno polje za niz, s katerim uporabnik poizveduje po podatkovni bazi uporabnikov
-3. Uporabnik ob izvedbi iskanja (pritisk na gumb "išči" oz. pritisk na tipko *enter*) inicializira poizvedbo
-4. V primeru, da poizvedba na najde niti enega ustreznega ujemanja, se uporabniku prikaže sporočilo o prazni poizvedbi
-5. uporabnik lahko nato ponovno vpiše niz v vnosno polje za brskanje oz zapusti funckionalost.
+Funkcionalnost nima izjemnih tokov.  
 
 ### **Pogoji**
 Uporabnik mora biti prijavljen v sistem, za drugega izmed alternativnih tokov pa mora imeti poleg omenjenega tudi vlogo **premium uporabnika**.
@@ -977,13 +959,10 @@ Prijavi se v sistem kot uporabnik in poskusi izbrisati komentar uporabniku s kat
 ### **Osnovni tok**
 1. Prijavljen uporabnik izbere funkcionalnost "ogled profila"
 2. Uporabnik pritisne na gumb "Dodaj/uredi komentar"
-3. Sistem preveri, če imata uporabnika v bazi zapisano vsaj eno interakcijo.
-4. Sistem uporabniku prikaže vnosno polje za komentar.
-5. Uporabnik pritisne na gumb "izbriši komentar".
-6. Sistem preveri, če komentar obstaja.
-7. Sistem odpre potrdilno okno
-8. Uporabnik pritisne na gumb za potrditev
-9. Sistem izbriše komentar na tem profilu
+3. Uporabnik pritisne na gumb "izbriši komentar".
+4. Sistem odpre potrdilno okno
+5. Uporabnik pritisne na gumb za potrditev
+6. Sistem izbriše komentar na tem profilu
 
 ### **Alternativni tok**
 
@@ -991,41 +970,14 @@ Prijavi se v sistem kot uporabnik in poskusi izbrisati komentar uporabniku s kat
 2. Admin pritisne na gumb za brisanje komentarja
 3. Sistem odpre potrdilno okno
 4. Admin pritisne na gumb za potrditev
-6. Sistem izbriše komentar na tem profilu
+5. Sistem izbriše komentar na tem profilu
 
 ### **Izjemni tok**
-1. Izjemni tok 1:  
-  1.1 Prijavljen uporabnik izbere funkcionalnost "ogled profila"  
-  1.2 Uporabnik pritisne na gumb "Dodaj/uredi komentar"  
-  1.3 Sistem preveri, če imata uporabnika v bazi zapisano vsaj eno interakcijo.  
-  1.4 Sistem uporabniku prikaže vnosno polje za komentar.  
-  1.5 Uporabnik pritisne na gumb "izbriši komentar".  
-  1.6 Sistem preveri, če komentar obstaja.  
-  1.7 Sistem uporabnika obvesti, da komentar ne obstaja.  
-
-2. Izjemni tok 2:  
-  2.1 Prijavljen uporabnik izbere funkcionalnost "ogled profila"  
-  2.2 Uporabnik pritisne na gumb "Dodaj/uredi komentar"  
-  2.3 Sistem preveri, če imata uporabnika v bazi zapisano vsaj eno interakcijo.  
-  2.4 Sistem uporabniku prikaže vnosno polje za komentar.  
-  2.5 Uporabnik pritisne na gumb "izbriši komentar".  
-  2.6 Sistem preveri, če komentar obstaja.  
-  2.7 Sistem odpre potrdilno okno  
-  2.8 Uporabnik navigira proč od strani
-  2.9 Sistem ne izbriše komentarja
-
-3. Izjemni tok 3:  
-  3.1 Admin izbere funkcionalnost "ogled profila"  
-  3.2 Admin pritisne na gumb za brisanje komentarja  
-  3.3 Sistem odpre potrdilno okno  
-  3.4 Admin navigira proč od strani  
-  3.5 Sistem ne izbriše komentarja
-
-4. Izjemni tok 4:  
-  4.1 Prijavljen uporabnik izbere funkcionalnost "ogled profila"  
-  4.2 Uporabnik pritisne na gumb "Dodaj/uredi komentar"  
-  4.3 Sistem preveri, če imata uporabnika v bazi zapisano vsaj eno interakcijo.  
-  4.4 Sistem ne prikaže polja za urejanje in podajanje komentarja in izpiše obvestilo. 
+  1. Prijavljen uporabnik izbere funkcionalnost "ogled profila"  
+  2. Uporabnik pritisne na gumb "izbriši komentar".  
+  3. Sistem odpre potrdilno okno  
+  4. Uporabnik navigira proč od strani
+  5. Sistem ne izbriše komentarja
 
 ### **Pogoji**
 Uporabnik mora biti prijavljen kot admin. 
