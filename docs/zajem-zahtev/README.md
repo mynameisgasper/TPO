@@ -958,11 +958,10 @@ Prijavi se v sistem kot uporabnik in poskusi izbrisati komentar uporabniku s kat
 
 ### **Osnovni tok**
 1. Prijavljen uporabnik izbere funkcionalnost "ogled profila"
-2. Uporabnik pritisne na gumb "Dodaj/uredi komentar"
-3. Uporabnik pritisne na gumb "izbriši komentar".
-4. Sistem odpre potrdilno okno
-5. Uporabnik pritisne na gumb za potrditev
-6. Sistem izbriše komentar na tem profilu
+2. Uporabnik pritisne na gumb "izbriši komentar"
+3. Sistem odpre potrdilno okno
+4. Uporabnik pritisne na gumb za potrditev
+5. Sistem izbriše komentar na tem profilu
 
 ### **Alternativni tok**
 
@@ -973,11 +972,19 @@ Prijavi se v sistem kot uporabnik in poskusi izbrisati komentar uporabniku s kat
 5. Sistem izbriše komentar na tem profilu
 
 ### **Izjemni tok**
-  1. Prijavljen uporabnik izbere funkcionalnost "ogled profila"  
-  2. Uporabnik pritisne na gumb "izbriši komentar".  
-  3. Sistem odpre potrdilno okno  
-  4. Uporabnik navigira proč od strani
-  5. Sistem ne izbriše komentarja
+1. Izjemni tok 1: 
+  1.1 Prijavljen uporabnik izbere funkcionalnost "ogled profila"  
+  1.2 Uporabnik pritisne na gumb "izbriši komentar" 
+  1.3 Sistem odpre potrdilno okno  
+  1.4 Uporabnik navigira proč od strani
+  1.5 Sistem ne izbriše komentarja
+
+2. Izjemni tok 2:   
+  2.1 Prijavljen uporabnik izbere funkcionalnost "ogled profila"  
+  2.2 Uporabnik pritisne na gumb "izbriši komentar"
+  2.3 Sistem odpre potrdilno okno  
+  2.4 Uporabnik zavrne potrditveno okno
+  2.5 Sistem ne izbriše komentarja
 
 ### **Pogoji**
 Uporabnik mora biti prijavljen kot admin. 
