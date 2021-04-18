@@ -278,59 +278,95 @@ Nesamoumevne Metode
 
 #### **OgledHitrihKontaktov**
 
+- Predstavlja funkcionalnost ogleda hitrih kontaktov uporabnika
+
 - Nesamoumevne Metode
   - Ni nesamoumevnih metod
 
 #### **DodajanjeUporabnikaMedHitreKontakte**
+ 
+ - Predstavlja funkcionalnost dodajanja nekega uporabniak pod hitre kontakte
 
-Nesamoumevne Metode
-- ??
+- Nesamoumevne Metode
+  - dodajHitriKontakt()
+    - paramater je Uporabnik
+    - rezultat je integer -> ta predstavlja uspešno dodajanje oziroma napako med dodajanjem
 
 #### **BrisanjeKomentarjaProfila**
 
-Nesamoumevne Metode
-- ??
+- Predstavlja funkcionalnost brisanja komentarja na profilu
+
+- Nesamoumevne Metode
+  - Ni nesamoumevnih metod
 
 #### **DodajanjeKomentarjaProfilu**
 
-Nesamoumevne Metode
-- ??
+- Predstavlja funkcionalnost dodajanja in urejanja komentarja na profilu
+
+- Nesamoumevne Metode
+  - dodajUrediKomentar()
+    - parameter je vsebina vnosnih polj dodajanja ali urejanja komentarja
+    - rezultat je integer -> ta predstavlja uspešno dodajanje/urejanje oziroma napako med le tem
+
 
 
 #### **OgledLokacijePrevzema**
 
-Nesamoumevne Metode
-- ??
+- Predstavlja funkcionalnost ogleda lokacije prevzema psa.
+
+- Nesamoumevne Metode
+  - Ni nesamoumevnih metod
 
 #### **OgledPosameznegaOglasa**
 
-Nesamoumevne Metode
-- ??
+- Predstavlja funkcionalnost ogleda posameznega oglasa
+
+- Nesamoumevne Metode
+  - pridobiPodatke()
+    - parameter je identifikator oglasa
+    - vrne vse podatke o Oglasu
+  - jePrijavlen()
+    - parameterov ni
+    - preveri, če je trenutni uporabnik prijavlen v uporabniški račun
+    - vrne boolean, true če je uporabnik prijavlen, false če ni
 
 #### **BrisanjeOglasa**
 
-Nesamoumevne Metode
-- ??
+- Predstavlja funkcionalnost brisanja oglasa
+
+- Nesamoumevne Metode
+  - Ni nesamoumevnih metod
 
 #### **UrejanjeOglasa**
 
-Nesamoumevne Metode
-- ??
+- Predstavlja funkcionalnost urejanje oglasa
+
+- Nesamoumevne Metode
+  - Ni nesamoumevnih metod
 
 #### **KreiranjeOglasa**
 
-Nesamoumevne Metode
-- ??
+- Predstavlja funkcionalnost kreiranja oglasa
+
+- Nesamoumevne Metode
+  - Ni nesamoumevnih metod
 
 #### **IskanjeOglasov**
 
-Nesamoumevne Metode
-- ??
+- Predstavlja funkcionalnost iskanja oglasov
+
+- Nesamoumevne Metode
+  - jePrijavlen()
+    - parameterov ni
+    - preveri, če je trenutni uporabnik prijavlen v uporabniški račun
+    - vrne boolean, true če je uporabnik prijavlen, false če ni
 
 #### **PretvorbaValute**
 
-Nesamoumevne Metode
-- ??
+- Predstavlja funkcionalnost pretvorbo valute v privzeto valuto uporabnika
+
+- Nesamoumevne Metode
+  - Ni nesamoumevnih metod
 
 ### Mejni:
 
@@ -432,16 +468,19 @@ Nesamoumevne Metode
 
 
 
+### 2.3 Načrtovalski vzorci
 
+#### **Strategija**
 
+OgledProfila se uporablja za ocenjevanje profila, brisanje komentarjev in funkcionalnost ogleda profila. Strategijo bi uporabili, da bi te funkcionalnosti razdeli na svoje razrede. OgledProfila bi postal kontekstni razred. BrisanjeKomentarja, ocenjevanje in ogled pa strateški razredi.   
 
+#### **Singleton**
 
+UrejanjeUporabniskegaProfila in UrejanjeOglasa. Singleton se uporabi, da lahko samo en uporabnik hkrati ureja profil oziroma oglas. S tem se zaščitimo, da se podatki v bazi ne spremenijo za enega uporabnika med urejanjem.  
 
+#### **Adapter**
 
-
-
-
-
+Adapter bomo uporabili za pretvarjanje podatkov, shranjenih v bazi, iz formata v katerm so tam zapisani, v format, primeren za prikaz v aplikaciji. Oglas bo imel podatke v bazi shranjene v drugem formatu (npr. xml), v aplikaciji pa bodo prikazani v urejenem tekstu. 
 
 
 ## 3. Načrt obnašanja
