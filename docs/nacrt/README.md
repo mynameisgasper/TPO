@@ -224,7 +224,10 @@ Za gostovanje podatkovnih baz bomo uporabili **MongoDB Atlas strežnike**, kjer 
     
   Diagram prikazuje izjemni tok, kjer uporabnik navigira proč od strani brez shranjevanja sprememb.  
   <img src="../img/diagrami_zaporedja/Urejanje_profila_izjemni4.png">  
-  
+
+  ### 3.4. Pregled vseh oglasov  
+  Funkcionalnost je bila združena s funkcionalnostjo "Iskanje oglasov".
+
   ### 3.5. Ogled posameznega oglasa  
 
   **OSNOVNI TOK**  
