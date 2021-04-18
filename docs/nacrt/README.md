@@ -15,7 +15,7 @@ Znotraj razvojnega pogleda je predstavljena uporabljena arhitekturna zasnova po 
 opisana je tudi je avtentikacija, ki bo implementirana po principu JWT. 
 Fizični pogled zajema upravljanje z varnostnimi kopijami in način uporabe podatkovnih baz 
 preko gostiteljskega strežnika MongoDB Atlas. 
-V razdelku načrt strukture se nahaja razredni diagram sistem s pripadajočimi atributi, metodami in njihovimi opisi. 
+V razdelku načrt strukture se nahaja razredni diagram sistema s pripadajočimi atributi, metodami in njihovimi opisi. 
 Na koncu sledi še poglavitni razdelek z načrtom obnašanja, v katerem je skupek diagramov zaporedja, 
 uporabljenih pri predstavitvi funkcionalnosti in njihovih osnovnih, alternativnih in izjemnih tokov. 
 
