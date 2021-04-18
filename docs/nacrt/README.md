@@ -84,24 +84,9 @@ Poleg omenjenih pa bo vsebovala tudi:
 | Cena | <div class="dataType">*(število - neobvezno)*</div> |
 | Oglaševalec | <div class="dataType">*(**unikatni identifikator** - obvezno)*</div> |
 
-##### **3. Odziv**
-Odziv je entiteta vezana na svoj oglas in bo vsebovala
-- Potrditev
-- Oglas in
-- Pošiljatelja.
-> Oglas in Pošiljatelj sta v obliki unikatnega identifikatorja in služita kot identifikator oglasa in podpis pošiljatelja. Potrditev služi kot Bool-ov izraz, ki pove, ali je prišlo do dogovora.
-
-**Struktura**
-|                   |                                                        |
-| :-------------------------- | :------------------------------------------------------ |
-| Unikatni identifikator          | <div class="dataType">*(niz znakov - ustvarjeno samodejno)*</div>  |
-| Potrditev          | <div class="dataType">*(boolean - obvezno)*</div>  |
-| Oglas          | <div class="dataType">*(**unikatni identifikator** - obvezno)*</div>  |
-| Pošiljatelj | <div class="dataType">*(**unikatni identifikator** - obvezno)*</div> |
 
 
-
-##### **4. Komentar**
+##### **3. Komentar**
 Komentar je entiteta vezana na svojega uporabnika in je zgrajena iz naslednjih lastnosti:
 - Uporabnika,
 - Vsebina in
@@ -114,6 +99,30 @@ Komentar je entiteta vezana na svojega uporabnika in je zgrajena iz naslednjih l
 | Unikatni identifikator          | <div class="dataType">*(niz znakov - ustvarjeno samodejno)*</div>  |
 | Vsebina          | <div class="dataType">*(niz znakov - obvezno)*</div>  |
 | Komentator | <div class="dataType">*(**unikatni identifikator** - obvezno)*</div> |
+
+#### Relacije med entitetami
+Na spodnji sliki so v neformalnem diagramu predstavljene relacije med zamišljenimi entitetami
+<img src="../img/relacije.png" style="width:50%">
+
+Diagram si interpretiramo na sledeč način.
+- en uporabnik lahko ustvari 0 ali več oglasov, kjer en oglas priapda točno enemu uporabniku
+- enemu uporabniku lahko pripada 0 ali več komentarjev (ki jih je podal sam, ali pa jih ostali dodali njemu), kjer en komentar pripada točno enemu uporabniku
+- en uporabnik lahko ustvari 0 ali več odzivov, kjer en odziv pripada točno enemu uporabniku
+- en oglas lahko vsebuje 0 ali več odzivov, kjer je odziv vezan na točno en oglas  
+
+##### **4. Ocena**
+Ocenar je entiteta vezana na svojega uporabnika in je zgrajena iz naslednjih lastnosti:
+- Uporabnika,
+- Ocena in
+- Ocenjevalca.
+> Uporabnik in Ocenjevalca v obliki unikatnih identifikatorjev služita kot prejemnik ocene in podpis ocenjevalca.
+
+**Struktura**
+|                   |                                                        |
+| :-------------------------- | :------------------------------------------------------ |
+| Unikatni identifikator          | <div class="dataType">*(niz znakov - ustvarjeno samodejno)*</div>  |
+| Ocena          | <div class="dataType">*(število - obvezno)*</div>  |
+| Ocenjevalec | <div class="dataType">*(**unikatni identifikator** - obvezno)*</div> |
 
 #### Relacije med entitetami
 Na spodnji sliki so v neformalnem diagramu predstavljene relacije med zamišljenimi entitetami
