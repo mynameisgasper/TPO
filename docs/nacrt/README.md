@@ -236,7 +236,7 @@ Za gostovanje podatkovnih baz bomo uporabili **MongoDB Atlas strežnike**, kjer 
   <img src="../img/diagrami_zaporedja/Urejanje_profila_izjemni4.png">  
 
   ### 3.4. Pregled vseh oglasov  
-  Funkcionalnost je bila združena s funkcionalnostjo "Iskanje oglasov".
+  Funkcionalnost je bila združena s funkcionalnostjo "Iskanje oglasov".  
 
   ### 3.5. Ogled posameznega oglasa  
 
@@ -247,7 +247,7 @@ Za gostovanje podatkovnih baz bomo uporabili **MongoDB Atlas strežnike**, kjer 
   Diagram prikazuje alternativni tok, kjer si oglas ogleduje neprijavljen uporabnik z manj funkcionalnostmi.  
   <img src="../img/diagrami_zaporedja/Ogled_oglasa_alternativni.png">  
 
-  Diagram prikazuje alternativni tok, kjer si uporabnik ogleda lokacijo prevzema na sameme oglasu.
+  Diagram prikazuje alternativni tok, kjer si uporabnik ogleda lokacijo prevzema na sameme oglasu.  
   <img src="../img/diagrami_zaporedja/ogled_posameznega_oglasa_ogled_lokacije.png">  
   
   **IZJEMNI TOK**  
@@ -295,29 +295,29 @@ Za gostovanje podatkovnih baz bomo uporabili **MongoDB Atlas strežnike**, kjer 
 
   ### 3.11. Dodaj Hitri Kontakt
 
-  **OSNOVNI TOK**
+  **OSNOVNI TOK**  
   <img src="../img/diagrami_zaporedja/dodajHitriKontakt_osnovniTok_Premium.png">
 
-  **ALTERNATIVNI TOK ADMIN**
-  Diagram prikazuje alternativni tok, kjer je akter tipa Admin
+  **ALTERNATIVNI TOK ADMIN**  
+  Diagram prikazuje alternativni tok, kjer je akter tipa Admin  
   <img src="../img/diagrami_zaporedja/dodajHitriKontakt_OsnovniTok_Admin.png">
 
   **IZJEMNI TOK PREMIUM**
   <img src="../img/diagrami_zaporedja/dodajHitriKontakt_izjemniTok_Premium.png">
 
-  **IZJEMNI TOK ADMIN**
-  Diagram prikazuje alternativni izjemni tok, kjer je akter tipa Admin
+  **IZJEMNI TOK ADMIN**  
+  Diagram prikazuje alternativni izjemni tok, kjer je akter tipa Admin  
   <img src="../img/diagrami_zaporedja/dodajHitriKontakt_izjemniTok_admin.png">
 
 
      
   ### 3.12. Ogled hitrih kontaktov
     
-  **OSNOVNI TOK** 
+  **OSNOVNI TOK**  
   <img src="../img/diagrami_zaporedja/ogled_hitrih_kontaktov_premium.png">
 
   **ALTERNATIVNI TOK**   
-  Diagram prikazuje alternativni tok, kjer je akter tipa Admin
+  Diagram prikazuje alternativni tok, kjer je akter tipa Admin  
   <img src="../img/diagrami_zaporedja/ogled_hitrih_kontaktov_admin.png">
 
   ### 3.13. Odstranitev uporabnika iz hitrih kontaktov
@@ -326,7 +326,7 @@ Za gostovanje podatkovnih baz bomo uporabili **MongoDB Atlas strežnike**, kjer 
   <img src="../img/diagrami_zaporedja/odstranitev_uporabnika_iz_hitrih_kontaktov_premium.png">
 
   **ALTERNATIVNI TOK**   
-  Diagram prikazuje alternativni tok, kjer je akter tipa Admin
+  Diagram prikazuje alternativni tok, kjer je akter tipa Admin  
   <img src="../img/diagrami_zaporedja/odstranitev_uporabnika_iz_hitrih_kontaktov_admin.png">
     
   ### 3.14. Odziv na oglas  
@@ -378,28 +378,28 @@ Za gostovanje podatkovnih baz bomo uporabili **MongoDB Atlas strežnike**, kjer 
   <img src="../img/diagrami_zaporedja/dodajanje_komentarja_profilu_osnovni.png">
 
   **ALTERNATIVNI TOK**  
-  Diagram prikazuje alternativni tok, kjer uporabnik ureja svoj že obstoječi komentar.
-  <img src="../img/diagrami_zaporedja/dodajanje_komentarja_profilu_alternativni.png">
+  Diagram prikazuje alternativni tok, kjer uporabnik ureja svoj že obstoječi komentar.  
+  <img src="../img/diagrami_zaporedja/dodajanje_komentarja_profilu_alternativni.png">  
 
   **IZJEMNI TOKOVI**  
   Diagram prikazuje izjemni tok, kjer uporabnik med podajanjem komentarja navigira
-  stran od zaslonske maske.
-  <img src="../img/diagrami_zaporedja/dodajanje_komentarja_profilu_izjemni1.png">
+  stran od zaslonske maske.  
+  <img src="../img/diagrami_zaporedja/dodajanje_komentarja_profilu_izjemni1.png">  
 
-  Diagram prikazuje izjemni tok, kjer uporabnik poizkusi podati komentar, vendar še nima interakcij s tem uporabnikom, ki bi mu dovoljevale dodajanje komentarja.
-  <img src="../img/diagrami_zaporedja/dodajanje_komentarja_profilu_izjemni2.png">
+  Diagram prikazuje izjemni tok, kjer uporabnik poizkusi podati komentar, vendar še nima interakcij s tem uporabnikom, ki bi mu dovoljevale dodajanje komentarja.  
+  <img src="../img/diagrami_zaporedja/dodajanje_komentarja_profilu_izjemni2.png">  
 
 
-  ### 3.19. Brisanje komentarjev
+  ### 3.19. Brisanje komentarjev  
     
-  **OSNOVNI TOK** 
+  **OSNOVNI TOK**  
   <img src="../img/diagrami_zaporedja/brisanje_komentarja_osnovni.png">
 
   **IZJEMNI TOKOVI**   
-  Diagram prikazuje izjemni tok, kjer uporabnik zapre pojavitveno okno, ki se pojavi ob kliku na brisanje komentarja.
+  Diagram prikazuje izjemni tok, kjer uporabnik zapre pojavitveno okno, ki se pojavi ob kliku na brisanje komentarja.  
   <img src="../img/diagrami_zaporedja/brisanje_komentarja_izjemni1.png">
 
-  Diagram prikazuje izjemni tok, kjer uporabnik zavrne potrditev v oknu, ki se pojavi ob kliku na brisanje komentarja.
+  Diagram prikazuje izjemni tok, kjer uporabnik zavrne potrditev v oknu, ki se pojavi ob kliku na brisanje komentarja.  
   <img src="../img/diagrami_zaporedja/BrisanjeKomentarja_izjemni2.png">
     
   
