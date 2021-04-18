@@ -203,6 +203,39 @@ Za gostovanje podatkovnih baz bomo uporabili **MongoDB Atlas strežnike**, kjer 
 
 ## 3. Načrt obnašanja
 
+  ### 3.1. Registracija uporabnika  
+
+  **OSNOVNI TOK**  
+  <img src="../img/diagrami_zaporedja/Registracija_osnovni_izjemni1.png">  
+    
+  **IZJEMNI TOK**  
+  <img src="../img/diagrami_zaporedja/Registracija_izjemni2_in_3.png">  
+
+  ### 3.3. Urejanje uporabniškega profila  
+
+  **OSNOVNI TOK**  
+  <img src="../img/diagrami_zaporedja/Urejanje_profila_osnovni.png">  
+    
+  **IZJEMNI TOKOVI**  
+  <img src="../img/diagrami_zaporedja/Urejanje_profila_izjemni1_2_3.png">  
+  
+  <img src="../img/diagrami_zaporedja/Urejanje_profila_izjemni4.png">  
+  
+  ### 3.5. Ogled posameznega oglasa  
+
+  **OSNOVNI TOK**  
+  <img src="../img/diagrami_zaporedja/Ogled_oglasa_osnovni.png">  
+    
+  **ALTERNATIVNI TOK**  
+  <img src="../img/diagrami_zaporedja/Ogled_oglasa_alternativni.png">  
+  
+  **IZJEMNI TOK**  
+  <img src="../img/diagrami_zaporedja/Ogled_oglasa_izjemni.png">  
+
+  ### 3.7. Ogled profila  
+
+  **OSNOVNI TOK**  
+  <img src="../img/diagrami_zaporedja/Ogled_profila_osnovni.png">  
 
   ### 3.8. Kreacija oglasa  
 
@@ -212,6 +245,13 @@ Za gostovanje podatkovnih baz bomo uporabili **MongoDB Atlas strežnike**, kjer 
   **IZJEMNI TOK**  
   <img src="../img/diagrami_zaporedja/Kreacija_oglasa_izjemni.png">  
   
+  ### 3.9. Vzdrževanje oglasa  
+
+  **OSNOVNI TOK**  
+  <img src="../img/diagrami_zaporedja/Vzdrževanje_oglasa_osnovni.png">  
+    
+  **IZJEMNI TOK**  
+  <img src="../img/diagrami_zaporedja/Vzdrževanje_oglasa_izjemni.png">  
   
   ### 3.10. Brisanje oglasa  
     
