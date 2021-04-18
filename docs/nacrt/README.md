@@ -206,9 +206,11 @@ Za gostovanje podatkovnih baz bomo uporabili **MongoDB Atlas strežnike**, kjer 
   ### 3.1. Registracija uporabnika  
 
   **OSNOVNI TOK**  
+  Diagram poleg osnovnega toka predstavlja tudi izjemni tok, kjer je e-naslov že uporabljen.  
   <img src="../img/diagrami_zaporedja/Registracija_osnovni_izjemni1.png">  
     
   **IZJEMNI TOK**  
+  Diagram predstavlja izjemne tokove neustreznih podatkov.  
   <img src="../img/diagrami_zaporedja/Registracija_izjemni2_in_3.png">  
 
   ### 3.3. Urejanje uporabniškega profila  
@@ -217,8 +219,10 @@ Za gostovanje podatkovnih baz bomo uporabili **MongoDB Atlas strežnike**, kjer 
   <img src="../img/diagrami_zaporedja/Urejanje_profila_osnovni.png">  
     
   **IZJEMNI TOKOVI**  
+  Diagram prikazuje izjemne tokove, kjer so bili vnešeni nedovoljeni znaki, neustrezen format podatkov (npr. e-naslova) ali pa je bilo prekoračeno dovoljeno število znakov.  
   <img src="../img/diagrami_zaporedja/Urejanje_profila_izjemni1_2_3.png">  
-  
+    
+  Diagram prikazuje izjemni tok, kjer uporabnik navigira proč od strani brez shranjevanja sprememb.  
   <img src="../img/diagrami_zaporedja/Urejanje_profila_izjemni4.png">  
   
   ### 3.5. Ogled posameznega oglasa  
@@ -227,9 +231,11 @@ Za gostovanje podatkovnih baz bomo uporabili **MongoDB Atlas strežnike**, kjer 
   <img src="../img/diagrami_zaporedja/Ogled_oglasa_osnovni.png">  
     
   **ALTERNATIVNI TOK**  
+  Diagram prikazuje alternativni tok, kjer si oglas ogleduje neprijavljen uporabnik z manj funkcionalnostmi.  
   <img src="../img/diagrami_zaporedja/Ogled_oglasa_alternativni.png">  
   
   **IZJEMNI TOK**  
+  Diagram prikazuje izjemni tok, kjer odpove zunanji sistem.  
   <img src="../img/diagrami_zaporedja/Ogled_oglasa_izjemni.png">  
 
   ### 3.7. Ogled profila  
@@ -243,15 +249,17 @@ Za gostovanje podatkovnih baz bomo uporabili **MongoDB Atlas strežnike**, kjer 
   <img src="../img/diagrami_zaporedja/Kreacija_oglasa_osnovni.png">  
     
   **IZJEMNI TOK**  
+  Diagram prikazuje izjemni tok, kjer so bili vnešeni neustrezni podatki ali pa podatki manjkajo.  
   <img src="../img/diagrami_zaporedja/Kreacija_oglasa_izjemni.png">  
   
   ### 3.9. Vzdrževanje oglasa  
 
   **OSNOVNI TOK**  
-  <img src="../img/diagrami_zaporedja/Vzdrževanje_oglasa_osnovni.png">  
+  <img src="../img/diagrami_zaporedja/Vzdrzevanje_oglasa_osnovni.png">  
     
   **IZJEMNI TOK**  
-  <img src="../img/diagrami_zaporedja/Vzdrževanje_oglasa_izjemni.png">  
+  Diagram prikazuje izjemni tok, kjer so bili vnešeni neustrezni podatki ali pa podatki manjkajo.  
+  <img src="../img/diagrami_zaporedja/Vzdrzevanje_oglasa_izjemni.png">  
   
   ### 3.10. Brisanje oglasa  
     
@@ -259,9 +267,11 @@ Za gostovanje podatkovnih baz bomo uporabili **MongoDB Atlas strežnike**, kjer 
   <img src="../img/diagrami_zaporedja/Brisanje_oglasa_Osnovni.png">  
     
   **ALTERNATIVNI TOK**  
+  Diagram prikazuje alternativni tok, kjer uporabnik ne potrdi brisanja oglasa.  
    <img src="../img/diagrami_zaporedja/Brisanje_oglasa_Alternativni.png">  
      
   **IZJEMNI TOK**  
+  Diagram prikazuje izjemni tok, kjer uporabnik navigira proč od strani brez potrditve brisanja.  
    <img src="../img/diagrami_zaporedja/Brisanje_oglasa_Izjemni.png">   
      
     
@@ -270,10 +280,11 @@ Za gostovanje podatkovnih baz bomo uporabili **MongoDB Atlas strežnike**, kjer 
   **OSNOVNI TOK**  
   <img src="../img/diagrami_zaporedja/Odziv_osnovni.png">  
 
-  **IZJEMNI TOK 1**  
+  **IZJEMNI TOKOVI**  
+  Diagram prikazuje izjemni tok, kjer uporabnik vnese neustrezne podatke.  
   <img src="../img/diagrami_zaporedja/Odziv_izjemni1.png">  
     
-  **IZJEMNI TOK 2**  
+  Diagram prikazuje izjemni tok, kjer se na oglas poskusi odzvati neprijavljen uporabnik.  
   <img src="../img/diagrami_zaporedja/Odziv_izjemni2.png">  
 
       
@@ -282,10 +293,11 @@ Za gostovanje podatkovnih baz bomo uporabili **MongoDB Atlas strežnike**, kjer 
   **OSNOVNI TOK**  
   <img src="../img/diagrami_zaporedja/Ocena_profila_osnovni.png">  
     
-  **IZJEMNI TOK 1**  
+  **IZJEMNI TOKOVI**  
+  Diagram prikazuje izjemni tok, kjer uporabnik ne potrdi podajanja ocene.  
   <img src="../img/diagrami_zaporedja/Ocena_profila_izjemni1.png">  
     
-  **IZJEMNI TOK 2**  
+  Diagram prikazuje izjemni tok, kjer uporabnika v bazi nimata zapisane nobene interakcije.  
   <img src="../img/diagrami_zaporedja/Ocena_profila_izjemni2.png">  
     
     
@@ -295,12 +307,14 @@ Za gostovanje podatkovnih baz bomo uporabili **MongoDB Atlas strežnike**, kjer 
   <img src="../img/diagrami_zaporedja/Iskanje_oglasov_osnovni.png">  
     
   **ALTERNATIVNI TOK**  
+  Diagram prikazuje alternativni tok, kjer si oglase ogleduje neprijavljen uporabnik.  
   <img src="../img/diagrami_zaporedja/Iskanje_oglasov_alternativni.png">  
     
-  **IZJEMNI TOK 1**  
+  **IZJEMNI TOKOVI**  
+  Diagram prikazuje izjemni tok, kjer odpove zunanji sistem.  
   <img src="../img/diagrami_zaporedja/Iskanje_oglasov_izjemni1.png">  
     
-  **IZJEMNI TOK 2**  
+  Diagram prikazuje izjemni tok, kjer uporabnik vnese nedovoljene znake v iskalni niz.  
   <img src="../img/diagrami_zaporedja/Iskanje_oglasov_izjemni2.png">  
     
     
