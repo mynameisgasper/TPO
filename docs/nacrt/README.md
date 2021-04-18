@@ -178,33 +178,271 @@ Za gostovanje podatkovnih baz bomo uporabili **MongoDB Atlas strežnike**, kjer 
 
 ### 2.2 Opis razredov
 
-**TO-DO**
+### Entitetni:
+#### **Uporabnik**
 
-- Vsak razred podrobno opišite. Opis posameznega razreda naj ima sledečo strukturo:
+Predstavlja entiteto katerega koli uporabnika aplikacije. 
 
-#### Ime razreda **TO-DO**
+Nesamoumevne Metode
 
-- Koncept iz problemske domene, ki ga razred predstavlja.
+- preveriInterakcije()
 
-#### Atributi
+- posodobiPovprecje()
+  
+#### **Oglas**
 
-**TO-DO**
+- Predstavlja entiteto vsakega oglasa v aplikaciji
 
-- Za vsak atribut navedite:
-  - ime atributa,
-  - podatkovni tip, če ta ni očiten,
-  - pomen, če ta ni samoumeven,
-  - zalogo vrednosti, če ta ni neomejena ali očitna.
+- Nesamoumevne Metode
+  - Ni nesamoumevnih metod
 
-#### Nesamoumevne metode
+#### **Ocena**
 
-**TO-DO**
+- Predstavlja entiteto oceno oglasa
 
-- Za vsako metodo navedite:
-  - ime metode,
-  - imena in tipe parametrov,
-  - tip rezultata,
-  - pomen (če ta ni dovolj očiten iz naziva metode in njenih parametrov).
+- Nesamoumevne Metode
+  - pridobiPodatke(identifikator)
+    - identifikator tipa unikatni identifikator
+    - rezultat je ocena
+    - vrne podakte o oceni (ocena, ocenjevalec)
+
+
+#### **Komentar**
+
+- Predstavlja entiteto komentarja na oglasu
+
+- Nesamoumevne Metode
+  - Ni nesamoumevnih metod
+
+### Kontrolni:
+
+#### **PrijavaUporabnika**
+
+- Predstavlja kontrolni razred prijave uporabnika v aplikacijo. 
+
+- Nesamoumevne Metode
+  - posljiPodatkeUporabnika()
+    - paramteri so podatki iz vnosnih polj(uporabnisko ime in geslo)
+    - rezultat je integer -> ta predstavlja uspešno pošiljanje oziroma napako med pošiljanjem
+  - preveriPodatkeUporabnika()
+    - paramteri so podatki iz vnosnih polj(uporabnisko ime in geslo)
+    - rezultat je boolean, true če so podatki pravilni, false če niso
+
+#### **RegistracijaUporabnika**
+
+- Predstavlja kontrolni razred registracije uporabnika.
+
+- Nesamoumevne Metode
+  - posljiPodatke()
+    - paramteri so podatki iz vnosnih polj(uporabnisko ime, e-poštni naslov in geslo)
+    - rezultat je integer -> ta predstavlja uspešno pošiljanje oziroma napako med pošiljanjem
+  - posljiMail()
+    - parameter je e-poštni naslov na novo registriranega uporabnika
+    - rezultat je integer -> ta predstavlja uspešno pošiljanje oziroma napako med pošiljanjem
+
+
+#### **UrejanjeUporabniskegaProfila**
+
+- Predstavlja kontrolni razred funkcionalnosti urejanja uporabniškega profila.
+
+- Nesamoumevne Metode
+  - shraniPodatke()
+    - parametri so podatki o uporabniku, ki jih bomo posodobili
+        - rezultat je integer -> ta predstavlja uspešno urejanje oziroma napako med urejanjem
+
+
+#### **OgledProfila**
+
+ - Predstavlja kontrolni razred funkcionalnosti ogleda profila nekega uporanbika, ocenjevanja profila in brisanje komentarjov na profilu
+
+- Nesamoumevne Metode
+  - preveriInterakcijo()
+    - parametra sta dva uporabnika (trenutni in nek drugi)
+    - preveri če imata dva uporabnika že kakšno zgodovino
+    - rezultat je boolean, true če sta uporabnika že imela interakcijo in false če nista
+  - staraOcena()
+    - parameter je Uporabnik in ocena profila
+    - vrne prejšno oceno uporabniškega profila
+    - rezultat je integer -> prejšna ocena
+  - novoPovprecje()
+    - parameter je nova ocena, integer
+    - vrne novo povprečje ocen na profilu
+    - rezultat je integer -> novo povprečje
+  
+#### **OdstranitevUprabnikaIzHitrihKontaktov**
+
+- Predstavlja funkcionalnost odstranjanja uprabnika iz hitrih kontaktov
+
+- Nesamoumevne Metode
+  - Ni nesamoumevnih metod
+
+#### **OgledHitrihKontaktov**
+
+- Nesamoumevne Metode
+  - Ni nesamoumevnih metod
+
+#### **DodajanjeUporabnikaMedHitreKontakte**
+
+Nesamoumevne Metode
+- ??
+
+#### **BrisanjeKomentarjaProfila**
+
+Nesamoumevne Metode
+- ??
+
+#### **DodajanjeKomentarjaProfilu**
+
+Nesamoumevne Metode
+- ??
+
+
+#### **OgledLokacijePrevzema**
+
+Nesamoumevne Metode
+- ??
+
+#### **OgledPosameznegaOglasa**
+
+Nesamoumevne Metode
+- ??
+
+#### **BrisanjeOglasa**
+
+Nesamoumevne Metode
+- ??
+
+#### **UrejanjeOglasa**
+
+Nesamoumevne Metode
+- ??
+
+#### **KreiranjeOglasa**
+
+Nesamoumevne Metode
+- ??
+
+#### **IskanjeOglasov**
+
+Nesamoumevne Metode
+- ??
+
+#### **PretvorbaValute**
+
+Nesamoumevne Metode
+- ??
+
+### Mejni:
+
+#### **ZM_PrijavaUporabnika**
+
+Nesamoumevne Metode
+- ??
+
+#### **ZM_RegistracijaUporabnika**
+
+Nesamoumevne Metode
+- ??
+
+#### **ZM_UrejanjeUporabniskegaProfila**
+
+Nesamoumevne Metode
+- ??
+
+#### **ZM_OgledProfila**
+
+Nesamoumevne Metode
+- ??
+
+#### **ZM_OcenaProfila**
+
+Nesamoumevne Metode
+- ??
+
+#### **ZM_OdstranitevUporabnikaIzHitrihKontaktov**
+
+Nesamoumevne Metode
+- ??
+
+#### **ZM_OgledHistrihKontaktov**
+
+Nesamoumevne Metode
+- ??
+
+#### **ZM_DodajanjeUporabnikaMedHitreKontakte**
+
+Nesamoumevne Metode
+- ??
+
+#### **ZM_BrisanjeKomentarjaProfila**
+
+Nesamoumevne Metode
+- ??
+
+#### **ZM_DodajanjeKomentarjaProfilu**
+
+Nesamoumevne Metode
+- ??
+
+#### **ZM_ZgodovinaSprehodov**
+
+Nesamoumevne Metode
+- ??
+
+#### **ZM_OdzivNaOglas**
+
+Nesamoumevne Metode
+- ??
+
+#### **ZM_OgledPosameznegaOglasa**
+
+Nesamoumevne Metode
+- ??
+
+#### **ZM_BrisanjeOglasa**
+
+Nesamoumevne Metode
+- ??
+
+#### **ZM_UrejanjeOglasa**
+
+Nesamoumevne Metode
+- ??
+
+#### **ZM_KreiranjeOglasa**
+
+Nesamoumevne Metode
+- ??
+
+#### **ZM_IskanjeOglasov**
+
+Nesamoumevne Metode
+- ??
+
+#### **SV_PretvorbaValute**
+
+Nesamoumevne Metode
+- Ni nesamoumevnih metod
+
+#### **SV_OgledLokacijePrevzem**
+
+Nesamoumevne Metode
+- Ni nesamoumevnih metod
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## 3. Načrt obnašanja
 
@@ -402,4 +640,6 @@ Za gostovanje podatkovnih baz bomo uporabili **MongoDB Atlas strežnike**, kjer 
   Diagram prikazuje izjemni tok, kjer uporabnik zavrne potrditev v oknu, ki se pojavi ob kliku na brisanje komentarja.  
   <img src="../img/diagrami_zaporedja/BrisanjeKomentarja_izjemni2.png">
     
+
+
   
