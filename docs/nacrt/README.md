@@ -395,61 +395,51 @@ Nesamoumevne Metode
   - Ni nesamoumevnih metod
 
 #### **ZM_OcenaProfila**
-
-Nesamoumevne Metode
-- ??
+- Predstavlja funkcionalnost ocene profila. Uporabnik oceni izkušnjo z uporabnikom s številom zvezdic med 1 in 5.  
 
 #### **ZM_OdstranitevUporabnikaIzHitrihKontaktov**
+- Predstavlja funkcionalnost odstranitve uporabnike iz hitrih kontaktov.  Uporabnik mora biti predhodno dodan med hitre kontakte.  
 
-Nesamoumevne Metode
-- ??
-
-#### **ZM_OgledHistrihKontaktov**
-
-Nesamoumevne Metode
-- ??
+#### **ZM_OgledHitrihKontaktov**
+- Predstavlja funkcionalnost ogleda hitrih kontaktov. Prikazani so profili, ki so bili dodani med hitre kontakte.  
 
 #### **ZM_DodajanjeUporabnikaMedHitreKontakte**
-
-Nesamoumevne Metode
-- ??
+- Predstavlja funkcionalnost dodajanja uporabnikov med hitre kontakte.  
 
 #### **ZM_BrisanjeKomentarjaProfila**
-
-Nesamoumevne Metode
-- ??
+- Predstavlja funkcionalnost brisanja komentarja profilu. Uporabnik z vlogo admin lahko briše katerikoli komentar.
 
 #### **ZM_DodajanjeKomentarjaProfilu**
-
-Nesamoumevne Metode
-- ??
+- Predstavlja funckionalnost dodajanja komentarja profilu. Za dodajanja komentarja je potrebna predhodna interakcija med uporabnikoma.  
 
 #### **ZM_ZgodovinaSprehodov**
-
+- Predstavlja funkcionalnost predstavitve zgodovine opravljenih sprehodov.
 Nesamoumevne Metode
 - Ni nesamoumevnih metod
 
 #### **ZM_OdzivNaOglas**
-
+- Predstavlja funkcionalnost odziva na oglas.  
 Nesamoumevne Metode
 - Ni nesamoumevnih metod
 
 #### **ZM_OgledPosameznegaOglasa**
-
+- Predstavlja funkcionalnost ogleda posameznega oglasa.
 Nesamoumevne Metode
 - Ni nesamoumevnih metod
 
 #### **ZM_BrisanjeOglasa**
-
+- Predstavlja funkcionalnost brisanja oglasa.
 Nesamoumevne Metode
 - Ni nesamoumevnih metod
 
 #### **ZM_UrejanjeOglasa**
+- Predstavlja funkcionalnost urejanja oglasa.  
 
 Nesamoumevne Metode
 - Ni nesamoumevnih metod
 
 #### **ZM_KreiranjeOglasa**
+- Predstavlja funkcionalnost kreiranja novega oglasa.  
 
 Nesamoumevne Metode
 - prilagodiObrazec()
@@ -458,6 +448,7 @@ Nesamoumevne Metode
   - funkcija spremeni obrazec glede na parameter
 
 #### **ZM_IskanjeOglasov**
+- Predstavlja funkcionalnost iskanja in pregleda oglasov.  
 
 Nesamoumevne Metode
 - preveriPodatke()
@@ -466,11 +457,13 @@ Nesamoumevne Metode
   - vrne true če je veljaven, false če ni
 
 #### **SV_PretvorbaValute**
+- Predstavlja vmesnik do aktualnih podatkov o pretvorbah valut.  
 
 Nesamoumevne Metode
 - Ni nesamoumevnih metod
 
 #### **SV_OgledLokacijePrevzem**
+- Predstavlja vmesnik do prikaza zemljevida.  
 
 Nesamoumevne Metode
 - Ni nesamoumevnih metod
