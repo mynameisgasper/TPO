@@ -233,13 +233,19 @@ Za gostovanje podatkovnih baz bomo uporabili **MongoDB Atlas strežnike**, kjer 
   **OSNOVNI TOK**  
   <img src="../img/diagrami_zaporedja/Ogled_oglasa_osnovni.png">  
     
-  **ALTERNATIVNI TOK**  
+  **ALTERNATIVNI TOKOVI**  
   Diagram prikazuje alternativni tok, kjer si oglas ogleduje neprijavljen uporabnik z manj funkcionalnostmi.  
   <img src="../img/diagrami_zaporedja/Ogled_oglasa_alternativni.png">  
+
+  Diagram prikazuje alternativni tok, kjer si uporabnik ogleda lokacijo prevzema na sameme oglasu.
+  <img src="../img/diagrami_zaporedja/ogled_posameznega_oglasa_ogled_lokacije.png">  
   
   **IZJEMNI TOK**  
   Diagram prikazuje izjemni tok, kjer odpove zunanji sistem.  
   <img src="../img/diagrami_zaporedja/Ogled_oglasa_izjemni.png">  
+
+  ### 3.6. Ogled oglasa in lokacije prevzema  
+  Funkcionalnost je bila združena s funkcionalnostjo "Ogled posameznega oglasa".
 
   ### 3.7. Ogled profila  
 
@@ -271,12 +277,29 @@ Za gostovanje podatkovnih baz bomo uporabili **MongoDB Atlas strežnike**, kjer 
     
   **ALTERNATIVNI TOK**  
   Diagram prikazuje alternativni tok, kjer uporabnik ne potrdi brisanja oglasa.  
-   <img src="../img/diagrami_zaporedja/Brisanje_oglasa_Alternativni.png">  
+  <img src="../img/diagrami_zaporedja/Brisanje_oglasa_Alternativni.png">  
      
   **IZJEMNI TOK**  
   Diagram prikazuje izjemni tok, kjer uporabnik navigira proč od strani brez potrditve brisanja.  
-   <img src="../img/diagrami_zaporedja/Brisanje_oglasa_Izjemni.png">   
+  <img src="../img/diagrami_zaporedja/Brisanje_oglasa_Izjemni.png">   
      
+  ### 3.12. Ogled hitrih kontaktov
+    
+  **OSNOVNI TOK** 
+  <img src="../img/diagrami_zaporedja/ogled_hitrih_kontaktov_premium.png">
+
+  **ALTERNATIVNI TOK**   
+  Diagram prikazuje alternativni tok, kjer je akter tipa Admin
+  <img src="../img/diagrami_zaporedja/ogled_hitrih_kontaktov_admin.png">
+
+  ### 3.13. Odstranitev uporabnika iz hitrih kontaktov
+    
+  **OSNOVNI TOK**  
+  <img src="../img/diagrami_zaporedja/odstranitev_uporabnika_iz_hitrih_kontaktov_premium.png">
+
+  **ALTERNATIVNI TOK**   
+  Diagram prikazuje alternativni tok, kjer je akter tipa Admin
+  <img src="../img/diagrami_zaporedja/odstranitev_uporabnika_iz_hitrih_kontaktov_admin.png">
     
   ### 3.14. Odziv na oglas  
     
