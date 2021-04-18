@@ -8,9 +8,16 @@
 
 ## Povzetek
 
-**TO-DO**
-
-- Povzetek je, kot že vemo, celoten dokument, strnjen v največ 150 besed.
+V tej fazi projekta smo razvili načrt arhitekture, ki zajema logični, procesni, razvojni in fizični pogled. 
+V logičnem pogledu so predstavljene same entitete, njihove strukture in uporabljeni podatki v njih ter relacije med njimi. 
+V procesnem pogledu je zajeta arhitekturna shema sistema, predstavljena sta čelni in zaledni del sistema in njune komponente. 
+Znotraj razvojnega pogleda je predstavljena uporabljena arhitekturna zasnova po vzorcu MVC, 
+opisana je tudi je avtentikacija, ki bo implementirana po principu JWT. 
+Fizični pogled zajema upravljanje z varnostnimi kopijami in način uporabe podatkovnih baz 
+preko gostiteljskega strežnika MongoDB Atlas. 
+V razdelku načrt strukture se nahaja razredni diagram sistem s pripadajočimi atributi, metodami in njihovimi opisi. 
+Na koncu sledi še poglavitni razdelek z načrtom obnašanja, v katerem je skupek diagramov zaporedja, 
+uporabljenih pri predstavitvi funkcionalnosti in njihovih osnovnih, alternativnih in izjemnih tokov. 
 
 ## 1. Načrt arhitekture
 
