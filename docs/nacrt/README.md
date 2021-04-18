@@ -290,16 +290,18 @@ Za gostovanje podatkovnih baz bomo uporabili **MongoDB Atlas strežnike**, kjer 
 
   ### 3.11. Dodaj Hitri Kontakt
 
-  **OSNOVNI TOK PREMIUM**
+  **OSNOVNI TOK**
   <img src="../img/diagrami_zaporedja/dodajHitriKontakt_osnovniTok_premium.png">
 
-  **OSNOVNI TOK ADMIN**
+  **ALTERNATIVNI TOK ADMIN**
+  Diagram prikazuje alternativni tok, kjer je akter tipa Admin
   <img src="../img/diagrami_zaporedja/dodajHitriKontakt_osnovniTok_admin.png">
 
   **IZJEMNI TOK PREMIUM**
   <img src="../img/diagrami_zaporedja/dodajHitriKontakt_izjemniTok_premium.png">
 
   **IZJEMNI TOK ADMIN**
+  Diagram prikazuje alternativni izjemni tok, kjer je akter tipa Admin
   <img src="../img/diagrami_zaporedja/dodajHitriKontakt_izjemniTok_admin.png">
 
 
