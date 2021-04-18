@@ -343,5 +343,35 @@ Za gostovanje podatkovnih baz bomo uporabili **MongoDB Atlas strežnike**, kjer 
   Diagram prikazuje izjemni tok, kjer uporabnik vnese nedovoljene znake v iskalni niz.  
   <img src="../img/diagrami_zaporedja/Iskanje_oglasov_izjemni2.png">  
     
+
+  ### 3.18. Podaj komentar profilu
+    
+  **OSNOVNI TOK**   
+  <img src="../img/diagrami_zaporedja/dodajanje_komentarja_profilu_osnovni.png">
+
+  **ALTERNATIVNI TOK**  
+  Diagram prikazuje alternativni tok, kjer uporabnik ureja svoj že obstoječi komentar.
+  <img src="../img/diagrami_zaporedja/dodajanje_komentarja_profilu_alternativni.png">
+
+  **IZJEMNI TOKOVI**  
+  Diagram prikazuje izjemni tok, kjer uporabnik med podajanjem komentarja navigira
+  stran od zaslonske maske.
+  <img src="../img/diagrami_zaporedja/dodajanje_komentarja_profilu_izjemni1.png">
+
+  Diagram prikazuje izjemni tok, kjer uporabnik poizkusi podati komentar, vendar še nima interakcij s tem uporabnikom, ki bi mu dovoljevale dodajanje komentarja.
+  <img src="../img/diagrami_zaporedja/dodajanje_komentarja_profilu_izjemni2.png">
+
+
+  ### 3.19. Brisanje komentarjev
+    
+  **OSNOVNI TOK** 
+  <img src="../img/diagrami_zaporedja/brisanje_komentarja_osnovni.png">
+
+  **IZJEMNI TOKOVI**   
+  Diagram prikazuje izjemni tok, kjer uporabnik zapre pojavitveno okno, ki se pojavi ob kliku na brisanje komentarja.
+  <img src="../img/diagrami_zaporedja/brisanje_komentarja_izjemni1.png">
+
+  Diagram prikazuje izjemni tok, kjer uporabnik zavrne potrditev v oknu, ki se pojavi ob kliku na brisanje komentarja.
+  <img src="../img/diagrami_zaporedja/BrisanjeKomentarja_izjemni2.png">
     
   
