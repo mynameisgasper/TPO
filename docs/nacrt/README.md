@@ -2,9 +2,9 @@
 
 |                             |                                                         |
 | :-------------------------- | :------------------------------------------------------ |
-| **Naziv projekta**          | **TO-DO** naziv projekta                                |
-| **Člani projektne skupine** | **TO-DO** 1. član, 2. član, 3. član, 4. član in 5. član |
-| **Kraj in datum**           | **TO-DO** kraj, datum                                   |
+| **Naziv projekta**          | Dog Walkers                           |
+| **Člani projektne skupine** | Gašper Božič, Gašper Kolbezen, Grega Kranjec, Matevž Vreš in Gašper Štepec |
+| **Kraj in datum**           | Ljubljana, April 2021                                  |
 
 ## Povzetek
 
@@ -13,10 +13,6 @@
 - Povzetek je, kot že vemo, celoten dokument, strnjen v največ 150 besed.
 
 ## 1. Načrt arhitekture
-
-**TO-DO**
-
-- Za prikaz uporabite enostavne prikaze, kot so blokovni ali paketni diagrami. Uporabite arhitekturne vzorce.
 
 ### LOGIČNI POGLED
 #### Entitete
@@ -126,7 +122,7 @@ Ocenar je entiteta vezana na svojega uporabnika in je zgrajena iz naslednjih las
 
 #### Relacije med entitetami
 Na spodnji sliki so v neformalnem diagramu predstavljene relacije med zamišljenimi entitetami
-<img src="../img/relacije.png" style="width:50%">
+<img src="../img/conceptual_model.png">
 
 Diagram si interpretiramo na sledeč način.
 - en uporabnik lahko ustvari 0 ali več oglasov, kjer en oglas priapda točno enemu uporabniku
@@ -207,11 +203,65 @@ Za gostovanje podatkovnih baz bomo uporabili **MongoDB Atlas strežnike**, kjer 
 
 ## 3. Načrt obnašanja
 
-**TO-DO**
 
-- Za izdelavo načrta obnašanja lahko uporabite:
-  - diagrame zaporedja,
-  - končne avtomate,
-  - diagrame aktivnosti,
-  - diagrame stanj in
-  - psevdokodo.
+  ### 3.8. Kreacija oglasa  
+
+  **OSNOVNI TOK**  
+  <img src="../img/diagrami_zaporedja/Kreacija_oglasa_osnovni.png">  
+    
+  **IZJEMNI TOK**  
+  <img src="../img/diagrami_zaporedja/Kreacija_oglasa_izjemni.png">  
+  
+  
+  ### 3.10. Brisanje oglasa  
+    
+  **OSNOVNI TOK**  
+  <img src="../img/diagrami_zaporedja/Brisanje_oglasa_Osnovni.png">  
+    
+  **ALTERNATIVNI TOK**  
+   <img src="../img/diagrami_zaporedja/Brisanje_oglasa_Alternativni.png">  
+     
+  **IZJEMNI TOK**  
+   <img src="../img/diagrami_zaporedja/Brisanje_oglasa_Izjemni.png">   
+     
+    
+  ### 3.14. Odziv na oglas  
+    
+  **OSNOVNI TOK**  
+  <img src="../img/diagrami_zaporedja/Odziv_osnovni.png">  
+
+  **IZJEMNI TOK 1**  
+  <img src="../img/diagrami_zaporedja/Odziv_izjemni1.png">  
+    
+  **IZJEMNI TOK 2**  
+  <img src="../img/diagrami_zaporedja/Odziv_izjemni2.png">  
+
+      
+  ### 3.16. Podaj oceno profilu  
+    
+  **OSNOVNI TOK**  
+  <img src="../img/diagrami_zaporedja/Ocena_profila_osnovni.png">  
+    
+  **IZJEMNI TOK 1**  
+  <img src="../img/diagrami_zaporedja/Ocena_profila_izjemni1.png">  
+    
+  **IZJEMNI TOK 2**  
+  <img src="../img/diagrami_zaporedja/Ocena_profila_izjemni2.png">  
+    
+    
+  ### 3.17. Iskanje oglasov  
+    
+  **OSNOVNI TOK**  
+  <img src="../img/diagrami_zaporedja/Iskanje_oglasov_osnovni.png">  
+    
+  **ALTERNATIVNI TOK**  
+  <img src="../img/diagrami_zaporedja/Iskanje_oglasov_alternativni.png">  
+    
+  **IZJEMNI TOK 1**  
+  <img src="../img/diagrami_zaporedja/Iskanje_oglasov_izjemni1.png">  
+    
+  **IZJEMNI TOK 2**  
+  <img src="../img/diagrami_zaporedja/Iskanje_oglasov_izjemni2.png">  
+    
+    
+  
