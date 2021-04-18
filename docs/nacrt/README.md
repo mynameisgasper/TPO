@@ -364,23 +364,35 @@ Nesamoumevne Metode
 
 #### **ZM_PrijavaUporabnika**
 
-Nesamoumevne Metode
-- ??
+- Predstavlja funkcionalnost prijavljanja uporabnika v aplikacijo
+
+- Nesamoumevne Metode  
+  - Ni nesamoumevnih metod
 
 #### **ZM_RegistracijaUporabnika**
 
-Nesamoumevne Metode
-- ??
+- Predstavlja funkcionalnost registracije uporabnika 
+
+- Nesamoumevne Metode
+  - prikaziUspesnost()  
+    - parametrov ni
+    - vrne boolean, true, če je registracija uspešna, false, če ni
+    - prikaže modal z napisom uspešna registracija
 
 #### **ZM_UrejanjeUporabniskegaProfila**
 
-Nesamoumevne Metode
-- ??
+- Predstavlja funckionalnost, ko uporabnik ureja svojo profilno stran
+
+- Nesamoumevne Metode
+  - prikaziProfil()
+    - preusmeri uporabnika nazaj na profil
 
 #### **ZM_OgledProfila**
 
-Nesamoumevne Metode
-- ??
+- Predstavlja funkcionalnost, ko si uporabnik ogleduje profil drugega uporabnika
+
+- Nesamoumevne Metode
+  - Ni nesamoumevnih metod
 
 #### **ZM_OcenaProfila**
 
