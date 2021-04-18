@@ -167,9 +167,7 @@ Za gostovanje podatkovnih baz bomo uporabili **MongoDB Atlas strežnike**, kjer 
 
 ### 2.1 Razredni diagram
 
-**TO-DO**
-
-- Izdelajte razredni diagram.
+<img src="../img/razredniDiagram.png">  
 
 ### 2.2 Opis razredov
 
