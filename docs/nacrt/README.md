@@ -9,13 +9,16 @@
 ## Povzetek
 
 V tej fazi projekta smo razvili načrt arhitekture, ki zajema logični, procesni, razvojni in fizični pogled. 
-V logičnem pogledu so predstavljene same entitete, njihove strukture in uporabljeni podatki v njih ter relacije med njimi. 
+V logičnem pogledu so predstavljene same abstrakcije entitet, njihove strukture in uporabljeni podatki v njih ter relacije med njimi. Prikazane so tudi na shemi kontrolnih razredov in entitet. 
 V procesnem pogledu je zajeta arhitekturna shema sistema, predstavljena sta čelni in zaledni del sistema in njune komponente. 
 Znotraj razvojnega pogleda je predstavljena uporabljena arhitekturna zasnova po vzorcu MVC, 
-opisana je tudi je avtentikacija, ki bo implementirana po principu JWT. 
+opisana je tudi je avtentikacija, ki bo implementirana po principu JWT. Prikazan je tudi oris sheme
+celotnega razrednega diagrama.
 Fizični pogled zajema upravljanje z varnostnimi kopijami in način uporabe podatkovnih baz 
 preko gostiteljskega strežnika MongoDB Atlas. 
 V razdelku načrt strukture se nahaja razredni diagram sistema s pripadajočimi atributi, metodami in njihovimi opisi. 
+Opisali smo tudi načrtovalske vzorce strategije, singletona in adapterja, 
+ki smo jih uporabili pri dizajniranju razrednega diagrama. 
 Na koncu sledi še poglavitni razdelek z načrtom obnašanja, v katerem je skupek diagramov zaporedja, 
 uporabljenih pri predstavitvi funkcionalnosti in njihovih osnovnih, alternativnih in izjemnih tokov. 
 
