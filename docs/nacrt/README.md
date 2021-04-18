@@ -476,13 +476,16 @@ Nesamoumevne Metode
 
 ### 2.3 Načrtovalski vzorci
 
+<img src="../img/razredniDiagramVzorci.png">
+
 #### **Strategija**
 
 OgledProfila se uporablja za ocenjevanje profila, brisanje komentarjev in funkcionalnost ogleda profila. Strategijo bi uporabili, da bi te funkcionalnosti razdeli na svoje razrede. OgledProfila bi postal kontekstni razred. BrisanjeKomentarja, ocenjevanje in ogled pa strateški razredi.   
-
+*(označeno z zeleno)*
 #### **Singleton**
 
 UrejanjeUporabniskegaProfila in UrejanjeOglasa. Singleton se uporabi, da lahko samo en uporabnik hkrati ureja profil oziroma oglas. S tem se zaščitimo, da se podatki v bazi ne spremenijo za enega uporabnika med urejanjem.  
+*(označeno z rdečo)*
 
 #### **Adapter**
 
