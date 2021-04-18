@@ -213,6 +213,11 @@ Za gostovanje podatkovnih baz bomo uporabili **MongoDB Atlas strežnike**, kjer 
   Diagram predstavlja izjemne tokove neustreznih podatkov.  
   <img src="../img/diagrami_zaporedja/Registracija_izjemni2_in_3.png">  
 
+
+  ### 3.2 Prijava uporabnika
+
+  <img src="../img/diagrami_zaporedja/prijavaUporabnika.png">
+
   ### 3.3. Urejanje uporabniškega profila  
 
   **OSNOVNI TOK**  
@@ -282,6 +287,22 @@ Za gostovanje podatkovnih baz bomo uporabili **MongoDB Atlas strežnike**, kjer 
   **IZJEMNI TOK**  
   Diagram prikazuje izjemni tok, kjer uporabnik navigira proč od strani brez potrditve brisanja.  
   <img src="../img/diagrami_zaporedja/Brisanje_oglasa_Izjemni.png">   
+
+  ### 3.11. Dodaj Hitri Kontakt
+
+  **OSNOVNI TOK PREMIUM**
+  <img src="../img/diagrami_zaporedja/dodajHitriKontakt_osnovniTok_premium.png">
+
+  **OSNOVNI TOK ADMIN**
+  <img src="../img/diagrami_zaporedja/dodajHitriKontakt_osnovniTok_admin.png">
+
+  **IZJEMNI TOK PREMIUM**
+  <img src="../img/diagrami_zaporedja/dodajHitriKontakt_izjemniTok_premium.png">
+
+  **IZJEMNI TOK ADMIN**
+  <img src="../img/diagrami_zaporedja/dodajHitriKontakt_izjemniTok_admin.png">
+
+
      
   ### 3.12. Ogled hitrih kontaktov
     
