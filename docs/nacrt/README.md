@@ -22,6 +22,11 @@ uporabljenih pri predstavitvi funkcionalnosti in njihovih osnovnih, alternativni
 ## 1. Načrt arhitekture
 
 ### LOGIČNI POGLED
+
+**DIAGRAM**  
+  <img src="../img/logicni_pogled.png">
+    
+
 #### Entitete
 Za namene boljšega razumevanja smatrajte besedno zvezo **Unikatni identifikator** kot *niz znakov*, ki se uporablja kot primarni ključ vsake entitete.
 
@@ -95,23 +100,7 @@ Komentar je entiteta vezana na svojega uporabnika in je zgrajena iz naslednjih l
 - Vsebina in
 - Komentatorja.
 > Uporabnik in Komentator v obliki unikatnih identifikatorjev služita kot prejemnik komentarja in podpis komentatorja.
-
-**Struktura**
-|                   |                                                        |
-| :-------------------------- | :------------------------------------------------------ |
-| Unikatni identifikator          | <div class="dataType">*(niz znakov - ustvarjeno samodejno)*</div>  |
-| Vsebina          | <div class="dataType">*(niz znakov - obvezno)*</div>  |
-| Komentator | <div class="dataType">*(**unikatni identifikator** - obvezno)*</div> |
-
-#### Relacije med entitetami
-Na spodnji sliki so v neformalnem diagramu predstavljene relacije med zamišljenimi entitetami
-<img src="../img/relacije.png" style="width:50%">
-
-Diagram si interpretiramo na sledeč način.
-- en uporabnik lahko ustvari 0 ali več oglasov, kjer en oglas priapda točno enemu uporabniku
-- enemu uporabniku lahko pripada 0 ali več komentarjev (ki jih je podal sam, ali pa jih ostali dodali njemu), kjer en komentar pripada točno enemu uporabniku
-- en uporabnik lahko ustvari 0 ali več odzivov, kjer en odziv pripada točno enemu uporabniku
-- en oglas lahko vsebuje 0 ali več odzivov, kjer je odziv vezan na točno en oglas  
+ 
 
 ##### **4. Ocena**
 Ocenar je entiteta vezana na svojega uporabnika in je zgrajena iz naslednjih lastnosti:
@@ -152,7 +141,10 @@ Arhitektura **spletne aplikacije** bo zasnovana po vzorcu **model-pogled-krmilni
 
 Vsaka entiteta bo ustrezno preslikana v sebi pripadajoč *model*. Vsakemu modelu bo pripadal samostojen *Krmilnik*, ki bo implementiral potrebne **CRUD** operacije za model, ki mu pripadajo. 
 
-*Pogled* modela bo na čelnem delu dinamično prikazoval potrebne obrazce za ustvarjanje novega zapisa modela v podatkovni bazi, posodabljanje že obstoječega zapisa, omogočal pa bo tudi prikaz *master-detail* vzorca in opcijo izbrisa zapisa modela iz podatkovne baze.
+*Pogled* modela bo na čelnem delu dinamično prikazoval potrebne obrazce za ustvarjanje novega zapisa modela v podatkovni bazi, posodabljanje že obstoječega zapisa, omogočal pa bo tudi prikaz *master-detail* vzorca in opcijo izbrisa zapisa modela iz podatkovne baze.  
+  
+  **DIAGRAM**  
+  <img src="../img/razvojni_pogled.png">
 
 #### **Avtentikacija**
 Dostop do podatkov bo regulirala komponenta za avtentikacijo, kjer bo sistem avtentkacije implementiran po principu **JWT**. 
