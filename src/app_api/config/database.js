@@ -5,9 +5,28 @@ const mongoose = require('mongoose');
 let isProduction = (process.env.NODE_ENV === 'production');
 let isDocker = (process.env.NODE_ENV === 'docker');
 
-
 let dbURI = isProduction?process.env.MONGODB_CLOUD_URI:(isDocker?process.env.MONGODB_DOCKER_URI:'mongodb://localhost:27017/dogwalkers-cluster');
-
+if(process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'docker'){
+    console.log('NodeJs APP is running in PRODUCTION MODE')
+    mongoose.connect(dbUri, {
+        user: process.env.MONGODB_USER,
+        pass: process.env.MONGODB_PASS,
+        dbName: process.env.MONGODB_DB,
+        useNewUrlParser: true,
+        useCreateIndex: true,
+        useUnifiedTopology: true,
+        useFindAndModify: false
+    });
+}else{
+    console.log('NodeJs APP is running in DEVELOPMENT MODE')
+    mongoose.connect(dbUri, {
+        dbName: 'gume1a-dev-cluster',
+        useNewUrlParser: true,
+        useCreateIndex: true,
+        useUnifiedTopology: true,
+        useFindAndModify: false
+    });
+}
 mongoose.connect(dbURI, {
     useNewUrlParser: true,
     useCreateIndex: true,

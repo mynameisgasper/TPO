@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const crypto = require('crypto');
 const jwt = require('jsonwebtoken');
+const { oglasSchema } = require('./oglas');
 
 const userSchema = new mongoose.Schema({
     /** osebni podatki **/

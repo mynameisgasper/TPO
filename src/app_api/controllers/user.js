@@ -43,7 +43,7 @@ const getOne = (req, res) => {
 
 };
 
-const createUser = (req, res) => {
+const create = (req, res) => {
     if (!req.body.name ||
         !req.body.surname ||
         !req.body.email ||
@@ -124,7 +124,7 @@ const deleteOne = (req, res) => {
 module.exports = {
     getAll,
     getOne,
-    createUser,
+    create,
     update,
     deleteOne
 };

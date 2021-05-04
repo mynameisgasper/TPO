@@ -11,6 +11,9 @@ const passport = require('passport');
 const logger = require('morgan');
 const app = express();
 
+console.log(isProduction)
+console.log(isDocker)
+
 
 /** povezava z podatkovno bazo in init za scheme, ki jih bomo uporabjali **/
 require('./config/database');
