@@ -55,6 +55,19 @@ const login = (req, res) => {
     })(req, res);
 };
 
+// todo 
+const updatePassword = (req, res) => {
+    user = User.findById({_id:req.params.userId})
+    user.nastaviGeslo(req.params.password)
+    user.save(napaka => {
+        if (napaka) {
+            res.status(500).json(napaka);
+        } else {
+            res.status(200).json(user);
+        }
+    });
+};
+
 // const checkPasswd = (req, res) => {
 //     if(!req.body.password || !req.body.currPassword){
 //         return res.status(400).json({"sporočilo": "Zahtevani so vsi podatki"});
@@ -65,5 +78,6 @@ const login = (req, res) => {
 
 module.exports = {
     register,
-    login
+    login,
+    updatePassword
 };

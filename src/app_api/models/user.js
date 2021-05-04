@@ -21,7 +21,8 @@ const userSchema = new mongoose.Schema({
      */
     email: {type:String, required: true},
     zgoscenaVrednost: {type: String, required: true},
-    nakljucnaVrednost: {type: String, required: true}
+    nakljucnaVrednost: {type: String, required: true},
+    oglasi: {type:[oglasSchema], default:[]}
 })
 userSchema.methods.nastaviGeslo = function(geslo) {
     this.nakljucnaVrednost = crypto.randomBytes(16).toString('hex');
@@ -39,7 +40,7 @@ userSchema.methods.generirajJwt = function () {
     const datumPoteka = new Date();
     datumPoteka.setDate(datumPoteka.getDate() + 7);
     return jwt.sign({
-        _id: this._id,
+        id: this._id,
         name: this.name,
         surname: this.surname,
         phone: this.phone,
