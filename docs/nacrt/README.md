@@ -75,6 +75,7 @@ Med **ostale** podatke pa spadajo:
 
 ##### **2. Oglas**
 Entiteta bo vsebovala 4 **vsebinske** lastnosti:
+- Naziv,
 - Opis,
 - Lokacija prevzema,
 - Slika in
@@ -89,6 +90,7 @@ Poleg omenjenih pa bo vsebovala tudi:
 |                 |                                                        |
 | :-------------------------- | :------------------------------------------------------ |
 | Unikatni identifikator          | <div class="dataType">*(niz znakov - ustvarjeno samodejno)*</div>  |
+| Naziv          | <div class="dataType">*(niz znakov - obvezno)*</div>  |
 | Opis          | <div class="dataType">*(niz znakov - obvezno)*</div>  |
 | Lokacija prevzema | <div class="dataType">*(niz znakov - obvezno)*</div> |
 | Slika | <div class="dataType">*(BLOB - neobvezno)*</div> |
