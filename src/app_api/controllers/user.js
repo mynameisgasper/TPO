@@ -119,7 +119,9 @@ const deleteOne = (req, res) => {
     }
 };
 
-
+const getAllOglasi = (req,res) => {
+    //todo pridobi vse oglase uporabnika in vrni
+}
 
 module.exports = {
     getAll,

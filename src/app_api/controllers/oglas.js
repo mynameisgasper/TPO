@@ -17,7 +17,7 @@ const getAll = (req, res) => {
             }
             else {
 
-                res.status(200).json(users);
+                res.status(200).json(oglasi);
             }
         });
 };
@@ -35,7 +35,7 @@ const getOne = (req, res) => {
            else if (napaka){
                return res.status(500).json(napaka, "api napaka");
            }
-
+            console.log(oglas)
            res.status(200).json(oglas);
         });
 
@@ -51,7 +51,7 @@ const create = (req, res) => {
     }else{
         const oglas = new Oglas();
         //nastavimo vse podatke za uporabnika
-        oglas.owner = req.payload.id
+        oglas.owner = req.payload.email
         oglas.name = req.body.name
         oglas.description = req.body.description
         oglas.price = req.body.price

@@ -6,3 +6,4 @@ Vsaka skupina, ki je sestavljena iz 4 oz. 5 članov, mora razviti lastni projekt
 * **2. LP** - [Zajem zahtev](docs/zajem-zahtev),
 * **3. LP** - [Načrt rešitve](docs/nacrt) in
 * **4. LP** - [Implementacija](src).
+

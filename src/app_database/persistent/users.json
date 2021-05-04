@@ -1,0 +1,75 @@
+[
+  {
+    "role" : 0,
+    "oglasi" : [
+      {
+        "owner": "marica.petkovsek@hotmail.com",
+        "name": "Eleganca sprehoda",
+        "description": "Ni kaj za dodati. Vašega psa bom sprehajala",
+        "price": 32,
+        "location": "Zgornja Radgona 10",
+        "picture": "nopic"
+      },
+      {
+        "owner": "marica.petkovsek@hotmail.com",
+        "name": "Vaš pes in jaz",
+        "description": "Če je vašemu psu ime 'Snežinka' ali pa 'Pufko', bom sprehod opravila ZASTONJ!",
+        "price": 5,
+        "location": "Zgornja Radgona 12 A",
+        "picture": "nopic"
+      }
+    ],
+    "name" : "Marica",
+    "surname" : "Petkovšek",
+    "email" : "marica.petkovsek@hotmail.com",
+    "phone" : "031821523",
+    "address" : "Zgornja Radgona 12 C",
+    "country" : "Slovenija",
+    "nakljucnaVrednost" : "00208f7af2e5c2164776a83a987f27a5",
+    "zgoscenaVrednost" : "0ecb4dc5f2e7df7e6b0313dd74bfe9ba60d2b46f4fef3bb72bf1a76f596f8de000bcf7c34173b0ee131366820f8ec21674c4fe2b9677d00fce6d5676639ec9a9",
+    "__v" : 0
+  },
+  {
+    "role" : 1,
+    "oglasi" : [
+      {
+        "owner": "joze.fistrovic@hotmail.com",
+        "name": "Rad sprehajam pse",
+        "description": "Zelo rad sprehajam pse. Vse vrste. V prostem času se družim z psi, ki hodjo mimo mene. Ponavadi jim dam tudi kaj za jest.",
+        "price": 10,
+        "location": "Slovenska cesta 16",
+        "picture": "nopic"
+      },
+      {
+        "owner": "joze.fistrovic@hotmail.com",
+        "name": "Prisegam na pse",
+        "description": "Obožujem vse vrste psov, še posebej border colie, ki so beli in črni, ker ne racionaliziram barve!",
+        "price": 15,
+        "location": "Park zvezda 32",
+        "picture": "nopic"
+      }
+    ],
+    "name" : "Jože",
+    "surname" : "Fištrovič",
+    "email" : "joze.fistrovic@hotmail.com",
+    "phone" : "051245643",
+    "address" : "Slovenska cesta 12",
+    "country" : "Slovenija",
+    "nakljucnaVrednost" : "f2cc2a638b7c7170d6cfa3264fa4177a",
+    "zgoscenaVrednost" : "cfb7a243df17eeefdf1392dc20b6b5c4536d30b76d5fb064bf288cd616208e170caf7cf350e71d50c1036c2512a46277dbba5524b47515d53f598892f5b43130",
+    "__v" : 0
+  },
+  {
+    "role" : 2,
+    "oglasi" : [ ],
+    "name" : "ad",
+    "surname" : "min",
+    "email" : "ad.min@hotmail.com",
+    "phone" : "041420666",
+    "address" : "Ulica administratorjev 1",
+    "country" : "Nebesa",
+    "nakljucnaVrednost" : "ee25a29c905ca02ab6ec5c1c153d3119",
+    "zgoscenaVrednost" : "8de3cb00ad7a597b5a1d162c7fef55ee2394fd536685b054e2931f84ed42d56a1a0e982256cfe26ca35731efef46f0a7536d8c8d0f549e093e51e58bf3ae5ac5",
+    "__v" : 0
+  }
+]

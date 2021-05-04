@@ -5,7 +5,11 @@
   "main": "app.js",
   "scripts": {
     "start": "node ./bin/www",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "mongo-drop": "docker exec -it dw-dev-database bash -c \"mongo dw-dev-cluster --eval 'db.dropDatabase()'\"",
+    "mongo-import-users": "docker cp ../app_database/persistent/users.json dw-dev-database:/users.json && docker exec -it dw-dev-database mongoimport --db dw-dev-cluster --collection Users --jsonArray --file users.json",
+    "mongo-import-oglasi": "docker cp ../app_database/persistent/oglasi.json dw-dev-database:/oglasi.json && docker exec -it dw-dev-database mongoimport --db dw-dev-cluster --collection Oglasi --jsonArray --file oglasi.json",
+    "mongo-import": "npm run mongo-import-users && npm run mongo-import-oglasi"
   },
   "engines": {
     "node": ">=12.13.0",

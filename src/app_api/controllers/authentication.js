@@ -3,18 +3,12 @@ const mongoose = require('mongoose');
 const Uporabnik = mongoose.model('User');
 
 
-
-/*
-curl -X POST -d "name=Testis&surname=Tester&email=test@test.com&phone=031031031&birthDate=1.1.2020&address=Testing street&post=1000&country=Ljubljana&password=test" -H "Content-Type: application/x-www-form-urlencoded" http://localhost:3000/api/registracija
-*/
 const register = (req, res) => {
     if (!req.body.name ||
         !req.body.surname ||
         !req.body.email ||
         !req.body.phone ||
-        !req.body.birthDate ||
         !req.body.address ||
-        !req.body.post ||
         !req.body.country ||
         !req.body.password) {
         return res.status(400).json({"sporočilo": "Zahtevani so vsi podatki"});
@@ -25,11 +19,9 @@ const register = (req, res) => {
     uporabnik.surname = req.body.surname
     uporabnik.email = req.body.email
     uporabnik.phone = req.body.phone
-    uporabnik.birthDate = req.body.birthDate
     uporabnik.address = req.body.address
-    uporabnik.post = req.body.post
     uporabnik.country = req.body.country
-
+    if(req.body.role)uporabnik.role=req.body.role
     uporabnik.nastaviGeslo(req.body.password);
     uporabnik.save(napaka => {
         if (napaka) {

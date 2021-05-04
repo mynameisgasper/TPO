@@ -23,7 +23,6 @@ const userSchema = new mongoose.Schema({
     email: {type:String, required: true},
     zgoscenaVrednost: {type: String, required: true},
     nakljucnaVrednost: {type: String, required: true},
-    oglasi: {type:[oglasSchema], default:[]}
 })
 userSchema.methods.nastaviGeslo = function(geslo) {
     this.nakljucnaVrednost = crypto.randomBytes(16).toString('hex');
@@ -35,7 +34,7 @@ userSchema.methods.preveriGeslo = function(geslo) {
     let zgoscenaVrednost = crypto
         .pbkdf2Sync(geslo, this.nakljucnaVrednost, 1000, 64, 'sha512')
         .toString('hex');
-    return this.zgoscenaVrednost == zgoscenaVrednost;
+    return this.zgoscenaVrednost === zgoscenaVrednost;
 };
 userSchema.methods.generirajJwt = function () {
     const datumPoteka = new Date();
@@ -53,4 +52,4 @@ userSchema.methods.generirajJwt = function () {
     }, process.env.JWT_GESLO);
 };
 
-mongoose.model('User', userSchema);
+mongoose.model('User', userSchema, 'Users');

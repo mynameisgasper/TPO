@@ -31,13 +31,7 @@ app.use('/api/v1', (req, res, next) => {
     res.header('Access-Control-Allow-Methods', 'DELETE, POST, PUT, GET');
     next();
 });
-/** TODO
- * implementiraj:
- * routes
- * controllers
- * models
- */
-// app.use('/api/v1', indexApi);
+app.use('/api/v1', indexApi);
 
 
 /** ce se ne ujema z url-jem za API, ga bo preusmerilo na Angular frontend **/
