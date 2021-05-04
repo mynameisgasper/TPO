@@ -11,9 +11,8 @@ const passport = require('passport');
 const logger = require('morgan');
 const app = express();
 
-console.log(isProduction)
-console.log(isDocker)
 
+console.info('NodeJs APP is running in '+ ((process.env.NODE_ENV)?process.env.NODE_ENV:'DEVELOPMENT').toUpperCase() +' mode')
 
 /** povezava z podatkovno bazo in init za scheme, ki jih bomo uporabjali **/
 require('./config/database');
