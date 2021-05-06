@@ -221,18 +221,85 @@
 							}
 						],
 						"url": {
-							"raw": "{{api}}/user/id_here?",
+							"raw": "{{api}}/user/id_here",
 							"host": [
 								"{{api}}"
 							],
 							"path": [
 								"user",
 								"id_here"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "comment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwOTNlNDJiZjFjZDU2MzNmYzg4MGJmOSIsIm5hbWUiOiJNYXJpY2EiLCJzdXJuYW1lIjoiUGV0a292xaFlayIsInBob25lIjoiMDMxODIxNTIzIiwiYWRkcmVzcyI6Ilpnb3JuamEgUmFkZ29uYSAxMiBDIiwiY291bnRyeSI6IlNsb3ZlbmlqYSIsImVtYWlsIjoibWFyaWNhLnBldGtvdnNla0Bob3RtYWlsLmNvbSIsInJvbGUiOjAsImV4cCI6MTYyMDkwOTc3MywiaWF0IjoxNjIwMzA0OTczfQ.EmDgXxip0axvV3veQd_NTl-4ei-1aXj9Zt_L1wTTJfM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"content\": \"toje content komentarja\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/user/comment?id=6093e42bf1cd5633fc880bfa",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"user",
+								"comment"
 							],
 							"query": [
 								{
-									"key": "",
-									"value": null
+									"key": "id",
+									"value": "6093e42bf1cd5633fc880bfa"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "comment",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwOTNlNDJiZjFjZDU2MzNmYzg4MGJmOSIsIm5hbWUiOiJNYXJpY2EiLCJzdXJuYW1lIjoiUGV0a292xaFlayIsInBob25lIjoiMDMxODIxNTIzIiwiYWRkcmVzcyI6Ilpnb3JuamEgUmFkZ29uYSAxMiBDIiwiY291bnRyeSI6IlNsb3ZlbmlqYSIsImVtYWlsIjoibWFyaWNhLnBldGtvdnNla0Bob3RtYWlsLmNvbSIsInJvbGUiOjAsImV4cCI6MTYyMDkwOTc3MywiaWF0IjoxNjIwMzA0OTczfQ.EmDgXxip0axvV3veQd_NTl-4ei-1aXj9Zt_L1wTTJfM",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api}}/user/comment?userId=6093e42bf1cd5633fc880bfa&commentId=6093e54842f6f2288497bab8",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"user",
+								"comment"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "6093e42bf1cd5633fc880bfa"
+								},
+								{
+									"key": "commentId",
+									"value": "6093e54842f6f2288497bab8"
 								}
 							]
 						}
