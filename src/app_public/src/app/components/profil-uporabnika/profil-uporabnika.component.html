@@ -4,9 +4,10 @@
     <div *ngIf="user" class="container main-container">
         <div class="row">
             <div class="col-12 col-md-12 col-lg-12 col-xl-12">
-                <button class="btn btn-primary" id="editButtonProfile" type="button" style="float:right">
+                <button class="btn btn-primary" id="editButtonProfile" type="button" style="float:right" routerLink="/urejanje-profila">
                     <i class="fas fa-edit"></i>
                 </button>
+                <h2 class="naslov">Profil uporabnika</h2>
             </div>
         </div>
 
@@ -52,7 +53,7 @@
 
         <div class="row delete-row">
             <div class="col-6 col-md-6 col-lg-6 col-xl-6">
-                <button class="btn btn-success" id="backButtonProfile" routerLink="/">
+                <button class="btn btn-success" id="backButtonProfile" routerLink="/oglasi">
                     <i class="fas fa-chevron-left"></i>
                 </button>
             </div>

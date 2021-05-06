@@ -51,6 +51,9 @@ import { OgledProfilaComponent } from './components/ogled-profila/ogled-profila.
       }, {
         path: 'urejanje-profila',
         component: UrejanjeProfilaComponent
+      }, {
+        path: 'ogled-profila',
+        component: OgledProfilaComponent
       }
     ])
   ],

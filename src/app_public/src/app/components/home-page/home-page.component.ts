@@ -23,7 +23,7 @@ export class HomePageComponent implements OnInit {
 
   ngOnInit(): void {
     if(this.authServis.jePrijavljen()){
-      this.router.navigate(['profil'],{relativeTo:this.route})
+      this.router.navigate(['oglasi'],{relativeTo:this.route})
     }
   }
 
@@ -40,8 +40,5 @@ export class HomePageComponent implements OnInit {
     })
   }
 
-  logout(){
-    this.authServis.odjava()
-    window.location.reload()
-  }
+  
 }

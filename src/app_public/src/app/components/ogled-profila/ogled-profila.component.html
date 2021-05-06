@@ -2,61 +2,67 @@
     <app-navbar></app-navbar>
 
     <div class="container main-container">
-        <div class="row">
-            <div class="col-12 col-md-12 col-lg-12 col-xl-12">
-                <button class="btn btn-primary" id="editButtonProfile" type="button" style="float:right">
-                    <i class="fas fa-edit"></i>
+        <div class="row delete-row">
+            <div class="col-6 col-md-6 col-lg-6 col-xl-6">
+                <button class="btn btn-success" id="backButtonOtherProfile" routerLink="/oglasi">
+                    <i class="fas fa-chevron-left"></i>
                 </button>
             </div>
         </div>
-
+        <br>
         <div class="row">
             <div class="col-6 col-md-6 col-lg-6 col-xl-6">
-                <p id="imeUporabnika"><b>Ime in priimek:</b></p>
-                <p id="telUporabnika"><b>Tel. Številka:</b></p>
-                <p id="mailUporabnika"><b>E-mail:</b></p>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-12 col-md-12 col-lg-12 col-xl-12">
-                <button class="btn btn-primary" routerLink="/">Moji oglasi</button>
+                <p id="OimeUporabnika"><b>Ime in priimek:</b></p>
+                <p id="OtelUporabnika"><b>Tel. Številka:</b></p>
+                <p id="OmailUporabnika"><b>E-mail:</b></p>
             </div>
         </div>
 
         <div class="row">
             <div class="col-6 col-md-6 col-lg-6 col-xl-6">
-                <p id="opisProfila" class="opisProfila"><b>Opis: </b><br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas mollis rutrum convallis. Nulla nec massa lobortis, molestie nunc vitae, faucibus est. Mauris auctor, ipsum vel ultricies vehicula, lectus purus ultrices
+                <p id="opisProfilaOUporabnika" class="opisProfila"><b>Opis: </b><br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas mollis rutrum convallis. Nulla nec massa lobortis, molestie nunc vitae, faucibus est. Mauris auctor, ipsum vel ultricies vehicula, lectus purus ultrices
                     arcu, ut suscipit sem libero efficitur tortor. Aenean accumsan, nunc nec ultricies lacinia, turpis ex ultricies enim, a elementum leo sem sit amet est. Nam id tempus leo. Duis quis bibendum lacus. Curabitur quis dignissim eros, quis
                     rhoncus urna.
                 </p>
             </div>
             <div class="col-6 col-md-6 col-lg-6 col-xl-6">
-                <div id="ocenaZvezde" class="ocenaStar">
+                <br>
+                <div class="gumbi">
+                    <br>
+                    <button id="podajOceno" class="btn btn-primary">Podaj oceno</button>
+                    <br>
+                    <br>
+                    <button id="dodajKomentar" class="btn btn-primary">Dodaj / uredi komentar</button>
+                    <br>
+                    <br>
+                    <button id="dodajKontakt" class="btn btn-primary">Dodaj med hitre kontakte</button>  
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-12 col-lg-12 col-xl-12">
+                <div id="ocenaZvezdeUporabnika" class="ocenaStar">
                     <p><b>Ocena:</b><br></p>
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star-half"></i>
-                </div>  
+                </div>
             </div>
         </div>
 
         <div class="row">
             <div class="col-12 col-md-12 col-lg-12 col-xl-12">
-                <p id="komentarjiProfila" class="opisProfila"><b>Komentarji: </b><br></p>
-                
+                <button class="btn btn-primary">Oglasi</button>
             </div>
         </div>
+        
 
-        <div class="row delete-row">
-            <div class="col-6 col-md-6 col-lg-6 col-xl-6">
-                <button class="btn btn-success" id="backButtonProfile" routerLink="/">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
+        <div class="row">
+            <div class="col-12 col-md-12 col-lg-12 col-xl-12">
+                <p id="komentarjiOProfila" class="opisProfila"><b>Komentarji: </b><br></p>
             </div>
         </div>
-
     </div>
 </main>

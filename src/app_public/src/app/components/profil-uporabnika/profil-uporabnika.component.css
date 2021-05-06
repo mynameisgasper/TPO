@@ -16,6 +16,10 @@
     text-align: center
 }
 
+.naslov {
+    text-align: center;
+}
+
 .delete-row {
     margin-bottom: 0;
 }
