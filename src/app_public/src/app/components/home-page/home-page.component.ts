@@ -16,10 +16,8 @@ export class HomePageComponent implements OnInit {
 
   constructor(private authServis:AuthenticationService, private router:Router,private route:ActivatedRoute) {}
 
-
   @ViewChild('emailInput') emailInput: ElementRef;
   @ViewChild('passwordInput') passwordInput: ElementRef;
-
 
   ngOnInit(): void {
     if(this.authServis.jePrijavljen()){
@@ -28,7 +26,7 @@ export class HomePageComponent implements OnInit {
   }
 
   login(){
-    this.email = this.emailInput.nativeElement.value
+    this.emailInput.nativeElement.value
     this.password = this.passwordInput.nativeElement.value
     let userLogin:UserLogin = {email: this.email, password: this.password}
     console.log(userLogin)

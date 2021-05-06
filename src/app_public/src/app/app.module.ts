@@ -13,7 +13,7 @@ import { ProfilUporabnikaComponent } from './components/profil-uporabnika/profil
 import { UrejanjeProfilaComponent } from './components/urejanje-profila/urejanje-profila.component';
 import { KomentarComponent } from './components/komentar/komentar.component';
 import { OgledProfilaComponent } from './components/ogled-profila/ogled-profila.component';
-
+import { InvertPipe } from './pipes/invert.pipe'
 
 @NgModule({
   declarations: [
@@ -27,7 +27,8 @@ import { OgledProfilaComponent } from './components/ogled-profila/ogled-profila.
     ProfilUporabnikaComponent,
     UrejanjeProfilaComponent,
     KomentarComponent,
-    OgledProfilaComponent
+    OgledProfilaComponent,
+    InvertPipe
   ],
   imports: [
     BrowserModule,
