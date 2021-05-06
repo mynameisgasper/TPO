@@ -19,7 +19,10 @@ const userSchema = new mongoose.Schema({
     country: {type:String, required: true},
 
     /** public podatki **/
+    ratingSum: {type: Number, default: 0},
+    ratingNum: {type: Number, default: 0},
     rating: {type: Number, default: 0.0},
+    ratingsFrom: {type: [String], default: []},
     comments: {type: [commentSchema], default: []},
 
 

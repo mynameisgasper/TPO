@@ -122,7 +122,7 @@ const deleteOne = (req, res) => {
 
 // todo test
 const addComment = (req,res) => {
-        User.findById(req.query.id).exec().then(user=>{
+        User.findById(req.query.userId).exec().then(user=>{
             if(!user){
                 return res.status(404).json({"sporocilo": "Ne najdem uporabnika"});
             }else{
@@ -169,7 +169,29 @@ const deleteComment = (req,res) => {
 }
 
 const addRating = (req,res) => {
-    // todo dodajanje ratinga
+    User.findById(req.query.userId).exec().then(user=>{
+        if(!user){
+            return res.status(404).json({"sporocilo": "Ne najdem uporabnika"});
+        } else if(user.ratingsFrom.includes(rec.payload.email)) {
+            return res.status(400).json({"sporocilo": "Temu uporabniku ste ze podali oceno"});
+        }else {
+            user.ratingSum += req.body.rating
+            user.ratingNum++
+            user.rating = user.ratingSum / user.ratingNum 
+            user.ratingsFrom.push(req.payload.email)
+            user.save((err, doc)=>{
+                if(err){
+                    return res.status(500).json({"message":"internal server error"})
+                }else{
+                    console.log(doc)
+                    return res.status(200).json({"messge":"ocena uspešno dodana"})
+                }
+            })
+        }
+    }).catch(err=>{
+        console.error(err.message)
+        return res.status(500).json({"message":"internal server error"})
+    })
 }
 
 const getAllOglasi = (req,res) => {
