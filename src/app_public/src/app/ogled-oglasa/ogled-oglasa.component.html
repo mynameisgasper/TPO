@@ -1,0 +1,65 @@
+<main>
+    <div class="container main-container">
+        <div class="row">
+            <div class="col-4 col-md-4 col-lg-4 col-xl-4">
+                <button class="btn btn-light" id="profileButton" type="button">
+                    <i class=" fas fa-user "></i> Profil
+                </button>
+            </div>
+            <div class="col-4 col-md-4 col-lg-4 col-xl-4">
+                <h3 id="naslovOglas">Naslov Oglasa</h3>
+            </div>
+            <div class="col-4 col-md-4 col-lg-4 col-xl-4">
+                <button class="btn btn-primary" id="editButton" type="button" style="float:right">
+                    <i class="fas fa-edit"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 col-md-12 col-lg-6 col-xl-6">
+                <div class="image-container">
+                    <img src="../../assets/img/105992231-1561667465295gettyimages-521697453.jpeg">
+                </div>
+            </div>
+            <div class="col-12 col-md-12 col-lg-6 col-xl-6">
+                <div class="maps-container" id="googleMap">
+                    <img src="../../assets/img/google-map-placeholder.png">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 col-md-12 col-lg-12 col-xl-12">
+                <p id="opisOglasa" class="opisOglasa"><b>Opis oglasa:  </b>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas mollis rutrum convallis. Nulla nec massa lobortis, molestie nunc vitae, faucibus est. Mauris auctor, ipsum vel ultricies vehicula, lectus purus ultrices
+                    arcu, ut suscipit sem libero efficitur tortor. Aenean accumsan, nunc nec ultricies lacinia, turpis ex ultricies enim, a elementum leo sem sit amet est. Nam id tempus leo. Duis quis bibendum lacus. Curabitur quis dignissim eros, quis
+                    rhoncus urna.
+                </p>
+            </div>
+        </div>
+
+        <div class="row bottom-row">
+            <div class="col-6 col-md-6 col-lg-6 col-xl-6">
+                <button class="btn btn-primary" routerLink="/">Odziv na oglas</button>
+            </div>
+
+            <div class="col-6 col-md-6 col-lg-6 col-xl-6">
+                <p id="cenaOglasa" class="cenaOglasa">15€</p>
+            </div>
+        </div>
+
+        <div class="row delete-row">
+            <div class="col-6 col-md-6 col-lg-6 col-xl-6">
+                <button class="btn btn-success" id="backButton" routerLink="/">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+            </div>
+            <div class="col-6 col-md-6 col-lg-6 col-xl-6">
+                <button class="btn btn-danger btn-delete" id="deleteButton" routerLink="/">
+                    <i class="fas fa-trash-alt"></i>
+                </button>
+            </div>
+        </div>
+
+    </div>
+</main>

@@ -1,0 +1,89 @@
+.main-container {
+    margin-top: 15vh;
+    margin-bottom: 10vh;
+    padding: 20px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    -webkit-box-shadow: 0px 1px 15px 1px rgba(209, 209, 209, 1);
+    -moz-box-shadow: 0px 1px 15px 1px rgba(209, 209, 209, 1);
+    box-shadow: 0px 1px 15px 1px rgba(209, 209, 209, 1);
+}
+
+@media only screen and (min-width: 992px) {
+    .image-container {
+        width: 75%;
+        height: 25vh;
+        margin-left: 15vh;
+        overflow: hidden;
+        padding: 1vh;
+        -webkit-box-shadow: 0px 1px 15px 1px rgba(209, 209, 209, 1);
+        -moz-box-shadow: 0px 1px 15px 1px rgba(209, 209, 209, 1);
+        box-shadow: 0px 1px 15px 1px rgba(209, 209, 209, 1);
+        border-radius: 5px;
+    }
+    .maps-container {
+        width: 75%;
+        height: 25vh;
+        margin-right: 15vh;
+        overflow: hidden;
+        padding: 1vh;
+        -webkit-box-shadow: 0px 1px 15px 1px rgba(209, 209, 209, 1);
+        -moz-box-shadow: 0px 1px 15px 1px rgba(209, 209, 209, 1);
+        box-shadow: 0px 1px 15px 1px rgba(209, 209, 209, 1);
+        border-radius: 5px;
+    }
+    .bottom-row {
+        margin-left: 15vh;
+    }
+    .cenaOglasa {
+        float: right;
+        margin-right: 15vh;
+        font-size: 2em;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    .image-container {
+        width: 75%;
+        height: 25vh;
+        overflow: hidden;
+        padding: 1vh;
+        margin: 0 auto;
+        -webkit-box-shadow: 0px 1px 15px 1px rgba(209, 209, 209, 1);
+        -moz-box-shadow: 0px 1px 15px 1px rgba(209, 209, 209, 1);
+        box-shadow: 0px 1px 15px 1px rgba(209, 209, 209, 1);
+        border-radius: 5px;
+    }
+    .maps-container {
+        width: 75%;
+        height: 25vh;
+        overflow: hidden;
+        padding: 1vh;
+        margin: 0 auto;
+        margin-top: 1vh;
+        -webkit-box-shadow: 0px 1px 15px 1px rgba(209, 209, 209, 1);
+        -moz-box-shadow: 0px 1px 15px 1px rgba(209, 209, 209, 1);
+        box-shadow: 0px 1px 15px 1px rgba(209, 209, 209, 1);
+        border-radius: 5px;
+    }
+    .cenaOglasa {
+        float: right;
+        font-size: 2em;
+    }
+    .opisOglasa {
+        width: 75%;
+        margin: 0 auto;
+    }
+}
+
+#deleteButton {
+    float: right;
+}
+
+#naslovOglas {
+    text-align: center
+}
+
+.delete-row {
+    margin-bottom: 0;
+}
