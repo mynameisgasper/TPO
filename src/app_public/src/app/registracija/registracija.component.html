@@ -1,12 +1,57 @@
-<h2>REGISTRACIJA</h2>
 <div class="row">
     <div class="col-12 col-md-4 col-lg-4 col-xl-4 main-buttons">
-        <button class="btn btn-success" routerLink="/">Login</button>
+        
     </div>
     <div class="col-12 col-md-4 col-lg-4 col-xl-4 main-buttons">
-        <button class="btn btn-primary">Registriraj se</button>
+        <h2>DOG WALKERS</h2>
+        <div class="form">
+            <h5 style="text-align: center;">Registracija</h5>
+            <form>
+                <div class="form-group">
+                    <label for="name">Ime</label>
+                    <input type="text" class="form-control" id="registrationName">
+                </div>
+                <div class="form-group">
+                    <label for="surname">Priimek</label>
+                    <input type="text" class="form-control" id="registrationSurname">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Telefon</label>
+                    <input type="text" class="form-control" id="registrationPhone">
+                </div>
+                <div class="form-group">
+                    <label for="address">Naslov</label>
+                    <input type="text" class="form-control" id="registrationAddress">
+                </div>
+                <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="registrationEmail">
+                </div>
+                <div class="form-group">
+                <label for="password">Geslo</label>
+                <input type="password" class="form-control" id="registrationPassword">
+                </div>
+                <div class="form-group">
+                    <label for="password2">Ponovi geslo</label>
+                    <input type="password2" class="form-control" id="registrationPassword2">
+                </div>
+                <div class="form-group radio">
+                    <label for="accType">Tip računa</label><br>
+                    <input type="radio" id="navaden" name="accType" value="navaden">
+                    <label for="male">Navaden</label><br>
+                    <input type="radio" id="organizacija" name="accType" value="organizacija">
+                    <label for="female">Organizacija</label><br>
+                    <input type="radio" id="premium" name="accType" value="premium">
+                    <label for="other">Premium</label>
+                </div>
+                <button class="btn btn-primary registration" style="text-align: right;">Registracija</button>
+            </form>
+        </div>
+        
+        <button class="btn btn-success" routerLink="/">Pojdi na prijavo</button>
+        <button class="btn btn-primary guest" routerLink="/oglasi">Vstopi kot gost</button>
     </div>
     <div class="col-12 col-md-4 col-lg-4 col-xl-4 main-buttons">
-        <button class="btn btn-primary" routerLink="/oglasi">Vstopi kot gost</button>
     </div>
 </div>
+
