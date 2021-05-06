@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { User } from 'src/app/Models/User';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-urejanje-profila',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UrejanjeProfilaComponent implements OnInit {
 
-  constructor() { }
+  user:User
+
+  constructor(private authServis:AuthenticationService) { }
 
   ngOnInit(): void {
+  }
+
+  pridobiPodatkeUporabnika(){
+    this.user = this.authServis.vrniTrenutnegaUporabnika()
   }
 
 }

@@ -14,9 +14,7 @@ export class HomePageComponent implements OnInit {
   password:string = ""
   email:string = ""
 
-  constructor(private authServis:AuthenticationService, private router:Router) {
-
-  }
+  constructor(private authServis:AuthenticationService, private router:Router) { }
 
   ngOnInit(): void {
   }

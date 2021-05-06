@@ -1,0 +1,71 @@
+<main>
+    <app-navbar></app-navbar>
+
+    <div *ngIf="user" class="container main-container">
+        <div class="row">
+            <div class="col-12 col-md-12 col-lg-12 col-xl-12">
+                <button class="btn btn-primary" id="saveButtonProfile" type="button" style="float:right">
+                    <i class="fas fa-save"></i>
+                </button>
+                <h2 class="naslov">Urejanje profila</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6 col-md-6 col-lg-6 col-xl-6">
+                <form>
+                    <div class="col-6 col-md-6 col-lg-6 col-xl-6">
+                        <div class="form-group">
+                            <label for="loginEmail">Uporabniško ime:</label>
+                            <input type="email" class="form-control" id="usernameEdit">
+                        </div>
+                        <div class="form-group">
+                            <label for="loginPassword">Geslo:</label>
+                            <input type="password" class="form-control" id="passwordEdit">
+                        </div>
+                        <div class="form-group">
+                            <label for="loginPassword">Ponovi geslo:</label>
+                            <input type="password" class="form-control" id="reppasswordEdit">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-6 col-md-6 col-lg-6 col-xl-6">
+                <form>
+                    <div class="col-6 col-md-6 col-lg-6 col-xl-6">
+                        <div class="form-group">
+                            <label for="loginEmail">Tel. številka:</label>
+                            <input type="email" class="form-control" id="telnumEdit">
+                        </div>
+                        <div class="form-group">
+                            <label for="loginPassword">E-mail:</label>
+                            <input type="password" class="form-control" id="emailEdit">
+                        </div>
+                        <br>
+                        <select class="form-select" aria-label="Default select example" id="currencyChange">
+                            <option selected>Izberi valuto</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        <div class="col-12 col-md-12 col-lg-12 col-xl-12">
+            <div class="form-group">
+                <label for="opisTextArea">Opis profila:</label>
+                <textarea class="form-control" id="opisTextArea" rows="5"></textarea>
+            </div>
+            <br>
+        </div>
+
+        <div class="row delete-row">
+            <div class="col-6 col-md-6 col-lg-6 col-xl-6">
+                <button class="btn btn-success" id="backButton" routerLink="/">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</main>

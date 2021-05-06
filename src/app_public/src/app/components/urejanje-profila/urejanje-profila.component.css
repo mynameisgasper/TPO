@@ -1,0 +1,37 @@
+.main-container {
+    margin-bottom: 10vh;
+    padding: 20px;
+    border: 1px solid rgba(209, 209, 209, 1);
+    border-radius: 10px;
+    -webkit-box-shadow: 0px 1px 15px 1px rgba(209, 209, 209, 1);
+    -moz-box-shadow: 0px 1px 15px 1px rgba(209, 209, 209, 1);
+    box-shadow: 0px 1px 15px 1px rgba(209, 209, 209, 1);
+}
+
+#deleteButton {
+    float: right;
+}
+
+#naslovOglas {
+    text-align: center
+}
+
+.delete-row {
+    margin-bottom: 0;
+}
+
+.bottom-row {
+    margin-left: 15vh;
+}
+
+.opisProfila {
+    width: 75%;
+}
+
+.naslov {
+    text-align: center;
+}
+
+.row {
+    margin-top: 2vh;
+}
