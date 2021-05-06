@@ -27,7 +27,7 @@ const register = (req, res) => {
         if (napaka) {
             res.status(500).json(napaka);
         } else {
-            res.status(200).json({"žeton": uporabnik.generirajJwt()});
+            res.status(200).json({"jwt": uporabnik.generirajJwt()});
         }
     });
 };
@@ -40,7 +40,7 @@ const login = (req, res) => {
         if (napaka)
             return res.status(500).json(napaka);
         if (uporabnik) {
-            res.status(200).json({"žeton": uporabnik.generirajJwt()});
+            res.status(200).json({"jwt": uporabnik.generirajJwt()});
         } else {
             res.status(401).json(informacije);
         }

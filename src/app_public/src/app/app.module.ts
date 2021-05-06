@@ -7,7 +7,6 @@ import { VsiOglasiComponent } from './components/vsi-oglasi/vsi-oglasi.component
 import { OgrodjeComponent } from './components/ogrodje/ogrodje.component';
 import { RegistracijaComponent } from './components/registracija/registracija.component';
 import { OgledOglasaComponent } from './components/ogled-oglasa/ogled-oglasa.component';
-import { NovaKomponentaComponent } from './components/moje_komponente/nova-komponenta/nova-komponenta.component';
 import { OglasComponent } from './components/vsi-oglasi/oglas/oglas.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProfilUporabnikaComponent } from './components/profil-uporabnika/profil-uporabnika.component';
@@ -22,7 +21,6 @@ import { KomentarComponent } from './components/komentar/komentar.component';
     OgrodjeComponent,
     RegistracijaComponent,
     OgledOglasaComponent,
-    NovaKomponentaComponent,
     OglasComponent,
     NavbarComponent,
     ProfilUporabnikaComponent,
