@@ -45,7 +45,6 @@ const getOne = (req, res) => {
 const create = (req, res) => {
     if (!req.body.name ||
         !req.body.description ||
-        !req.body.price ||
         !req.body.location) {
         res.status(400).json({"sporočilo": "Zahtevani so vsi podatki"});
     }else{
@@ -59,6 +58,10 @@ const create = (req, res) => {
         
         if(req.body.picture) {
             oglas.picture = req.body.picture
+        }
+
+        if(req.body.price) {
+            oglas.price = req.body.price
         }
 
         oglas.save(napaka => {

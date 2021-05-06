@@ -49,8 +49,8 @@ const login = (req, res) => {
 
 // todo 
 const updatePassword = (req, res) => {
-    user = User.findById({_id:req.params.userId})
-    user.nastaviGeslo(req.params.password)
+    user = User.findById({_id:req.payload.id})
+    user.nastaviGeslo(req.body.password)
     user.save(napaka => {
         if (napaka) {
             res.status(500).json(napaka);
