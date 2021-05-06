@@ -11,7 +11,7 @@ Vnos persistentnih podatkov v sveže kreirano podatkovno bazo:
 
 >če so v bazi že podatki, lahko bazo pobrišemo z ukazom `npm run mongo-drop`
    
-Vnos treh uporabnikov `npm run mongo-import-users`
+Vnos treh uporabnikov `npm run mongo-import`
 
 # Produkcijsko (Docker) okolje
 Za simulacijo produkcijskega okolja izvedemo naslednje ukaze:

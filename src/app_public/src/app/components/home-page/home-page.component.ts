@@ -1,5 +1,5 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
 import { UserLogin } from 'src/app/Models/User';
 import { AuthenticationService } from 'src/app/services/authentication.service';
@@ -14,7 +14,7 @@ export class HomePageComponent implements OnInit {
   password:string;
   email:string;
 
-  constructor(private authServis:AuthenticationService, private router:Router) {}
+  constructor(private authServis:AuthenticationService, private router:Router,private route:ActivatedRoute) {}
 
 
   @ViewChild('emailInput') emailInput: ElementRef;
@@ -22,6 +22,9 @@ export class HomePageComponent implements OnInit {
 
 
   ngOnInit(): void {
+    if(this.authServis.jePrijavljen()){
+      this.router.navigate(['profil'],{relativeTo:this.route})
+    }
   }
 
   login(){
@@ -30,9 +33,7 @@ export class HomePageComponent implements OnInit {
     let userLogin:UserLogin = {email: this.email, password: this.password}
     console.log(userLogin)
     this.authServis.login(userLogin).then(r => {
-      this.router.navigate(["profil"]).then(r => {console.log("preusmerjeno")})
-
-      console.log("uspešn vpis")
+      window.location.reload()
     }).catch(err => {
       console.error(err)
       alert("neuspešna prijava, glej konzolo")
