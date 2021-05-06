@@ -3,13 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router'
 
-import { HomePageComponent } from './home-page/home-page.component';
-import { VsiOglasiComponent } from './vsi-oglasi/vsi-oglasi.component';
-import { OgrodjeComponent } from './ogrodje/ogrodje.component';
-import { RegistracijaComponent } from './registracija/registracija.component';
-import { OgledOglasaComponent } from './ogled-oglasa/ogled-oglasa.component';
-import { NovaKomponentaComponent } from './moje_komponente/nova-komponenta/nova-komponenta.component';
-import { OglasComponent } from './vsi-oglasi/oglas/oglas.component';
+import { HomePageComponent } from './components/home-page/home-page.component';
+import { VsiOglasiComponent } from './components/vsi-oglasi/vsi-oglasi.component';
+import { OgrodjeComponent } from './components/ogrodje/ogrodje.component';
+import { RegistracijaComponent } from './components/registracija/registracija.component';
+import { OgledOglasaComponent } from './components/ogled-oglasa/ogled-oglasa.component';
+import { NovaKomponentaComponent } from './components/moje_komponente/nova-komponenta/nova-komponenta.component';
+import { OglasComponent } from './components/vsi-oglasi/oglas/oglas.component';
 
 @NgModule({
   declarations: [
