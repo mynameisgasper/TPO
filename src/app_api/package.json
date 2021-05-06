@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "node ./bin/www",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha ../test/**/*.js",
     "mongo-drop": "docker exec -it dw-dev-database bash -c \"mongo dw-dev-cluster --eval 'db.dropDatabase()'\"",
     "mongo-import-users": "docker cp ../app_database/persistent/users.json dw-dev-database:/users.json && docker exec -it dw-dev-database mongoimport --db dw-dev-cluster --collection Users --jsonArray --file users.json",
     "mongo-import-oglasi": "docker cp ../app_database/persistent/oglasi.json dw-dev-database:/oglasi.json && docker exec -it dw-dev-database mongoimport --db dw-dev-cluster --collection Oglasi --jsonArray --file oglasi.json",
@@ -26,12 +26,14 @@
     "http-errors": "~1.6.3",
     "jshint": "^2.12.0",
     "jsonwebtoken": "^8.5.1",
+    "mocha": "^8.3.2",
     "mongoose": "^5.10.15",
     "morgan": "~1.9.1",
     "nodemon": "^2.0.6",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
-    "procfile": "^0.1.1"
+    "procfile": "^0.1.1",
+    "supertest": "^6.1.3"
   },
   "author": "Gasper Bozic, Gasper Stepec, Gasper Kolbezen, Matevz Vres, Grega Kranjec",
   "license": "ISC"

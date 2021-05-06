@@ -1,6 +1,6 @@
-const zahteva = require("supertest");
-const { request } = require("../../app_api/app.js");
-const streznik = require("../../app_api/app.js");
+const zahteva = require("../app_api/node_modules/supertest");
+const { request } = require("../app_api/app.js");
+const streznik = require("../app_api/app.js");
 
 describe("Začetna stran", () => {
   it('Welcome', async function() {
