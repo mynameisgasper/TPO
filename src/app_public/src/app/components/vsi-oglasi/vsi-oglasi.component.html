@@ -16,9 +16,9 @@
             <div *ngIf="oglasi;else OglasiElseBlock" class="row">
                 <app-oglas *ngFor="let oglas of oglasi" [oglas]="oglas" class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4"></app-oglas>
             </div>
-          <ng-template #OglasiElseBlock>
-            <h2>loading...</h2>
-          </ng-template>
+            <ng-template #OglasiElseBlock>
+                <h2>loading...</h2>
+            </ng-template>
 
         </div>
     </div>
@@ -69,7 +69,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Dodaj Oglas</button>
+                    <button type="button" (click)="createOglas()" class="btn btn-primary">Dodaj Oglas</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
 

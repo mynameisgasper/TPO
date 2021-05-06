@@ -41,7 +41,7 @@ import { KomentarComponent } from './components/komentar/komentar.component';
         path: 'registracija',
         component: RegistracijaComponent
       }, {
-        path: 'ogled-oglasa',
+        path: 'ogled-oglasa/:id',
         component: OgledOglasaComponent
       }, {
         path: 'profil',

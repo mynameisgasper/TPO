@@ -27,4 +27,8 @@ export class VsiOglasiComponent implements OnInit {
     })
   }
 
+  createOglas() {
+    console.log("aaaa")
+  }
+
 }

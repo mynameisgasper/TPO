@@ -1,7 +1,7 @@
 <main>
     <app-navbar></app-navbar>
 
-    <div class="container main-container">
+    <div *ngIf=[oglas] class="container main-container">
         <div class="row">
             <div class="col-4 col-md-4 col-lg-4 col-xl-4">
                 <button class="btn btn-light" id="profileButton" type="button">
@@ -9,7 +9,7 @@
                 </button>
             </div>
             <div class="col-4 col-md-4 col-lg-4 col-xl-4">
-                <h3 id="naslovOglas">Naslov Oglasa</h3>
+                <h3 id="naslovOglas">{{oglas.name}}</h3>
             </div>
             <div class="col-4 col-md-4 col-lg-4 col-xl-4">
                 <button class="btn btn-primary" id="editButton" type="button" style="float:right">
@@ -33,9 +33,7 @@
 
         <div class="row">
             <div class="col-12 col-md-12 col-lg-12 col-xl-12">
-                <p id="opisOglasa" class="opisOglasa"><b>Opis oglasa:  </b>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas mollis rutrum convallis. Nulla nec massa lobortis, molestie nunc vitae, faucibus est. Mauris auctor, ipsum vel ultricies vehicula, lectus purus ultrices
-                    arcu, ut suscipit sem libero efficitur tortor. Aenean accumsan, nunc nec ultricies lacinia, turpis ex ultricies enim, a elementum leo sem sit amet est. Nam id tempus leo. Duis quis bibendum lacus. Curabitur quis dignissim eros, quis
-                    rhoncus urna.
+                <p id="opisOglasa" class="opisOglasa"><b>Opis oglasa:  </b>{{oglas.description}}
                 </p>
             </div>
         </div>
@@ -46,13 +44,13 @@
             </div>
 
             <div class="col-6 col-md-6 col-lg-6 col-xl-6">
-                <p id="cenaOglasa" class="cenaOglasa">15€</p>
+                <p id="cenaOglasa" class="cenaOglasa">{{oglas.price}}€</p>
             </div>
         </div>
 
         <div class="row delete-row">
             <div class="col-6 col-md-6 col-lg-6 col-xl-6">
-                <button class="btn btn-success" id="backButton" routerLink="/">
+                <button (click)="returnToOglasi()" class="btn btn-success" id="backButton" routerLink="/">
                     <i class="fas fa-chevron-left"></i>
                 </button>
             </div>
