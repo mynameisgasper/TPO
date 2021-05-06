@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Oglas} from "../../Models/Oglas";
+import {Oglas} from "../../../Models/Oglas";
 
 @Component({
   selector: 'app-oglas',
