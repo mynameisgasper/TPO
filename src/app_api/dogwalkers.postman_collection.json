@@ -1,0 +1,374 @@
+{
+	"info": {
+		"_postman_id": "03d02175-f331-4efd-b4ef-a287f1e4f630",
+		"name": "dogwalkers",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "authentication",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/auth/register",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"marica.petkovsek@hotmail.com\",\r\n    \"password\":\"test\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/auth/login",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updatePassword",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "jwt-here",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\": \"newpas\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/auth/pass",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"auth",
+								"pass"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "getOne",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/user/id_here",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"user",
+								"id_here"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAll",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "jwt-here",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api}}/user",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "jwt-key",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"blabla\",\r\n    \"surname\": \"hahw\",\r\n    \"email\": \"afowko\",\r\n    \"phone\" : \"aofkow\",\r\n    \"address\" : \"fawofw\",\r\n    \"role\" : 0,\r\n    \"country\": \"fwaokfwao\",\r\n    \"password\" : \"foawkfoaw\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/user",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "jwt-here",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"blabla\",\r\n    \"surname\": \"hahw\",\r\n    \"email\": \"afowko\",\r\n    \"phone\" : \"aofkow\",\r\n    \"address\" : \"fawofw\",\r\n    \"role\" : 0,\r\n    \"country\": \"fwaokfwao\",\r\n    \"password\" : \"foawkfoaw\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/user/id_here",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"user",
+								"id_here"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteOne",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "jwt-here",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api}}/user/id_here?",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"user",
+								"id_here"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "oglasi",
+			"item": [
+				{
+					"name": "getOne",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/oglas/id_here",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"oglas",
+								"id_here"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/oglas",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"oglas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "jwt-hwrer",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"blabla\",\r\n    \"description\": \"hahw\",\r\n    \"price\": 20,\r\n    \"location\" : \"aofkow\",\r\n    \"picture\" : \"base64-not for testing purpuses\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/oglas",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"oglas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "jwt-here",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"blabla\",\r\n    \"description\": \"hahw\",\r\n    \"price\": 20,\r\n    \"location\" : \"aofkow\",\r\n    \"picture\" : \"base64-not for testing purpuses\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/oglas/id_here",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"oglas",
+								"id_here"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteOne",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "jwt-here",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api}}/oglas/id_here",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"oglas",
+								"id_here"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
