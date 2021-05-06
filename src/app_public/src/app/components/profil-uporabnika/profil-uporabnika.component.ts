@@ -1,5 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { User } from 'src/app/Models/User';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 import { Comment } from "../../Models/Comment";
+
 
 @Component({
   selector: 'app-profil-uporabnika',
@@ -7,10 +10,14 @@ import { Comment } from "../../Models/Comment";
   styleUrls: ['./profil-uporabnika.component.css']
 })
 export class ProfilUporabnikaComponent implements OnInit {
+
+  user:User
   
   komentarji:Comment[] = []
 
-  constructor() { }
+  constructor(private authServis:AuthenticationService) { 
+    
+  }
 
   ngOnInit(): void {
     //todo pridobi vse oglase iz backenda
@@ -19,6 +26,11 @@ export class ProfilUporabnikaComponent implements OnInit {
 
   pridobiVseKomentarje(){
     //TODO
+  }
+
+  pridobiPodatkeUporabnika(){
+    this.user = this.authServis.vrniTrenutnegaUporabnika()
+    
   }
 
 }

@@ -9,13 +9,13 @@
                 <form>
                     <div class="form-group">
                         <label for="loginEmail">Uporabniško ime</label>
-                        <input type="email" class="form-control" id="loginEmail">
+                        <input ([ngModel])="email" type="email" class="form-control" id="loginEmail">
                     </div>
                     <div class="form-group">
                         <label for="loginPassword">Geslo</label>
-                        <input type="password" class="form-control" id="loginPassword">
+                        <input ([ngModel])="password" type="password" class="form-control" id="loginPassword">
                     </div>
-                    <button class="btn btn-success">Prijava</button>
+                    <button (click)="login()" class="btn btn-success">Prijava</button>
                 </form>
             </div>
             <button class="btn btn-primary registration" routerLink="/registracija">Registriraj se!</button>

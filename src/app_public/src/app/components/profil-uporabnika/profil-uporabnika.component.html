@@ -1,7 +1,7 @@
 <main>
     <app-navbar></app-navbar>
 
-    <div class="container main-container">
+    <div *ngIf="user" class="container main-container">
         <div class="row">
             <div class="col-12 col-md-12 col-lg-12 col-xl-12">
                 <button class="btn btn-primary" id="editButton" type="button" style="float:right">
@@ -12,9 +12,9 @@
 
         <div class="row">
             <div class="col-6 col-md-6 col-lg-6 col-xl-6">
-                <p id="imeUporabnika"><b>Uporabniško ime:</b></p>
-                <p id="telUporabnika"><b>Tel. Številka:</b></p>
-                <p id="mailUporabnika"><b>E-mail:</b></p>
+                <p id="imeUporabnika"><b>Ime in priimek:</b> {{user.name}} {{user.surname}}</p>
+                <p id="telUporabnika"><b>Tel. Številka:</b> {{user.phone}}</p>
+                <p id="mailUporabnika"><b>E-mail:</b> {{user.email}}</p>
             </div>
         </div>
 
