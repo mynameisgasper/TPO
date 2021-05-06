@@ -10,6 +10,7 @@ import { RegistracijaComponent } from './components/registracija/registracija.co
 import { OgledOglasaComponent } from './components/ogled-oglasa/ogled-oglasa.component';
 import { NovaKomponentaComponent } from './components/moje_komponente/nova-komponenta/nova-komponenta.component';
 import { OglasComponent } from './components/vsi-oglasi/oglas/oglas.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { OglasComponent } from './components/vsi-oglasi/oglas/oglas.component';
     RegistracijaComponent,
     OgledOglasaComponent,
     NovaKomponentaComponent,
-    OglasComponent
+    OglasComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

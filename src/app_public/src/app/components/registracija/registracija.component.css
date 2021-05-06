@@ -5,7 +5,7 @@
 
 .form {
     padding: 20px;
-    border: 1px solid black;
+    border: 1px solid rgba(209, 209, 209, 1);
     border-radius: 10px;
     text-align: left;
 }

@@ -1,17 +1,5 @@
 <main>
-    <nav class="navbar navbar-light">
-        <h3>DogWalkers</h3>
-        <form class="form-inline">
-        </form>
-        <form class="form-inline">
-            <input class="form-control mr-sm-2" type="search" id="searchButton" placeholder="Search" aria-label="Search">
-            <button class="btn btn-success" type="submit">Iskanje</button>
-
-            <button class="btn btn-light" id="profileButton" type="button">
-                <i class=" fas fa-user "></i> Profil
-            </button>
-        </form>
-    </nav>
+    <app-navbar></app-navbar>
 
     <div>
         <div class="container main-container">
@@ -28,9 +16,9 @@
             </div>
 
             <div class="row">
-              <app-oglas *ngFor="let oglas of oglasi" [oglas]="oglas"></app-oglas>
+                <app-oglas *ngFor="let oglas of oglasi" [oglas]="oglas" class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4"></app-oglas>
             </div>
+
         </div>
     </div>
-
 </main>
