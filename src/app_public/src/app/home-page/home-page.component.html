@@ -1,12 +1,25 @@
-<h2>LOGIN</h2>
 <div class="row">
     <div class="col-12 col-md-4 col-lg-4 col-xl-4 main-buttons">
-        <button class="btn btn-success">Login</button>
+        
     </div>
     <div class="col-12 col-md-4 col-lg-4 col-xl-4 main-buttons">
-        <button class="btn btn-primary" routerLink="/registracija">Registriraj se</button>
+        <h2>DOG WALKERS</h2>
+        <div class="form">
+            <form>
+                <div class="form-group">
+                <label for="loginEmail">Uporabniško ime</label>
+                <input type="email" class="form-control" id="loginEmail">
+                </div>
+                <div class="form-group">
+                <label for="registrationPassword">Geslo</label>
+                <input type="password" class="form-control" id="registrationPassword">
+                </div>
+                <button class="btn btn-success">Prijava</button>
+            </form>
+        </div>
+        <button class="btn btn-primary registration" routerLink="/registracija">Registriraj se!</button>
+        <button class="btn btn-primary guest" routerLink="/oglasi">Vstopi kot gost</button>
     </div>
     <div class="col-12 col-md-4 col-lg-4 col-xl-4 main-buttons">
-        <button class="btn btn-primary" routerLink="/oglasi">Vstopi kot gost</button>
     </div>
 </div>
