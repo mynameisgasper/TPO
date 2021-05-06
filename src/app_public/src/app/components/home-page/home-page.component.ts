@@ -1,5 +1,4 @@
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserLogin } from 'src/app/Models/User';
 import { AuthenticationService } from 'src/app/services/authentication.service';
@@ -11,16 +10,24 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 })
 export class HomePageComponent implements OnInit {
 
-  password:string = ""
-  email:string = ""
+  password:string;
+  email:string;
 
-  constructor(private authServis:AuthenticationService, private router:Router) { }
+  constructor(private authServis:AuthenticationService, private router:Router) {}
+
+
+  @ViewChild('emailInput') emailInput: ElementRef;
+  @ViewChild('passwordInput') passwordInput: ElementRef;
+
 
   ngOnInit(): void {
   }
 
   login(){
+    this.email = this.emailInput.nativeElement.value
+    this.password = this.passwordInput.nativeElement.value
     let userLogin:UserLogin = {email: this.email, password: this.password}
+    console.log(userLogin)
     this.authServis.login(userLogin).then(r => {
       this.router.navigate(["profil"])
     }).catch(err => {
