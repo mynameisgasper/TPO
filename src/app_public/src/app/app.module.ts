@@ -8,6 +8,8 @@ import { VsiOglasiComponent } from './vsi-oglasi/vsi-oglasi.component';
 import { OgrodjeComponent } from './ogrodje/ogrodje.component';
 import { RegistracijaComponent } from './registracija/registracija.component';
 import { OgledOglasaComponent } from './ogled-oglasa/ogled-oglasa.component';
+import { NovaKomponentaComponent } from './moje_komponente/nova-komponenta/nova-komponenta.component';
+import { OglasComponent } from './vsi-oglasi/oglas/oglas.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { OgledOglasaComponent } from './ogled-oglasa/ogled-oglasa.component';
     VsiOglasiComponent,
     OgrodjeComponent,
     RegistracijaComponent,
-    OgledOglasaComponent
+    OgledOglasaComponent,
+    NovaKomponentaComponent,
+    OglasComponent
   ],
   imports: [
     BrowserModule,

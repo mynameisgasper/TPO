@@ -11,7 +11,6 @@
                 <i class=" fas fa-user "></i> Profil
             </button>
         </form>
-
     </nav>
 
     <div>
@@ -27,48 +26,9 @@
                     <button class="btn btn-primary">Zgodovina</button>
                 </div>
             </div>
+
             <div class="row">
-                <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4" id="oglas-1 ">
-                    <div class="spacer"></div>
-                    <div class="oglas">
-                        <div class="image-container ">
-                            <img src="../../assets/img/105992231-1561667465295gettyimages-521697453.jpeg " style="width: 100% ">
-                        </div>
-                        <h5>Oglas 1</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent non dolor quis est lobortis mattis in in turpis. </p>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 " id="oglas-2 ">
-                    <div class="spacer"></div>
-                    <div class="oglas">
-                        <div class="image-container">
-                            <img src="../../assets/img/https___cdn.cnn.com_cnnnext_dam_assets_201030094143-stock-rhodesian-ridgeback.jpg" style="width:100%">
-                        </div>
-                        <h5>Oglas 2</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent non dolor quis est lobortis mattis in in turpis. </p>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4" id="oglas-3 ">
-                    <div class="spacer"></div>
-                    <div class="oglas">
-                        <div class="image-container ">
-                            <img src="../../assets/img/3180-Pug_green_grass-1200x628-FACEBOOK-1200x628.jpg " style="width:100% ">
-                        </div>
-                    <h5>Oglas 3</h5>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent non dolor quis est lobortis mattis in in turpis. </p>
-                    </div>
-
-                </div>
-            
-                <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 " id="oglas-4 ">
-                    <div class="spacer"></div>
-                    <div class="oglas">
-                        <h5>Oglas 4</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent non dolor quis est lobortis mattis in in turpis. </p>
-                    </div>
-                </div>
+              <app-oglas *ngFor="let oglas of oglasi" [oglas]="oglas"></app-oglas>
             </div>
         </div>
     </div>
