@@ -26,7 +26,8 @@ export class HomePageComponent implements OnInit {
   }
 
   login(){
-    this.emailInput.nativeElement.value
+    this.email = this.emailInput.nativeElement.value
+    // this.emailInput.nativeElement.value            - ce pustim to namest zgornje vrstice, login neha delat v smislu da so prijave nelegalne - Vreš
     this.password = this.passwordInput.nativeElement.value
     let userLogin:UserLogin = {email: this.email, password: this.password}
     console.log(userLogin)
