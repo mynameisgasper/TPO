@@ -6,7 +6,7 @@ const oglasSchema = new mongoose.Schema({
     description: {type:String, required:true},
     price: {type:Number, required:true},
     location: {type:String, required:true},
-    picture: {type: String, required: false}
+    picture: {type: String, required: false, default: ""}
 })
 
 mongoose.model('Oglas', oglasSchema, 'Oglasi');

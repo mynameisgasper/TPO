@@ -13,9 +13,12 @@
                     <button class="btn btn-primary">Zgodovina</button>
                 </div>
             </div>
-            <div class="row">
+            <div *ngIf="oglasi;else OglasiElseBlock" class="row">
                 <app-oglas *ngFor="let oglas of oglasi" [oglas]="oglas" class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4"></app-oglas>
             </div>
+          <ng-template #OglasiElseBlock>
+            <h2>loading...</h2>
+          </ng-template>
 
         </div>
     </div>
