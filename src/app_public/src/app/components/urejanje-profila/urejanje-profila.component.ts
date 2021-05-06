@@ -14,6 +14,7 @@ export class UrejanjeProfilaComponent implements OnInit {
   constructor(private authServis:AuthenticationService) { }
 
   ngOnInit(): void {
+    this.pridobiPodatkeUporabnika()
   }
 
   pridobiPodatkeUporabnika(){

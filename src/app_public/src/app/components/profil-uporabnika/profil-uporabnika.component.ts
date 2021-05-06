@@ -22,6 +22,7 @@ export class ProfilUporabnikaComponent implements OnInit {
   ngOnInit(): void {
     //todo pridobi vse oglase iz backenda
     this.pridobiVseKomentarje()
+    this.pridobiPodatkeUporabnika()
   }
 
   pridobiVseKomentarje(){

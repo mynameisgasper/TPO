@@ -17,6 +17,7 @@ export class AuthenticationService {
       .prijava(uporabnik)
       .then((rezultatAvtentikacije: AuthenticationResult) => {
         this.shraniZeton(rezultatAvtentikacije["jwt"])
+        console.log("da bom dojeu")
       });
   }
 

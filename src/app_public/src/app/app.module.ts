@@ -12,6 +12,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProfilUporabnikaComponent } from './components/profil-uporabnika/profil-uporabnika.component';
 import { UrejanjeProfilaComponent } from './components/urejanje-profila/urejanje-profila.component';
 import { KomentarComponent } from './components/komentar/komentar.component';
+import { OgledProfilaComponent } from './components/ogled-profila/ogled-profila.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { KomentarComponent } from './components/komentar/komentar.component';
     NavbarComponent,
     ProfilUporabnikaComponent,
     UrejanjeProfilaComponent,
-    KomentarComponent
+    KomentarComponent,
+    OgledProfilaComponent
   ],
   imports: [
     BrowserModule,
