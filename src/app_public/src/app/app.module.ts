@@ -6,12 +6,14 @@ import { RouterModule } from '@angular/router'
 import { HomePageComponent } from './home-page/home-page.component';
 import { VsiOglasiComponent } from './vsi-oglasi/vsi-oglasi.component';
 import { OgrodjeComponent } from './ogrodje/ogrodje.component';
+import { RegistracijaComponent } from './registracija/registracija.component';
 
 @NgModule({
   declarations: [
     HomePageComponent,
     VsiOglasiComponent,
-    OgrodjeComponent
+    OgrodjeComponent,
+    RegistracijaComponent
   ],
   imports: [
     BrowserModule,
@@ -23,6 +25,9 @@ import { OgrodjeComponent } from './ogrodje/ogrodje.component';
       }, {
         path: 'oglasi',
         component: VsiOglasiComponent
+      }, {
+        path: 'registracija',
+        component: RegistracijaComponent
       }
     ])
   ],
