@@ -3,6 +3,11 @@ const crypto = require('crypto');
 const jwt = require('jsonwebtoken');
 const { oglasSchema } = require('./oglas');
 
+const commentSchema = new mongoose.Schema({
+    owner: {type:String, required:true},
+    content: {type:String, required:true}
+})
+
 const userSchema = new mongoose.Schema({
     /** osebni podatki **/
     name: {type:String, required:true},
@@ -13,6 +18,11 @@ const userSchema = new mongoose.Schema({
     address: {type:String, required:true},
     country: {type:String, required: true},
 
+    /** public podatki **/
+    rating: {type: Number, default: 0.0},
+    comments: {type: [commentSchema], default: []},
+
+
     /** polja, uporabljena za avtentikacjio/avtorizacijo **/
     role: {type:Number, default:0},
     /** @Roles
@@ -20,7 +30,7 @@ const userSchema = new mongoose.Schema({
      * 1 - premium uporabnik
      * 2 - administrator
      */
-    email: {type:String, required: true},
+    email: {type:String, required: true, unique:true},
     zgoscenaVrednost: {type: String, required: true},
     nakljucnaVrednost: {type: String, required: true},
 })
@@ -52,4 +62,5 @@ userSchema.methods.generirajJwt = function () {
     }, process.env.JWT_GESLO);
 };
 
+mongoose.model('Comment',commentSchema,'Comments')
 mongoose.model('User', userSchema, 'Users');

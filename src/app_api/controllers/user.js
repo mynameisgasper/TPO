@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const User = mongoose.model('User');
+const Comment = mongoose.model('Comment')
 
 const getAll = (req, res) => {
     // todo implementiraj filtriranje in paginacijo
@@ -119,6 +120,58 @@ const deleteOne = (req, res) => {
     }
 };
 
+// todo test
+const addComment = (req,res) => {
+        User.findById(req.query.id).exec().then(user=>{
+            if(!user){
+                return res.status(404).json({"sporocilo": "Ne najdem uporabnika"});
+            }else{
+                const comment = new Comment({
+                    owner: req.payload.email,
+                    content: req.body.content
+                })
+                user.comments.push(comment)
+                user.save((err, doc)=>{
+                    if(err){
+                        return res.status(500).json({"message":"internal server error"})
+                    }else{
+                        console.log(doc)
+                        return res.status(200).json({"messge":"komentar uspešno dodan"})
+                    }
+                })
+            }
+        }).catch(err=>{
+            console.error(err.message)
+            return res.status(500).json({"message":"internal server error"})
+        })
+}
+
+
+const deleteComment = (req,res) => {
+    User.findById(req.query.userId).exec().then(user=>{
+        if(!user){
+            return res.status(404).json({"sporocilo": "Ne najdem uporabnika"});
+        }else{
+            user.comments.splice(user.comments.find(c => c._id === req.query.commentId && c.owner === req.payload.email), 1)
+            user.save((err, doc)=>{
+                if(err){
+                    return res.status(500).json({"message":"internal server error"})
+                }else{
+                    console.log(doc)
+                    return res.status(200).json({"message":"komentar uspešno izbrisan"})
+                }
+            })
+        }
+    }).catch(err=>{
+        console.error(err.message)
+        return res.status(500).json({"message":"internal server error"})
+    })
+}
+
+const addRating = (req,res) => {
+    // todo dodajanje ratinga
+}
+
 const getAllOglasi = (req,res) => {
     //todo pridobi vse oglase uporabnika in vrni
 }
@@ -128,5 +181,8 @@ module.exports = {
     getOne,
     create,
     update,
-    deleteOne
+    deleteOne,
+    addComment,
+    deleteComment,
+    addRating
 };
