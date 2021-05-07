@@ -42,6 +42,7 @@ app.use('/api/v1', indexApi);
 // });
 
 
+
 // Obvladovanje napak zaradi avtentikacije
 app.use((err, req, res, next) => {
     if (err.name == "UnauthorizedError") {
