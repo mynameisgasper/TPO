@@ -155,11 +155,10 @@ const deleteComment = (req, res) => {
                         return res.status(200).json({ "message": "komentar uspešno izbrisan" })
                     }
                 })
-            }
-            else {
-                for(var i = 0; i < user.comments.length; i++){
-                    if(user.comments[i]._id == req.query.commentId){
-                        if(user.comments[i].owner === req.payload.email) {
+            } else {
+                for (var i = 0; i < user.comments.length; i++) {
+                    if (user.comments[i]._id == req.query.commentId) {
+                        if (user.comments[i].owner === req.payload.email) {
                             user.comments.splice(user.comments.find(c => c._id === req.query.commentId && c.owner === req.payload.email), 1)
                             user.save((err, doc) => {
                                 if (err) {
@@ -170,7 +169,7 @@ const deleteComment = (req, res) => {
                                 }
                             })
                         } else {
-                            return res.status(401).json({"message": "uporabnik nima pravice brisati ta komentar"})
+                            return res.status(401).json({ "message": "uporabnik nima pravice brisati ta komentar" })
                         }
                     }
                 }

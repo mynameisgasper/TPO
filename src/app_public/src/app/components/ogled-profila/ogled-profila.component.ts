@@ -21,6 +21,10 @@ export class OgledProfilaComponent implements OnInit {
     this.id = this.route.snapshot.paramMap.get('id')
     console.log(this.id )
     this.pridobiPodatkeUporabnika(this.id)
+
+    if(this.id === this.authService.vrniTrenutnegaUporabnika().id) {
+      this.router.navigate(['profil'])
+    }
   }
 
   @ViewChild('inputVsebinaKomentarja') vsebinaKomentarja: ElementRef;
@@ -28,6 +32,7 @@ export class OgledProfilaComponent implements OnInit {
   pridobiPodatkeUporabnika(id:string){
     this.userService.getOne(this.id).then((result:User)=> {
       this.user = result
+
     }).catch(err => {
       alert("Ne najdem uporabnika")
       console.error(err)
@@ -56,9 +61,6 @@ export class OgledProfilaComponent implements OnInit {
       alert("Brisanje komentarja neuspešno!")
       console.error(err)
     })
-
-
-
   }
 
 

@@ -28,7 +28,6 @@
           </div>
         </div>
 
-
         <div class="row" style="text-align: center;">
             <div class="col-12 col-md-12 col-lg-12 col-xl-12">
               <button id="podajOceno" class="btn btn-warning">Podaj oceno</button>
@@ -42,9 +41,6 @@
                 </div>
           </div>
         </div>
-
-
-
 
         <div class="row">
           <div class="col-12 col-md-12 col-lg-12 col-xl-12">
@@ -68,23 +64,23 @@
     </div>
 
   <div class="modal fade bd-example-modal-lg" id="dodajKomentarModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Dodaj Komentar</h5>
-      </div>
-      <div class="modal-body">
-        <div class="form-group">
-          <label>Opis oglasa:</label>
-          <textarea #inputVsebinaKomentarja class="form-control" id="vsebinaKomentarja"></textarea>
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Dodaj Komentar</h5>
         </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" id="buttonUrediOglas" (click)="createComment()" class="btn btn-primary">Dodaj Komentar</button>
-        <button type="button" id="buttonCloseUrediOglas" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label>Opis oglasa:</label>
+            <textarea #inputVsebinaKomentarja class="form-control" id="vsebinaKomentarja"></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="buttonUrediOglas" (click)="createComment()" class="btn btn-primary">Dodaj Komentar</button>
+          <button type="button" id="buttonCloseUrediOglas" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
 
+      </div>
     </div>
-  </div>
   </div>
 </main>
