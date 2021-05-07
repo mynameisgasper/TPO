@@ -4,7 +4,7 @@ const oglasSchema = new mongoose.Schema({
     owner: {type:String, required: true},
     name: {type:String, required:true},
     description: {type:String, required:true},
-    price: {type:Number, required:true},
+    price: {type:Number, required: false},
     location: {type:String, required:true},
     picture: {type: String, required: false, default: ""}
 })
