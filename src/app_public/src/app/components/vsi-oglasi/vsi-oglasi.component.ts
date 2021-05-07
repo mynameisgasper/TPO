@@ -44,7 +44,8 @@ export class VsiOglasiComponent implements OnInit {
     this.oglas.description =  this.opisOglasa.nativeElement.value
     this.oglas.location = this.authService.vrniTrenutnegaUporabnika().country
     this.oglas.picture = this.slikaOglasa.nativeElement.value
-    this.oglas.price = this.cenaOglasa.nativeElement.value   
+    this.oglas.price = this.cenaOglasa.nativeElement.value
+    
 
     this.oglasiService.create(this.oglas).then((result:Oglas)=> {
       document.getElementById("buttonCloseAddOglas").click()
