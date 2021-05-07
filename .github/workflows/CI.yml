@@ -17,9 +17,9 @@ jobs:
           - 15.x
     steps: # Posamezni koraki testiranja.
       - uses: actions/checkout@v2 # Pridobimo izvorno kodo repozitorija.
-      - name: Uporabi Node.js ${{ matrix.node-verzija }} # Nastavi Node.js okolje.
+      - name: Uporabi Node.js $15.11.0 # Nastavi Node.js okolje.
         uses: actions/setup-node@v1
         with:
-          node-version: ${{ matrix.node-verzija }}
+          node-version: $15.11.0
       - run: npm install # Namesti knjižnice.
       - run: npx cypress run # Poženi teste.
