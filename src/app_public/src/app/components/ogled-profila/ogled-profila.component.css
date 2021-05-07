@@ -36,7 +36,11 @@
 
 .delete-row {
     margin-bottom: 0;
-    float: right;
+
+}
+
+#backButtonOtherProfile {
+  float: right;
 }
 
 .naslov {
