@@ -1,6 +1,3 @@
-import Chance from 'chance';
-const chance = new Chance();
-
 describe('Testiranje Dog walkers', () => {
     
     /*beforeEach(() => {
