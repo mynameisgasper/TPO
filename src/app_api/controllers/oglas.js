@@ -90,13 +90,8 @@ const deleteOne = (req, res) => {
             }
         });
     } else {
-<<<<<<< HEAD
         Oglas.findOne({_id:req.params.id,owner:req.payload.email}).exec((err, oglas)=>{
             if(err){
-=======
-        Oglas.findOne({ _id: req.params.id, owner: req.payload.email }).exec((err, oglas) => {
-            if (err) {
->>>>>>> fc464b2926a316a51951aadcf0ea09eee65513cb
                 return res.status(500).json(err);
             } else if (!oglas) {
                 return res.status(404).json({ "message": "not found" });
