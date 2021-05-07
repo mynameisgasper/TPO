@@ -53,7 +53,6 @@ const create = (req, res) => {
         oglas.owner = req.payload.email
         oglas.name = req.body.name
         oglas.description = req.body.description
-        oglas.price = req.body.price
         oglas.location = req.body.location
         
         if(req.body.picture) {
@@ -96,7 +95,7 @@ const deleteOne = (req, res) => {
             }
         });
     } else {
-        Oglas.findOne({_id:req.params.id,owner:req.payload.id}).exec((err, oglas)=>{
+        Oglas.findOne({_id:req.params.id,owner:req.payload.email}).exec((err, oglas)=>{
             if(err){
                 return res.status(500).json(err);
             }

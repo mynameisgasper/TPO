@@ -16,7 +16,7 @@ const userSchema = new mongoose.Schema({
 
     /** naslov **/
     address: {type:String, required:true},
-    country: {type:String, required: true},
+    country: {type:String, required: true, default: ""},
 
     /** public podatki **/
     ratingSum: {type: Number, default: 0},
