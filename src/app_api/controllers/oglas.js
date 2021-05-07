@@ -45,7 +45,7 @@ const create = (req, res) => {
     } else {
         const oglas = new Oglas();
         //nastavimo vse podatke za uporabnika
-        oglas.owner = req.payload.email
+        oglas.owner = req.payload.id
         oglas.name = req.body.name
         oglas.description = req.body.description
         oglas.location = req.body.location
@@ -90,7 +90,7 @@ const deleteOne = (req, res) => {
             }
         });
     } else {
-        Oglas.findOne({_id:req.params.id,owner:req.payload.email}).exec((err, oglas)=>{
+        Oglas.findOne({_id:req.params.id,owner:req.payload.id}).exec((err, oglas)=>{
             if(err){
                 return res.status(500).json(err);
             } else if (!oglas) {

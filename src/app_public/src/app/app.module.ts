@@ -53,7 +53,7 @@ import { InvertPipe } from './pipes/invert.pipe'
         path: 'urejanje-profila',
         component: UrejanjeProfilaComponent
       }, {
-        path: 'ogled-profila',
+        path: 'ogled-profila/:id',
         component: OgledProfilaComponent
       }
     ])

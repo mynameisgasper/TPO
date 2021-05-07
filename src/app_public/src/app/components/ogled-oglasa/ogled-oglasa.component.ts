@@ -64,17 +64,26 @@ export class OgledOglasaComponent implements OnInit {
     this.oglasiService.update(this.oglas, this.id).then((result:Oglas)=> {
       document.getElementById("buttonCloseUrediOglas").click()
       window.location.reload()
-      
+
     }).catch(err => {
       alert("Napaka pri urejanju oglasa, glej konzolo!")
       console.error(err)
     })
   }
 
- 
+  openProfile() {
+    console.log(this.oglas.owner)
+    this.router.navigate(["ogled-profila/"+this.oglas.owner])
+  }
+
+  odpriProfilLastnikaOglasa(){
+    this.oglas.owner
+  }
+
+
 
 }
 
-  
+
 
 
