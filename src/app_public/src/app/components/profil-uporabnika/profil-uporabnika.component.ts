@@ -17,11 +17,10 @@ export class ProfilUporabnikaComponent implements OnInit {
   user:User
   id:string
   comment:Comment = new Comment
-  komentarji:Comment[] = []
+  comments:Comment[]
 
-  constructor(private userService:UserService, private authServis:AuthenticationService, private router:Router, private route:ActivatedRoute) {
 
-  }
+  constructor(private userService:UserService, private authServis:AuthenticationService, private router:Router, private route:ActivatedRoute) { }
 
   @ViewChild('inputVsebinaKomentarja') vsebinaKomentarja: ElementRef;
 
@@ -34,6 +33,7 @@ export class ProfilUporabnikaComponent implements OnInit {
     //todo pridobi vse oglase iz backenda
     this.pridobiVseKomentarje()
     this.pridobiPodatkeUporabnika()
+    this.pridobiKomentarjeUporabnika(this.id)
   }
 
   pridobiVseKomentarje(){
@@ -41,7 +41,17 @@ export class ProfilUporabnikaComponent implements OnInit {
   }
 
   pridobiPodatkeUporabnika(){
-    this.user = this.authServis.vrniTrenutnegaUporabnika()
+    this.id = this.authServis.vrniTrenutnegaUporabnika().id
+  }
+
+  pridobiKomentarjeUporabnika(id:string){
+    this.userService.getOne(id).then((result:User)=> {
+      this.user = result
+
+    }).catch(err => {
+      alert("Ne najdem uporabnika")
+      console.error(err)
+    })
   }
 
   createComment(){
