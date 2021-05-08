@@ -139,7 +139,6 @@ const addComment = (req, res) => {
     })
 }
 
-
 const deleteComment = (req, res) => {
     User.findById(req.query.userId).exec().then(user => {
         if (!user) {
@@ -182,6 +181,19 @@ const deleteComment = (req, res) => {
 
 }
 
+const getComments = (req,res) => {
+    User.findById(req.query.userId).exec().then(user=>{
+        if(!user){
+            res.status(404).json({"message":"ne najdem uporabnika"})
+        }else{
+            res.status(200).json(user.comments)
+        }
+    }).catch(err=>{
+        console.log(err)
+        res.status(500).json({"message":"internal server error"})
+    })
+}
+
 const addRating = (req, res) => {
     User.findById(req.query.userId).exec().then(user => {
         if (!user) {
@@ -220,5 +232,6 @@ module.exports = {
     deleteOne,
     addComment,
     deleteComment,
+    getComments,
     addRating
 };

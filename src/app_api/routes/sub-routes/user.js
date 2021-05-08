@@ -9,13 +9,14 @@ const authentication = jwt({
 });
 
 router
+    .get('/comment',userController.getComments)
+    .delete('/comment',authentication,userController.deleteComment)
+    .post('/comment',authentication,userController.addComment)
+    .post('/rating',authentication,userController.addRating)
+    .put('/:id', authentication, userController.update)
+    .delete('/:id', authentication, userController.deleteOne)
     .post('/', authentication, userController.create)
     .get('/', authentication, userController.getAll)
     .get('/:id',userController.getOne)
-    .delete('/comment',authentication,userController.deleteComment)
-    .put('/:id', authentication, userController.update)
-    .delete('/:id', authentication, userController.deleteOne)
-    .post('/comment',authentication,userController.addComment)
-    .post('/rating',authentication,userController.addRating)
 
 module.exports = router

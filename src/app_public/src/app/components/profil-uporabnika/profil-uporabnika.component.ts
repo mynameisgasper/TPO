@@ -15,7 +15,6 @@ import {UserService} from "../../services/user.service";
 export class ProfilUporabnikaComponent implements OnInit {
 
   user:User
-  id:string
   comment:Comment = new Comment
   comments:Comment[]
 
@@ -30,32 +29,33 @@ export class ProfilUporabnikaComponent implements OnInit {
       this.router.navigate(['..'],{relativeTo:this.route})
     }else{
 
+      this.pridobiPodatkeUporabnika()
+      this.pridobiVseKomentarje()
 
       //todo pridobi vse oglase iz backenda
-      this.pridobiVseKomentarje()
-      this.pridobiPodatkeUporabnika()
-      this.pridobiKomentarjeUporabnika(this.user.id)
     }
   }
 
   pridobiVseKomentarje(){
-    //TODO
+    this.userService.getComments(this.user.id).then(comments=>{
+      this.comments = comments
+    }).catch(err=>{
+      console.log(err)
+      alert("napaka pri pridobivanju komentarjev")
+    })
   }
 
   pridobiPodatkeUporabnika(){
     this.user = this.authServis.vrniTrenutnegaUporabnika()
   }
 
-  pridobiKomentarjeUporabnika(id:string){
-    this.userService.getOne(id).then((result:User)=> {
-      this.user = result
 
-    }).catch(err => {
-      alert("Ne najdem uporabnika")
-      console.error(err)
-    })
-  }
+  /** @kaj_je_ta_koda_od_tukaj_naprej?
+   * @nelogicno...
+   * @ne_razumem.
+   */
 
+  //zakaj bi uporabnik sam na svojem profilu ustvarjal in brisal komentarje?
   createComment(){
     this.comment.owner = this.authServis.vrniTrenutnegaUporabnika().email
     this.comment.content = this.vsebinaKomentarja.nativeElement.value
@@ -68,6 +68,7 @@ export class ProfilUporabnikaComponent implements OnInit {
     })
   }
 
+  //uporabnik ne more sam seb brisat komentarja
   deleteComment(comment_id: string) {
     console.log(this.id)
     console.log(comment_id)

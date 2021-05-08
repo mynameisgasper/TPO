@@ -65,6 +65,20 @@ export class UserService {
         .catch(this.obdelajNapako)
     }
 
+  public getComments(id_user:string):Promise<User> {
+    const url: string = this.apiUrl+'/comment?userId='+`${id_user}`
+    const httpHeaders = {
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${this.authService.vrniZeton()}`
+      })
+    };
+    console.log('GET', url)
+    return this.http
+      .get(url, httpHeaders)
+      .toPromise()
+      .then(odgovor => odgovor as User)
+      .catch(this.obdelajNapako)
+  }
 
   private obdelajNapako(napaka: any): Promise<any> {
     console.error('Prišlo je do napake', napaka);
