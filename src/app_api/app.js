@@ -37,9 +37,7 @@ app.use('/api/v1', indexApi);
 /** ce se ne ujema z url-jem za API, ga bo preusmerilo na Angular frontend **/
 /** todo **/
 // const distFolder = isProduction?:'build';
-// app.use("/*",function(req,res){
-//     res.sendFile(path.join(__dirname,'app_public',distFolder,'index.html'));
-// });
+app.get('/*',express.static(path.join(__dirname,'..','app_public','dist','DogWalkers')))
 
 
 
