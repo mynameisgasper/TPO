@@ -1,0 +1,1 @@
+web: cd src/app_api/ && npm start
