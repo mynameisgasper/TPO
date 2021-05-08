@@ -48,10 +48,10 @@ describe('Testiranje Dog walkers', () => {
         OGLED POSAMEZNEGA OGLASA: 1
         ISKANJE OGLASOV: 2
         UREJANJE UPORABNIŠKEGA PROFILA: 2
-        OGLED PROFILA: 2
-        KREIRANJE OGLASA: 2
+        OGLED PROFILA: 1
+        KREIRANJE OGLASA: 0
         UREJANJE OGLASA: 2
-        BRISANJE OGLASA: 2
+        BRISANJE OGLASA: 1
         ODZIV NA OGLAS: 2
         OCENA PROFILA: 2
         KOMENTIRANJE PROFILA: 2
@@ -141,6 +141,12 @@ describe('Testiranje Dog walkers', () => {
             cy.get('.naslov').should('have.text','Urejanje profila')
         })
 
+        // TODO, ko bo zvezano
+        /*
+        it('', () => {
+        })
+        */
+
     })
 
     // TESTI: OGLED PROFILA
@@ -165,24 +171,20 @@ describe('Testiranje Dog walkers', () => {
     // TESTI: KREIRANJE OGLASA
     context('Kreiranje oglasa', () => {
 
-        /*
         it('Kreiranje oglasa uspešen', () => {
 
             cy.login()
 
             cy.get('#ustvari').click()
-            cy.wait(50)
+
 
             // Kreator novega oglasa vnese podatke
 
-            let n = "testni_oglas"
-
-            cy.get('#naslovOglasa')
-            .type(n)
-            cy.get('#opisOglasa')
-            .type('test 123 123')
-            cy.get('#cenaOglasa')
-            .type('69')
+            cy.get('#naslovOglasa').type('testni_oglas')
+            cy.wait(20)
+            cy.get('#opisOglasa').type('test 123 123')            
+            cy.get('#cenaOglasa').type('69')
+            
 
             // Kreator oglasa doda sliko iz lokalne naprave
             // cy.get('#dodajSliko').click()
@@ -191,8 +193,8 @@ describe('Testiranje Dog walkers', () => {
             cy.get('#buttonAddOglas').click()
             cy.wait(50)
 
-            cy.get('#nasOglasaBoard').should('have.text', n)
-        })*/
+            cy.get('#nasOglasBoard').should('have.text', 'testni_oglas')
+        })
 
         it('Kreiranje oglasa neuspešen', () => {
 
@@ -206,7 +208,50 @@ describe('Testiranje Dog walkers', () => {
             cy.on('window:alert', (str) => {
                 expect(str).to.equal('Napaka pri kreaciji oglasa, glej konzolo!')
             })
-            
+        })
+    })
+
+    // TESTI: BRISANJE OGLASA
+    context('Brisanje oglasa', () => {
+
+        it('Brisanje oglasa', () => {
+            cy.login()
+
+            cy.get('#ustvari').click()
+
+            // Kreator novega oglasa vnese podatke
+
+            cy.get('#naslovOglasa').type('testni_oglas')
+            cy.wait(20)
+            cy.get('#opisOglasa').type('test 123 123')
+            cy.get('#cenaOglasa').type('69')
+
+            // Kreator oglasa doda sliko iz lokalne naprave
+            // cy.get('#dodajSliko').click()
+
+            // Kreator doda nov oglas k obstoječim
+            cy.get('#buttonAddOglas').click()
+            cy.wait(50)
+
+            // Preveri ali na novo ustvarjen oglas obstaja med oglasi
+            cy.get('#nasOglasBoard').should('have.text', 'testni_oglas')
+            cy.get('#oglasButton').first().click()
+            cy.get('#deleteButton').click()
+
+            //alert
+            cy.on('window:alert', (str) => {
+                expect(str).to.equal('Oglas izbrisan!')
+            })
+        })
+
+        // TODO #2
+    })
+
+    // TESTI: VZDRŽEVANJE OGLASA
+    context('Vzdrževanje oglasa', () => {
+
+        it('Urejanje oglasa', () => {
+            // TODO
         })
     })
 
