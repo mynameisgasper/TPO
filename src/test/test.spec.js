@@ -5,11 +5,32 @@ describe('Testiranje Dog walkers', () => {
     })*/
     
     /*
-        TEST REGISTRACIJE
+        TODO:
+        -----
+            PRIJAVA UPORABNIKA: 0
+            REGISTRACIJA UPORABNIKA: 2
+            PREGLED VSEH OGLASOV: 1
+            OGLED POSAMEZNEGA OGLASA: 1
+            ISKANJE OGLASOV: 2
+            UREJANJE UPORABNIŠKEGA PROFILA: 2
+            OGLED PROFILA: 2
+            KREIRANJE OGLASA: 2
+            UREJANJE OGLASA: 2
+            BRISANJE OGLASA: 2
+            ODZIV NA OGLAS: 2
+            OCENA PROFILA: 2
+            KOMENTIRANJE PROFILA: 2
+            DODAJANJE UPORABNIKA MED HITRE KONTAKTE: 2
+            OGLED HITRIH KONTAKTOV: 2
+            ODSTRANITEV IZ HITRIH KONTAKTOV: 2
+            PREGLED LOKACIJE PREVZEMA: 2
+            PRETVORBA VALUTE: 2
     */
 
     context('Ogled vseh oglasov', () => {
-         it('Ogled vseh oglasov', () => {
+
+        // TEST: PREGLED VSEH OGLASOV #1
+        it('Ogled vseh oglasov', () => {
             cy.visit('http://localhost:4200')
             cy.get('.guest').click()
             cy.wait(100)
@@ -19,6 +40,7 @@ describe('Testiranje Dog walkers', () => {
     
     context('Vse od prijave naprej', () => {
 
+        // TEST: PRIJAVA UPORABNIKA #1
         it('Neuspešna prijava uporabnika', () => {
             //Pojdi na začetno stran
             cy.visit('http://localhost:4200')
@@ -40,6 +62,7 @@ describe('Testiranje Dog walkers', () => {
               })
         })
 
+        // TEST: PRIJAVA UPORABNIKA #2
         it('Uspešna prijava uporabnika', () => {
             //Pojdi na začetno stran
             cy.visit('http://localhost:4200')
@@ -62,6 +85,7 @@ describe('Testiranje Dog walkers', () => {
             cy.get('#odjava').should('have.text','Odjava')
         })
 
+        // TEST: OGLED POSAMEZNEGA OGLASA #1
         it('Ogled oglasa', () => {
             
             cy.get('#oglasButton').first().click()
@@ -69,11 +93,40 @@ describe('Testiranje Dog walkers', () => {
             cy.get('#odziv').should('have.text','Odziv na oglas')
 
         })
-    })
 
-    /*
-        TEST UREJANJA UPORABNIŠKEGA PROFILA
-    */
+        // TEST: OGLED POSAMEZNEGA OGLASA #2
+        // TODO, ko bodo oglasi vezani na posameznega uporabnika, ki jih je ustvaril
+        /*
+        it('Ogled oglasa preko profila', () => {
+        })
+        */
+
+        // TEST: UREJANJE UPORABNIŠKEGA PROFILA #1
+        it('Urejanje profila uporabnika', () => {
+
+            cy.get('#userProfileButton').click()
+            cy.wait(100)
+            cy.get('#editButtonProfile').click()
+            cy.get('.naslov').should('have.text','Urejanje profila')
+        })
+        
+        // TEST: UREJANJE UPORABNIŠKEGA PROFILA #2
+
+        // TEST: OGLED PROFILA #1
+        it('Ogled lastnega profila', () => {
+            cy.get('#userProfileButton').click()
+            cy.wait(100)
+            cy.get('.naslov').should('have.text','Profil uporabnika')
+        })
+
+        // TEST: OGLED PROFILA #2
+
+        // TEST: KREIRANJE OGLASA #1
+
+        // TEST: KREIRANJE OGLASA #2
+
+
+    })
 
 
     

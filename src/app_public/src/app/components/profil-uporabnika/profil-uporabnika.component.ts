@@ -54,7 +54,7 @@ export class ProfilUporabnikaComponent implements OnInit {
    * @nelogicno...
    * @ne_razumem.
    */
-
+/*
   //zakaj bi uporabnik sam na svojem profilu ustvarjal in brisal komentarje?
   createComment(){
     this.comment.owner = this.authServis.vrniTrenutnegaUporabnika().email
@@ -80,5 +80,6 @@ export class ProfilUporabnikaComponent implements OnInit {
       console.error(err)
     })
   }
+*/
 
 }
