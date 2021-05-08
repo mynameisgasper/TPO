@@ -1,0 +1,46 @@
+name: Neprekinjena dostava
+
+on: # Kdaj se začne izvajanje delovnega toka?
+  push:
+    branches:
+      - produkcijsko-okolje # Ob vsaki uveljavitvi na veji produkcijsko-okolje.
+    paths-ignore:
+      - "docs/**" # Ignoriramo, če uveljavitev spreminja zgolj vsebino mape docs.
+      - "README.md" # Ignoriramo spremembe v dokumentaciji.
+
+jobs:
+  build:
+    runs-on: # Okolje, v katerem se testi izvedejo.
+      - ubuntu-latest
+    strategy:
+      matrix:
+        node-verzija:
+          - 15.x
+    steps: # Posamezni koraki testiranja.
+      - uses: actions/checkout@v2 # Pridobimo izvorno kodo repozitorija.
+      - name: Uporabi Node.js ${{ matrix.node-verzija }} # Nastavi Node.js okolje.
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-verzija }}
+      - run: docker-compose up -d
+        working-directory: ./src/app_database
+      - run: npm run mongo-import
+        working-directory: ./src/app_api
+      - run: npm install @angular/cli -g
+      - run: npm install # Namesti knjižnice.
+        working-directory: ./src/app_public
+      - run: npm install
+        working-directory: ./src/app_api
+      - run: npm start &
+        working-directory: ./src/app_api
+      - run: ng serve &
+        working-directory: ./src/app_public
+      - run: npx cypress run # Poženi teste.
+        working-directory: ./src/app_public
+      - name: Posredovanje na Heroku
+        uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+          heroku_app_name: ${{ secrets.HEROKU_PRODUCTION }}
+          heroku_email: ${{ secrets.HEROKU_EMAIL }}
+          branch: produkcijsko-okolje
