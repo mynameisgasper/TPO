@@ -21,6 +21,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-verzija }}
-      - working-directory: ./src/app_public
       - run: npm install # Namesti knjižnice.
+        working-directory: ./src/app_public
       - run: npx cypress run # Poženi teste.
+        working-directory: ./src/app_public
