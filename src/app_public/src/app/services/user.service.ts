@@ -65,7 +65,7 @@ export class UserService {
         .catch(this.obdelajNapako)
     }
 
-  public getComments(id_user:string):Promise<User> {
+  public getComments(id_user:string):Promise<Comment[]> {
     const url: string = this.apiUrl+'/comment?userId='+`${id_user}`
     const httpHeaders = {
       headers: new HttpHeaders({
@@ -76,7 +76,7 @@ export class UserService {
     return this.http
       .get(url, httpHeaders)
       .toPromise()
-      .then(odgovor => odgovor as User)
+      .then(odgovor => odgovor as Comment[])
       .catch(this.obdelajNapako)
   }
 
