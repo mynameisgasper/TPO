@@ -1,0 +1,35 @@
+version: '3.0'
+
+services:
+  dw-api:
+    build:
+      context: ../app_api/
+      dockerfile: Dockerfile
+    image: dw-api:latest
+    container_name: dw-api
+    ports:
+      - "6969:3000"
+    env_file:
+      - .env
+    command: "npm start"
+    depends_on:
+      - dw-database
+    networks:
+      - dw-backend_network
+
+  dw-database:
+    image: mongo
+    container_name: dw-database
+    env_file: .env_mongo
+    ports:
+      - "27017-27019:27017-27019"
+    volumes:
+      - mongo-volume:/data/db
+    networks:
+      - dw-backend_network
+networks:
+  dw-backend_network:
+    name: dw-backend_network
+    driver: bridge
+volumes:
+  mongo-volume:

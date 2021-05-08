@@ -1,0 +1,20 @@
+<div *ngIf="oglas">
+    <div class=" spacer "></div>
+    <div class="oglas ">
+
+        <div class="image-container ">
+            <img src="../../../assets/img/105992231-1561667465295gettyimages-521697453.jpeg " style="width: 100% ">
+        </div>
+        <h5>{{oglas.name}}</h5>
+        <p style="height:8vh">{{oglas.description}}</p>
+
+        <button class="btn btn-light" id="profileButton" (click)="openProfile()" type="button">
+        <i class=" fas fa-user "></i> Profil
+        </button>
+
+        <button class="btn btn-success" id="oglasButton" (click)="openOglas()" type="button" style="float:right;  ">
+            Odpri oglas
+        </button>
+
+    </div>
+</div>

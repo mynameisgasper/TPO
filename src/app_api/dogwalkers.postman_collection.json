@@ -1,0 +1,441 @@
+{
+	"info": {
+		"_postman_id": "03d02175-f331-4efd-b4ef-a287f1e4f630",
+		"name": "dogwalkers",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "authentication",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/auth/register",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"marica.petkovsek@hotmail.com\",\r\n    \"password\":\"test\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/auth/login",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updatePassword",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "jwt-here",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\": \"newpas\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/auth/pass",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"auth",
+								"pass"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "getOne",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/user/id_here",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"user",
+								"id_here"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAll",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "jwt-here",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api}}/user",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "jwt-key",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"blabla\",\r\n    \"surname\": \"hahw\",\r\n    \"email\": \"afowko\",\r\n    \"phone\" : \"aofkow\",\r\n    \"address\" : \"fawofw\",\r\n    \"role\" : 0,\r\n    \"country\": \"fwaokfwao\",\r\n    \"password\" : \"foawkfoaw\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/user",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "jwt-here",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"blabla\",\r\n    \"surname\": \"hahw\",\r\n    \"email\": \"afowko\",\r\n    \"phone\" : \"aofkow\",\r\n    \"address\" : \"fawofw\",\r\n    \"role\" : 0,\r\n    \"country\": \"fwaokfwao\",\r\n    \"password\" : \"foawkfoaw\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/user/id_here",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"user",
+								"id_here"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteOne",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "jwt-here",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api}}/user/id_here",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"user",
+								"id_here"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "comment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwOTNlNDJiZjFjZDU2MzNmYzg4MGJmOSIsIm5hbWUiOiJNYXJpY2EiLCJzdXJuYW1lIjoiUGV0a292xaFlayIsInBob25lIjoiMDMxODIxNTIzIiwiYWRkcmVzcyI6Ilpnb3JuamEgUmFkZ29uYSAxMiBDIiwiY291bnRyeSI6IlNsb3ZlbmlqYSIsImVtYWlsIjoibWFyaWNhLnBldGtvdnNla0Bob3RtYWlsLmNvbSIsInJvbGUiOjAsImV4cCI6MTYyMDkwOTc3MywiaWF0IjoxNjIwMzA0OTczfQ.EmDgXxip0axvV3veQd_NTl-4ei-1aXj9Zt_L1wTTJfM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"content\": \"toje content komentarja\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/user/comment?id=6093e42bf1cd5633fc880bfa",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"user",
+								"comment"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "6093e42bf1cd5633fc880bfa"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "comment",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwOTNlNDJiZjFjZDU2MzNmYzg4MGJmOSIsIm5hbWUiOiJNYXJpY2EiLCJzdXJuYW1lIjoiUGV0a292xaFlayIsInBob25lIjoiMDMxODIxNTIzIiwiYWRkcmVzcyI6Ilpnb3JuamEgUmFkZ29uYSAxMiBDIiwiY291bnRyeSI6IlNsb3ZlbmlqYSIsImVtYWlsIjoibWFyaWNhLnBldGtvdnNla0Bob3RtYWlsLmNvbSIsInJvbGUiOjAsImV4cCI6MTYyMDkwOTc3MywiaWF0IjoxNjIwMzA0OTczfQ.EmDgXxip0axvV3veQd_NTl-4ei-1aXj9Zt_L1wTTJfM",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api}}/user/comment?userId=6093e42bf1cd5633fc880bfa&commentId=6093e54842f6f2288497bab8",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"user",
+								"comment"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "6093e42bf1cd5633fc880bfa"
+								},
+								{
+									"key": "commentId",
+									"value": "6093e54842f6f2288497bab8"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "oglasi",
+			"item": [
+				{
+					"name": "getOne",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/oglas/id_here",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"oglas",
+								"id_here"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/oglas",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"oglas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "jwt-hwrer",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"blabla\",\r\n    \"description\": \"hahw\",\r\n    \"price\": 20,\r\n    \"location\" : \"aofkow\",\r\n    \"picture\" : \"base64-not for testing purpuses\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/oglas",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"oglas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "jwt-here",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"blabla\",\r\n    \"description\": \"hahw\",\r\n    \"price\": 20,\r\n    \"location\" : \"aofkow\",\r\n    \"picture\" : \"base64-not for testing purpuses\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/oglas/id_here",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"oglas",
+								"id_here"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteOne",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "jwt-here",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api}}/oglas/id_here",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"oglas",
+								"id_here"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

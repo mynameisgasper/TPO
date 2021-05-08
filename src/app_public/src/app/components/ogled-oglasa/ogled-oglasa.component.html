@@ -1,0 +1,110 @@
+<main>
+    <app-navbar></app-navbar>
+
+    <div *ngIf=[oglas] class="container main-container">
+        <div class="row">
+            <div class="col-4 col-md-4 col-lg-4 col-xl-4">
+                <button (click)="returnToOglasi()" class="btn btn-success" id="backButton">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button (click)="openProfile()" class="btn btn-light" id="profileButton" type="button">
+                    <i class=" fas fa-user "></i> Profil
+                </button>
+            </div>
+            <div class="col-4 col-md-4 col-lg-4 col-xl-4">
+                <h3 id="naslovOglas">{{oglas.name}}</h3>
+            </div>
+            <div class="col-4 col-md-4 col-lg-4 col-xl-4">
+                <button (click)="izbrisiOglas()" class="btn btn-danger btn-delete" id="deleteButton" style="margin-left:1vh;">
+                    <i class="fas fa-trash-alt"></i>
+                </button>
+                <button class="btn btn-primary" id="editButton" data-toggle="modal" data-target="#urediOglasModal" type="button" style="float:right">
+                    <i class="fas fa-edit"></i>
+                </button>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 col-md-12 col-lg-6 col-xl-6">
+                <div class="image-container">
+                    <img src="../../assets/img/105992231-1561667465295gettyimages-521697453.jpeg">
+                </div>
+            </div>
+            <div class="col-12 col-md-12 col-lg-6 col-xl-6">
+                <div class="maps-container" id="googleMap">
+                    <img src="../../assets/img/google-map-placeholder.png">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 col-md-12 col-lg-12 col-xl-12">
+                <p id="opisOglasa" class="opisOglasa"><b>Opis oglasa:  </b>{{oglas.description}}
+                </p>
+            </div>
+        </div>
+
+        <div class="row bottom-row">
+            <div class="col-6 col-md-6 col-lg-6 col-xl-6">
+                <button class="btn btn-primary" id="odziv" routerLink="/">Odziv na oglas</button>
+            </div>
+
+            <div class="col-6 col-md-6 col-lg-6 col-xl-6">
+                <p id="cenaOglasa" class="cenaOglasa">{{oglas.price}}€</p>
+            </div>
+        </div>
+
+        <div class="row delete-row">
+            <div class="col-6 col-md-6 col-lg-6 col-xl-6">
+
+            </div>
+            <div class="col-6 col-md-6 col-lg-6 col-xl-6">
+
+            </div>
+        </div>
+
+
+        <div class="modal fade bd-example-modal-lg" id="urediOglasModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Uredi Oglas</h5>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="naslov">Naslov oglasa:</label>
+                            <input #inputNaslovOglasa type="text" value={{oglas.name}} class="form-control" id="naslovOglasa">
+                        </div>
+                        <div class="form-group">
+                            <label for="naslov">Opis oglasa:</label>
+                            <textarea #inputOpisOglasa class="form-control" value={{oglas.description}} id="opisOglasa"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="cena">Cena (opcijsko):</label>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <!--- TODO Spremeni € v valuto - angular  --->
+                                    <span class="input-group-text">€</span>
+                                </div>
+                                <input #inputCenaOglasa type="text" value={{oglas.price}} class="form-control" id="cenaOglasa">
+                            </div>
+                        </div>
+                        <div class="custom-file">
+                            <label for="slika">Dodaj Sliko:</label>
+                            <input #inputSlikaOglasa type="file" class="form-control-file" id="dodajSliko">
+                            <div class="invalid-feedback">Datoteka mora imeti končnico .jpg ali .png </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" id="buttonUrediOglas" (click)="urediOglas()" class="btn btn-primary">Uredi Oglas</button>
+                        <button type="button" id="buttonCloseUrediOglas" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</main>

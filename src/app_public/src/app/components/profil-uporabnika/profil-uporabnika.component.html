@@ -1,0 +1,93 @@
+<main>
+    <app-navbar></app-navbar>
+
+    <div *ngIf="user" class="container main-container">
+        <div class="row">
+            <div class="col-12 col-md-12 col-lg-12 col-xl-12">
+                <button class="btn btn-primary" id="editButtonProfile" type="button" style="float:right" routerLink="/urejanje-profila">
+                    <i class="fas fa-edit"></i>
+                </button>
+              <button class="btn btn-success" id="backButtonOtherProfile" routerLink="/oglasi">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+
+                <h2 class="naslov">Profil uporabnika</h2>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-6 col-md-6 col-lg-6 col-xl-6">
+                <p id="imeUporabnika"><b>Ime in priimek:</b> {{user.name}} {{user.surname}}</p>
+                <p id="telUporabnika"><b>Tel. Številka:</b> {{user.phone}}</p>
+                <p id="mailUporabnika"><b>E-mail:</b> {{user.email}}</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 col-md-12 col-lg-12 col-xl-12">
+                <button class="btn btn-primary" >Moji oglasi</button>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-6 col-md-6 col-lg-6 col-xl-6">
+                <p id="opisProfila" class="opisProfila"><b>Opis: </b><br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas mollis rutrum convallis. Nulla nec massa lobortis, molestie nunc vitae, faucibus est. Mauris auctor, ipsum vel ultricies vehicula, lectus purus ultrices
+                    arcu, ut suscipit sem libero efficitur tortor. Aenean accumsan, nunc nec ultricies lacinia, turpis ex ultricies enim, a elementum leo sem sit amet est. Nam id tempus leo. Duis quis bibendum lacus. Curabitur quis dignissim eros, quis
+                    rhoncus urna.
+                </p>
+            </div>
+            <div class="col-6 col-md-6 col-lg-6 col-xl-6">
+                <div id="ocenaZvezde" class="ocenaStar">
+                    <p><b>Ocena:</b><br></p>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half"></i>
+                </div>
+            </div>
+        </div>
+
+      <div class="row">
+        <div class="col-12 col-md-12 col-lg-12 col-xl-12">
+          <button id="dodajKomentar" data-toggle="modal" data-target="#dodajKomentarModal" class="btn btn-primary" style="float:right">Dodaj Komentar</button>
+        </div>
+        <div class="col-12 col-md-12 col-lg-12 col-xl-12">
+
+          <b>Komentarji: </b>
+        </div>
+        <div class="col-12 col-md-12 col-lg-12 col-xl-12">
+          <div *ngFor="let comment of user.comments" class="komentarProfila">
+            <b>{{comment.owner}}</b>
+            <hr>
+            {{comment.content}}
+            <button id="{{comment._id}}" (click)="deleteComment(comment._id)" class="btn btn-danger">
+              <i class="far fa-trash-alt"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <div class="modal fade bd-example-modal-lg" id="dodajKomentarModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Dodaj Komentar</h5>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label>Opis oglasa:</label>
+            <textarea #inputVsebinaKomentarja class="form-control" id="vsebinaKomentarja"></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="buttonUrediOglas" (click)="createComment()" class="btn btn-primary">Dodaj Komentar</button>
+          <button type="button" id="buttonCloseUrediOglas" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</main>

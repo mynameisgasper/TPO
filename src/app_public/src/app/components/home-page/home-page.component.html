@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-md-4 col-lg-4 col-xl-4 main-buttons">
+
+        </div>
+        <div class="col-12 col-md-4 col-lg-4 col-xl-4 main-buttons">
+            <h2>DOG WALKERS</h2>
+            <div class="form">
+                <form>
+                    <div class="form-group">
+                        <label for="loginEmail">Uporabniško ime</label>
+                        <input #emailInput type="email" class="form-control" id="loginEmail">
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Geslo</label>
+                        <input #passwordInput type="password" class="form-control" id="loginPassword">
+                    </div>
+                    <button (click)="login()" id="login" class="btn btn-success">Prijava</button>
+                </form>
+            </div>
+            <button class="btn btn-primary registration" routerLink="/registracija">Registriraj se!</button>
+            <button class="btn btn-primary guest" routerLink="/oglasi">Vstopi kot gost</button>
+        </div>
+        <div class="col-12 col-md-4 col-lg-4 col-xl-4 main-buttons">
+        </div>
+    </div>
+</div>

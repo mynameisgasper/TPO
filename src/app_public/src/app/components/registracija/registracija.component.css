@@ -1,0 +1,19 @@
+.row {
+    margin-top: 5vh;
+    text-align: center;
+}
+
+.form {
+    padding: 20px;
+    border: 1px solid rgba(209, 209, 209, 1);
+    border-radius: 10px;
+    text-align: left;
+}
+
+.registration {
+    margin: 20px;
+}
+
+.guest {
+    margin: 20px;
+}
