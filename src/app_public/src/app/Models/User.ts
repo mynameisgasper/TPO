@@ -16,10 +16,10 @@ export class User{
   name: string
   surname: string
   phone: string
-  comments: Comment
   address: string
   country: string
   email: string
   role: number
+  rating: number
 }
 

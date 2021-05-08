@@ -36,13 +36,18 @@ const login = (req, res) => {
     if (!req.body.email || !req.body.password) {
         return res.status(400).json({"sporočilo": "Zahtevani so vsi podatki"});
     }
+    // console.log("now in login")
     passport.authenticate('local', (napaka, uporabnik, informacije) => {
-        if (napaka)
+        // console.log("RETURNED FROM AUTHENTICATION")
+        // console.log("uporabnik: "+uporabnik);
+        // console.log("napaka: "+napaka);
+        // console.log("informacije: "+informacije)
+        if (napaka){
             return res.status(500).json(napaka);
-        if (uporabnik) {
-            res.status(200).json({"jwt": uporabnik.generirajJwt()});
+        }else if (uporabnik) {
+            return res.status(200).json({"jwt": uporabnik.generirajJwt()});
         } else {
-            res.status(401).json(informacije);
+            return res.status(401).json(informacije);
         }
     })(req, res);
 };

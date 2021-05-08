@@ -61,6 +61,7 @@ userSchema.methods.generirajJwt = function () {
         country: this.country,
         email: this.email,
         role: this.role,
+        rating: this.rating,
         exp: parseInt(datumPoteka.getTime() / 1000, 10)
     }, process.env.JWT_GESLO);
 };

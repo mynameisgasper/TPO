@@ -12,17 +12,17 @@ export class AuthenticationService {
   constructor(@Inject(SHRAMBA_BRSKALNIKA) private storage: Storage,
               private appDataService: AppDataService) { }
 
-  public async login(uporabnik: UserLogin): Promise<any> {
+  public login(uporabnik: UserLogin): Promise<any> {
     return this.appDataService
       .prijava(uporabnik)
       .then((rezultatAvtentikacije: AuthenticationResult) => {
         this.shraniZeton(rezultatAvtentikacije["jwt"])
-        console.log("da bom dojeu")
+          console.log("da bom dojeu")
       });
   }
 
 
-  public async register(uporabnik: UserRegister): Promise<any> {
+  public register(uporabnik: UserRegister): Promise<any> {
     return this.appDataService
       .registracija(uporabnik)
       .then((rezultatAvtentikacije: AuthenticationResult) => {
@@ -33,16 +33,17 @@ export class AuthenticationService {
 
 
   public odjava(): void {
-    this.storage.removeItem('jwt');
+    localStorage.removeItem('jwt');
   }
 
   public vrniZeton(): string {
-    return this.storage.getItem('jwt');
+    return localStorage.getItem('jwt');
   }
 
   public shraniZeton(zeton: string): void {
-    this.storage.setItem('jwt', zeton);
+    localStorage.setItem('jwt', zeton);
   }
+
 
   public jePrijavljen(): boolean {
     const zeton: string = this.vrniZeton();
@@ -65,6 +66,7 @@ export class AuthenticationService {
         address,
         country,
         email,
+        rating,
         role } = JSON.parse(atob(zeton.split('.')[1]));
       return {
         id,
@@ -74,6 +76,7 @@ export class AuthenticationService {
         address,
         country,
         email,
+        rating,
         role } as User;
     }
   }

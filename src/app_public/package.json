@@ -9,7 +9,6 @@
     "lint": "ng lint",
     "e2e": "cypress open",
     "test-cypress": "cypress run --spec '../test/test.spec.js'"
-
   },
   "private": true,
   "dependencies": {

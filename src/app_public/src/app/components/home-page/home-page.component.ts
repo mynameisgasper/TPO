@@ -20,9 +20,9 @@ export class HomePageComponent implements OnInit {
   @ViewChild('passwordInput') passwordInput: ElementRef;
 
   ngOnInit(): void {
-    if(this.authServis.jePrijavljen()){
-      this.router.navigate(['oglasi'],{relativeTo:this.route})
-    }
+    // if(this.authServis.jePrijavljen()){
+    //   this.router.navigate(['oglasi'],{relativeTo:this.route})
+    // }
   }
 
   login(){
@@ -32,12 +32,11 @@ export class HomePageComponent implements OnInit {
     let userLogin:UserLogin = {email: this.email, password: this.password}
     console.log(userLogin)
     this.authServis.login(userLogin).then(r => {
-      window.location.reload()
+      this.router.navigate(['oglasi'],{relativeTo:this.route})
     }).catch(err => {
-      console.error(err)
-      alert("neuspešna prijava, glej konzolo")
+      alert("napačno uporabniško ime ali geslo")
     })
   }
 
-  
+
 }

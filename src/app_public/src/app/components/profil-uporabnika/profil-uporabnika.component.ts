@@ -28,12 +28,14 @@ export class ProfilUporabnikaComponent implements OnInit {
   ngOnInit(): void {
     if(!this.authServis.jePrijavljen()){
       this.router.navigate(['..'],{relativeTo:this.route})
-    }
+    }else{
 
-    //todo pridobi vse oglase iz backenda
-    this.pridobiVseKomentarje()
-    this.pridobiPodatkeUporabnika()
-    this.pridobiKomentarjeUporabnika(this.id)
+
+      //todo pridobi vse oglase iz backenda
+      this.pridobiVseKomentarje()
+      this.pridobiPodatkeUporabnika()
+      this.pridobiKomentarjeUporabnika(this.user.id)
+    }
   }
 
   pridobiVseKomentarje(){
@@ -41,7 +43,7 @@ export class ProfilUporabnikaComponent implements OnInit {
   }
 
   pridobiPodatkeUporabnika(){
-    this.id = this.authServis.vrniTrenutnegaUporabnika().id
+    this.user = this.authServis.vrniTrenutnegaUporabnika()
   }
 
   pridobiKomentarjeUporabnika(id:string){
