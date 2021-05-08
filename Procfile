@@ -1,1 +1,1 @@
-web: cd src/app_api/ && npm start
+web: cd src/app_public/ && npm run build && cd ../app_api/ && npm start 
