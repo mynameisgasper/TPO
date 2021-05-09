@@ -57,7 +57,7 @@ export class OgledOglasaComponent implements OnInit {
   }
 
   urediOglas(){
-    this.oglas.owner = this.authService.vrniTrenutnegaUporabnika().id
+    this.oglas.owner = this.authService.vrniTrenutnegaUporabnika().email
     this.oglas.name = this.naslovOglasa.nativeElement.value
     this.oglas.description =  this.opisOglasa.nativeElement.value
     this.oglas.location = this.authService.vrniTrenutnegaUporabnika().country
