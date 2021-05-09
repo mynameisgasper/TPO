@@ -3,7 +3,6 @@ const User = mongoose.model('User');
 
 
 const getAll = (req, res) => {
-    // todo implementiraj filtriranje in paginacijo
     User
         .find()
         .exec((napaka, users) => {
@@ -47,31 +46,29 @@ const create = (req, res) => {
         !req.body.country ||
         !req.body.password) {
         res.status(400).json({ "sporočilo": "Zahtevani so vsi podatki" });
-    } else {
-        if (req.payload.role === 2) {
-            const uporabnik = new User();
-            //nastavimo vse podatke za uporabnika
-            uporabnik.name = req.body.name
-            uporabnik.surname = req.body.surname
-            uporabnik.email = req.body.email
-            uporabnik.phone = req.body.phone
-            uporabnik.address = req.body.address
-            uporabnik.country = req.body.country
-            uporabnik.role = req.body.role
+    } else if (req.payload.role === 2) {
+        const user = new User();
+        //nastavimo vse podatke za uporabnika
+        user.name = req.body.name
+        user.surname = req.body.surname
+        user.email = req.body.email
+        user.phone = req.body.phone
+        user.address = req.body.address
+        user.country = req.body.country
+        user.role = req.body.role
 
-            uporabnik.nastaviGeslo(req.body.password);
-            uporabnik.save(napaka => {
-                if (napaka) {
-                    res.status(500).json(napaka);
-                } else {
-                    res.status(200).json(true);
-                }
-            });
-        } else {
-            res.status(403).json({
-                message: 'dostop do te funckionalnosti je prepovedan za neadministratorske uporabnike!'
-            })
-        }
+        user.nastaviGeslo(req.body.password);
+        user.save(napaka => {
+            if (napaka) {
+                res.status(500).json(napaka);
+            } else {
+                res.status(200).json(true);
+            }
+        });
+    } else {
+        res.status(403).json({
+            message: 'dostop do te funckionalnosti je prepovedan za neadministratorske uporabnike!'
+        })
     }
 };
 
@@ -92,21 +89,19 @@ const deleteOne = (req, res) => {
         return res.status(403).json({
             message: 'dostop do te funckionalnosti je prepovedan za neadministratorske uporabnike!'
         })
-    } else {
-        if (req.params.id) {
-            User
-                .findByIdAndDelete(req.params.id)
-                .exec((napaka) => {
-                    if (napaka) {
-                        return res.status(500).json(napaka);
-                    }
-                    res.status(204).json(null);
-                });
-        } else {
-            return res.status(404).json({
-                "sporocilo": "Ne najdem uporabnika"
+    } else if (req.params.id) {
+        User
+            .findByIdAndDelete(req.params.id)
+            .exec((napaka) => {
+                if (napaka) {
+                    return res.status(500).json(napaka);
+                }
+                res.status(204).json(null);
             });
-        }
+    } else {
+        return res.status(404).json({
+            "sporocilo": "Ne najdem uporabnika"
+        });
     }
 };
 

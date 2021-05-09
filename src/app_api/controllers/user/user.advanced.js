@@ -89,18 +89,17 @@ const addRating = (req, res) => {
     User.findById(req.query.userId).exec().then(user => {
         if (!user) {
             return res.status(404).json({ "sporocilo": "Ne najdem uporabnika" });
-        } else if (user.ratingsFrom.includes(rec.payload.email)) {
+        } else if (user.ratingsFrom.includes(req.payload.id)) {
             return res.status(400).json({ "sporocilo": "Temu uporabniku ste ze podali oceno" });
         } else {
             user.ratingSum += req.body.rating
             user.ratingNum++
             user.rating = user.ratingSum / user.ratingNum
-            user.ratingsFrom.push(req.payload.email)
+            user.ratingsFrom.push(req.payload.id)
             user.save((err, doc) => {
                 if (err) {
                     return res.status(500).json({ "message": "internal server error" })
                 } else {
-                    console.log(doc)
                     return res.status(200).json({ "messge": "ocena uspešno dodana" })
                 }
             })
@@ -123,26 +122,6 @@ const getAllOglasi = (req, res) => {
         res.status(500).json({"message":"internal server error"})
     })
 
-}
-
-const updateDescription = (req,res)=>{
-    User.findById(req.payload.id).exec().then(user=>{
-        if(!user){
-            res.status(404).json({"message":"ne najdem uporabnika"})
-        }else{
-            if(req.body.description)user.description = req.body.description
-            user.save().then(doc => {
-                if(doc !== user){
-                    res.status(500).json({"message":"internal server error"})
-                }else{
-                    res.status(200).json({"message":"uspeh"})
-                }
-            })
-        }
-    }).catch(err=>{
-        console.error(err.message)
-        res.status(500).json({"message":"internal server error"})
-    })
 }
 
 module.exports = {
