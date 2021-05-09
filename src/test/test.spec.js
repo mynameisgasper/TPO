@@ -12,7 +12,7 @@ describe('Testiranje Dog walkers', () => {
         cy.contains('DOG WALKERS')
         //Vnesi v polja in klikni na gumb
         cy.get('#loginEmail')
-        .type('gordana.prodaja@gmail.com').should('have.value', 'gordana.prodaja@gmail.com')
+        .type('testar.testkovic@gmail.com').should('have.value', 'testar.testkovic@gmail.com')
         cy.get('#loginPassword')
         .type('testtest')
         cy.get('#login').click()
@@ -139,18 +139,69 @@ describe('Testiranje Dog walkers', () => {
         //Počakaj klic
         cy.wait('@login')
     })
+
+    Cypress.Commands.add('registerTestar', () => { 
+
+        // Pojdi na stran za registracijo
+        cy.get('#register').click()
+        cy.wait(200)
+
+        // Izpolni registracijsko formo
+        cy.get("#registrationName").type('testar')
+        cy.get("#registrationSurname").type('testkovic')
+        cy.get("#registrationPhone").type('041041031')
+        cy.get("#registrationAddress").type('Testni Kraj')
+        cy.get("#registrationCountry").type('Testna')
+        cy.get("#registrationEmail").type('testar.testkovic@gmail.com')
+        cy.get("#registrationPassword").type('testtest')
+        cy.get("#registrationPassword2").type('testtest')
+
+        // Izberi vrsto računa
+        cy.get('#navaden').click()
+        cy.wait(50)
+
+        // Registriraj se
+        cy.get('#regit').click()
+        cy.intercept('POST', 'http://localhost:3000/api/v1/auth/register').as('register');
+
+        cy.get(200)
+
+        // Opravi testni login z novim računom
+        //Pripravi API klic ki ga želimo prestreči in počakati
+        cy.intercept('POST', 'http://localhost:3000/api/v1/auth/login').as('login');
+        
+        cy.contains('DOG WALKERS')
+        //Vnesi v polja in klikni na gumb
+        cy.get('#loginEmail')
+        .type('testar.testkovic@gmail.com').should('have.value', 'testar.testkovic@gmail.com')
+        cy.get('#loginPassword')
+        .type('testtest')
+        cy.get('#login').click()
+
+        //Počakaj klic
+        cy.wait('@login')
+    })
     
+    context('Vzpostavitev uporabnikov (NISO TESTI)', () => {
+        
+        it('Registracija testar testkovic', () => {
+            cy.registerTestar()
+        })
+        it('Registracije testni1 uporabnik1', () => {
+            cy.registerNovi1()
+        })
+    })
     
     /*
         TODO:
         -----
         PRIJAVA UPORABNIKA: 0
-        REGISTRACIJA UPORABNIKA: 2
+        REGISTRACIJA UPORABNIKA: 0
         PREGLED VSEH OGLASOV: 1
         OGLED POSAMEZNEGA OGLASA: 1
         ISKANJE OGLASOV: 2
         UREJANJE UPORABNIŠKEGA PROFILA: 2
-        OGLED PROFILA: 1
+        OGLED PROFILA: 0
         KREIRANJE OGLASA: 0
         UREJANJE OGLASA: 2
         BRISANJE OGLASA: 1
@@ -204,32 +255,9 @@ describe('Testiranje Dog walkers', () => {
 
             //Preveri če obstaja gumb Odjava -> Tako vemo da je prijavljen
             cy.get('#odjava').should('have.text','Odjava')
-
-            cy.setCookie('testni_kuks', 'kukers')
         })
     })
     
-    // TESTI: OGLED POSAMEZNEGA OGLASA
-    context('Ogled posameznega oglasa', () => {
-
-        it('Ogled oglasa', () => {
-
-            //Pojdi na stran z vsemi oglasi
-            cy.visit('http://localhost:4200/oglasi')
-            
-            cy.get('#oglasButton').first().click()
-            cy.wait(100)
-            cy.get('#odziv').should('have.text','Odziv na oglas')
-
-        })
-
-        // TODO, ko bodo oglasi vezani na posameznega uporabnika, ki jih je ustvaril
-        /*
-        it('Ogled oglasa preko profila', () => {
-        })
-        */
-    })
-
     // TESTI: UREJANJE UPORABNIŠKEGA PROFILA
     context('Urejanje uporabniškega profila', () => {
         
@@ -252,30 +280,6 @@ describe('Testiranje Dog walkers', () => {
         */
 
     })
-
-    // TESTI: OGLED PROFILA
-    context('Ogled profila', () => {
-
-        it('Ogled lastnega profila', () => {
-
-            cy.login()
-
-            cy.get('#userProfileButton').click()
-            cy.wait(100)
-            cy.get('.naslov').should('have.text','Profil uporabnika')
-        })
-
-
-        it('Ogled profila drugega uporabnika', () => {
-
-            cy.loginOther()
-
-            cy.get('#profileButton').first().click()
-            cy.wait(100)
-            cy.get('#ocenaBtn').should('have.text','Podaj oceno')
-        })
-        
-    })
     
     // TESTI: KREIRANJE OGLASA
     context('Kreiranje oglasa', () => {
@@ -285,7 +289,7 @@ describe('Testiranje Dog walkers', () => {
             cy.login()
 
             cy.get('#ustvari').click()
-            cy.wait(20)
+            cy.wait(200)
 
             // Kreator novega oglasa vnese podatke
 
@@ -293,14 +297,13 @@ describe('Testiranje Dog walkers', () => {
             cy.wait(20)
             cy.get('#opisOglasa').type('test 123 123')            
             cy.get('#cenaOglasa').type('69')
-            
 
             // Kreator oglasa doda sliko iz lokalne naprave
             // cy.get('#dodajSliko').click()
 
             // Kreator doda nov oglas k obstoječim
             cy.get('#buttonAddOglas').click()
-            cy.wait(50)
+            cy.wait(1000)
 
             cy.get('#nasOglasBoard').should('have.text', 'testni_oglas')
         })
@@ -408,5 +411,49 @@ describe('Testiranje Dog walkers', () => {
         })
     })
 
+    // TESTI: OGLED POSAMEZNEGA OGLASA
+    context('Ogled posameznega oglasa', () => {
+
+        it('Ogled oglasa', () => {
+
+            //Pojdi na stran z vsemi oglasi
+            cy.visit('http://localhost:4200/oglasi')
+            
+            cy.get('#oglasButton').first().click()
+            cy.wait(100)
+            cy.get('#odziv').should('have.text','Odziv na oglas')
+
+        })
+
+        // TODO, ko bodo oglasi vezani na posameznega uporabnika, ki jih je ustvaril
+        /*
+        it('Ogled oglasa preko profila', () => {
+        })
+        */
+    })
+
+    // TESTI: OGLED PROFILA
+    context('Ogled profila', () => {
+
+        it('Ogled lastnega profila', () => {
+
+            cy.login()
+
+            cy.get('#userProfileButton').click()
+            cy.wait(100)
+            cy.get('.naslov').should('have.text','Profil uporabnika')
+        })
+
+
+        it('Ogled profila drugega uporabnika', () => {
+
+            cy.loginOther()
+
+            cy.get('#profileButton').first().click()
+            cy.wait(100)
+            cy.get('#ocenaBtn').should('have.text','Podaj oceno')
+        })
+        
+    })
     
 })
