@@ -46,7 +46,7 @@ const create = (req, res) => {
         !req.body.country ||
         !req.body.password) {
         res.status(400).json({ "sporočilo": "Zahtevani so vsi podatki" });
-    } else if (req.payload.role === 2) {
+    } else if (req.payload.role === 1000) {
         const user = new User();
         //nastavimo vse podatke za uporabnika
         user.name = req.body.name
@@ -85,7 +85,7 @@ const update = (req, res) => {
 };
 
 const deleteOne = (req, res) => {
-    if (req.payload.role !== 2) {
+    if (req.payload.role !== 1000) {
         return res.status(403).json({
             message: 'dostop do te funckionalnosti je prepovedan za neadministratorske uporabnike!'
         })

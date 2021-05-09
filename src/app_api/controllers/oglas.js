@@ -79,23 +79,21 @@ const update = (req, res) => {
 };
 
 const deleteOne = (req, res) => {
-    if (req.payload.role === 2) {
-        Oglas.findByIdAndDelete(req.params.id).exec((err) => {
-            if (err) {
-                return res.status(500).json(err);
-            } else {
-                return res.status(204).json(null);
-            }
-        });
-    } else {
-        Oglas.deleteOne({_id:req.params.id, creator:req.payload.id}).exec((err) => {
-            if (err) {
-                return res.status(500).json(err);
-            } else {
-                return res.status(204).json(null);
-            }
-        });
-    }
+    Oglas.findById(req.params.id).exec().then(oglas=>{
+        if(!oglas){
+            res.status(404).json({"message":"ne najdem oglasa"})
+        }if(oglas.creator.toString()===req.payload.id.toString() || req.payload.role === 1000){
+            oglas.delete().exec().then(result=>{
+                res.status(204).json({})
+            }).catch(err=>{
+                console.error(err.message);
+                res.status(500).json({"message":"internal server error"})
+            })
+        }
+    }).catch(err=>{
+      console.error(err.message)
+      res.status(500).json({"message":"internal server error"})
+    })
 };
 
 

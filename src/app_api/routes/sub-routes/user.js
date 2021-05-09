@@ -9,14 +9,12 @@ const authentication = jwt({
     algorithms: ['HS256']
 });
 
-router
-    .get('/comment',userAdvancedController.getComments)
+router.get('/comment',userAdvancedController.getComments)
     .delete('/comment',authentication,userAdvancedController.deleteComment)
     .post('/comment',authentication,userAdvancedController.addComment)
     .post('/rating',authentication,userAdvancedController.addRating)
 
-router
-    .put('/:id', authentication, userController.update)
+router.put('/:id', authentication, userController.update)
     .delete('/:id', authentication, userController.deleteOne)
     .get('/:id',userController.getOne)
     .post('/', authentication, userController.create)

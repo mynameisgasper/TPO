@@ -35,29 +35,16 @@ const deleteComment = (req, res) => {
         if (!user) {
             return res.status(404).json({ "sporocilo": "Ne najdem uporabnika" });
         } else {
-            if (req.payload.role === 2) {
-                user.comments.splice(user.comments.find(c => c._id === req.query.commentId && c.owner === req.payload.email), 1)
-                user.save((err, doc) => {
-                    if (err) {
-                        return res.status(500).json({ "message": "internal server error" })
-                    } else {
-                        console.log(doc)
-                        return res.status(200).json({ "message": "komentar uspešno izbrisan" })
-                    }
-                })
-            } else {
-                for (let i = 0; i < user.comments.length; i++) {
-                    if (user.comments[i]._id === req.query.commentId && user.comments[i].owner === req.payload.email) {
-                            user.comments.splice(i, 1)
-                            user.save((err, doc) => {
-                                if (err) {
-                                    return res.status(500).json({ "message": "internal server error" })
-                                } else {
-                                    console.log(doc)
-                                    return res.status(200).json({ "message": "komentar uspešno izbrisan" })
-                                }
-                            })
-                    }
+            for (let i = 0; i < user.comments.length; i++) {
+                if (user.comments[i]._id.toString() === req.query.commentId.toString() && user.comments[i].owner === req.payload.email || user.comments[i]._id.toString() === req.query.commentId.toString() && req.payload.role === 1000) {
+                    user.comments.splice(i, 1)
+                    user.save((err, doc) => {
+                        if (err) {
+                            return res.status(500).json({ "message": "internal server error" })
+                        } else {
+                            return res.status(200).json({ "message": "komentar uspešno izbrisan" })
+                        }
+                    })
                 }
             }
         }
