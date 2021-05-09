@@ -1,53 +1,58 @@
 <div class="row">
     <div class="col-12 col-md-4 col-lg-4 col-xl-4 main-buttons">
-        
+
     </div>
     <div class="col-12 col-md-4 col-lg-4 col-xl-4 main-buttons">
         <h2>DOG WALKERS</h2>
         <div class="form">
             <h5 style="text-align: center;">Registracija</h5>
-            <form>
+            <div class="form">
                 <div class="form-group">
-                    <label for="name">Ime</label>
-                    <input type="text" class="form-control" id="registrationName">
+                    <label for="registrationName">Ime</label>
+                    <input #nameInput type="text" class="form-control" id="registrationName">
                 </div>
                 <div class="form-group">
-                    <label for="surname">Priimek</label>
-                    <input type="text" class="form-control" id="registrationSurname">
+                    <label for="registrationSurname">Priimek</label>
+                    <input #surnameInput type="text" class="form-control" id="registrationSurname">
                 </div>
                 <div class="form-group">
-                    <label for="phone">Telefon</label>
-                    <input type="text" class="form-control" id="registrationPhone">
+                    <label for="registrationPhone">Telefon</label>
+                    <input #phoneInput type="text" class="form-control" id="registrationPhone">
                 </div>
                 <div class="form-group">
-                    <label for="address">Naslov</label>
-                    <input type="text" class="form-control" id="registrationAddress">
+                    <label for="registrationAddress">Naslov</label>
+                    <input #addressInput type="text" class="form-control" id="registrationAddress">
+                </div>
+              <div class="form-group">
+                <label for="registrationCountry">Država</label>
+                <input #countryInput type="text" class="form-control" id="registrationCountry">
+              </div>
+                <div class="form-group">
+                  <label for="registrationEmail">Email</label>
+                  <input #emailInput type="email" class="form-control" id="registrationEmail">
                 </div>
                 <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" class="form-control" id="registrationEmail">
+                  <label for="registrationPassword">Geslo</label>
+                  <input #passInput type="password" class="form-control" id="registrationPassword">
                 </div>
                 <div class="form-group">
-                <label for="password">Geslo</label>
-                <input type="password" class="form-control" id="registrationPassword">
-                </div>
-                <div class="form-group">
-                    <label for="password2">Ponovi geslo</label>
-                    <input type="password2" class="form-control" id="registrationPassword2">
+                    <label for="registrationPassword2">Ponovi geslo</label>
+                    <input #passInput2 type="password" class="form-control" id="registrationPassword2">
                 </div>
                 <div class="form-group radio">
-                    <label for="accType">Tip računa</label><br>
-                    <input type="radio" id="navaden" name="accType" value="navaden">
-                    <label for="male">Navaden</label><br>
-                    <input type="radio" id="organizacija" name="accType" value="organizacija">
-                    <label for="female">Organizacija</label><br>
-                    <input type="radio" id="premium" name="accType" value="premium">
-                    <label for="other">Premium</label>
+                    <label>Tip računa</label><br>
+                    <input (click)="setRole(0)" type="radio" id="navaden" name="accType" value="navaden">
+                    <label for="navaden">Navaden</label><br>
+                    <input (click)="setRole(1)" type="radio" id="organizacija" name="accType" value="organizacija">
+                    <label for="organizacija">Organizacija</label><br>
+                    <input (click)="setRole(2)" type="radio" id="premium" name="accType" value="premium">
+                    <label for="premium">Premium</label>
                 </div>
-                <button class="btn btn-primary registration" style="text-align: right;">Registracija</button>
-            </form>
+                <button (click)="onClickRegister()" class="btn btn-primary registration" style="text-align: right;">Registracija</button>
+              <div role="alert" *ngIf="response" class="alert alert-danger">{{ response }}</div>
+            </div>
         </div>
-        
+
         <button class="btn btn-success" routerLink="/">Pojdi na prijavo</button>
         <button class="btn btn-primary guest" routerLink="/oglasi">Vstopi kot gost</button>
     </div>
