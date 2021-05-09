@@ -77,8 +77,7 @@ const create = (req, res) => {
 
 const update = (req, res) => {
     let user = {...req.body }
-    console.log();
-    User.updateOne({ _id: req.params.id }, user, (err) => {
+    User.updateOne({ _id: req.payload.id }, user, (err) => {
         if (err) {
             console.log(err);
             res.status(500);
