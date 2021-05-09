@@ -14,6 +14,7 @@ const register = (req, res) => {
         !req.body.password) {
         return res.status(400).json({"sporočilo": "Zahtevani so vsi podatki"});
     }
+
     const uporabnik = new Uporabnik();
     //nastavimo vse podatke za uporabnika
     uporabnik.name =  req.body.name
@@ -53,17 +54,25 @@ const login = (req, res) => {
     })(req, res);
 };
 
-// todo 
 const updatePassword = (req, res) => {
-    user = User.findById({_id:req.payload.id})
-    user.nastaviGeslo(req.body.password)
-    user.save(napaka => {
-        if (napaka) {
-            res.status(500).json(napaka);
-        } else {
-            res.status(200).json(user);
+    Uporabnik.findById(req.payload.id).exec().then(user=>{
+        if(!user){
+            res.status(404).json({"message":"ne najdem uporabnika"})
+        }else{
+            uporabnik.nastaviGeslo(req.body.password);
+            uporabnik.save(napaka => {
+                if (napaka) {
+                    res.status(500).json(napaka);
+                } else {
+                    res.status(200).json({"message":"uspeh"});
+                }
+            });
         }
-    });
+    }).catch(err=>{
+        console.error(err.message)
+        res.status(500).json({"message":"internal server error"})
+    })
+
 };
 
 // const checkPasswd = (req, res) => {

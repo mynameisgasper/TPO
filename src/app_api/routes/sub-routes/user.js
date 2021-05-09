@@ -1,5 +1,6 @@
 const router = require('express').Router()
-const userController = require('../../controllers/user')
+const userController = require('../../controllers/user/user')
+const userAdvancedController = require('../../controllers/user/user.advanced')
 
 const jwt = require('express-jwt');
 const authentication = jwt({
@@ -9,14 +10,16 @@ const authentication = jwt({
 });
 
 router
-    .get('/comment',userController.getComments)
-    .delete('/comment',authentication,userController.deleteComment)
-    .post('/comment',authentication,userController.addComment)
-    .post('/rating',authentication,userController.addRating)
+    .get('/comment',userAdvancedController.getComments)
+    .delete('/comment',authentication,userAdvancedController.deleteComment)
+    .post('/comment',authentication,userAdvancedController.addComment)
+    .post('/rating',authentication,userAdvancedController.addRating)
+
+router
     .put('/:id', authentication, userController.update)
     .delete('/:id', authentication, userController.deleteOne)
+    .get('/:id',userController.getOne)
     .post('/', authentication, userController.create)
     .get('/', authentication, userController.getAll)
-    .get('/:id',userController.getOne)
 
 module.exports = router

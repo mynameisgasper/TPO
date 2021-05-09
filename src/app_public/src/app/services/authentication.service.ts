@@ -21,7 +21,6 @@ export class AuthenticationService {
       });
   }
 
-
   public register(uporabnik: UserRegister): Promise<any> {
     return this.appDataService
       .registracija(uporabnik)
@@ -30,7 +29,6 @@ export class AuthenticationService {
         console.log("auth")
       });
   }
-
 
 
   public odjava(): void {

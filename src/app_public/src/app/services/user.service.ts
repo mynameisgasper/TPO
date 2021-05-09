@@ -34,6 +34,7 @@ export class UserService {
       .catch(this.obdelajNapako)
   }
 
+
   public createComment(data:Comment, id:string): Promise<User> {
     const url: string = this.apiUrl+'/comment?userId='+`${id}`
     const httpHeaders = {

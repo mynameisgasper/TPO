@@ -9,14 +9,15 @@ const commentSchema = new mongoose.Schema({
 })
 
 const userSchema = new mongoose.Schema({
-    /** osebni podatki **/
+    /** osebni podatki (potrebni za registracijo) **/
     name: {type:String, required:true},
     surname: {type:String, required: true},
     phone: {type:String, required:true},
-
-    /** naslov **/
     address: {type:String, required:true},
     country: {type:String, required: true, default: ""},
+    email: {type:String, required: true, unique:true},
+
+    /** naslov **/
 
 
 
@@ -37,7 +38,6 @@ const userSchema = new mongoose.Schema({
      * 1 - premium uporabnik
      * 2 - administrator
      */
-    email: {type:String, required: true, unique:true},
     zgoscenaVrednost: {type: String, required: true},
     nakljucnaVrednost: {type: String, required: true},
 })
