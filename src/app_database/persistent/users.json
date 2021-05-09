@@ -39,7 +39,7 @@
     "ratingNum" : 0,
     "rating" : 0,
     "ratingsFrom" : [ ],
-    "role" : 2,
+    "role" : 1000,
     "comments" : [ ],
     "name" : "ad",
     "surname" : "min",
