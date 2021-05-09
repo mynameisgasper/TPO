@@ -3,14 +3,18 @@ import {AuthenticationResult} from "../Classes/authenticationResult";
 import {AppDataService} from "./app-data.service";
 import {SHRAMBA_BRSKALNIKA} from "../Classes/storage";
 import {User, UserLogin, UserRegister} from "../Models/User";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {environment} from "../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
 
+  private apiUrl = environment.apiUrl+'/auth'
+
   constructor(@Inject(SHRAMBA_BRSKALNIKA) private storage: Storage,
-              private appDataService: AppDataService) { }
+              private appDataService: AppDataService, private http:HttpClient) { }
 
   public login(uporabnik: UserLogin): Promise<any> {
     return this.appDataService
@@ -30,6 +34,20 @@ export class AuthenticationService {
       });
   }
 
+  public updatePassword(password: string): Promise<boolean> {
+    const url: string = `${this.apiUrl}/pass`;
+    console.log("url: "+url)
+    const httpHeaders = {
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${this.vrniZeton()}`
+      })
+    };
+    return this.http
+      .post(url, password, httpHeaders)
+      .toPromise()
+      .then(rezultat => rezultat as boolean)
+      .catch(this.obdelajNapako);
+  }
 
   public odjava(): void {
     localStorage.removeItem('jwt');
@@ -78,5 +96,11 @@ export class AuthenticationService {
         rating,
         role } as User;
     }
+  }
+
+  /** obdelovanje napake **/
+  private obdelajNapako(napaka: any): Promise<any> {
+    console.error('Prišlo je do napake', napaka);
+    return Promise.reject(napaka.message || napaka);
   }
 }
