@@ -9,8 +9,14 @@ let dbUri = (isProduction)?
     (isDocker)?
     `mongodb://${process.env.MONGODB_SERVER}:${process.env.MONGODB_PORT}`:
     'mongodb://localhost:27017';
-
-if(process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'docker'){
+if(process.env.NODE_ENV === 'production'){
+    mongoose.connect(dbUri, {
+        useNewUrlParser: true,
+        useCreateIndex: true,
+        useUnifiedTopology: true,
+        useFindAndModify: false
+    });
+}else if(process.env.NODE_ENV === 'docker'){
     mongoose.connect(dbUri, {
         user: process.env.MONGODB_USER,
         pass: process.env.MONGODB_PASS,
