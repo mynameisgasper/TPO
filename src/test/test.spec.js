@@ -12,9 +12,26 @@ describe('Testiranje Dog walkers', () => {
         cy.contains('DOG WALKERS')
         //Vnesi v polja in klikni na gumb
         cy.get('#loginEmail')
-        .type('marica.petkovsek@hotmail.com').should('have.value', 'marica.petkovsek@hotmail.com')
+        .type('gordana.prodaja@gmail.com').should('have.value', 'gordana.prodaja@gmail.com')
         cy.get('#loginPassword')
-        .type('test')
+        .type('testtest')
+        cy.get('#login').click()
+
+        //Počakaj klic
+        cy.wait('@login')
+    })
+
+    Cypress.Commands.add('loginOther', () => { 
+            
+        //Pripravi API klic ki ga želimo prestreči in počakati
+        cy.intercept('POST', 'http://localhost:3000/api/v1/auth/login').as('login');
+        
+        cy.contains('DOG WALKERS')
+        //Vnesi v polja in klikni na gumb
+        cy.get('#loginEmail')
+        .type('testar.testkovic@gmail.com').should('have.value', 'testar.testkovic@gmail.com')
+        cy.get('#loginPassword')
+        .type('testtest')
         cy.get('#login').click()
 
         //Počakaj klic
@@ -161,11 +178,16 @@ describe('Testiranje Dog walkers', () => {
             cy.get('.naslov').should('have.text','Profil uporabnika')
         })
 
-        // TODO, ko bo zvezano
-        /*
+
         it('Ogled profila drugega uporabnika', () => {
+
+            cy.loginOther()
+
+            cy.get('#profileButton').first().click()
+            cy.wait(100)
+            cy.get('#podajOceno').should('have.text','Podaj oceno')
         })
-        */
+        
     })
     
     // TESTI: KREIRANJE OGLASA
@@ -176,7 +198,7 @@ describe('Testiranje Dog walkers', () => {
             cy.login()
 
             cy.get('#ustvari').click()
-
+            cy.wait(20)
 
             // Kreator novega oglasa vnese podatke
 
@@ -218,6 +240,7 @@ describe('Testiranje Dog walkers', () => {
             cy.login()
 
             cy.get('#ustvari').click()
+            cy.wait(500)
 
             // Kreator novega oglasa vnese podatke
 
@@ -231,7 +254,7 @@ describe('Testiranje Dog walkers', () => {
 
             // Kreator doda nov oglas k obstoječim
             cy.get('#buttonAddOglas').click()
-            cy.wait(50)
+            cy.wait(1000)
 
             // Preveri ali na novo ustvarjen oglas obstaja med oglasi
             cy.get('#nasOglasBoard').should('have.text', 'testni_oglas')
