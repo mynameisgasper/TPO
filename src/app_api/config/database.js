@@ -4,7 +4,9 @@ const mongoose = require('mongoose');
 let isProduction = (process.env.NODE_ENV === 'production');
 let isDocker = (process.env.NODE_ENV === 'docker');
 
-let dbUri = (isDocker || isProduction)?
+let dbUri = (isProduction)?
+    process.env.MONGODB_ATLAS_URI:
+    (isDocker)?
     `mongodb://${process.env.MONGODB_SERVER}:${process.env.MONGODB_PORT}`:
     'mongodb://localhost:27017';
 
