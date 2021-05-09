@@ -67,10 +67,9 @@ export class OgledProfilaComponent implements OnInit {
   }
 
   podajOceno() {
-    let ocena = (document.getElementById('ocena') as HTMLSelectElement).value;
-    //console.log(ocena)
-    if (ocena) {
-      this.userService.podajOceno(this.id, parseInt(ocena))
+    console.log(this.user.rating)
+    if (this.user.rating) {
+      this.userService.podajOceno(this.id, this.user.rating)
         .then((r) => {
           window.location.reload()
           if (r) {

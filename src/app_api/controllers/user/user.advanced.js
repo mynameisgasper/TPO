@@ -76,7 +76,7 @@ const addRating = (req, res) => {
         } else if (user.ratingsFrom.includes(req.payload.id)) {
             return res.status(400).json({ "sporocilo": "Temu uporabniku ste ze podali oceno" });
         } else {
-            user.ratingSum += req.body.rating
+            user.ratingSum = user.ratingSum + req.body.rating
             user.ratingNum++
             user.rating = user.ratingSum / user.ratingNum
             user.ratingsFrom.push(req.payload.id)

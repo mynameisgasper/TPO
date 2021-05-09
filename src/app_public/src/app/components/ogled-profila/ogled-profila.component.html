@@ -31,12 +31,12 @@
         <div class="row" style="text-align: center;">
             <div class="col-12 col-md-12 col-lg-12 col-xl-12">
                 <div id="ocenaZvezdeUporabnika" class="ocenaStar">
-                    <p><b>Ocena:</b><br></p>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half"></i>
+                    <p><b>Ocena: {{user.rating}}</b><br></p>
+                  <i class="fa{{ user.rating < 1 ? 'r' : 's'}} fa-star"></i>
+                  <i class="fa{{ user.rating < 2 ? 'r' : 's'}} fa-star"></i>
+                  <i class="fa{{ user.rating < 3 ? 'r' : 's'}} fa-star"></i>
+                  <i class="fa{{ user.rating < 4 ? 'r' : 's'}} fa-star"></i>
+                  <i class="fa{{ user.rating < 5 ? 'r' : 's'}} fa-star"></i>
                 </div>
               <div class="ocenaStar" style="margin-top:8pt">
                 <button class="btn btn-warning" id="ocenaBtn" type="button" data-toggle="modal" href="#ocenaModal">Podaj oceno</button>
