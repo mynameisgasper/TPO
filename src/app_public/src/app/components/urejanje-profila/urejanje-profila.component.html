@@ -4,7 +4,7 @@
     <div *ngIf="user" class="container main-container">
         <div class="row">
             <div class="col-12 col-md-12 col-lg-12 col-xl-12">
-                <button class="btn btn-primary" id="saveButtonProfile" type="button" style="float:right">
+                <button (click)="onClick()" class="btn btn-primary" id="saveButtonProfile" type="button" style="float:right">
                     <i class="fas fa-save"></i>
                 </button>
                 <h2 class="naslov">Urejanje profila</h2>
@@ -15,17 +15,14 @@
                 <form>
                     <div class="col-6 col-md-6 col-lg-6 col-xl-6">
                         <div class="form-group">
-                            <label for="loginEmail">Uporabniško ime:</label>
-                            <input type="email" class="form-control" id="usernameEdit">
+                            <label for="nameEdit">Ime:</label>
+                            <input [(ngModel)]="userData.name" type="email" class="form-control" name="nameEdit" id="nameEdit" value="{{userData.name}}">
                         </div>
-                        <div class="form-group">
-                            <label for="loginPassword">Geslo:</label>
-                            <input type="password" class="form-control" id="passwordEdit">
-                        </div>
-                        <div class="form-group">
-                            <label for="loginPassword">Ponovi geslo:</label>
-                            <input type="password" class="form-control" id="reppasswordEdit">
-                        </div>
+                      <div class="form-group">
+                        <label for="surnameEdit">Priimek:</label>
+                        <input [(ngModel)]="userData.surname" type="email" class="form-control" name="surnameEdit" id="surnameEdit" value="{{userData.surname}}">
+                      </div>
+                      <button (click)="clearModal()" class="btn btn-primary" id="changePassBtn" type="button" data-toggle="modal" href="#passModal">Spremeni geslo</button>
                     </div>
                 </form>
             </div>
@@ -33,12 +30,20 @@
                 <form>
                     <div class="col-6 col-md-6 col-lg-6 col-xl-6">
                         <div class="form-group">
-                            <label for="loginEmail">Tel. številka:</label>
-                            <input type="email" class="form-control" id="telnumEdit">
+                            <label for="phoneEdit">Tel. številka:</label>
+                            <input [(ngModel)]="userData.phone"  type="text" class="form-control" name="phoneEdit" id="phoneEdit" value="{{userData.phone}}">
                         </div>
                         <div class="form-group">
-                            <label for="loginPassword">E-mail:</label>
-                            <input type="password" class="form-control" id="emailEdit">
+                            <label for="emailEdit">E-mail:</label>
+                            <input [(ngModel)]="userData.email"  type="email" class="form-control" name="emailEdit" id="emailEdit" value="{{userData.email}}">
+                        </div>
+                      <div class="form-group">
+                        <label for="addressEdit">Naslov:</label>
+                        <input [(ngModel)]="userData.address"  type="text" class="form-control" name="addressEdit" id="addressEdit" value="{{userData.address}}">
+                      </div>
+                        <div class="form-group">
+                          <label for="countryEdit">Država:</label>
+                          <input [(ngModel)]="userData.country"  type="text" class="form-control" name="countryEdit" id="countryEdit" value="{{userData.country}}">
                         </div>
                         <br>
                         <select class="form-select" aria-label="Default select example" id="currencyChange">
@@ -51,11 +56,11 @@
                 </form>
             </div>
         </div>
-        
+      <div role="alert" *ngIf="response" class="alert alert-danger">{{ response }}</div>
         <div class="col-12 col-md-12 col-lg-12 col-xl-12">
             <div class="form-group">
                 <label for="opisTextArea">Opis profila:</label>
-                <textarea class="form-control" id="opisTextArea" rows="5"></textarea>
+                <textarea [(ngModel)]="userData.description" class="form-control" id="opisTextArea" rows="5">{{userData.description}}</textarea>
             </div>
             <br>
         </div>
@@ -67,5 +72,40 @@
                 </button>
             </div>
         </div>
+
+      <div class="container">
+        <div class="modal fade" id="passModal" tabindex="-1">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Spremeni geslo</h5>
+                <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+              </div>
+              <div class="modal-body">
+                <div class="form-group">
+                  <label for="passwordEdit">Geslo:</label>
+                  <input type="password" class="form-control" id="passwordEdit">
+                </div>
+                <div class="form-group">
+                  <label for="reppasswordEdit">Ponovi geslo:</label>
+                  <input type="password" class="form-control" id="reppasswordEdit">
+                </div>
+              </div>
+              <div role="alert" *ngIf="resp" class="alert alert-danger">{{ resp }}</div>
+              <div role="alert" *ngIf="ok" class="alert alert-ok">
+                <div class="modal-footer">
+                  Geslo uspešno spremenjeno!
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal" id="dismissBtn">Zapri</button>
+                </div>
+              </div>
+              <div role="alert" *ngIf="!ok">
+                <div class="modal-footer">
+                  <button (click)="updatePass()" type="button" class="btn btn-secondary" id="updateBtn">Spremeni</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 </main>

@@ -14,6 +14,7 @@ import { UrejanjeProfilaComponent } from './components/urejanje-profila/urejanje
 import { KomentarComponent } from './components/komentar/komentar.component';
 import { OgledProfilaComponent } from './components/ogled-profila/ogled-profila.component';
 import { InvertPipe } from './pipes/invert.pipe'
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { InvertPipe } from './pipes/invert.pipe'
         path: 'ogled-profila/:id',
         component: OgledProfilaComponent
       }
-    ])
+    ]),
+    FormsModule
   ],
   providers: [],
   bootstrap: [OgrodjeComponent]

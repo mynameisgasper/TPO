@@ -59,8 +59,8 @@ const updatePassword = (req, res) => {
         if(!user){
             res.status(404).json({"message":"ne najdem uporabnika"})
         }else{
-            uporabnik.nastaviGeslo(req.body.password);
-            uporabnik.save(napaka => {
+            user.nastaviGeslo(req.body.password);
+            user.save(napaka => {
                 if (napaka) {
                     res.status(500).json(napaka);
                 } else {

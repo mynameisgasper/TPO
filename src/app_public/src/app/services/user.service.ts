@@ -81,6 +81,23 @@ export class UserService {
       .catch(this.obdelajNapako)
   }
 
+  public editUser(idUser: string, newUser: User): Promise<User> {
+    const url: string = `${this.apiUrl}/${idUser}`;
+    console.log("url: "+url)
+    //auth
+    const httpHeaders = {
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${this.authService.vrniZeton()}`
+      })
+    };
+
+    return this.http
+      .put(url,newUser,httpHeaders)
+      .toPromise()
+      .then(odgovor => odgovor as User)
+      .catch(this.obdelajNapako)
+  }
+
   private obdelajNapako(napaka: any): Promise<any> {
     console.error('Prišlo je do napake', napaka);
     return Promise.reject(napaka.message || napaka);

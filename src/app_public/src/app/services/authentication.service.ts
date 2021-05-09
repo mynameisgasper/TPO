@@ -43,7 +43,7 @@ export class AuthenticationService {
       })
     };
     return this.http
-      .post(url, password, httpHeaders)
+      .put(url, {password: password}, httpHeaders)
       .toPromise()
       .then(rezultat => rezultat as boolean)
       .catch(this.obdelajNapako);
