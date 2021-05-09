@@ -37,10 +37,3 @@ jobs:
         working-directory: ./src/app_public
       - run: npx cypress run # Poženi teste.
         working-directory: ./src/app_public
-      - name: Posredovanje na Heroku
-        uses: akhileshns/heroku-deploy@v3.12.12
-        with:
-          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
-          heroku_app_name: ${{ secrets.HEROKU_PRODUCTION }}
-          heroku_email: ${{ secrets.HEROKU_EMAIL }}
-          branch: produkcijsko-okolje
