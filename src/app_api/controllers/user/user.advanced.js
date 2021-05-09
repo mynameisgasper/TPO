@@ -69,6 +69,7 @@ const getComments = (req,res) => {
 }
 
 const addRating = (req, res) => {
+    console.log("addRating")
     User.findById(req.query.userId).exec().then(user => {
         if (!user) {
             return res.status(404).json({ "sporocilo": "Ne najdem uporabnika" });

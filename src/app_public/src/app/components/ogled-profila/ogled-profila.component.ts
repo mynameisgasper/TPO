@@ -14,6 +14,7 @@ export class OgledProfilaComponent implements OnInit {
   user:UserPublic
   id:string
   comment:Comment = new Comment
+  public ok: boolean = false;
 
   constructor(private userService:UserService, private route:ActivatedRoute, private router:Router, private authService:AuthenticationService) { }
 
@@ -63,6 +64,26 @@ export class OgledProfilaComponent implements OnInit {
       alert("Brisanje komentarja neuspešno!")
       console.error(err)
     })
+  }
+
+  podajOceno() {
+    let ocena = (document.getElementById('ocena') as HTMLSelectElement).value;
+    //console.log(ocena)
+    if (ocena) {
+      this.userService.podajOceno(this.id, parseInt(ocena))
+        .then((r) => {
+          window.location.reload()
+          if (r) {
+            alert("uspešno podana ocena")
+            this.ok = true
+          } else {
+            alert("ocena ni uspela")
+          }
+        })
+        .catch(err => {
+          alert(err)
+        })
+    }
   }
 
 
