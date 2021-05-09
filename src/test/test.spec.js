@@ -12,9 +12,9 @@ describe('Testiranje Dog walkers', () => {
         cy.contains('DOG WALKERS')
         //Vnesi v polja in klikni na gumb
         cy.get('#loginEmail')
-        .type('testar.testkovic@gmail.com').should('have.value', 'testar.testkovic@gmail.com')
+        .invoke('val','testar.testkovic@gmail.com').should('have.value', 'testar.testkovic@gmail.com')
         cy.get('#loginPassword')
-        .type('testtest')
+        .invoke('val','testtest')
         cy.get('#login').click()
 
         //Počakaj klic
@@ -29,9 +29,9 @@ describe('Testiranje Dog walkers', () => {
         cy.contains('DOG WALKERS')
         //Vnesi v polja in klikni na gumb
         cy.get('#loginEmail')
-        .type('testni1.uporabnik1@gmail.com').should('have.value', 'testni1.uporabnik1@gmail.com')
+        .invoke('val','testni1.uporabnik1@gmail.com').should('have.value', 'testni1.uporabnik1@gmail.com')
         cy.get('#loginPassword')
-        .type('testtest')
+        .invoke('val','testtest')
         cy.get('#login').click()
 
         //Počakaj klic
@@ -46,9 +46,9 @@ describe('Testiranje Dog walkers', () => {
         cy.contains('DOG WALKERS')
         //Vnesi v polja in klikni na gumb
         cy.get('#loginEmail')
-        .type('ad.min@hotmail.com').should('have.value', 'ad.min@hotmail.com')
+        .invoke('val','ad.min@hotmail.com').should('have.value', 'ad.min@hotmail.com')
         cy.get('#loginPassword')
-        .type('admin')
+        .invoke('val','admin')
         cy.get('#login').click()
 
         //Počakaj klic
@@ -62,14 +62,14 @@ describe('Testiranje Dog walkers', () => {
         cy.wait(200)
 
         // Izpolni registracijsko formo
-        cy.get("#registrationName").type('Testni1')
-        cy.get("#registrationSurname").type('Uporabnik1')
-        cy.get("#registrationPhone").type('041041031')
-        cy.get("#registrationAddress").type('Testni Kraj')
-        cy.get("#registrationCountry").type('Testna')
-        cy.get("#registrationEmail").type('testni1.uporabnik1@gmail.com')
-        cy.get("#registrationPassword").type('testtest')
-        cy.get("#registrationPassword2").type('testtest')
+        cy.get("#registrationName").invoke('val','Testni1')
+        cy.get("#registrationSurname").invoke('val','Uporabnik1')
+        cy.get("#registrationPhone").invoke('val','041041031')
+        cy.get("#registrationAddress").invoke('val','Testni Kraj')
+        cy.get("#registrationCountry").invoke('val','Testna')
+        cy.get("#registrationEmail").invoke('val','testni1.uporabnik1@gmail.com')
+        cy.get("#registrationPassword").invoke('val','testtest')
+        cy.get("#registrationPassword2").invoke('val','testtest')
 
         // Izberi vrsto računa
         cy.get('#navaden').click()
@@ -88,9 +88,9 @@ describe('Testiranje Dog walkers', () => {
         cy.contains('DOG WALKERS')
         //Vnesi v polja in klikni na gumb
         cy.get('#loginEmail')
-        .type('testni1.uporabnik1@gmail.com').should('have.value', 'testni1.uporabnik1@gmail.com')
+        .invoke('val','testni1.uporabnik1@gmail.com').should('have.value', 'testni1.uporabnik1@gmail.com')
         cy.get('#loginPassword')
-        .type('testtest')
+        .invoke('val','testtest')
         cy.get('#login').click()
 
         //Počakaj klic
@@ -105,14 +105,14 @@ describe('Testiranje Dog walkers', () => {
         cy.wait(200)
 
         // Izpolni registracijsko formo
-        cy.get("#registrationName").type('Testni2')
-        cy.get("#registrationSurname").type('Uporabnik2')
-        cy.get("#registrationPhone").type('041041031')
-        cy.get("#registrationAddress").type('Testni Kraj')
-        cy.get("#registrationCountry").type('Testna')
-        cy.get("#registrationEmail").type('testni2.uporabnik2@gmail.com')
-        cy.get("#registrationPassword").type('testtest')
-        cy.get("#registrationPassword2").type('testtest')
+        cy.get("#registrationName").invoke('val','Testni2')
+        cy.get("#registrationSurname").invoke('val','Uporabnik2')
+        cy.get("#registrationPhone").invoke('val','041041031')
+        cy.get("#registrationAddress").invoke('val','Testni Kraj')
+        cy.get("#registrationCountry").invoke('val','Testna')
+        cy.get("#registrationEmail").invoke('val','testni2.uporabnik2@gmail.com')
+        cy.get("#registrationPassword").invoke('val','testtest')
+        cy.get("#registrationPassword2").invoke('val','testtest')
 
         // Izberi vrsto računa
         cy.get('#navaden').click()
@@ -130,9 +130,9 @@ describe('Testiranje Dog walkers', () => {
         cy.contains('DOG WALKERS')
         //Vnesi v polja in klikni na gumb
         cy.get('#loginEmail')
-        .type('testni2.uporabnik2@gmail.com').should('have.value', 'testni2.uporabnik2@gmail.com')
+        .invoke('val','testni2.uporabnik2@gmail.com').should('have.value', 'testni2.uporabnik2@gmail.com')
         cy.get('#loginPassword')
-        .type('testtest')
+        .invoke('val','testtest')
         cy.get('#login').click()
 
         //Počakaj klic
@@ -146,14 +146,14 @@ describe('Testiranje Dog walkers', () => {
         cy.wait(200)
 
         // Izpolni registracijsko formo
-        cy.get("#registrationName").type('testar')
-        cy.get("#registrationSurname").type('testkovic')
-        cy.get("#registrationPhone").type('041041031')
-        cy.get("#registrationAddress").type('Testni Kraj')
-        cy.get("#registrationCountry").type('Testna')
-        cy.get("#registrationEmail").type('testar.testkovic@gmail.com')
-        cy.get("#registrationPassword").type('testtest')
-        cy.get("#registrationPassword2").type('testtest')
+        cy.get("#registrationName").invoke('val','testar')
+        cy.get("#registrationSurname").invoke('val','testkovic')
+        cy.get("#registrationPhone").invoke('val','041041031')
+        cy.get("#registrationAddress").invoke('val','Testni Kraj')
+        cy.get("#registrationCountry").invoke('val','Testna')
+        cy.get("#registrationEmail").invoke('val','testar.testkovic@gmail.com')
+        cy.get("#registrationPassword").invoke('val','testtest')
+        cy.get("#registrationPassword2").invoke('val','testtest')
 
         // Izberi vrsto računa
         cy.get('#navaden').click()
@@ -171,9 +171,9 @@ describe('Testiranje Dog walkers', () => {
         cy.contains('DOG WALKERS')
         //Vnesi v polja in klikni na gumb
         cy.get('#loginEmail')
-        .type('testar.testkovic@gmail.com').should('have.value', 'testar.testkovic@gmail.com')
+        .invoke('val','testar.testkovic@gmail.com').should('have.value', 'testar.testkovic@gmail.com')
         cy.get('#loginPassword')
-        .type('testtest')
+        .invoke('val','testtest')
         cy.get('#login').click()
 
         //Počakaj klic
@@ -236,9 +236,9 @@ describe('Testiranje Dog walkers', () => {
             cy.contains('DOG WALKERS')
             //Vnesi v polja in klikni na gumb
             cy.get('#loginEmail')
-            .type('aabcc').should('have.value', 'aabcc')
+            .invoke('val','aabcc').should('have.value', 'aabcc')
             cy.get('#loginPassword')
-            .type('test1231')
+            .invoke('val','test1231')
             cy.get('#login').click()
             
             //alert
@@ -291,10 +291,10 @@ describe('Testiranje Dog walkers', () => {
 
             // Kreator novega oglasa vnese podatke
 
-            cy.get('#naslovOglasa').type('testni_oglas')
-            cy.wait(20)
-            cy.get('#opisOglasa').type('test 123 123')            
-            cy.get('#cenaOglasa').type('69')
+            cy.get('#naslovOglasa').invoke('val', 'testni_oglas')
+            cy.wait(200)
+            cy.get('#opisOglasa').invoke('val','test 123 123')            
+            cy.get('#cenaOglasa').invoke('val','69')
 
             // Kreator oglasa doda sliko iz lokalne naprave
             // cy.get('#dodajSliko').click()
@@ -378,10 +378,10 @@ describe('Testiranje Dog walkers', () => {
 
             // Kreator novega oglasa vnese podatke
 
-            cy.get('#naslovOglasa').type('testni_oglas')
+            cy.get('#naslovOglasa').invoke('val','testni_oglas')
             cy.wait(20)
-            cy.get('#opisOglasa').type('test 123 123')
-            cy.get('#cenaOglasa').type('69')
+            cy.get('#opisOglasa').invoke('val','test 123 123')
+            cy.get('#cenaOglasa').invoke('val','69')
 
             // Kreator oglasa doda sliko iz lokalne naprave
             // cy.get('#dodajSliko').click()
@@ -432,16 +432,16 @@ describe('Testiranje Dog walkers', () => {
             cy.wait(200)
 
             // Izpolni registracijsko formo
-            cy.get("#registrationName").type('Testni')
-            cy.get("#registrationSurname").type('Uporabnik')
-            cy.get("#registrationPhone").type('041041031')
-            cy.get("#registrationAddress").type('Testni Kraj')
-            cy.get("#registrationCountry").type('Testna')
+            cy.get("#registrationName").invoke('val','Testni')
+            cy.get("#registrationSurname").invoke('val','Uporabnik')
+            cy.get("#registrationPhone").invoke('val','041041031')
+            cy.get("#registrationAddress").invoke('val','Testni Kraj')
+            cy.get("#registrationCountry").invoke('val','Testna')
 
             // Namerno povzročimo napako
-            cy.get("#registrationEmail").type('testni.uporabnik.com')
-            cy.get("#registrationPassword").type('testtest')
-            cy.get("#registrationPassword2").type('testtest')
+            cy.get("#registrationEmail").invoke('val','testni.uporabnik.com')
+            cy.get("#registrationPassword").invoke('val','testtest')
+            cy.get("#registrationPassword2").invoke('val','testtest')
 
             // Izberi vrsto računa
             cy.get('#navaden').click()
