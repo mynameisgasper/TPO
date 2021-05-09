@@ -69,11 +69,13 @@ const deleteOne = (req, res) => {
         if(!oglas){
             res.status(404).json({"message":"ne najdem oglasa"})
         }if(oglas.creator.toString()===req.payload.id.toString() || req.payload.role === 1000){
-            oglas.delete().exec().then(result=>{
-                res.status(204).json({})
-            }).catch(err=>{
-                console.error(err.message);
-                res.status(500).json({"message":"internal server error"})
+            oglas.delete((err, response)=>{
+                if(err){
+                    console.error(err.message);
+                    res.status(500).json({"message":"internal server error"})
+                }else{
+                    res.status(204).json({})
+                }
             })
         }
     }).catch(err=>{
