@@ -76,10 +76,10 @@ describe('Testiranje Dog walkers', () => {
         cy.wait(50)
 
         // Registriraj se
-        cy.get('#regit').click()
         cy.intercept('POST', 'http://localhost:3000/api/v1/auth/register').as('register');
-
-        cy.get(200)
+        cy.get('#regit').click()
+        cy.wait('@register')
+        
 
         // Opravi testni login z novim računom
         //Pripravi API klic ki ga želimo prestreči in počakati
@@ -119,10 +119,9 @@ describe('Testiranje Dog walkers', () => {
         cy.wait(50)
 
         // Registriraj se
-        cy.get('#regit').click()
         cy.intercept('POST', 'http://localhost:3000/api/v1/auth/register').as('register');
-
-        cy.get(200)
+        cy.get('#regit').click()
+        cy.wait('@register')
 
         // Opravi testni login z novim računom
         //Pripravi API klic ki ga želimo prestreči in počakati
@@ -161,10 +160,9 @@ describe('Testiranje Dog walkers', () => {
         cy.wait(50)
 
         // Registriraj se
-        cy.get('#regit').click()
         cy.intercept('POST', 'http://localhost:3000/api/v1/auth/register').as('register');
-
-        cy.get(200)
+        cy.get('#regit').click()
+        cy.wait('@register')
 
         // Opravi testni login z novim računom
         //Pripravi API klic ki ga želimo prestreči in počakati
@@ -302,8 +300,9 @@ describe('Testiranje Dog walkers', () => {
             // cy.get('#dodajSliko').click()
 
             // Kreator doda nov oglas k obstoječim
+            cy.intercept('POST', 'http://localhost:3000/api/v1/oglas').as('oglasCreate')
             cy.get('#buttonAddOglas').click()
-            cy.wait(1000)
+            cy.wait('@oglasCreate')
 
             cy.get('#nasOglasBoard').should('have.text', 'testni_oglas')
         })
@@ -321,6 +320,51 @@ describe('Testiranje Dog walkers', () => {
                 expect(str).to.equal('Napaka pri kreaciji oglasa, glej konzolo!')
             })
         })
+    })
+
+    // TESTI: OGLED POSAMEZNEGA OGLASA
+    context('Ogled posameznega oglasa', () => {
+
+        it('Ogled oglasa', () => {
+
+            //Pojdi na stran z vsemi oglasi
+            cy.visit('http://localhost:4200/oglasi')
+            
+            cy.get('#oglasButton').first().click()
+            cy.wait(100)
+            cy.get('#odziv').should('have.text','Odziv na oglas')
+
+        })
+
+        // TODO, ko bodo oglasi vezani na posameznega uporabnika, ki jih je ustvaril
+        /*
+        it('Ogled oglasa preko profila', () => {
+        })
+        */
+    })
+
+    // TESTI: OGLED PROFILA
+    context('Ogled profila', () => {
+
+        it('Ogled lastnega profila', () => {
+
+            cy.login()
+
+            cy.get('#userProfileButton').click()
+            cy.wait(100)
+            cy.get('.naslov').should('have.text','Profil uporabnika')
+        })
+
+
+        it('Ogled profila drugega uporabnika', () => {
+
+            cy.loginOther()
+
+            cy.get('#profileButton').first().click()
+            cy.wait(100)
+            cy.get('#ocenaBtn').should('have.text','Podaj oceno')
+        })
+        
     })
 
     // TESTI: BRISANJE OGLASA
@@ -343,8 +387,9 @@ describe('Testiranje Dog walkers', () => {
             // cy.get('#dodajSliko').click()
 
             // Kreator doda nov oglas k obstoječim
+            cy.intercept('POST', 'http://localhost:3000/api/v1/oglas').as('oglasCreate')
             cy.get('#buttonAddOglas').click()
-            cy.wait(1000)
+            cy.wait('@oglasCreate')
 
             // Preveri ali na novo ustvarjen oglas obstaja med oglasi
             cy.get('#nasOglasBoard').should('have.text', 'testni_oglas')
@@ -411,49 +456,6 @@ describe('Testiranje Dog walkers', () => {
         })
     })
 
-    // TESTI: OGLED POSAMEZNEGA OGLASA
-    context('Ogled posameznega oglasa', () => {
-
-        it('Ogled oglasa', () => {
-
-            //Pojdi na stran z vsemi oglasi
-            cy.visit('http://localhost:4200/oglasi')
-            
-            cy.get('#oglasButton').first().click()
-            cy.wait(100)
-            cy.get('#odziv').should('have.text','Odziv na oglas')
-
-        })
-
-        // TODO, ko bodo oglasi vezani na posameznega uporabnika, ki jih je ustvaril
-        /*
-        it('Ogled oglasa preko profila', () => {
-        })
-        */
-    })
-
-    // TESTI: OGLED PROFILA
-    context('Ogled profila', () => {
-
-        it('Ogled lastnega profila', () => {
-
-            cy.login()
-
-            cy.get('#userProfileButton').click()
-            cy.wait(100)
-            cy.get('.naslov').should('have.text','Profil uporabnika')
-        })
-
-
-        it('Ogled profila drugega uporabnika', () => {
-
-            cy.loginOther()
-
-            cy.get('#profileButton').first().click()
-            cy.wait(100)
-            cy.get('#ocenaBtn').should('have.text','Podaj oceno')
-        })
-        
-    })
+    
     
 })

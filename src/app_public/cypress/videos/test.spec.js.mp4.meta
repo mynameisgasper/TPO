@@ -1,0 +1,71 @@
+;FFMETADATA1
+[CHAPTER]
+TIMEBASE=1/1000
+START=-7082
+END=7717
+title=Testiranje Dog walkers Vzpostavitev uporabnikov (NISO TESTI) Registracija testar testkovic
+[CHAPTER]
+TIMEBASE=1/1000
+START=15336
+END=22553
+title=Testiranje Dog walkers Vzpostavitev uporabnikov (NISO TESTI) Registracije testni1 uporabnik1
+[CHAPTER]
+TIMEBASE=1/1000
+START=28792
+END=29817
+title=Testiranje Dog walkers Pregled vseh oglasov Pregled vseh oglasov
+[CHAPTER]
+TIMEBASE=1/1000
+START=29403
+END=30850
+title=Testiranje Dog walkers Prijava uporabnika Neuspešna prijava uporabnika
+[CHAPTER]
+TIMEBASE=1/1000
+START=30494
+END=32315
+title=Testiranje Dog walkers Prijava uporabnika Uspešna prijava uporabnika
+[CHAPTER]
+TIMEBASE=1/1000
+START=31953
+END=34138
+title=Testiranje Dog walkers Urejanje uporabniškega profila Urejanje profila uporabnika
+[CHAPTER]
+TIMEBASE=1/1000
+START=32526
+END=36329
+title=Testiranje Dog walkers Kreiranje oglasa Kreiranje oglasa uspešen
+[CHAPTER]
+TIMEBASE=1/1000
+START=37564
+END=40140
+title=Testiranje Dog walkers Kreiranje oglasa Kreiranje oglasa neuspešen
+[CHAPTER]
+TIMEBASE=1/1000
+START=41425
+END=42720
+title=Testiranje Dog walkers Ogled posameznega oglasa Ogled oglasa
+[CHAPTER]
+TIMEBASE=1/1000
+START=41858
+END=44017
+title=Testiranje Dog walkers Ogled profila Ogled lastnega profila
+[CHAPTER]
+TIMEBASE=1/1000
+START=44141
+END=46185
+title=Testiranje Dog walkers Ogled profila Ogled profila drugega uporabnika
+[CHAPTER]
+TIMEBASE=1/1000
+START=43175
+END=48231
+title=Testiranje Dog walkers Brisanje oglasa Brisanje oglasa
+[CHAPTER]
+TIMEBASE=1/1000
+START=47612
+END=53289
+title=Testiranje Dog walkers Registracija uporabnika Registracija uspešna - navaden
+[CHAPTER]
+TIMEBASE=1/1000
+START=54015
+END=58992
+title=Testiranje Dog walkers Registracija uporabnika Registracija neuspešna - navaden
