@@ -57,9 +57,7 @@ const deleteComment = (req, res) => {
                                     return res.status(200).json({ "message": "komentar uspešno izbrisan" })
                                 }
                             })
-                        }
                     }
-                }
                 }
             }
         }
