@@ -46,10 +46,9 @@ const deleteComment = (req, res) => {
                     }
                 })
             } else {
-                for (var i = 0; i < user.comments.length; i++) {
-                    if (user.comments[i]._id === req.query.commentId) {
-                        if (user.comments[i].owner === req.payload.email) {
-                            user.comments.splice(user.comments.find(c => c._id === req.query.commentId && c.owner === req.payload.email), 1)
+                for (let i = 0; i < user.comments.length; i++) {
+                    if (user.comments[i]._id === req.query.commentId && user.comments[i].owner === req.payload.email) {
+                            user.comments.splice(i, 1)
                             user.save((err, doc) => {
                                 if (err) {
                                     return res.status(500).json({ "message": "internal server error" })
@@ -58,10 +57,9 @@ const deleteComment = (req, res) => {
                                     return res.status(200).json({ "message": "komentar uspešno izbrisan" })
                                 }
                             })
-                        } else {
-                            return res.status(401).json({ "message": "uporabnik nima pravice brisati ta komentar" })
                         }
                     }
+                }
                 }
             }
         }
