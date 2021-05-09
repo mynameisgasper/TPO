@@ -5,16 +5,14 @@ let isProduction = (process.env.NODE_ENV === 'production');
 let isDocker = (process.env.NODE_ENV === 'docker');
 
 let dbUri = (isProduction)?
-    process.env.MONGODB_ATLAS_URI:
+    process.env.MONGO_ATLAS_URI:
     (isDocker)?
     `mongodb://${process.env.MONGODB_SERVER}:${process.env.MONGODB_PORT}`:
     'mongodb://localhost:27017';
 if(process.env.NODE_ENV === 'production'){
     mongoose.connect(dbUri, {
         useNewUrlParser: true,
-        useCreateIndex: true,
-        useUnifiedTopology: true,
-        useFindAndModify: false
+        useUnifiedTopology: true
     });
 }else if(process.env.NODE_ENV === 'docker'){
     mongoose.connect(dbUri, {
