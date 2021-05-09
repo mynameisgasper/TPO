@@ -13,8 +13,6 @@
     "mongo-export-production": "npm run mongo-snapshot & npm run mongo-export-to-atlas",
     "mongo-snapshot": "docker exec -it dw-dev-database bash -c \"mongodump -h localhost -d dw-dev-cluster -o ./\"",
     "mongo-export-to-atlas": "docker exec -it dw-dev-database bash -c \"mongorestore --uri mongodb+srv://app:passapp@dogwalkers.4crr1.mongodb.net -d dw-dev-cluster ./dw-dev-cluster\""
-
-
   },
   "engines": {
     "node": ">=15.11.0",

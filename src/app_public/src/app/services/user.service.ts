@@ -4,6 +4,7 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {AuthenticationService} from "./authentication.service";
 import {User, UserPublic} from "../Models/User";
 import {Comment} from "../Models/Comment";
+import {AuthenticationResult} from "../Classes/authenticationResult";
 
 @Injectable({
   providedIn: 'root'
@@ -81,7 +82,7 @@ export class UserService {
       .catch(this.obdelajNapako)
   }
 
-  public editUser(idUser: string, newUser: User): Promise<User> {
+  public editUser(idUser: string, newUser: User): Promise<AuthenticationResult> {
     const url: string = `${this.apiUrl}/${idUser}`;
     console.log("url: "+url)
     //auth
@@ -94,7 +95,7 @@ export class UserService {
     return this.http
       .put(url,newUser,httpHeaders)
       .toPromise()
-      .then(odgovor => odgovor as User)
+      .then(odgovor => odgovor as AuthenticationResult)
       .catch(this.obdelajNapako)
   }
 

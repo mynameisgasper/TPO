@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import {User, UserRegister} from 'src/app/Models/User';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { UserService } from 'src/app/services/user.service';
+import {AuthenticationResult} from "../../Classes/authenticationResult";
 
 @Component({
   selector: 'app-urejanje-profila',
@@ -33,8 +34,9 @@ export class UrejanjeProfilaComponent implements OnInit {
 
   public editUser(): void {
     this.userService.editUser(this.user.id, this.user)
-      .then((user: User) => {
-        console.log("User posodobljen", user);
+      .then((result: AuthenticationResult) => {
+        this.authService.shraniZeton(result.jwt)
+        window.location.reload()
       })
   }
 
