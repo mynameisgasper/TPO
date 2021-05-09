@@ -31,7 +31,7 @@ export class VsiOglasiComponent implements OnInit {
   getAllOglasi(){
     this.oglasiService.getAll().then((result:Oglas[])=>{
       this.oglasi = result
-      console.log(this.oglasi)
+      //console.log(this.oglasi)
     }).catch(err=>{
       alert("Ne morem dobiti oglasov iz podakotvne baze, preglej konzolo!")
       console.error(err)
@@ -47,12 +47,13 @@ export class VsiOglasiComponent implements OnInit {
 
   createOglas() {
     this.oglas.owner = this.authService.vrniTrenutnegaUporabnika().email
+    this.oglas.creator = this.authService.vrniTrenutnegaUporabnika().id
     this.oglas.name = this.naslovOglasa.nativeElement.value
     this.oglas.description =  this.opisOglasa.nativeElement.value
     this.oglas.location = this.authService.vrniTrenutnegaUporabnika().country
     this.oglas.picture = this.getBase64(this.slikaOglasa.nativeElement.files[0])
     this.oglas.price = this.cenaOglasa.nativeElement.value
-
+    
     this.oglasiService.create(this.oglas).then((result:Oglas)=> {
       document.getElementById("buttonCloseAddOglas").click()
       window.location.reload()
@@ -61,9 +62,6 @@ export class VsiOglasiComponent implements OnInit {
       alert("Napaka pri kreaciji oglasa, glej konzolo!")
       console.error(err)
     })
-
-
-
 
   }
 

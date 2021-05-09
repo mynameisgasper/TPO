@@ -19,19 +19,20 @@ export class OglasComponent implements OnInit {
   ngOnInit(): void {
 
     if(this.oglas){
-      console.log(this.oglas)
+     // console.log(this.oglas)
     }else {
       console.info("nedefiniran")
     }
   }
 
   openOglas() {
-    console.log(this.oglas._id)
+    console.log(this.oglas)
     this.router.navigate(["ogled-oglasa/"+this.oglas._id])
   }
 
   openProfile() {
     console.log(this.oglas.owner)
+    console.log(this.oglas.creator)
     this.router.navigate(["ogled-profila/"+this.oglas.creator])
   }
 

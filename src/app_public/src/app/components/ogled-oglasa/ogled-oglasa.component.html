@@ -15,7 +15,7 @@
                 <h3 id="naslovOglas">{{oglas.name}}</h3>
             </div>
             <div class="col-4 col-md-4 col-lg-4 col-xl-4">
-                <button (click)="izbrisiOglas()" class="btn btn-danger btn-delete" id="deleteButton" style="margin-left:1vh;">
+                <button *ngIf="user.email === oglas.owner || user.role === 2" (click)="izbrisiOglas()" class="btn btn-danger btn-delete" id="deleteButton" style="margin-left:1vh;">
                     <i class="fas fa-trash-alt"></i>
                 </button>
                 <button class="btn btn-primary" id="editButton" data-toggle="modal" data-target="#urediOglasModal" type="button" style="float:right">

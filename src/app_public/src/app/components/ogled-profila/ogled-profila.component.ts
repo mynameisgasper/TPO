@@ -38,7 +38,7 @@ export class OgledProfilaComponent implements OnInit {
   }
 
   get prijavljenUporabnik(){
-    return this.authService.vrniTrenutnegaUporabnika().email
+    return this.authService.vrniTrenutnegaUporabnika()
   }
 
   createComment(){

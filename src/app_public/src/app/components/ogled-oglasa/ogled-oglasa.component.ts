@@ -2,6 +2,7 @@ import { ElementRef } from '@angular/core';
 import { ViewChild } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { User } from 'src/app/Models/User';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import {Oglas} from "../../Models/Oglas"
 import {OglasiService} from "../../services/oglasi.service";
@@ -15,12 +16,14 @@ import {OglasiService} from "../../services/oglasi.service";
 export class OgledOglasaComponent implements OnInit {
   oglas: Oglas
   id: string;
+  user: User
 
   constructor(private oglasiService:OglasiService, private route:ActivatedRoute, private router:Router, private authService:AuthenticationService) { }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id')
     this.getOneOglas(this.id)
+    this.user = this.authService.vrniTrenutnegaUporabnika()
   }
 
   @ViewChild('inputNaslovOglasa') naslovOglasa: ElementRef;
@@ -29,7 +32,7 @@ export class OgledOglasaComponent implements OnInit {
   @ViewChild('inputSlikaOglasa') slikaOglasa: ElementRef;
 
   getOneOglas(id: string) {
-    this.oglasiService.getOne(this.id).then((result:Oglas)=>{
+    this.oglasiService.getOne(id).then((result:Oglas)=>{
       this.oglas = result
       console.log(this.oglas)
     }).catch(err=>{
@@ -73,7 +76,7 @@ export class OgledOglasaComponent implements OnInit {
 
   openProfile() {
     console.log(this.oglas.owner)
-    this.router.navigate(["ogled-profila/"+this.oglas.owner])
+    this.router.navigate(["ogled-profila/"+this.oglas.creator])
   }
 
   odpriProfilLastnikaOglasa(){
