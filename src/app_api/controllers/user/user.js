@@ -76,10 +76,14 @@ const update = (req, res) => {
     let user = {...req.body }
     User.updateOne({ _id: req.payload.id }, user, (err) => {
         if (err) {
-            console.log(err);
-            res.status(500);
+            console.log(err.message);
+            return res.status(500);
         } else {
-            res.status(200).json(user);
+            User.findById(req.payload.id).exec().then(user => {
+                return res.status(200).json({"jwt":user.generirajJwt()});
+            }).catch(err => {
+                return res.status(500).json({"message":"internal server error"})
+            })
         }
     })
 };

@@ -5,6 +5,7 @@ import {SHRAMBA_BRSKALNIKA} from "../Classes/storage";
 import {User, UserLogin, UserRegister} from "../Models/User";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {environment} from "../../environments/environment";
+import jwt_decode from "jwt-decode";
 
 @Injectable({
   providedIn: 'root'
@@ -65,8 +66,10 @@ export class AuthenticationService {
   public jePrijavljen(): boolean {
     const zeton: string = this.vrniZeton();
     if (zeton) {
-      const usefulinfo = JSON.parse(atob(zeton.split('.')[1]));
-      return usefulinfo.exp > (Date.now() / 1000);
+      const usefulInfo = jwt_decode(zeton)
+      //const usefulinfo = JSON.parse(atob(zeton.split('.')[1]));
+      // @ts-ignore
+      return usefulInfo.exp > (Date.now() / 1000);
     } else {
       return false;
     }
@@ -85,7 +88,8 @@ export class AuthenticationService {
         email,
         role,
         rating,
-        description } = JSON.parse(atob(zeton.split('.')[1]));
+        description } = jwt_decode(zeton) as any;
+      console.log(name)
       return {
         id,
         name,
