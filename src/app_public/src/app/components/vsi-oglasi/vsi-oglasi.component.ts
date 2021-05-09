@@ -40,14 +40,18 @@ export class VsiOglasiComponent implements OnInit {
 
   //TODO PRETVORI UPLOADAN FILE V BASE64 STRING NI GA SHRANI V picture POLJE
 
+  getBase64(file:File){
+    //todo
+    return ""
+  }
+
   createOglas() {
-    this.oglas.owner = this.authService.vrniTrenutnegaUporabnika().id
+    this.oglas.owner = this.authService.vrniTrenutnegaUporabnika().email
     this.oglas.name = this.naslovOglasa.nativeElement.value
     this.oglas.description =  this.opisOglasa.nativeElement.value
     this.oglas.location = this.authService.vrniTrenutnegaUporabnika().country
-    this.oglas.picture = this.slikaOglasa.nativeElement.value
+    this.oglas.picture = this.getBase64(this.slikaOglasa.nativeElement.files[0])
     this.oglas.price = this.cenaOglasa.nativeElement.value
-
 
     this.oglasiService.create(this.oglas).then((result:Oglas)=> {
       document.getElementById("buttonCloseAddOglas").click()
