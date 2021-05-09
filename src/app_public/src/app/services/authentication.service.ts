@@ -83,8 +83,9 @@ export class AuthenticationService {
         address,
         country,
         email,
+        role,
         rating,
-        role } = JSON.parse(atob(zeton.split('.')[1]));
+        description } = JSON.parse(atob(zeton.split('.')[1]));
       return {
         id,
         name,
@@ -94,6 +95,7 @@ export class AuthenticationService {
         country,
         email,
         rating,
+        description,
         role } as User;
     }
   }

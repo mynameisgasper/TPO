@@ -47,6 +47,7 @@ export class ProfilUporabnikaComponent implements OnInit {
 
   pridobiPodatkeUporabnika(){
     this.user = this.authServis.vrniTrenutnegaUporabnika()
+    console.log(this.user)
   }
 
 
