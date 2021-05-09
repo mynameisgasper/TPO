@@ -29,7 +29,7 @@ describe('Testiranje Dog walkers', () => {
         cy.contains('DOG WALKERS')
         //Vnesi v polja in klikni na gumb
         cy.get('#loginEmail')
-        .type('testar.testkovic@gmail.com').should('have.value', 'testar.testkovic@gmail.com')
+        .type('testni1.uporabnik1@gmail.com').should('have.value', 'testni1.uporabnik1@gmail.com')
         cy.get('#loginPassword')
         .type('testtest')
         cy.get('#login').click()
@@ -100,7 +100,44 @@ describe('Testiranje Dog walkers', () => {
 
     Cypress.Commands.add('registerNovi2', () => { 
 
+        // Pojdi na stran za registracijo
+        cy.get('#register').click()
+        cy.wait(200)
+
+        // Izpolni registracijsko formo
+        cy.get("#registrationName").type('Testni2')
+        cy.get("#registrationSurname").type('Uporabnik2')
+        cy.get("#registrationPhone").type('041041031')
+        cy.get("#registrationAddress").type('Testni Kraj')
+        cy.get("#registrationCountry").type('Testna')
+        cy.get("#registrationEmail").type('testni2.uporabnik2@gmail.com')
+        cy.get("#registrationPassword").type('testtest')
+        cy.get("#registrationPassword2").type('testtest')
+
+        // Izberi vrsto računa
+        cy.get('#navaden').click()
+        cy.wait(50)
+
+        // Registriraj se
+        cy.get('#regit').click()
+        cy.intercept('POST', 'http://localhost:3000/api/v1/auth/register').as('register');
+
+        cy.get(200)
+
+        // Opravi testni login z novim računom
+        //Pripravi API klic ki ga želimo prestreči in počakati
+        cy.intercept('POST', 'http://localhost:3000/api/v1/auth/login').as('login');
         
+        cy.contains('DOG WALKERS')
+        //Vnesi v polja in klikni na gumb
+        cy.get('#loginEmail')
+        .type('testni2.uporabnik2@gmail.com').should('have.value', 'testni2.uporabnik2@gmail.com')
+        cy.get('#loginPassword')
+        .type('testtest')
+        cy.get('#login').click()
+
+        //Počakaj klic
+        cy.wait('@login')
     })
     
     
@@ -235,7 +272,7 @@ describe('Testiranje Dog walkers', () => {
 
             cy.get('#profileButton').first().click()
             cy.wait(100)
-            cy.get('#podajOceno').should('have.text','Podaj oceno')
+            cy.get('#ocenaBtn').should('have.text','Podaj oceno')
         })
         
     })
@@ -335,49 +372,8 @@ describe('Testiranje Dog walkers', () => {
 
 
         it('Registracija uspešna - navaden', () => {
-            
-            /*
-            // Pojdi na stran za registracijo
-            cy.get('#register').click()
-            cy.wait(200)
 
-            // Izpolni registracijsko formo
-            cy.get("#registrationName").type('Testni')
-            cy.get("#registrationSurname").type('Uporabnik')
-            cy.get("#registrationPhone").type('041041031')
-            cy.get("#registrationAddress").type('Testni Kraj')
-            cy.get("#registrationCountry").type('Testna')
-            cy.get("#registrationEmail").type('testni.uporabnik@gmail.com')
-            cy.get("#registrationPassword").type('testtest')
-            cy.get("#registrationPassword2").type('testtest')
-
-            // Izberi vrsto računa
-            cy.get('#navaden').click()
-            cy.wait(50)
-
-            // Registriraj se
-            cy.get('#regit').click()
-            cy.intercept('POST', 'http://localhost:3000/api/v1/auth/register').as('register');
-
-            cy.get(200)
-
-            // Opravi testni login z novim računom
-            //Pripravi API klic ki ga želimo prestreči in počakati
-            cy.intercept('POST', 'http://localhost:3000/api/v1/auth/login').as('login');
-            
-            cy.contains('DOG WALKERS')
-            //Vnesi v polja in klikni na gumb
-            cy.get('#loginEmail')
-            .type('testni.uporabnik@gmail.com').should('have.value', 'testni.uporabnik@gmail.com')
-            cy.get('#loginPassword')
-            .type('testtest')
-            cy.get('#login').click()
-
-            //Počakaj klic
-            cy.wait('@login')
-            */
-
-            // cy.registerNovi1()
+            cy.registerNovi2()
 
         })
 
@@ -405,18 +401,10 @@ describe('Testiranje Dog walkers', () => {
 
             // Registriraj se
             cy.get('#regit').click()
-            cy.wait(200)
+            cy.wait(400)
 
-            cy.request('http://localhost:3000/api/v1/auth/register').should('have.text', 'Prosim vnesi pravilen email naslov.')
+            cy.get('#odziv').should('have.text', '\nProsim vnesi pravilen email naslov.\n')
 
-            //alert
-            //'Prosim vnesi pravilen email naslov.'
-
-            /*
-            cy.on('window:alert', (str) => {
-                expect(str).to.equal('Prosim vnesi pravilen email naslov.')
-            })
-            */
         })
     })
 
