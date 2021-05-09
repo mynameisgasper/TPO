@@ -41,11 +41,9 @@
                 </div>
                 <div class="form-group radio">
                     <label>Tip računa</label><br>
-                    <input (click)="setRole(0)" type="radio" id="navaden" name="accType" value="navaden">
+                    <input (click)="setRole(0)" type="radio" id="navaden" name="accType" value="navaden" checked="checked">
                     <label for="navaden">Navaden</label><br>
-                    <input (click)="setRole(1)" type="radio" id="organizacija" name="accType" value="organizacija">
-                    <label for="organizacija">Organizacija</label><br>
-                    <input (click)="setRole(2)" type="radio" id="premium" name="accType" value="premium">
+                    <input (click)="setRole(1)" type="radio" id="premium" name="accType" value="premium">
                     <label for="premium">Premium</label>
                 </div>
                 <button (click)="onClickRegister()" class="btn btn-primary registration" style="text-align: right;">Registracija</button>

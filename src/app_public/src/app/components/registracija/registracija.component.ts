@@ -34,7 +34,7 @@ export class RegistracijaComponent implements OnInit {
   country: string
   password: string
   passwordCheck: string
-  role: number = 3
+  role: number = 0
 
   public setRole(i:number): void {
     this.role = i;
@@ -61,8 +61,6 @@ export class RegistracijaComponent implements OnInit {
       !this.password
     ) {
       this.response = "Zahtevani so vsi podatki.";
-    } else if (this.role == 3) {
-      this.response = "Prosim izberi tip računa!";
     }
     //regex + check
     let userNameCheck = new RegExp("^[a-z0-9A-ZčćžđšČĆŽĐŠ ]+$");

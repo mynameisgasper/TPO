@@ -17,7 +17,7 @@ export class ProfilUporabnikaComponent implements OnInit {
   user:User
   comment:Comment = new Comment
   comments:Comment[]
-
+  public ok: boolean = false;
 
   constructor(private userService:UserService, private authServis:AuthenticationService, private router:Router, private route:ActivatedRoute) { }
 
@@ -48,6 +48,13 @@ export class ProfilUporabnikaComponent implements OnInit {
   pridobiPodatkeUporabnika(){
     this.user = this.authServis.vrniTrenutnegaUporabnika()
     console.log(this.user)
+  }
+
+  podajOceno() {
+    let ocena = (document.getElementById('ocena') as HTMLSelectElement).value;
+    if (ocena) {
+
+    }
   }
 
 
