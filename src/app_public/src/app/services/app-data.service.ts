@@ -17,11 +17,13 @@ export class AppDataService {
   }
 
   public registracija(registerData: UserRegister): Promise<AuthenticationResult> {
+    //console.log("got to app-data.service registracija")
     return this.avtentikacija('auth/register', registerData);
   }
 
   private avtentikacija(urlNaslov: string, uporabnik: any): Promise<AuthenticationResult> {
     const url: string = `${this.apiUrl}/${urlNaslov}`;
+    console.log("url: "+url)
     return this.http
       .post(url, uporabnik)
       .toPromise()

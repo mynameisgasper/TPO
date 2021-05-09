@@ -4,6 +4,7 @@ const Uporabnik = mongoose.model('User');
 
 
 const register = (req, res) => {
+    console.log("got to register controller")
     if (!req.body.name ||
         !req.body.surname ||
         !req.body.email ||

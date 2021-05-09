@@ -10,6 +10,7 @@ export interface UserRegister{
   address: string
   country: string
   password: string
+  role: number
 }
 export class User{
   id: string
