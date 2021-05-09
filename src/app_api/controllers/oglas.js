@@ -3,35 +3,28 @@ const Oglas = mongoose.model('Oglas');
 
 const getAll = (req, res) => {
     // todo implementiraj filtriranje in paginacijo
-    Oglas
-        .find()
-        .exec((napaka, oglasi) => {
-            if (napaka) {
-                return res.status(500).json(napaka);
-            } else if (!oglasi) {
-                return res.status(404).json({
-                    "sporocilo": "Ne najdem podatkov"
-                });
-            } else {
-                res.status(200).json(oglasi);
-            }
-        });
+    Oglas.find().exec((napaka, oglasi) => {
+        if (napaka) {
+            return res.status(500).json(napaka);
+        } else if (!oglasi) {
+            return res.status(404).json({
+                "sporocilo": "Ne najdem podatkov"
+            });
+        } else {
+            res.status(200).json(oglasi);
+        }
+    });
 };
 
 const getOne = (req, res) => {
-    Oglas
-        .findById(req.params.id)
-        .exec((napaka, oglas) => {
-            if (!oglas) {
-                return res.status(404).json({
-                    "sporocilo": "Ne najdem oglasa"
-                });
-            } else if (napaka) {
-                return res.status(500).json(napaka, "api napaka");
-            }
-            console.log(oglas)
-            res.status(200).json(oglas);
-        });
+    Oglas.findById(req.params.id).exec((napaka, oglas) => {
+        if (!oglas) {
+            return res.status(404).json({"sporocilo": "Ne najdem oglasa"});
+        } else if (napaka) {
+            return res.status(500).json(napaka, "api napaka");
+        }
+        res.status(200).json(oglas);
+    });
 };
 
 const create = (req, res) => {
@@ -47,15 +40,8 @@ const create = (req, res) => {
         oglas.description = req.body.description
         oglas.location = req.body.location
         oglas.creator = req.payload.id
-
-        if (req.body.picture) {
-            oglas.picture = req.body.picture
-        }
-
-        if (req.body.price) {
-            oglas.price = req.body.price
-        }
-
+        if (req.body.price)oglas.price = req.body.price
+        if (req.body.picture)oglas.picture = req.body.picture
         oglas.save(napaka => {
             if (napaka) {
                 res.status(500).json(napaka);
