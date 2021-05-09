@@ -1,6 +1,9 @@
+//import {Oglas} from "../../../app_public/instrumented/app/Models/Oglas";
+
 const mongoose = require('mongoose');
 const Comment = mongoose.model('Comment')
 const User = mongoose.model('User');
+const Oglasi = mongoose.model('Oglas');
 
 const addComment = (req, res) => {
     User.findById(req.query.userId).exec().then(user => {
@@ -109,7 +112,17 @@ const addRating = (req, res) => {
 }
 
 const getAllOglasi = (req, res) => {
-    //todo pridobi vse oglase uporabnika in vrni
+    Oglasi.find({creator:req.payload.id}).exec().then(oglasi => {
+        if(!oglasi){
+            res.status(404).json({"message":"ne najdem oglasov"})
+        }else{
+            res.status(200).json(oglasi)
+        }
+    }).catch(err=>{
+        console.error(err.message)
+        res.status(500).json({"message":"internal server error"})
+    })
+
 }
 
 const updateDescription = (req,res)=>{
