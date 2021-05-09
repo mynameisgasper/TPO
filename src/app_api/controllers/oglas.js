@@ -68,7 +68,7 @@ const create = (req, res) => {
 
 const update = (req, res) => {
     let oglas = {...req.body }
-    Oglas.updateOne({ _id: req.params.id }, oglas, (err) => {
+    Oglas.updateOne({ _id: req.params.id, creator: req.payload.id }, oglas, (err) => {
         if (err) {
             console.log(err);
             res.status(500);
