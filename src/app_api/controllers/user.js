@@ -182,7 +182,6 @@ const deleteComment = (req, res) => {
 }
 
 const getComments = (req,res) => {
-    console.log(req.query.userId)
     User.findById(req.query.userId).exec().then(user=>{
         if(!user){
             res.status(404).json({"message":"ne najdem uporabnika"})
