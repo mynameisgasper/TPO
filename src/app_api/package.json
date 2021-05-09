@@ -10,6 +10,10 @@
     "mongo-import-users": "docker cp ../app_database/persistent/users.json dw-dev-database:/users.json && docker exec -it dw-dev-database mongoimport --db dw-dev-cluster --collection Users --jsonArray --file users.json",
     "mongo-import-oglasi": "docker cp ../app_database/persistent/oglasi.json dw-dev-database:/oglasi.json && docker exec -it dw-dev-database mongoimport --db dw-dev-cluster --collection Oglasi --jsonArray --file oglasi.json",
     "mongo-import": "npm run mongo-import-users && npm run mongo-import-oglasi",
+    "mongo-export-production": "npm run mongo-snapshot & npm run mongo-export-to-atlas",
+    "mongo-snapshot": "docker exec -it dw-dev-database bash -c \"mongodump -h localhost -d dw-dev-cluster -o ./\"",
+    "mongo-export-to-atlas": "docker exec -it dw-dev-database bash -c \"mongorestore --uri mongodb+srv://app:passapp@dogwalkers.4crr1.mongodb.net -d dw-dev-cluster ./dw-dev-cluster\""
+
 
   },
   "engines": {
