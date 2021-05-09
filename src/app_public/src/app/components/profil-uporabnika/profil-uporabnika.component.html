@@ -61,7 +61,7 @@
             <b>{{comment.owner}}</b>
             <hr>
             {{comment.content}}
-            <button id="{{comment._id}}" (click)="deleteComment(comment._id)" class="btn btn-danger">
+            <button *ngIf="user.role === 1000 || comment.owner === user.email" id="{{comment._id}}" (click)="deleteComment(comment._id)" class="btn btn-danger">
               <i class="far fa-trash-alt"></i>
             </button>
           </div>
