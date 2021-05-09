@@ -12,6 +12,16 @@ export interface UserRegister{
   password: string
   role: number
 }
+export class UserPublic{
+  name: string
+  surname: string
+  phone: string
+  address: string
+  email: string
+  rating: number
+  comments: Comment[]
+  description: string
+}
 export class User{
   id: string
   name: string

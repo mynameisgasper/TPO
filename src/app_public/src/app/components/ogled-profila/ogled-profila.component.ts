@@ -1,5 +1,5 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import { User } from 'src/app/Models/User';
+import {User, UserPublic} from 'src/app/Models/User';
 import {Comment} from 'src/app/Models/Comment'
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import {UserService} from "../../services/user.service";
@@ -11,7 +11,7 @@ import {ActivatedRoute, Router} from "@angular/router";
   styleUrls: ['./ogled-profila.component.css']
 })
 export class OgledProfilaComponent implements OnInit {
-  user:User
+  user:UserPublic
   id:string
   comment:Comment = new Comment
 
@@ -19,7 +19,6 @@ export class OgledProfilaComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id')
-    console.log(this.id )
     this.pridobiPodatkeUporabnika(this.id)
 
     if(this.id === this.authService.vrniTrenutnegaUporabnika().id) {
@@ -30,13 +29,16 @@ export class OgledProfilaComponent implements OnInit {
   @ViewChild('inputVsebinaKomentarja') vsebinaKomentarja: ElementRef;
 
   pridobiPodatkeUporabnika(id:string){
-    this.userService.getOne(this.id).then((result:User)=> {
+    this.userService.getOne(id).then((result:UserPublic)=> {
       this.user = result
-
     }).catch(err => {
       alert("Ne najdem uporabnika")
       console.error(err)
     })
+  }
+
+  get prijavljenUporabnik(){
+    return this.authService.vrniTrenutnegaUporabnika().email
   }
 
   createComment(){

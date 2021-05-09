@@ -50,36 +50,4 @@ export class ProfilUporabnikaComponent implements OnInit {
   }
 
 
-  /** @kaj_je_ta_koda_od_tukaj_naprej?
-   * @nelogicno...
-   * @ne_razumem.
-   */
-/*
-  //zakaj bi uporabnik sam na svojem profilu ustvarjal in brisal komentarje?
-  createComment(){
-    this.comment.owner = this.authServis.vrniTrenutnegaUporabnika().email
-    this.comment.content = this.vsebinaKomentarja.nativeElement.value
-
-    this.userService.createComment(this.comment, this.id).then((result:User)=> {
-      window.location.reload()
-    }).catch(err => {
-      alert("Dodajanje komentarja neuspešno!")
-      console.error(err)
-    })
-  }
-
-  //uporabnik ne more sam seb brisat komentarja
-  deleteComment(comment_id: string) {
-    console.log(this.id)
-    console.log(comment_id)
-
-    this.userService.deleteComment(this.id, comment_id).then((result:User)=>{
-      window.location.reload()
-    }).catch(err => {
-      alert("Brisanje komentarja neuspešno!")
-      console.error(err)
-    })
-  }
-*/
-
 }

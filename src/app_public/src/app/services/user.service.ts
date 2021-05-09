@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {environment} from "../../environments/environment";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {AuthenticationService} from "./authentication.service";
-import {User} from "../Models/User";
+import {User, UserPublic} from "../Models/User";
 import {Comment} from "../Models/Comment";
 
 @Injectable({
@@ -14,13 +14,13 @@ export class UserService {
 
   constructor(private http:HttpClient, private authService:AuthenticationService) { }
 
-  public getOne(id:string): Promise<User> {
+  public getOne(id:string): Promise<UserPublic> {
     const url: string = this.apiUrl+`/${id}`
     console.log('GET', url)
     return this.http
       .get(url)
       .toPromise()
-      .then(odgovor => odgovor as User)
+      .then(odgovor => odgovor as UserPublic)
       .catch(this.obdelajNapako)
   }
 
@@ -35,8 +35,8 @@ export class UserService {
   }
 
 
-  public createComment(data:Comment, id:string): Promise<User> {
-    const url: string = this.apiUrl+'/comment?userId='+`${id}`
+  public createComment(data:Comment, userId:string): Promise<User> {
+    const url: string = this.apiUrl+'/comment?userId='+`${userId}`
     const httpHeaders = {
       headers: new HttpHeaders({
         'Authorization': `Bearer ${this.authService.vrniZeton()}`

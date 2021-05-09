@@ -55,7 +55,7 @@
                   <b>{{comment.owner}}</b>
                   <hr>
                   {{comment.content}}
-                  <button id="{{comment._id}}" (click)="deleteComment(comment._id)" class="btn btn-danger">
+                  <button *ngIf="comment.owner === this.prijavljenUporabnik" id="{{comment._id}}" (click)="deleteComment(comment._id)" class="btn btn-danger">
                     <i class="far fa-trash-alt"></i>
                   </button>
                 </div>
