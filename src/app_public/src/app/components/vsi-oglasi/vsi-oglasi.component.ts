@@ -38,6 +38,8 @@ export class VsiOglasiComponent implements OnInit {
     })
   }
 
+  //TODO PRETVORI UPLOADAN FILE V BASE64 STRING NI GA SHRANI V picture POLJE
+
   createOglas() {
     this.oglas.owner = this.authService.vrniTrenutnegaUporabnika().id
     this.oglas.name = this.naslovOglasa.nativeElement.value

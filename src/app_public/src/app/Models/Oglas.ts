@@ -14,6 +14,7 @@ export interface OglasUpdate{
 }
 export class Oglas{
   _id: string
+  creator: string
   owner: string
   name: string
   description: string

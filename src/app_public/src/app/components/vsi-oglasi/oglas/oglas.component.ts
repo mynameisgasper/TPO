@@ -32,7 +32,7 @@ export class OglasComponent implements OnInit {
 
   openProfile() {
     console.log(this.oglas.owner)
-    this.router.navigate(["ogled-profila/"+this.oglas.owner])
+    this.router.navigate(["ogled-profila/"+this.oglas.creator])
   }
 
 }

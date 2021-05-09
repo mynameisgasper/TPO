@@ -13,7 +13,6 @@ const getAll = (req, res) => {
                     "sporocilo": "Ne najdem podatkov"
                 });
             } else {
-
                 res.status(200).json(oglasi);
             }
         });
@@ -33,8 +32,6 @@ const getOne = (req, res) => {
             console.log(oglas)
             res.status(200).json(oglas);
         });
-
-
 };
 
 const create = (req, res) => {
@@ -45,10 +42,11 @@ const create = (req, res) => {
     } else {
         const oglas = new Oglas();
         //nastavimo vse podatke za uporabnika
-        oglas.owner = req.payload.id
+        oglas.owner = req.payload.email
         oglas.name = req.body.name
         oglas.description = req.body.description
         oglas.location = req.body.location
+        oglas.creator = req.payload.id
 
         if (req.body.picture) {
             oglas.picture = req.body.picture
@@ -81,7 +79,7 @@ const update = (req, res) => {
 };
 
 const deleteOne = (req, res) => {
-    if (req.payload.role == 2) {
+    if (req.payload.role === 2) {
         Oglas.findByIdAndDelete(req.params.id).exec((err) => {
             if (err) {
                 return res.status(500).json(err);
@@ -90,21 +88,13 @@ const deleteOne = (req, res) => {
             }
         });
     } else {
-        Oglas.findOne({ _id: req.params.id, owner: req.payload.id }).exec((err, oglas) => {
+        Oglas.deleteOne({_id:req.params.id, creator:req.payload.id}).exec((err) => {
             if (err) {
                 return res.status(500).json(err);
-            } else if (!oglas) {
-                return res.status(404).json({ "message": "not found" });
             } else {
-                Oglas.findByIdAndDelete(req.params.id).exec((err) => {
-                    if (err) {
-                        return res.status(500).json(err);
-                    } else {
-                        return res.status(204).json(null);
-                    }
-                });
+                return res.status(204).json(null);
             }
-        })
+        });
     }
 };
 
