@@ -7,3 +7,4 @@ Vsaka skupina, ki je sestavljena iz 4 oz. 5 članov, mora razviti lastni projekt
 * **3. LP** - [Načrt rešitve](docs/nacrt) in
 * **4. LP** - [Implementacija](src).
 
+# Projekt dostopen na https://dogwalkers1.herokuapp.com/
