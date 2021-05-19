@@ -193,27 +193,30 @@ describe('Testiranje Dog walkers', () => {
     /*
         TODO:
         -----
-        PRIJAVA UPORABNIKA: 0
-        REGISTRACIJA UPORABNIKA: 0
-        PREGLED VSEH OGLASOV: 1
-        OGLED POSAMEZNEGA OGLASA: 1
-        ISKANJE OGLASOV: 2
-        UREJANJE UPORABNIŠKEGA PROFILA: 2
-        OGLED PROFILA: 0
-        KREIRANJE OGLASA: 0
-        UREJANJE OGLASA: 2
-        BRISANJE OGLASA: 1
-        ODZIV NA OGLAS: 2
-        OCENA PROFILA: 2
-        KOMENTIRANJE PROFILA: 2
-        DODAJANJE UPORABNIKA MED HITRE KONTAKTE: 2
-        OGLED HITRIH KONTAKTOV: 2
-        ODSTRANITEV IZ HITRIH KONTAKTOV: 2
-        PREGLED LOKACIJE PREVZEMA: 2
-        PRETVORBA VALUTE: 2
+        PRIJAVA UPORABNIKA:                         0
+        REGISTRACIJA UPORABNIKA:                    0
+        PREGLED VSEH OGLASOV:                       #
+        OGLED POSAMEZNEGA OGLASA:                   1 (še ne moreš)
+        ISKANJE OGLASOV:                            2 (še ne moreš)
+        UREJANJE UPORABNIŠKEGA PROFILA:             2 (napisano ampak ne dela, manjka backend?)
+        OGLED PROFILA:                              0
+        KREIRANJE OGLASA:                           0
+        UREJANJE OGLASA:                            1 (nedokoncan izjemni tok, manjka error message na backendu)
+        BRISANJE OGLASA:                            1 (ni modala za potrditev brisanja, nemorm spisat edinga izjemnega toka)
+        ODZIV NA OGLAS:                             2 (še ne moreš)
+        OCENA PROFILA:                              1 (izjemni je zjeban, tut če ne potrdiš se spremeni ocena) 
+        KOMENTIRANJE PROFILA:                       2  
+        BRISANJE KOMENTARJEV PROFILA:               2
+        DODAJANJE UPORABNIKA MED HITRE KONTAKTE:    2 (še ne moreš)
+        OGLED HITRIH KONTAKTOV:                     2 (še ne moreš)
+        ODSTRANITEV IZ HITRIH KONTAKTOV:            2 (še ne moreš)
+        PREGLED LOKACIJE PREVZEMA:                  2 (še ne moreš)    
+        PRETVORBA VALUTE:                           2 (še ne moreš)
+
+        # - ne moreš narest več kot en test
     */
 
-
+/*
 
     // TESTI: PREGLED VSEH OGLASOV
     context('Pregled vseh oglasov', () => {
@@ -272,10 +275,8 @@ describe('Testiranje Dog walkers', () => {
         })
 
         // TODO, ko bo zvezano
-        /*
-        it('', () => {
-        })
-        */
+        
+        //it('', () => {})
 
     })
     
@@ -337,10 +338,8 @@ describe('Testiranje Dog walkers', () => {
         })
 
         // TODO, ko bodo oglasi vezani na posameznega uporabnika, ki jih je ustvaril
-        /*
-        it('Ogled oglasa preko profila', () => {
-        })
-        */
+        //it('Ogled oglasa preko profila', () => {})
+
     })
 
     // TESTI: OGLED PROFILA
@@ -404,17 +403,6 @@ describe('Testiranje Dog walkers', () => {
 
     })
 
-    // TESTI: VZDRŽEVANJE OGLASA
-    /*
-    context('Vzdrževanje oglasa', () => {
-
-        it('Urejanje oglasa', () => {
-            // TODO
-        })
-    })
-    */
-
-
     // TESTI: REGISTRACIJA UPORABNIKA
     context('Registracija uporabnika', () => {
 
@@ -456,6 +444,185 @@ describe('Testiranje Dog walkers', () => {
         })
     })
 
+
+
+    // TESTI: UREJANJE UPORABNIŠKEGA PROFILA - mislm da še ni backenda
+    context('Urejanje uporabniškega profila', () => {
+
+        it('Urejanje profila - uspešen', () => {
+
+            cy.login()
+            cy.get('#userProfileButton').click()
+            cy.wait(50)
+            cy.get('#editButtonProfile').click()
+            cy.wait(50)
+
+            // Spremeni eno izmed vnosnih polj
+            cy.get("#phoneEdit").invoke('val','666666666')
+
+            cy.get('#saveButtonProfile').click()
+            cy.wait(1000)
+
+            cy.get("#backButtonUrejanje").click()
+            cy.wait(50)
+
+            cy.get('#telUporabnika').should('have.text', '666666666')
+        })
+
+        it('Urejanje profila - neuspešen', () => {
+
+            
+            cy.login()
+            cy.get('#userProfileButton').click()
+            cy.wait(50)
+            cy.get('#editButtonProfile').click()
+            cy.wait(50)
+
+            // Spremeni eno izmed vnosnih polj na napačen format
+            cy.get("#emailEdit").invoke('val','test.testgmail.com')
+
+            cy.get('#saveButtonProfile').click()
+            cy.wait(1000)
+
+            cy.get('#odzivUrejanja').should('have.text', '\nProsim vnesi pravilen email naslov.\n')
+            
+
+        })
+    })
+
+
     
+    // TESTI: VZDRŽEVANJE OGLASA
+    context('Vzdrževanje oglasa', () => {
+
+        it('Urejanje oglasa - uspešen', () => {
+            cy.login()
+
+            cy.get('#ustvari').click()
+            cy.wait(200)
+
+            // Kreator novega oglasa vnese podatke
+
+            cy.get('#naslovOglasa').invoke('val', 'testni_oglas')
+            cy.wait(200)
+            cy.get('#opisOglasa').invoke('val','test 123 123')            
+            cy.get('#cenaOglasa').invoke('val','69')
+
+            // Kreator oglasa doda sliko iz lokalne naprave
+            // cy.get('#dodajSliko').click()
+
+            // Kreator doda nov oglas k obstoječim
+            cy.intercept('POST', 'http://localhost:3000/api/v1/oglas').as('oglasCreate')
+            cy.get('#buttonAddOglas').click()
+            cy.wait('@oglasCreate')
+
+            cy.get('#nasOglasBoard').should('have.text', 'testni_oglas')
+
+            // Po ustvarjenem oglasu sledi urejanje oglasa
+
+            cy.get('#oglasButton').first().click()
+            cy.get('#editButton').click()
+
+            // Spremenimo naslov oglasa
+            cy.get('#naslovOglasa').invoke('val','prodajam pnevmatike')
+            cy.get('#buttonUrediOglas').click()
+            cy.wait(500)
+
+            cy.get('#naslovOglas').should('have.text', 'prodajam pnevmatike')
+        })
+
+        it('Urejanje oglasa - neuspešen', () => {
+            cy.login()
+
+            // Urejanje oglasa
+
+            cy.get('#oglasButton').first().click()
+            cy.get('#editButton').click()
+
+            // Spremenimo naslov oglasa
+            cy.get('#naslovOglasa').invoke('val','')
+            cy.get('#buttonUrediOglas').click()
+            cy.wait(500)
+
+            // TODO - tukej check za error message, da je prazen naslov!
+        })
+    })
+
+
+
+    // TESTI: PODAJANJE OCENE PROFILU
+    context('Podajanje ocene profilu drugega uporabnika', () => {
+
+        it('Podajanje ocene - uspešen', () => {
+            
+            cy.loginOther()
+            cy.get('#profileButton').first().click()
+
+            cy.get('#ocenaBtn').click()
+            cy.get('#ocena').select('1')
+
+            cy.get('#updateBtn').click()
+            cy.wait(200)
+
+            cy.on('window:alert', (str) => {
+                expect(str).to.equal('Ocena uspešno podana!')
+            })
+        })
+
+        //it('Podajanje ocene - neuspešen', () => {cy.loginOther()})
+    })
+
+*/
+    // TESTI: PODAJANJE KOMENTARJA PROFILU
+    context('Podajanje komentarja profilu drugega uporabnika', () => {
+
+        it('Podajanje komentarja - uspešen', () => {
+            
+            cy.loginOther()
+            cy.get('#profileButton').first().click()
+
+            cy.get('#dodajKomentar').click()
+            cy.get('#vsebinaKomentarja').invoke('val','on je scammer')
+
+            cy.get('#buttonUrediOglas').click()
+            cy.wait(200)
+
+            cy.get('.komentarProfila').should('have.text', 'testni1.uporabnik1@gmail.com on je scammer ')
+
+        })
+
+        it('Podajanje komentarja - neuspešen', () => {
+            cy.loginOther()
+            
+            cy.get('#profileButton').first().click()
+
+            cy.get('#dodajKomentar').click()
+            cy.get('#vsebinaKomentarja').invoke('val','nategnu mi je psa')
+
+            cy.get('#buttonCloseUrediOglas').click()
+            cy.wait(200)
+
+            cy.get('.komentarProfila').should('not.have.value', 'testni1.uporabnik1@gmail.com on je scammer testni1.uporabnik1@gmail.com nategnu mi je psa ')
+
+        })
+    })
+
+    // TESTI: BRISANJE KOMENTARJA PROFILU
+    context('Brisanje komentarja profila', () => {
+
+        it('Brisanje komentarja - uspešen', () => {
+            
+            cy.loginOther()
+            cy.get('#profileButton').first().click()
+
+            // manjka brisanje, treba nekak dobit user id hash...
+
+            cy.get('.komentarProfila').should('not.exist')
+
+        })
+
+        // TODO - ni potrdilnega okna za brisanje komentarjev, LAHKO tut brisanje kot admin
+        //it('Brisanje komentarja - neuspešen', () => {})
+    })
     
 })
