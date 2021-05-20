@@ -21,4 +21,5 @@ export class NavbarComponent implements OnInit {
   jePrijavljen(){
     return this.authServis.jePrijavljen()
   }
+
 }

@@ -15,9 +15,9 @@ export class OglasiService {
 
 
   // pridobi vse uporabnike iz podatkovne baze
-  public getAll(): Promise<Oglas[]> {
-    //todo implementiraj filtering
-    const url: string = this.apiUrl;
+  public getAll(filter?:string): Promise<Oglas[]> {
+    let url: string = this.apiUrl;
+    if(filter)url+=`?filter=${filter}`
     console.log('GET ',url);
     return this.http
       .get(url)

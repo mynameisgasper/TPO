@@ -53,7 +53,7 @@ export class VsiOglasiComponent implements OnInit {
     this.oglas.location = this.authService.vrniTrenutnegaUporabnika().country
     this.oglas.picture = this.getBase64(this.slikaOglasa.nativeElement.files[0])
     this.oglas.price = this.cenaOglasa.nativeElement.value
-    
+
     this.oglasiService.create(this.oglas).then((result:Oglas)=> {
       document.getElementById("buttonCloseAddOglas").click()
       window.location.reload()
@@ -63,6 +63,15 @@ export class VsiOglasiComponent implements OnInit {
       console.error(err)
     })
 
+
+  }
+
+  onSearchChange(searchString:string){
+    this.oglasiService.getAll(searchString).then(oglasi=>{
+      this.oglasi=oglasi
+    }).catch(err=>{
+      console.log(err)
+    })
   }
 
 }

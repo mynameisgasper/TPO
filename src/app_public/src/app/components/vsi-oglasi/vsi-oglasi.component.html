@@ -4,13 +4,19 @@
         <div class="container main-container">
             <div class="row">
                 <div class="col-12 col-md-4 col-lg-4 col-xl-4 main-buttons">
+                  <div class="row justify-content-center">
                     <button class="btn btn-success" data-toggle="modal" id="ustvari" data-target="#ustvariOglasModal">Ustvari oglas</button>
+                  </div>
                 </div>
+              <div class="col-12 col-md-4 col-lg-4 col-xl-4 main-buttons">
+                <div class="row justify-content-center">
+                  <input class="form-control" (keyup)="onSearchChange($event.target.value)" type="search" id="searchButton" placeholder="Poišči oglas..." aria-label="Search">
+                </div>
+              </div>
                 <div class="col-12 col-md-4 col-lg-4 col-xl-4 main-buttons">
+                  <div class="row justify-content-center">
                     <button class="btn btn-primary" id="hitri">Hitri Kontakti</button>
-                </div>
-                <div class="col-12 col-md-4 col-lg-4 col-xl-4 main-buttons">
-                    <button class="btn btn-primary" id="zgodovina">Zgodovina</button>
+                  </div>
                 </div>
             </div>
             <div *ngIf="oglasi;else OglasiElseBlock" class="row">
