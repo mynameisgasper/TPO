@@ -29,6 +29,7 @@ const userSchema = new mongoose.Schema({
     description : {type:String, default: ""},
 
     comments: {type: [commentSchema], default: []},
+    contacts: {type: [String], default: []},
 
 
     /** polja, uporabljena za avtentikacjio/avtorizacijo **/
