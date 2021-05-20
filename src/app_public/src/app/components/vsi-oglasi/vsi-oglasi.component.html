@@ -38,15 +38,15 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="naslov">Naslov oglasa:</label>
+                        <label for="naslovOglasa">Naslov oglasa:</label>
                         <input #inputNaslovOglasa type="text" class="form-control" id="naslovOglasa">
                     </div>
                     <div class="form-group">
-                        <label for="naslov">Opis oglasa:</label>
+                        <label for="opisOglasa">Opis oglasa:</label>
                         <textarea #inputOpisOglasa class="form-control" id="opisOglasa"></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="cena">Cena (opcijsko):</label>
+                        <label for="cenaOglasa">Cena (opcijsko):</label>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <!--- TODO Spremeni € v valuto - angular  --->
@@ -55,10 +55,17 @@
                             <input #inputCenaOglasa type="text" class="form-control" id="cenaOglasa">
                         </div>
                     </div>
-                    <div class="custom-file">
-                        <label for="slika">Dodaj Sliko:</label>
-                        <input #inputSlikaOglasa default="nopic" type="file" class="form-control-file" id="dodajSliko">
+                    <div *ngIf="!this.oglas.picture" class="form-group">
+                        <label for="dodajSliko">Dodaj Sliko:</label>
+                        <input #inputSlikaOglasa (change)="onPictureChange($event.target)" default="nopic" type="file" class="form-control-file" id="dodajSliko">
                         <div class="invalid-feedback">Datoteka mora imeti končnico .jpg ali .png </div>
+                    </div>
+                    <div *ngIf="this.oglas.picture" class="form-group">
+                        <div class="col-12">
+                          <div class="row">
+                            <img src="{{this.oglas.picture}}">
+                          </div>
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">

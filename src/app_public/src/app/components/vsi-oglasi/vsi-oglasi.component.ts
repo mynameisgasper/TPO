@@ -40,19 +40,16 @@ export class VsiOglasiComponent implements OnInit {
 
   //TODO PRETVORI UPLOADAN FILE V BASE64 STRING NI GA SHRANI V picture POLJE
 
-  getBase64(file:File){
-    //todo
-    return ""
-  }
 
-  createOglas() {
+
+  createOglas = async () => {
     this.oglas.owner = this.authService.vrniTrenutnegaUporabnika().email
     this.oglas.creator = this.authService.vrniTrenutnegaUporabnika().id
     this.oglas.name = this.naslovOglasa.nativeElement.value
     this.oglas.description =  this.opisOglasa.nativeElement.value
     this.oglas.location = this.authService.vrniTrenutnegaUporabnika().country
-    this.oglas.picture = this.getBase64(this.slikaOglasa.nativeElement.files[0])
     this.oglas.price = this.cenaOglasa.nativeElement.value
+    console.log(this.oglas.picture)
 
     this.oglasiService.create(this.oglas).then((result:Oglas)=> {
       document.getElementById("buttonCloseAddOglas").click()
@@ -73,5 +70,17 @@ export class VsiOglasiComponent implements OnInit {
       console.log(err)
     })
   }
+
+  toBase64 = file => new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = error => reject(error);
+  });
+
+  onPictureChange = async (element:any) => {
+    this.oglas.picture = String(await this.toBase64(element.files[0]))
+  }
+
 
 }
