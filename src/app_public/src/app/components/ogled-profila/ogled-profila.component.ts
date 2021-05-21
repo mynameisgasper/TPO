@@ -15,12 +15,14 @@ export class OgledProfilaComponent implements OnInit {
   id:string
   comment:Comment = new Comment
   public ok: boolean = false;
+  deleteid = null
 
   constructor(private userService:UserService, private route:ActivatedRoute, private router:Router, private authService:AuthenticationService) { }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id')
     this.pridobiPodatkeUporabnika(this.id)
+    this.deleteid = null
 
     if(this.id === this.authService.vrniTrenutnegaUporabnika().id) {
       this.router.navigate(['profil'])
@@ -54,11 +56,16 @@ export class OgledProfilaComponent implements OnInit {
     })
   }
 
-  deleteComment(comment_id: string) {
-    console.log(this.id)
-    console.log(comment_id)
+  initateCommentDelete(comment_id: string) {
+    this.deleteid = comment_id
+    console.log(this.deleteid)
+  }
 
-    this.userService.deleteComment(this.id, comment_id).then((result:User)=>{
+  deleteComment() {
+    console.log(this.id)
+    console.log(this.deleteid)
+
+    this.userService.deleteComment(this.id, this.deleteid).then((result:User)=>{
       window.location.reload()
     }).catch(err => {
       alert("Brisanje komentarja neuspešno!")

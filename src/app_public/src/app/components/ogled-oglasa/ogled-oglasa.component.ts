@@ -74,9 +74,7 @@ export class OgledOglasaComponent implements OnInit {
     if (this.slikaOglasa.nativeElement.value != "") {
       this.oglas.picture = this.slikaOglasa.nativeElement.value
     }
-    if (this.cenaOglasa.nativeElement.value != "") {
-      this.oglas.price = this.cenaOglasa.nativeElement.value
-    }
+    this.oglas.price = this.cenaOglasa.nativeElement.value
 
     this.oglasiService.update(this.oglas, this.id).then((result:Oglas)=> {
       document.getElementById("buttonCloseUrediOglas").click()
