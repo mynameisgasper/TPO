@@ -274,6 +274,7 @@ describe('Testiranje Dog walkers', () => {
             cy.wait(200)
             cy.get('#opisOglasa').invoke('val','test 123 123')            
             cy.get('#cenaOglasa').invoke('val','69')
+            cy.get('#lokacijaOglasa').invoke('val','Tibilisijska 15, 1000 Ljubljana')
 
             // Kreator oglasa doda sliko iz lokalne naprave
             // cy.get('#dodajSliko').click()
@@ -370,6 +371,7 @@ describe('Testiranje Dog walkers', () => {
             cy.wait(20)
             cy.get('#opisOglasa').invoke('val','test 123 123')
             cy.get('#cenaOglasa').invoke('val','69')
+            cy.get('#lokacijaOglasa').invoke('val','Tibilisijska 15, 1000 Ljubljana')
 
             // Kreator oglasa doda sliko iz lokalne naprave
             // cy.get('#dodajSliko').click()
@@ -496,6 +498,7 @@ describe('Testiranje Dog walkers', () => {
             cy.wait(200)
             cy.get('#opisOglasa').invoke('val','test 123 123')            
             cy.get('#cenaOglasa').invoke('val','69')
+            cy.get('#lokacijaOglasa').invoke('val','Tibilisijska 15, 1000 Ljubljana')
 
             // Kreator oglasa doda sliko iz lokalne naprave
             // cy.get('#dodajSliko').click()
