@@ -79,6 +79,10 @@ export class OgledOglasaComponent implements OnInit {
     this.router.navigate(["ogled-profila/"+this.oglas.creator])
   }
 
+  backButton(){
+    window.history.back()
+  }
+
   odpriProfilLastnikaOglasa(){
     this.oglas.owner
   }

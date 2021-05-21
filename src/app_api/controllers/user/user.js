@@ -21,7 +21,7 @@ const getAll = (req, res) => {
 
 const getOne = (req, res) => {
     User
-        .findById(req.params.id,'name surname phone address email rating comments description')
+        .findById(req.params.id, 'name surname phone address email rating comments description')
         .exec((napaka, user) => {
             if (!user) {
                 return res.status(404).json({
@@ -80,9 +80,9 @@ const update = (req, res) => {
             return res.status(500);
         } else {
             User.findById(req.payload.id).exec().then(user => {
-                return res.status(200).json({"jwt":user.generirajJwt()});
+                return res.status(200).json({ "jwt": user.generirajJwt() });
             }).catch(err => {
-                return res.status(500).json({"message":"internal server error"})
+                return res.status(500).json({ "message": "internal server error" })
             })
         }
     })
