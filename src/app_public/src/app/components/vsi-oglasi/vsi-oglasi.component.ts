@@ -23,6 +23,7 @@ export class VsiOglasiComponent implements OnInit {
   @ViewChild('inputOpisOglasa') opisOglasa: ElementRef;
   @ViewChild('inputCenaOglasa') cenaOglasa: ElementRef;
   @ViewChild('inputSlikaOglasa') slikaOglasa: ElementRef;
+  @ViewChild('inputLokacijaOglasa') lokacijaOglasa: ElementRef;
 
   ngOnInit(): void {
     this.getAllOglasi()
@@ -50,7 +51,7 @@ export class VsiOglasiComponent implements OnInit {
     this.oglas.creator = this.authService.vrniTrenutnegaUporabnika().id
     this.oglas.name = this.naslovOglasa.nativeElement.value
     this.oglas.description =  this.opisOglasa.nativeElement.value
-    this.oglas.location = this.authService.vrniTrenutnegaUporabnika().country
+    this.oglas.location = this.lokacijaOglasa.nativeElement.value
     this.oglas.price = this.cenaOglasa.nativeElement.value
     console.log(this.oglas.picture)
 

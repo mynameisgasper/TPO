@@ -30,10 +30,9 @@
                     <img src="{{oglas.picture}}">
                 </div>
             </div>
-            <div class="col-12 col-md-12 col-lg-6 col-xl-6">
-                <div class="maps-container" id="googleMap">
-                    <img src="../../assets/img/google-map-placeholder.png">
-                </div>
+            <div class="col-12 col-md-12 col-lg-6 col-xl-6" style="justify-content: center;">
+                <p id="lokacijaOglasa"><b>Lokacija prevzema:  </b>{{oglas.location}}</p>
+                <button (click)="updateIframe()" type="button" class="btn btn-primary" id="btnToggle" data-toggle="modal" data-target="#lokacijaModal">Prikaži lokacijo na zemljevidu.</button>
             </div>
         </div>
 
@@ -125,7 +124,22 @@
           </div>
         </div>
       </div>
-    </div>
 
+        <div class="modal" id="lokacijaModal">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <button id="over" type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+              <iframe
+                      id="mapIframe"
+                      width="fill"
+                      height="450dp"
+                      style="border:0; text-align: center"
+                      loading="lazy"
+                      src="">
+              </iframe>
+            </div>
+          </div>
+        </div>
+    </div>
 
 </main>

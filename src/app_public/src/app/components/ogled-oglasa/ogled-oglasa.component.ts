@@ -17,6 +17,7 @@ export class OgledOglasaComponent implements OnInit {
   oglas: Oglas
   id: string;
   user: User
+  toggle = false
 
   constructor(private oglasiService:OglasiService, private route:ActivatedRoute, private router:Router, private authService:AuthenticationService) { }
 
@@ -99,7 +100,13 @@ export class OgledOglasaComponent implements OnInit {
     this.oglas.owner
   }
 
-
+  updateIframe() {
+    if (!this.toggle) {
+      let iframe = document.getElementById('mapIframe') as HTMLIFrameElement
+      iframe.setAttribute('src', "https://www.google.com/maps/embed/v1/place?key=AIzaSyDb9o-3hCPv2_VuNgPJjPTrWQh-77gIraw&q=" + this.oglas.location)
+    }
+    this.toggle = true
+  }
 
 }
 
