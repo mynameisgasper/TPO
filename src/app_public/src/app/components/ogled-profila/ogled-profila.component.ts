@@ -66,6 +66,10 @@ export class OgledProfilaComponent implements OnInit {
     })
   }
 
+  ogledOglasov(){
+    this.router.navigate(['/oglasi-profil/'+ this.id])
+  }
+
   podajOceno() {
     console.log(this.user.rating)
     if (this.user.rating) {

@@ -49,6 +49,10 @@ export class ProfilUporabnikaComponent implements OnInit {
     console.log(this.user)
   }
 
+  ogledOglasov(){
+    this.router.navigate(['/oglasi-profil/'+ this.user.id])
+  }
+
   dodajHitriKontakt(){
 
   }

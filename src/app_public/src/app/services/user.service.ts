@@ -5,6 +5,7 @@ import {AuthenticationService} from "./authentication.service";
 import {User, UserPublic} from "../Models/User";
 import {Comment} from "../Models/Comment";
 import {AuthenticationResult} from "../Classes/authenticationResult";
+import {Oglas} from "../Models/Oglas";
 
 @Injectable({
   providedIn: 'root'
@@ -32,6 +33,23 @@ export class UserService {
       .get(url)
       .toPromise()
       .then(odgovor => odgovor as User[])
+      .catch(this.obdelajNapako)
+  }
+
+  public getOglasiProfila(userId: string): Promise<Oglas[]> {
+    const url: string = this.apiUrl + '/oglasi?userId='+`${userId}`
+    console.log('GET, ', url)
+
+    const httpHeaders = {
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${this.authService.vrniZeton()}`
+      })
+    };
+
+    return this.http
+      .get(url, httpHeaders)
+      .toPromise()
+      .then(odgovor => odgovor as Oglas[])
       .catch(this.obdelajNapako)
   }
 
@@ -71,7 +89,7 @@ export class UserService {
     const url: string = this.apiUrl+'/comment?userId='+`${id_user}`
     const httpHeaders = {
       headers: new HttpHeaders({
-        'Authorization': `Bearer ${this.authService.vrniZeton()}`
+        'authorization': `Bearer ${this.authService.vrniZeton()}`
       })
     };
     console.log('GET', url)
@@ -88,7 +106,7 @@ export class UserService {
     //auth
     const httpHeaders = {
       headers: new HttpHeaders({
-        'Authorization': `Bearer ${this.authService.vrniZeton()}`
+        'authorization': `Bearer ${this.authService.vrniZeton()}`
       })
     };
 
@@ -115,9 +133,44 @@ export class UserService {
       .catch(this.obdelajNapako)
   }
 
+  public addContact(idUser: string): Promise<string> {
+    const url: string = this.apiUrl+'/contact?userId='+`${idUser}`
+    console.log("url:" + url)
+    console.log(this.authService.vrniZeton())
+
+    const httpHeaders = {
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${this.authService.vrniZeton()}`
+      })
+    };
+    return this.http
+      .post(url, httpHeaders)
+      .toPromise()
+      .then(odgovor => odgovor as string)
+      .catch(this.obdelajNapako)
+  }
+
+  public deleteContact(idUser: string): Promise<User> {
+    const url: string = this.apiUrl+'/contact?userId='+`${idUser}`
+    console.log("url:" + url)
+    const httpHeaders = {
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${this.authService.vrniZeton()}`
+      })
+    };
+    return this.http
+      .delete(url, httpHeaders)
+      .toPromise()
+      .then(odgovor => odgovor as User)
+      .catch(this.obdelajNapako)
+  }
+
+
   private obdelajNapako(napaka: any): Promise<any> {
     console.error('Prišlo je do napake', napaka);
     return Promise.reject(napaka.message || napaka);
   }
+
+
 
 }
