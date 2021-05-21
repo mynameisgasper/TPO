@@ -16,6 +16,7 @@ export class OgledProfilaComponent implements OnInit {
   comment:Comment = new Comment
   public ok: boolean = false;
   deleteid = null
+  ocena = null
 
   constructor(private userService:UserService, private route:ActivatedRoute, private router:Router, private authService:AuthenticationService) { }
 
@@ -78,8 +79,9 @@ export class OgledProfilaComponent implements OnInit {
   }
 
   podajOceno() {
-    console.log(this.user.rating)
-    if (this.user.rating) {
+    console.log(this.ocena)
+    if (this.ocena) {
+      this.user.rating = this.ocena
       this.userService.podajOceno(this.id, this.user.rating)
         .then((r) => {
           window.location.reload()
