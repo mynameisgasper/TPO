@@ -197,12 +197,12 @@ describe('Testiranje Dog walkers', () => {
         REGISTRACIJA UPORABNIKA:                    0
         PREGLED VSEH OGLASOV:                       0
         OGLED POSAMEZNEGA OGLASA:                   0 
-        ISKANJE OGLASOV:                            1 (za neuspešnega bo treba mal razmislt)
+        ISKANJE OGLASOV:                            1 (za neuspešnega bo če bo gumb)
         UREJANJE UPORABNIŠKEGA PROFILA:             2 (napisano ampak ne dela, manjka backend?)
         OGLED PROFILA:                              0
         KREIRANJE OGLASA:                           0
         UREJANJE OGLASA:                            0
-        BRISANJE OGLASA:                            1 (še ni)
+        BRISANJE OGLASA:                            1 
         ODZIV NA OGLAS:                             2 (še ne moreš)
         OCENA PROFILA:                              1 (treba pogruntat kako nardit check)
         KOMENTIRANJE PROFILA:                       0  
@@ -436,8 +436,8 @@ describe('Testiranje Dog walkers', () => {
     })
 
 
-/*
-    // TESTI: UREJANJE UPORABNIŠKEGA PROFILA - mislm da še ni backenda
+
+    // TESTI: UREJANJE UPORABNIŠKEGA PROFILA
     context('Urejanje uporabniškega profila', () => {
 
         it('Urejanje profila - uspešen', () => {
@@ -480,7 +480,6 @@ describe('Testiranje Dog walkers', () => {
 
         })
     })
-*/
 
     
     // TESTI: VZDRŽEVANJE OGLASA
@@ -639,8 +638,8 @@ describe('Testiranje Dog walkers', () => {
             cy.login()
 
             cy.get('#searchButton').invoke('val','prodajam pnevmatike')
-            cy.get('#nasOglasBoard').should('have.value', 'prodajam pnevmatike')
-
+            cy.wait(100)
+            cy.get('.oglas').should('exist')
         })
 
         //it('Iskanje oglasa - neuspešen', () => {})
