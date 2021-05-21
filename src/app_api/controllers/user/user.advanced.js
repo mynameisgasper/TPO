@@ -104,7 +104,6 @@ const getAllOglasi = (req, res) => {
         console.error(err.message)
         res.status(500).json({"message":"internal server error"})
     })
-
 }
 
 const addContact = (req, res) => {

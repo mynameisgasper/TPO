@@ -2,8 +2,10 @@ const mongoose = require('mongoose');
 const Oglas = mongoose.model('Oglas');
 
 const getAll = (req, res) => {
-    // todo implementiraj filtriranje in paginacijo
-    Oglas.find().exec((napaka, oglasi) => {
+    let query = {
+        name: (req.query.filter)?new RegExp(`.*${req.query.filter}.*`,'i'):new RegExp(`.*`,'i')
+    }
+    Oglas.find(query).exec((napaka, oglasi) => {
         if (napaka) {
             return res.status(500).json(napaka);
         } else if (!oglasi) {
@@ -14,6 +16,7 @@ const getAll = (req, res) => {
             res.status(200).json(oglasi);
         }
     });
+
 };
 
 const getOne = (req, res) => {
