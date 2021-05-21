@@ -85,5 +85,14 @@ export class OgledProfilaComponent implements OnInit {
     }
   }
 
+  dodajPodHitreKontakte(){
+    this.userService.addContact(this.id).then((result:string)=>{
+      window.location.reload()
+    }).catch(err => {
+      alert(err)
+      console.error(err)
+    })
+  }
+
 
 }

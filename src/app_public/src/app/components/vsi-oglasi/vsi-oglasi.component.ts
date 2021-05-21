@@ -38,8 +38,11 @@ export class VsiOglasiComponent implements OnInit {
     })
   }
 
-  //TODO PRETVORI UPLOADAN FILE V BASE64 STRING NI GA SHRANI V picture POLJE
+  openHitriKontakti(){
+    this.router.navigate(["/hitri-kontakti/"])
+  }
 
+  //TODO PRETVORI UPLOADAN FILE V BASE64 STRING NI GA SHRANI V picture POLJE
 
 
   createOglas = async () => {

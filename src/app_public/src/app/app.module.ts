@@ -15,6 +15,9 @@ import { KomentarComponent } from './components/komentar/komentar.component';
 import { OgledProfilaComponent } from './components/ogled-profila/ogled-profila.component';
 import { InvertPipe } from './pipes/invert.pipe'
 import {FormsModule} from "@angular/forms";
+import { HitriKontaktiComponent } from './components/hitri-kontakti/hitri-kontakti.component';
+import {KontaktComponent} from './components/hitri-kontakti/kontakt/kontakt.component';
+import { OglasiProfilaComponent } from './components/oglasi-profila/oglasi-profila.component'
 
 @NgModule({
   declarations: [
@@ -29,7 +32,10 @@ import {FormsModule} from "@angular/forms";
     UrejanjeProfilaComponent,
     KomentarComponent,
     OgledProfilaComponent,
-    InvertPipe
+    InvertPipe,
+    HitriKontaktiComponent,
+    KontaktComponent,
+    OglasiProfilaComponent
   ],
   imports: [
     BrowserModule,
@@ -56,6 +62,12 @@ import {FormsModule} from "@angular/forms";
       }, {
         path: 'ogled-profila/:id',
         component: OgledProfilaComponent
+      }, {
+        path: 'hitri-kontakti',
+        component: HitriKontaktiComponent
+      }, {
+        path: 'oglasi-profil/:id',
+        component: OglasiProfilaComponent
       }
     ]),
     FormsModule

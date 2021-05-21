@@ -32,6 +32,7 @@ export class User{
   email: string
   role: number
   rating: number
+  contacts: string[]
   description: string
 }
 

@@ -4,7 +4,7 @@
     <div *ngIf="user" class="container main-container">
         <div class="row delete-row">
             <div class="col-6 col-md-6 col-lg-6 col-xl-6">
-                <button id="dodajKontakt" class="btn btn-primary">Dodaj med hitre kontakte</button>
+                <button (click)="dodajPodHitreKontakte()" id="dodajKontakt" class="btn btn-primary">Dodaj med hitre kontakte</button>
                 <button class="btn btn-primary" style="margin-left:1vh;">Vsi Oglasi</button>
             </div>
             <div class="col-6 col-md-6 col-lg-6 col-xl-6">

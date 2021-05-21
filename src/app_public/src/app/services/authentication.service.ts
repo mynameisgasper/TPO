@@ -88,6 +88,7 @@ export class AuthenticationService {
         email,
         role,
         rating,
+        contacts,
         description } = jwt_decode(zeton) as any;
       console.log(name)
       return {
@@ -100,6 +101,7 @@ export class AuthenticationService {
         email,
         rating,
         description,
+        contacts,
         role } as User;
     }
   }

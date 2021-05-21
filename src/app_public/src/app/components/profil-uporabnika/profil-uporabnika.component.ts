@@ -49,5 +49,9 @@ export class ProfilUporabnikaComponent implements OnInit {
     console.log(this.user)
   }
 
+  dodajHitriKontakt(){
+
+  }
+
 
 }
