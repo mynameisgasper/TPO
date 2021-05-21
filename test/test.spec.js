@@ -198,7 +198,7 @@ describe('Testiranje Dog walkers', () => {
         PREGLED VSEH OGLASOV:                       0
         OGLED POSAMEZNEGA OGLASA:                   0 
         ISKANJE OGLASOV:                            1 (za neuspešnega bo če bo gumb)
-        UREJANJE UPORABNIŠKEGA PROFILA:             2 (napisano ampak ne dela, manjka backend?)
+        UREJANJE UPORABNIŠKEGA PROFILA:             0 
         OGLED PROFILA:                              0
         KREIRANJE OGLASA:                           0
         UREJANJE OGLASA:                            0
@@ -435,53 +435,6 @@ describe('Testiranje Dog walkers', () => {
         })
     })
 
-
-
-    // TESTI: UREJANJE UPORABNIŠKEGA PROFILA
-    context('Urejanje uporabniškega profila', () => {
-
-        it('Urejanje profila - uspešen', () => {
-
-            cy.login()
-            cy.get('#userProfileButton').click()
-            cy.wait(50)
-            cy.get('#editButtonProfile').click()
-            cy.wait(50)
-
-            // Spremeni eno izmed vnosnih polj
-            cy.get("#phoneEdit").invoke('val','666666666')
-
-            cy.get('#saveButtonProfile').click()
-            cy.wait(1000)
-
-            cy.get("#backButtonUrejanje").click()
-            cy.wait(50)
-
-            cy.get('#telUporabnika').should('have.text', '666666666')
-        })
-
-        it('Urejanje profila - neuspešen', () => {
-
-            
-            cy.login()
-            cy.get('#userProfileButton').click()
-            cy.wait(50)
-            cy.get('#editButtonProfile').click()
-            cy.wait(50)
-
-            // Spremeni eno izmed vnosnih polj na napačen format
-            cy.get("#emailEdit").invoke('val','test.testgmail.com')
-
-            cy.get('#saveButtonProfile').click()
-            cy.wait(1000)
-
-            cy.get('#odzivUrejanja').should('have.text', '\nProsim vnesi pravilen email naslov.\n')
-            
-
-        })
-    })
-
-    
     // TESTI: VZDRŽEVANJE OGLASA
     context('Vzdrževanje oglasa', () => {
 
@@ -563,6 +516,7 @@ describe('Testiranje Dog walkers', () => {
             })
         })
 
+        /*
         it('Podajanje ocene - neuspešen', () => {
             cy.loginOther()
 
@@ -575,8 +529,8 @@ describe('Testiranje Dog walkers', () => {
             cy.wait(200)
 
             // TREBA ZGRUNTAT KAKO SE BO ČEKNILO ZVEZDICE..
-
         })
+        */
     })
 
 
@@ -614,6 +568,7 @@ describe('Testiranje Dog walkers', () => {
         })
     })
 
+    /*
     // TESTI: BRISANJE KOMENTARJA PROFILU
     context('Brisanje komentarja profila', () => {
 
@@ -631,6 +586,7 @@ describe('Testiranje Dog walkers', () => {
         // TODO - ni potrdilnega okna za brisanje komentarjev, LAHKO tut brisanje kot admin
         //it('Brisanje komentarja - neuspešen', () => {})
     })
+    */
 
     // TESTI: ISKANJE OGLASOV
     context('Iskanje oglasa', () => {
@@ -643,6 +599,53 @@ describe('Testiranje Dog walkers', () => {
         })
 
         //it('Iskanje oglasa - neuspešen', () => {})
+    })
+
+
+    // TE TESTE SE IZVAJA ZADNJE, KER PRIDE DO SPREMEMBE GESLA IN TO ZJEBE LOGIN:
+    // TESTI: UREJANJE UPORABNIŠKEGA PROFILA
+    context('Urejanje uporabniškega profila', () => {
+
+        it('Urejanje profila - uspešen', () => {
+
+            cy.loginOther()
+            cy.get('#userProfileButton').click()
+            cy.wait(50)
+            cy.get('#editButtonProfile').click()
+            cy.wait(50)
+
+            // Spremeni eno izmed vnosnih polj na napačen format
+            cy.get("#changePassBtn").click()
+
+            cy.get('#passwordEdit').invoke('val','12345678')
+            cy.get('#reppasswordEdit').invoke('val','12345678')
+
+            cy.get('#updateBtn').click()
+            cy.wait(100)
+
+            //alert
+            cy.on('window:alert', (str) => {
+                expect(str).to.equal('uspešno spremenjen password')
+            })
+        })
+
+        it('Urejanje profila - neuspešen', () => {
+            
+            cy.login()
+            cy.get('#userProfileButton').click()
+            cy.wait(50)
+            cy.get('#editButtonProfile').click()
+            cy.wait(50)
+
+            // Spremeni eno izmed vnosnih polj na napačen format
+            cy.get("#changePassBtn").click()
+
+            cy.get('#updateBtn').click()
+            cy.wait(100)
+
+            cy.get('#alertko').should('have.text','\nGeslo mora vsebovati vsaj 8 znakov.\n')
+        })
+
     })
     
 })
