@@ -56,13 +56,27 @@ export class OgledOglasaComponent implements OnInit {
     })
   }
 
-  urediOglas(){
+  urediOglas() {
     this.oglas.owner = this.authService.vrniTrenutnegaUporabnika().email
-    this.oglas.name = this.naslovOglasa.nativeElement.value
-    this.oglas.description =  this.opisOglasa.nativeElement.value
+    if (this.naslovOglasa.nativeElement.value != "") {
+      this.oglas.name = this.naslovOglasa.nativeElement.value
+    } else {
+      alert("Ime oglasa ne more biti prazno!")
+      return
+    }
+    if (this.opisOglasa.nativeElement.value != "") {
+      this.oglas.description = this.opisOglasa.nativeElement.value
+    } else {
+      alert("Opis oglasa ne more biti prazen!")
+      return
+    }
     this.oglas.location = this.authService.vrniTrenutnegaUporabnika().country
-    this.oglas.picture = this.slikaOglasa.nativeElement.value
-    this.oglas.price = this.cenaOglasa.nativeElement.value
+    if (this.slikaOglasa.nativeElement.value != "") {
+      this.oglas.picture = this.slikaOglasa.nativeElement.value
+    }
+    if (this.cenaOglasa.nativeElement.value != "") {
+      this.oglas.price = this.cenaOglasa.nativeElement.value
+    }
 
     this.oglasiService.update(this.oglas, this.id).then((result:Oglas)=> {
       document.getElementById("buttonCloseUrediOglas").click()
