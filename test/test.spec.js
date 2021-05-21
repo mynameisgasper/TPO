@@ -195,28 +195,27 @@ describe('Testiranje Dog walkers', () => {
         -----
         PRIJAVA UPORABNIKA:                         0
         REGISTRACIJA UPORABNIKA:                    0
-        PREGLED VSEH OGLASOV:                       #
-        OGLED POSAMEZNEGA OGLASA:                   1 (še ne moreš)
-        ISKANJE OGLASOV:                            2 (še ne moreš)
+        PREGLED VSEH OGLASOV:                       0
+        OGLED POSAMEZNEGA OGLASA:                   0 
+        ISKANJE OGLASOV:                            1 (za neuspešnega bo treba mal razmislt)
         UREJANJE UPORABNIŠKEGA PROFILA:             2 (napisano ampak ne dela, manjka backend?)
         OGLED PROFILA:                              0
         KREIRANJE OGLASA:                           0
-        UREJANJE OGLASA:                            1 (nedokoncan izjemni tok, manjka error message na backendu)
-        BRISANJE OGLASA:                            1 (ni modala za potrditev brisanja, nemorm spisat edinga izjemnega toka)
+        UREJANJE OGLASA:                            0
+        BRISANJE OGLASA:                            1 (še ni)
         ODZIV NA OGLAS:                             2 (še ne moreš)
-        OCENA PROFILA:                              1 (izjemni je zjeban, tut če ne potrdiš se spremeni ocena) 
-        KOMENTIRANJE PROFILA:                       2  
-        BRISANJE KOMENTARJEV PROFILA:               2
+        OCENA PROFILA:                              1 (treba pogruntat kako nardit check)
+        KOMENTIRANJE PROFILA:                       0  
+        BRISANJE KOMENTARJEV PROFILA:               2 (treba dobit nekak user id)
         DODAJANJE UPORABNIKA MED HITRE KONTAKTE:    2 (še ne moreš)
         OGLED HITRIH KONTAKTOV:                     2 (še ne moreš)
         ODSTRANITEV IZ HITRIH KONTAKTOV:            2 (še ne moreš)
         PREGLED LOKACIJE PREVZEMA:                  2 (še ne moreš)    
         PRETVORBA VALUTE:                           2 (še ne moreš)
 
-        # - ne moreš narest več kot en test
     */
 
-/*
+
 
     // TESTI: PREGLED VSEH OGLASOV
     context('Pregled vseh oglasov', () => {
@@ -257,27 +256,6 @@ describe('Testiranje Dog walkers', () => {
             //Preveri če obstaja gumb Odjava -> Tako vemo da je prijavljen
             cy.get('#odjava').should('have.text','Odjava')
         })
-    })
-    
-    // TESTI: UREJANJE UPORABNIŠKEGA PROFILA
-    context('Urejanje uporabniškega profila', () => {
-        
-        it('Urejanje profila uporabnika', () => {
-
-            cy.login()
-
-            cy.get('#userProfileButton').click()
-            cy.wait(100)
-            cy.get('#editButtonProfile').click()
-
-            //Preveri ali si na strani za urejanje profila
-            cy.get('.naslov').should('have.text','Urejanje profila')
-        })
-
-        // TODO, ko bo zvezano
-        
-        //it('', () => {})
-
     })
     
     // TESTI: KREIRANJE OGLASA
@@ -337,9 +315,20 @@ describe('Testiranje Dog walkers', () => {
 
         })
 
-        // TODO, ko bodo oglasi vezani na posameznega uporabnika, ki jih je ustvaril
-        //it('Ogled oglasa preko profila', () => {})
 
+        // Najprej navigiraj na profil nekega uporabnika, in si golej oglas prek gumba "Vsi oglasi" tega uporabnika
+        it('Ogled oglasa preko profila', () => {
+            cy.loginOther()
+
+            cy.get('#profileButton').first().click()
+            cy.wait(100)
+            cy.get('#vsiOglasi').click()
+
+            cy.get('#oglasButton').first().click()
+            cy.wait(100)
+            cy.get('#odziv').should('have.text','Odziv na oglas')
+
+        })
     })
 
     // TESTI: OGLED PROFILA
@@ -445,7 +434,7 @@ describe('Testiranje Dog walkers', () => {
     })
 
 
-
+/*
     // TESTI: UREJANJE UPORABNIŠKEGA PROFILA - mislm da še ni backenda
     context('Urejanje uporabniškega profila', () => {
 
@@ -489,7 +478,7 @@ describe('Testiranje Dog walkers', () => {
 
         })
     })
-
+*/
 
     
     // TESTI: VZDRŽEVANJE OGLASA
@@ -544,7 +533,10 @@ describe('Testiranje Dog walkers', () => {
             cy.get('#buttonUrediOglas').click()
             cy.wait(500)
 
-            // TODO - tukej check za error message, da je prazen naslov!
+            //alert
+            cy.on('window:alert', (str) => {
+                expect(str).to.equal('Ime oglasa ne more biti prazno!')
+            })
         })
     })
 
@@ -569,10 +561,23 @@ describe('Testiranje Dog walkers', () => {
             })
         })
 
-        //it('Podajanje ocene - neuspešen', () => {cy.loginOther()})
+        it('Podajanje ocene - neuspešen', () => {
+            cy.loginOther()
+
+            cy.get('#profileButton').first().click()
+
+            cy.get('#ocenaBtn').click()
+            cy.get('#ocena').select('2')
+
+            cy.get('#zapriModal').click()
+            cy.wait(200)
+
+            // TREBA ZGRUNTAT KAKO SE BO ČEKNILO ZVEZDICE..
+
+        })
     })
 
-*/
+
     // TESTI: PODAJANJE KOMENTARJA PROFILU
     context('Podajanje komentarja profilu drugega uporabnika', () => {
 
@@ -623,6 +628,19 @@ describe('Testiranje Dog walkers', () => {
 
         // TODO - ni potrdilnega okna za brisanje komentarjev, LAHKO tut brisanje kot admin
         //it('Brisanje komentarja - neuspešen', () => {})
+    })
+
+    // TESTI: ISKANJE OGLASOV
+    context('Iskanje oglasa', () => {
+        it('Iskanje oglasa - uspešen', () => {
+            cy.login()
+
+            cy.get('#searchButton').invoke('val','prodajam pnevmatike')
+            cy.get('#nasOglasBoard').should('have.value', 'prodajam pnevmatike')
+
+        })
+
+        //it('Iskanje oglasa - neuspešen', () => {})
     })
     
 })
