@@ -15,6 +15,10 @@ router
     .post('/comment',authentication,userAdvancedController.addComment)
     .post('/rating',authentication,userAdvancedController.addRating)
 
+
+router
+    .get('/oglasi', authentication, userAdvancedController.getAllOglasi)
+
 router
     .put('/:id', authentication, userController.update)
     .delete('/:id', authentication, userController.deleteOne)
@@ -25,5 +29,6 @@ router
 router  
     .post('/contact', authentication, userAdvancedController.addContact)
     .delete('/contact', authentication, userAdvancedController.deleteContact)
+
 
 module.exports = router

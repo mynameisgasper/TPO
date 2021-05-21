@@ -94,7 +94,7 @@ const addRating = (req, res) => {
 }
 
 const getAllOglasi = (req, res) => {
-    Oglasi.find({creator:req.payload.id}).exec().then(oglasi => {
+    Oglasi.find({creator:req.query.userId}).exec().then(oglasi => {
         if(!oglasi){
             res.status(404).json({"message":"ne najdem oglasov"})
         }else{
@@ -107,7 +107,7 @@ const getAllOglasi = (req, res) => {
 }
 
 const addContact = (req, res) => {
-    User.findById(req.payload.id).exec().then(user => {
+        User.findById(req.payload.userId).exec().then(user => {
         if (!user) {
             return res.status(404).json({ "sporocilo": "Ne najdem uporabnika" });
         }
