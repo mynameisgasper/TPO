@@ -2,3 +2,4 @@ app_api/node_modules
 app_public/node_modules
 
 
+/app_public/.nyc_output/

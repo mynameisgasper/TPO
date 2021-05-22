@@ -1,2 +1,3 @@
 test/pokritost/lcov-report/app_public
 src/app_public/.nyc_output
+/src/app_public/.nyc_output/
