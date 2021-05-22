@@ -36,4 +36,6 @@ export class OglasiProfilaComponent implements OnInit {
     this.router.navigate(['/ogled-profila/' + this.id])
   }
 
+
+
 }

@@ -17,7 +17,8 @@ export class OgledProfilaComponent implements OnInit {
   public ok: boolean = false;
   deleteid = null
   ocena = null
-
+  currentUser:User
+  contactExists:boolean
   constructor(private userService:UserService, private route:ActivatedRoute, private router:Router, private authService:AuthenticationService) { }
 
   ngOnInit(): void {
@@ -28,7 +29,20 @@ export class OgledProfilaComponent implements OnInit {
     if(this.id === this.authService.vrniTrenutnegaUporabnika().id) {
       this.router.navigate(['profil'])
     }
+
+    this.contactExists = this.checkIfUserHasContact()
+
+
   }
+
+  checkIfUserHasContact(){
+    for(let c in this.currentUser.contacts){
+      if(this.id.toString() === c.toString())
+        return false;
+    }
+    return true
+  }
+
 
   @ViewChild('inputVsebinaKomentarja') vsebinaKomentarja: ElementRef;
 
@@ -78,6 +92,10 @@ export class OgledProfilaComponent implements OnInit {
     this.router.navigate(['/oglasi-profil/'+ this.id])
   }
 
+  backButton(){
+    window.history.back()
+  }
+
   podajOceno() {
     console.log(this.ocena)
     if (this.ocena) {
@@ -102,10 +120,18 @@ export class OgledProfilaComponent implements OnInit {
     this.userService.addContact(this.id).then((result:string)=>{
       window.location.reload()
     }).catch(err => {
-      alert(err)
+      alert("Kontakt ze obstaja.")
       console.error(err)
     })
   }
 
+  brisiIzHitrihKontaktov(){
+    this.userService.deleteContact(this.id).then((result:User)=>{
+      window.location.reload()
+    }).catch(err => {
+      alert("Kontakt ne obstaja.")
+      console.error(err)
+    })
+  }
 
 }

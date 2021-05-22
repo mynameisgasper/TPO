@@ -4,43 +4,43 @@ const jwt = require('jsonwebtoken');
 const { oglasSchema } = require('./oglas');
 
 const commentSchema = new mongoose.Schema({
-    owner: {type:String, required:true},
-    content: {type:String, required:true}
+    owner: { type: String, required: true },
+    content: { type: String, required: true }
 })
 
 const userSchema = new mongoose.Schema({
     /** osebni podatki (potrebni za registracijo) **/
-    name: {type:String, required:true},
-    surname: {type:String, required: true},
-    phone: {type:String, required:true},
-    address: {type:String, required:true},
-    country: {type:String, required: true, default: ""},
-    email: {type:String, required: true, unique:true},
+    name: { type: String, required: true },
+    surname: { type: String, required: true },
+    phone: { type: String, required: true },
+    address: { type: String, required: true },
+    country: { type: String, required: true, default: "" },
+    email: { type: String, required: true, unique: true },
 
     /** naslov **/
 
 
 
     /** public podatki **/
-    ratingSum: {type: Number, default: 0},
-    ratingNum: {type: Number, default: 0},
-    rating: {type: Number, default: 0.0},
-    ratingsFrom: {type: [String], default: []},
-    description : {type:String, default: ""},
+    ratingSum: { type: Number, default: 0 },
+    ratingNum: { type: Number, default: 0 },
+    rating: { type: Number, default: 0.0 },
+    ratingsFrom: { type: [String], default: [] },
+    description: { type: String, default: "" },
 
-    comments: {type: [commentSchema], default: []},
-    contacts: {type: [String], default: []},
+    comments: { type: [commentSchema], default: [] },
+    contacts: { type: [String], default: [] },
 
 
     /** polja, uporabljena za avtentikacjio/avtorizacijo **/
-    role: {type:Number, default:0},
+    role: { type: Number, default: 0 },
     /** @Roles
      * 0 - navaden uporabnik
      * 1 - premium uporabnik
      * 2 - administrator
      */
-    zgoscenaVrednost: {type: String, required: true},
-    nakljucnaVrednost: {type: String, required: true},
+    zgoscenaVrednost: { type: String, required: true },
+    nakljucnaVrednost: { type: String, required: true },
 })
 userSchema.methods.nastaviGeslo = function(geslo) {
     this.nakljucnaVrednost = crypto.randomBytes(16).toString('hex');
@@ -54,9 +54,10 @@ userSchema.methods.preveriGeslo = function(geslo) {
         .toString('hex');
     return this.zgoscenaVrednost === zgoscenaVrednost;
 };
-userSchema.methods.generirajJwt = function () {
+userSchema.methods.generirajJwt = function() {
     const datumPoteka = new Date();
     datumPoteka.setDate(datumPoteka.getDate() + 7);
+    console.log(contacts)
     return jwt.sign({
         id: this._id,
         name: this.name,
@@ -73,5 +74,5 @@ userSchema.methods.generirajJwt = function () {
     }, process.env.JWT_GESLO);
 };
 
-mongoose.model('Comment',commentSchema,'Comments')
+mongoose.model('Comment', commentSchema, 'Comments')
 mongoose.model('User', userSchema, 'Users');

@@ -140,11 +140,11 @@ export class UserService {
 
     const httpHeaders = {
       headers: new HttpHeaders({
-        'Authorization': `Bearer ${this.authService.vrniZeton()}`
+        'authorization': `Bearer ${this.authService.vrniZeton()}`
       })
     };
     return this.http
-      .post(url, httpHeaders)
+      .post(url, {}, httpHeaders)
       .toPromise()
       .then(odgovor => odgovor as string)
       .catch(this.obdelajNapako)

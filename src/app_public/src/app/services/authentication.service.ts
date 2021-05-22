@@ -90,7 +90,7 @@ export class AuthenticationService {
         rating,
         contacts,
         description } = jwt_decode(zeton) as any;
-      console.log(name)
+      console.log(contacts)
       return {
         id,
         name,

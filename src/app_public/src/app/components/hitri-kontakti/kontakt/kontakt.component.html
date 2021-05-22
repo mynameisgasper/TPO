@@ -1,8 +1,8 @@
-<div class="">
+<div *ngIf="contact" class="">
     <div class=" spacer "></div>
     <div class="kontakt" style="text-align:center">
-        <button class="btn btn-light" id="profileButton" type="button">
-        <i class=" fas fa-user "></i> Ime Profila
+        <button (click)="linkToProfile()" class="btn btn-light" id="profileButton" type="button">
+        <i class=" fas fa-user "></i> {{this.ime}} {{this.priimek}}
         </button>
     </div>
 </div>

@@ -4,11 +4,12 @@
     <div *ngIf="user" class="container main-container">
         <div class="row delete-row">
             <div class="col-6 col-md-6 col-lg-6 col-xl-6">
-                <button (click)="dodajPodHitreKontakte()" id="dodajKontakt" class="btn btn-primary">Dodaj med hitre kontakte</button>
+                <button *ngIf="this.contactExists" (click)="dodajPodHitreKontakte()" id="dodajKontakt" class="btn btn-primary">Dodaj med hitre kontakte</button>
+                <button *ngIf="!this.contactExists" (click)="brisiIzHitrihKontaktov()" id="brisiKontakt" class="btn btn-danger">Izbriši hitri kontakt</button>
                 <button (click)="ogledOglasov()" id="vsiOglasi" class="btn btn-primary" style="margin-left:1vh;">Vsi Oglasi</button>
             </div>
             <div class="col-6 col-md-6 col-lg-6 col-xl-6">
-                <button class="btn btn-success" id="backButtonOtherProfile" routerLink="/oglasi">
+                <button (click)="backButton()" class="btn btn-success" id="backButtonOtherProfile" >
                     <i class="fas fa-chevron-left"></i>
                 </button>
             </div>

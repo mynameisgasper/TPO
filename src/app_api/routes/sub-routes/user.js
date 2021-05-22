@@ -20,15 +20,17 @@ router
     .get('/oglasi', authentication, userAdvancedController.getAllOglasi)
 
 router
+    .post('/contact', authentication, userAdvancedController.addContact)
+    .delete('/contact', authentication, userAdvancedController.deleteContact)
+
+router
     .put('/:id', authentication, userController.update)
     .delete('/:id', authentication, userController.deleteOne)
     .get('/:id',userController.getOne)
     .post('/', authentication, userController.create)
     .get('/', authentication, userController.getAll)
 
-router  
-    .post('/contact', authentication, userAdvancedController.addContact)
-    .delete('/contact', authentication, userAdvancedController.deleteContact)
+
 
 
 module.exports = router

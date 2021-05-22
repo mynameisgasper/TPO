@@ -107,15 +107,15 @@ const getAllOglasi = (req, res) => {
 }
 
 const addContact = (req, res) => {
-        User.findById(req.payload.userId).exec().then(user => {
+        User.findById(req.payload.id).exec().then(user => {
         if (!user) {
             return res.status(404).json({ "sporocilo": "Ne najdem uporabnika" });
         }
-        else if (user.contacts.includes(req.body.id)) {
+        else if (user.contacts.includes(req.query.userId)) {
             return res.status(400).json({ "sporocilo": "Ta uporabnik je ze med hitrimi kontakti" });
         }
         else {
-            user.contacts.push(req.body.id);
+            user.contacts.push(req.query.userId);
             user.save((err, doc) => {
                 if (err) {
                     return res.status(500).json({ "message": "internal server error" })
@@ -128,7 +128,7 @@ const addContact = (req, res) => {
 }
 
 const deleteContact = (req, res) => {
-    User.findById(req.payload.id).exec().then(user => {
+    User.findById(req.query.userId).exec().then(user => {
         if (!user) {
             return res.status(404).json({ "sporocilo": "Ne najdem uporabnika" });
         }
