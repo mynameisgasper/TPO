@@ -611,19 +611,34 @@ describe('Testiranje Dog walkers', () => {
     // TESTI: BRISANJE KOMENTARJA PROFILU
     context('Brisanje komentarja profila', () => {
 
+        it('Brisanje komentarja - neuspešen', () => {
+
+            cy.loginOther()
+            cy.get('#profileButton').first().click()
+            cy.get('#deleteCommentBtn').click()
+
+            //Poglej za potrditveno okno
+            cy.get('#deleteCommentModal').should('have.text', 'Ali ste prepričani, da želite izbrisati komentar?')
+            cy.get('#dismissBtn1').click()
+
+            cy.get('.komentarProfila').should('exist')
+        })
+
         it('Brisanje komentarja - uspešen', () => {
             
             cy.loginOther()
             cy.get('#profileButton').first().click()
+            cy.get('#deleteCommentBtn').click()
 
-            // manjka brisanje, treba nekak dobit user id hash...
+            //Poglej za potrditveno okno
+            cy.get('#deleteCommentModal').should('have.text', 'Ali ste prepričani, da želite izbrisati komentar?')
+            cy.get('#deleteBtn').click()
+            cy.wait(50)
 
             cy.get('.komentarProfila').should('not.exist')
 
         })
 
-        // TODO - ni potrdilnega okna za brisanje komentarjev, LAHKO tut brisanje kot admin
-        //it('Brisanje komentarja - neuspešen', () => {})
     })
 
 
