@@ -555,21 +555,21 @@ describe('Testiranje Dog walkers', () => {
             })
         })
 
-        /*
+
         it('Podajanje ocene - neuspešen', () => {
             cy.loginOther()
 
             cy.get('#profileButton').first().click()
 
             cy.get('#ocenaBtn').click()
-            cy.get('#ocena').select('2')
+            cy.get('#ocena').select('5')
 
             cy.get('#zapriModal').click()
-            cy.wait(200)
+            cy.wait(50)
 
-            // TREBA ZGRUNTAT KAKO SE BO ČEKNILO ZVEZDICE..
+            cy.get('#ocenaProfila').should('have.text', '1')
         })
-        */
+
     })
 
 

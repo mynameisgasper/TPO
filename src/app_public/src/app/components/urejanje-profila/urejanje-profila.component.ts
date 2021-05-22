@@ -115,6 +115,7 @@ export class UrejanjeProfilaComponent implements OnInit {
   }
 
   clearModal() {
+    this.ok = false;
     (document.getElementById('passwordEdit') as HTMLInputElement).value = "";
     (document.getElementById('reppasswordEdit') as HTMLInputElement).value = "";
   }
