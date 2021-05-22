@@ -197,7 +197,7 @@ describe('Testiranje Dog walkers', () => {
         REGISTRACIJA UPORABNIKA:                    0
         PREGLED VSEH OGLASOV:                       0
         OGLED POSAMEZNEGA OGLASA:                   0 
-        ISKANJE OGLASOV:                            1 (za neuspešnega bo če bo gumb)
+        ISKANJE OGLASOV:                            0
         UREJANJE UPORABNIŠKEGA PROFILA:             0 
         OGLED PROFILA:                              0
         KREIRANJE OGLASA:                           0
@@ -210,7 +210,7 @@ describe('Testiranje Dog walkers', () => {
         DODAJANJE UPORABNIKA MED HITRE KONTAKTE:    2 (še ne moreš)
         OGLED HITRIH KONTAKTOV:                     2 (še ne moreš)
         ODSTRANITEV IZ HITRIH KONTAKTOV:            2 (še ne moreš)
-        PREGLED LOKACIJE PREVZEMA:                  2
+        PREGLED LOKACIJE PREVZEMA:                  0
         PRETVORBA VALUTE:                           2 (še ne moreš)
 
     */
@@ -330,6 +330,29 @@ describe('Testiranje Dog walkers', () => {
             cy.get('#odziv').should('have.text','Odziv na oglas')
 
         })
+    })
+
+    // TEST: OGLED LOKACIJE PREVZEMA
+    context('Ogled lokacije prevzema', () => {
+
+        it('Ogled lokacije prevzema', () => {
+
+            //Pojdi na stran z vsemi oglasi
+            cy.visit('http://localhost:4200/oglasi')
+
+            //Odpri oglas
+            cy.get('#oglasButton').first().click()
+            cy.wait(100)
+            cy.get('#odziv').should('have.text','Odziv na oglas')
+
+            //Odpri zemljevid
+            cy.get('#btnToggle').click()
+            cy.get('iframe')
+            cy.wait(5000)
+
+            cy.get('#over').click()
+        })
+
     })
 
     // TESTI: OGLED PROFILA
