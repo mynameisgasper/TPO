@@ -257,7 +257,7 @@ describe('Testiranje Dog walkers', () => {
             cy.get('#odjava').should('have.text','Odjava')
         })
     })
-    
+
     // TESTI: KREIRANJE OGLASA
     context('Kreiranje oglasa', () => {
 
@@ -359,7 +359,7 @@ describe('Testiranje Dog walkers', () => {
     // TESTI: BRISANJE OGLASA
     context('Brisanje oglasa', () => {
 
-        it('Brisanje oglasa', () => {
+        it('Brisanje oglasa uspešen', () => {
             cy.login()
 
             cy.get('#ustvari').click()
@@ -386,10 +386,50 @@ describe('Testiranje Dog walkers', () => {
             cy.get('#oglasButton').first().click()
             cy.get('#deleteButton').click()
 
+            // Preveri ali se odpre modal
+            cy.get('#confirmModalTitle').should('have.text', 'Ali ste prepričani, da želite izbrisati oglas?')
+            cy.get('#deleteBtn').click()
+
             //alert
             cy.on('window:alert', (str) => {
                 expect(str).to.equal('Oglas izbrisan!')
             })
+        })
+
+        it('Brisanje oglasa neuspešen', () => {
+            cy.login()
+
+            cy.get('#ustvari').click()
+            cy.wait(500)
+
+            // Kreator novega oglasa vnese podatke
+
+            cy.get('#naslovOglasa').invoke('val','testni_oglas')
+            cy.wait(20)
+            cy.get('#opisOglasa').invoke('val','test 123 123')
+            cy.get('#cenaOglasa').invoke('val','69')
+            cy.get('#lokacijaOglasa').invoke('val','Tibilisijska 15, 1000 Ljubljana')
+
+            // Kreator oglasa doda sliko iz lokalne naprave
+            // cy.get('#dodajSliko').click()
+
+            // Kreator doda nov oglas k obstoječim
+            cy.intercept('POST', 'http://localhost:3000/api/v1/oglas').as('oglasCreate')
+            cy.get('#buttonAddOglas').click()
+            cy.wait('@oglasCreate')
+
+            // Preveri ali na novo ustvarjen oglas obstaja med oglasi
+            cy.get('#nasOglasBoard').should('have.text', 'testni_oglas')
+            cy.get('#oglasButton').first().click()
+            cy.get('#deleteButton').click()
+
+            // Preveri ali se odpre modal
+            cy.get('#confirmModalTitle').should('have.text', 'Ali ste prepričani, da želite izbrisati oglas?')
+            cy.get('#dismissBtn').click()
+
+            //Preveri če oglas še obstaja
+            cy.wait(50)
+            cy.get('#naslovOglas').should('have.text', 'testni_oglas')
         })
 
     })
@@ -496,7 +536,6 @@ describe('Testiranje Dog walkers', () => {
     })
 
 
-
     // TESTI: PODAJANJE OCENE PROFILU
     context('Podajanje ocene profilu drugega uporabnika', () => {
 
@@ -568,7 +607,7 @@ describe('Testiranje Dog walkers', () => {
         })
     })
 
-    /*
+
     // TESTI: BRISANJE KOMENTARJA PROFILU
     context('Brisanje komentarja profila', () => {
 
@@ -586,7 +625,7 @@ describe('Testiranje Dog walkers', () => {
         // TODO - ni potrdilnega okna za brisanje komentarjev, LAHKO tut brisanje kot admin
         //it('Brisanje komentarja - neuspešen', () => {})
     })
-    */
+
 
     // TESTI: ISKANJE OGLASOV
     context('Iskanje oglasa', () => {
