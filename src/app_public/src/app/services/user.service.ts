@@ -153,6 +153,7 @@ export class UserService {
   public deleteContact(idUser: string): Promise<User> {
     const url: string = this.apiUrl+'/contact?userId='+`${idUser}`
     console.log("url:" + url)
+    console.log(idUser)
     const httpHeaders = {
       headers: new HttpHeaders({
         'Authorization': `Bearer ${this.authService.vrniZeton()}`

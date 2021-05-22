@@ -32,14 +32,17 @@ export class OgledProfilaComponent implements OnInit {
 
     this.contactExists = this.checkIfUserHasContact()
 
-
   }
 
   checkIfUserHasContact(){
+    this.currentUser = this.authService.vrniTrenutnegaUporabnika()
     for(let c in this.currentUser.contacts){
-      if(this.id.toString() === c.toString())
+      console.log(this.currentUser.contacts[c])
+      if(this.id.toString() === this.currentUser.contacts[c].toString())
         return false;
     }
+
+
     return true
   }
 

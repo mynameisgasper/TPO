@@ -27,6 +27,9 @@ export class HitriKontaktiComponent implements OnInit {
     this.user = this.authService.vrniTrenutnegaUporabnika()
   }
 
+  backButton(){
+    window.history.back()
+  }
 
 
 }

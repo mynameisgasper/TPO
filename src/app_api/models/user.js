@@ -57,7 +57,6 @@ userSchema.methods.preveriGeslo = function(geslo) {
 userSchema.methods.generirajJwt = function() {
     const datumPoteka = new Date();
     datumPoteka.setDate(datumPoteka.getDate() + 7);
-    console.log(contacts)
     return jwt.sign({
         id: this._id,
         name: this.name,

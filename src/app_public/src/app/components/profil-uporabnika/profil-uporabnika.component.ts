@@ -53,9 +53,6 @@ export class ProfilUporabnikaComponent implements OnInit {
     this.router.navigate(['/oglasi-profil/'+ this.user.id])
   }
 
-  dodajHitriKontakt(){
-
-  }
 
 
 }

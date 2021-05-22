@@ -1,10 +1,16 @@
 <app-navbar></app-navbar>
 
-<div class="container">
-    <div class="row">
-        <div class="col-0 col-md-2 col-lg-2 col-xl-2"></div>
-        <app-kontakt *ngFor="let contact of contacts" [contact]="contact" class="col-12 col-md-4 col-lg-4 col-xl-4"></app-kontakt>
-
-    </div>
+<div class="container main-container">
+  <div class="row">
+    <button (click)="backButton()" class="btn btn-success" id="backButtonOtherProfile" >
+      <i class="fas fa-chevron-left"></i>
+    </button>
+  </div>
+  <div class="row">
+    <app-kontakt *ngFor="let contact of contacts" [contact]="contact" class="col-12 col-md-4 col-lg-4 col-xl-4"></app-kontakt>
+  </div>
 
 </div>
+
+
+
