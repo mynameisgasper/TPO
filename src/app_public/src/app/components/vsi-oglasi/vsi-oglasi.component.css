@@ -52,3 +52,7 @@ body {
 .main-buttons {
     text-align: center;
 }
+
+.inline {
+  display:inline-block;
+}

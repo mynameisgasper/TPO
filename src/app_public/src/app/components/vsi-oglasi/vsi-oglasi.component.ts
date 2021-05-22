@@ -15,6 +15,7 @@ export class VsiOglasiComponent implements OnInit {
 
   oglasi:Oglas[]
   oglas:Oglas = new Oglas
+  searchString: string
 
   constructor(private oglasiService:OglasiService, private authService:AuthenticationService, private router:Router, private renderer: Renderer2) { }
 
@@ -67,12 +68,29 @@ export class VsiOglasiComponent implements OnInit {
 
   }
 
-  onSearchChange(searchString:string){
-    this.oglasiService.getAll(searchString).then(oglasi=>{
-      this.oglasi=oglasi
-    }).catch(err=>{
-      console.log(err)
-    })
+  onSearchChange(searchInput:string){
+    this.searchString = searchInput;
+  }
+
+  search() {
+    if (this.searchTest()) {
+      this.oglasiService.getAll(this.searchString).then(oglasi => {
+        this.oglasi = oglasi
+      }).catch(err => {
+        console.log(err)
+      })
+    } else {
+      alert("Iskalni niz lahko vsebuje le črke!")
+    }
+  }
+
+  searchTest() {
+    let inputCheck = new RegExp("^[a-zA-ZčćžđšČĆŽĐŠ ]+$");
+    let inputTest = inputCheck.test(this.searchString);
+    if (inputTest) {
+      return true
+    }
+    return false
   }
 
   toBase64 = file => new Promise((resolve, reject) => {

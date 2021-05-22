@@ -202,15 +202,15 @@ describe('Testiranje Dog walkers', () => {
         OGLED PROFILA:                              0
         KREIRANJE OGLASA:                           0
         UREJANJE OGLASA:                            0
-        BRISANJE OGLASA:                            1 
+        BRISANJE OGLASA:                            0
         ODZIV NA OGLAS:                             2 (še ne moreš)
-        OCENA PROFILA:                              1 (treba pogruntat kako nardit check)
+        OCENA PROFILA:                              0
         KOMENTIRANJE PROFILA:                       0  
-        BRISANJE KOMENTARJEV PROFILA:               2 (treba dobit nekak user id)
+        BRISANJE KOMENTARJEV PROFILA:               0
         DODAJANJE UPORABNIKA MED HITRE KONTAKTE:    2 (še ne moreš)
         OGLED HITRIH KONTAKTOV:                     2 (še ne moreš)
         ODSTRANITEV IZ HITRIH KONTAKTOV:            2 (še ne moreš)
-        PREGLED LOKACIJE PREVZEMA:                  2 (še ne moreš)    
+        PREGLED LOKACIJE PREVZEMA:                  2
         PRETVORBA VALUTE:                           2 (še ne moreš)
 
     */
@@ -647,12 +647,28 @@ describe('Testiranje Dog walkers', () => {
         it('Iskanje oglasa - uspešen', () => {
             cy.login()
 
-            cy.get('#searchButton').invoke('val','prodajam pnevmatike')
+            //Vnesi iskalni niz
+            cy.get('#searchBar').invoke('val','prodajam pnevmatike')
+            cy.get('#searchBtn').click()
             cy.wait(100)
+
+            //Preveri če najde oglas
             cy.get('.oglas').should('exist')
         })
 
-        //it('Iskanje oglasa - neuspešen', () => {})
+        it('Iskanje oglasa - neuspešen', () => {
+            cy.login()
+
+            //Vnesi neprimeren iskalni niz
+            cy.get('#searchBar').invoke('val','@!?%$#')
+            cy.get('#searchBtn').click()
+            cy.wait(100)
+
+            //Preveri če vrže error
+            cy.on('window:alert', (str) => {
+                expect(str).to.equal('Iskalni niz lahko vsebuje le črke!')
+            })
+        })
     })
 
 
