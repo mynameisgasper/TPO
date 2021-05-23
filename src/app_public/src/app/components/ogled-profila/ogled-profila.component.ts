@@ -136,7 +136,7 @@ export class OgledProfilaComponent implements OnInit {
   }
 
   brisiIzHitrihKontaktov(){
-    if(this.currentUser.role > 1){
+    if(this.currentUser.role > 0){
       this.userService.deleteContact(this.id).then((result: AuthenticationResult) => {
       this.authService.shraniZeton(result.jwt)
       window.location.reload()

@@ -270,9 +270,9 @@ describe('Testiranje Dog walkers', () => {
         OCENA PROFILA:                              0
         KOMENTIRANJE PROFILA:                       0  
         BRISANJE KOMENTARJEV PROFILA:               0
-        DODAJANJE UPORABNIKA MED HITRE KONTAKTE:    2 (vreš)
-        OGLED HITRIH KONTAKTOV:                     1
-        ODSTRANITEV IZ HITRIH KONTAKTOV:            1
+        DODAJANJE UPORABNIKA MED HITRE KONTAKTE:    2
+        OGLED HITRIH KONTAKTOV:                     0
+        ODSTRANITEV IZ HITRIH KONTAKTOV:            0
         PREGLED LOKACIJE PREVZEMA:                  0
         PRETVORBA VALUTE:                           2 (še ne moreš)
 
@@ -757,7 +757,7 @@ describe('Testiranje Dog walkers', () => {
         })
     })
 
-    // TESTI: OGLED HITRIH KONTAKTOV: 2
+    // TESTI: OGLED HITRIH KONTAKTOV
     context('Ogled hitrih kontaktov', () => {
         it('Ogled hitrih kontaktov - uspešen', () => {
             cy.loginPremium()
@@ -783,8 +783,37 @@ describe('Testiranje Dog walkers', () => {
         })
     })
 
-    // TESTI: ODSTRANITEV IZ HITRIH KONTAKTOV: 1
+    // TODO: dodajanje med hitre kontakte za premium (uspešen) pa za navaden (neuspešen)
 
+    // TESTI: ODSTRANITEV IZ HITRIH KONTAKTOV:
+    context('Odstranitev iz hitrih kontaktov', () => {
+        it('Odstranitev iz hitrih kontaktov', () => {
+            cy.loginPremium()
+
+            //Ta del se lahko izbriše ko bo test za dodajanje narejen ker se bo tm dodalo
+            cy.get('#profileButton').first().click()
+            cy.get('#dodajKontakt').click()
+            cy.wait(100)
+            cy.get('#backButtonOtherProfile').click()
+            cy.wait(200)
+
+            //Odpri hitre kontakte
+            cy.get('#hitri').click()
+            cy.wait(100)
+
+            //Odpri profil drugega uporabnika
+            cy.get('#profileButton').first().click()
+
+            //Izbriši profil iz hitrih kontaktov
+            cy.get('#brisiKontakt').click()
+            cy.wait(200)
+
+            //Poglej če se je izbrisal
+            cy.get('#dodajKontakt').should('exist')
+            cy.get('#backButtonOtherProfile').click()
+            cy.get('#profileButton').should('not.exist')
+        })
+    })
 
     // TE TESTE SE IZVAJA ZADNJE, KER PRIDE DO SPREMEMBE GESLA IN TO ZJEBE LOGIN:
     // TESTI: UREJANJE UPORABNIŠKEGA PROFILA
