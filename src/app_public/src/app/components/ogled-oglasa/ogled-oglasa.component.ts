@@ -32,6 +32,13 @@ export class OgledOglasaComponent implements OnInit {
   @ViewChild('inputCenaOglasa') cenaOglasa: ElementRef;
   @ViewChild('inputSlikaOglasa') slikaOglasa: ElementRef;
 
+  isOwnerOrAdmin(){
+    if(this.authService.jePrijavljen()){
+      return this.user.email === this.oglas.owner || this.user.role === 1000
+    }
+    return false;
+  }
+
   getOneOglas(id: string) {
     this.oglasiService.getOne(id).then((result:Oglas)=>{
       this.oglas = result
