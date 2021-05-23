@@ -35,5 +35,5 @@ jobs:
         working-directory: ./src/app_api
       - run: ng serve &
         working-directory: ./src/app_public
-      - run: npx cypress run # Poženi teste.
+      - run: npx cypress run --spec ../../test/test.spec.js # Poženi teste.
         working-directory: ./src/app_public

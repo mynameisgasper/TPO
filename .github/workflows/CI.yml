@@ -23,5 +23,5 @@ jobs:
           node-version: ${{ matrix.node-verzija }}
       - run: npm install # Namesti knjižnice.
         working-directory: ./src/app_public
-      - run: npx cypress run # Poženi teste.
+      - run: npx cypress run --spec ../../test/test.spec.js # Poženi teste.
         working-directory: ./src/app_public
