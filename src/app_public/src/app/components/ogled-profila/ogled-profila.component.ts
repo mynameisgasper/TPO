@@ -121,7 +121,7 @@ export class OgledProfilaComponent implements OnInit {
   }
 
   dodajPodHitreKontakte(){
-    if(this.currentUser.role > 1){
+    if(this.currentUser.role > 0){
       this.userService.addContact(this.id).then((result: AuthenticationResult) => {
         this.authService.shraniZeton(result.jwt)
         window.location.reload()
@@ -130,7 +130,7 @@ export class OgledProfilaComponent implements OnInit {
         console.error(err)
       })
     } else {
-      alert("Ta funkcionalnost je navoljo le premium uporabnikom")
+      alert("Ta funkcionalnost je na voljo le premium uporabnikom!")
     }
 
   }

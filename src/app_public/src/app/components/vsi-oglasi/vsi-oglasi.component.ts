@@ -40,8 +40,16 @@ export class VsiOglasiComponent implements OnInit {
     })
   }
 
+  get prijavljenUporabnik(){
+    return this.authService.vrniTrenutnegaUporabnika()
+  }
+
   openHitriKontakti(){
-    this.router.navigate(["/hitri-kontakti/"])
+    if (this.authService.jePrijavljen() && this.authService.vrniTrenutnegaUporabnika().role > 0) {
+      this.router.navigate(["/hitri-kontakti/"])
+    } else {
+      alert("Ta funkcionalnost je na voljo le premium uporabnikom!")
+    }
   }
 
   //TODO PRETVORI UPLOADAN FILE V BASE64 STRING NI GA SHRANI V picture POLJE

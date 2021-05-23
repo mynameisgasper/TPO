@@ -38,6 +38,23 @@ describe('Testiranje Dog walkers', () => {
         cy.wait('@login')
     })
 
+    Cypress.Commands.add('loginPremium', () => {
+
+        //Pripravi API klic ki ga želimo prestreči in počakati
+        cy.intercept('POST', 'http://localhost:3000/api/v1/auth/login').as('login');
+
+        cy.contains('DOG WALKERS')
+        //Vnesi v polja in klikni na gumb
+        cy.get('#loginEmail')
+            .invoke('val','premiumtest@gmail.com').should('have.value', 'premiumtest@gmail.com')
+        cy.get('#loginPassword')
+            .invoke('val','testtest')
+        cy.get('#login').click()
+
+        //Počakaj klic
+        cy.wait('@login')
+    })
+
     Cypress.Commands.add('loginAdmin', () => { 
 
         //Pripravi API klic ki ga želimo prestreči in počakati
@@ -179,6 +196,49 @@ describe('Testiranje Dog walkers', () => {
         //Počakaj klic
         cy.wait('@login')
     })
+
+    Cypress.Commands.add('registerPremium', () => {
+
+        // Pojdi na stran za registracijo
+        cy.get('#register').click()
+        cy.wait(200)
+
+        // Izpolni registracijsko formo
+        cy.get("#registrationName").invoke('val','Testni')
+        cy.get("#registrationSurname").invoke('val','Premium')
+        cy.get("#registrationPhone").invoke('val','051420420')
+        cy.get("#registrationAddress").invoke('val','Premium lokacija')
+        cy.get("#registrationCountry").invoke('val','Bahami')
+        cy.get("#registrationEmail").invoke('val','premiumtest@gmail.com')
+        cy.get("#registrationPassword").invoke('val','testtest')
+        cy.get("#registrationPassword2").invoke('val','testtest')
+
+        // Izberi vrsto računa
+        cy.get('#premium').click()
+        cy.wait(50)
+
+        // Registriraj se
+        cy.intercept('POST', 'http://localhost:3000/api/v1/auth/register').as('register');
+        cy.get('#regit').click()
+        cy.wait('@register')
+
+
+        // Opravi testni login z novim računom
+        //Pripravi API klic ki ga želimo prestreči in počakati
+        cy.intercept('POST', 'http://localhost:3000/api/v1/auth/login').as('login');
+
+        cy.contains('DOG WALKERS')
+        //Vnesi v polja in klikni na gumb
+        cy.get('#loginEmail')
+            .invoke('val','premiumtest@gmail.com').should('have.value', 'premiumtest@gmail.com')
+        cy.get('#loginPassword')
+            .invoke('val','testtest')
+        cy.get('#login').click()
+
+        //Počakaj klic
+        cy.wait('@login')
+
+    })
     
     context('Vzpostavitev uporabnikov (NISO TESTI)', () => {
         
@@ -187,6 +247,9 @@ describe('Testiranje Dog walkers', () => {
         })
         it('Registracije testni1 uporabnik1', () => {
             cy.registerNovi1()
+        })
+        it('Registracija premium uporabnik', () => {
+            cy.registerPremium()
         })
     })
     
@@ -207,9 +270,9 @@ describe('Testiranje Dog walkers', () => {
         OCENA PROFILA:                              0
         KOMENTIRANJE PROFILA:                       0  
         BRISANJE KOMENTARJEV PROFILA:               0
-        DODAJANJE UPORABNIKA MED HITRE KONTAKTE:    2 (še ne moreš)
-        OGLED HITRIH KONTAKTOV:                     2 (še ne moreš)
-        ODSTRANITEV IZ HITRIH KONTAKTOV:            2 (še ne moreš)
+        DODAJANJE UPORABNIKA MED HITRE KONTAKTE:    2 (vreš)
+        OGLED HITRIH KONTAKTOV:                     1
+        ODSTRANITEV IZ HITRIH KONTAKTOV:            1
         PREGLED LOKACIJE PREVZEMA:                  0
         PRETVORBA VALUTE:                           2 (še ne moreš)
 
@@ -693,6 +756,34 @@ describe('Testiranje Dog walkers', () => {
             })
         })
     })
+
+    // TESTI: OGLED HITRIH KONTAKTOV: 2
+    context('Ogled hitrih kontaktov', () => {
+        it('Ogled hitrih kontaktov - uspešen', () => {
+            cy.loginPremium()
+
+            //Poskusi odpreti hitre kontakte
+            cy.get('#hitri').click()
+            cy.wait(100)
+
+            //Preveri če je odprl hitre kontakte
+            cy.get('#backButtonOtherProfile').should('exist')
+        })
+
+        it('Ogled hitrih kontaktov - neuspešen', () => {
+            cy.login()
+
+            //Poskusi odpreti hitre kontakte
+            cy.get('#hitri').click()
+
+            //Preveri če vrže error
+            cy.on('window:alert', (str) => {
+                expect(str).to.equal('Ta funkcionalnost je na voljo le premium uporabnikom!')
+            })
+        })
+    })
+
+    // TESTI: ODSTRANITEV IZ HITRIH KONTAKTOV: 1
 
 
     // TE TESTE SE IZVAJA ZADNJE, KER PRIDE DO SPREMEMBE GESLA IN TO ZJEBE LOGIN:
