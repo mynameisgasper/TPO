@@ -683,12 +683,12 @@ describe('Testiranje Dog walkers', () => {
             cy.get('#profileButton').first().click()
 
             cy.get('#dodajKomentar').click()
-            cy.get('#vsebinaKomentarja').invoke('val','nategnu mi je psa')
+            cy.get('#vsebinaKomentarja').invoke('val','ugrabu mi je psa')
 
             cy.get('#buttonCloseUrediOglas').click()
             cy.wait(200)
 
-            cy.get('.komentarProfila').should('not.have.value', 'testni1.uporabnik1@gmail.com on je scammer testni1.uporabnik1@gmail.com nategnu mi je psa ')
+            cy.get('.komentarProfila').should('not.have.value', 'testni1.uporabnik1@gmail.com on je scammer testni1.uporabnik1@gmail.com ugrabu mi je psa ')
 
         })
     })
@@ -783,19 +783,41 @@ describe('Testiranje Dog walkers', () => {
         })
     })
 
-    // TODO: dodajanje med hitre kontakte za premium (uspešen) pa za navaden (neuspešen)
+    // TESTI: DODAJANJE MED HITRE KONTAKTE
+    context('Dodajanje uporabnika med hitre kontakte', () => {
+        it('Dodajanje uporabnika premium - uspešen', () => {
+            cy.loginPremium()
+
+            cy.get('#profileButton').first().click()
+            cy.wait(50)
+            cy.get('#dodajKontakt').click()
+            cy.wait(500)
+            cy.get('#backButtonOtherProfile').click()
+            cy.wait(200)
+            cy.get('#hitri').click()
+            cy.wait(100)
+            cy.get('#profileButton').should('have.text', ' testar testkovic ')
+        })
+
+        it('Dodajanje uporabnika navaden - neuspešen', () => {
+
+            cy.loginOther()
+            cy.get('#profileButton').first().click()
+            cy.wait(50)
+            cy.get('#dodajKontakt').click()
+
+            //Preveri če je uporabnik premium user
+            cy.on('window:alert', (str) => {
+                expect(str).to.equal('Ta funkcionalnost je na voljo le premium uporabnikom!')
+            })
+        })
+    })
+
 
     // TESTI: ODSTRANITEV IZ HITRIH KONTAKTOV:
     context('Odstranitev iz hitrih kontaktov', () => {
         it('Odstranitev iz hitrih kontaktov', () => {
             cy.loginPremium()
-
-            //Ta del se lahko izbriše ko bo test za dodajanje narejen ker se bo tm dodalo
-            cy.get('#profileButton').first().click()
-            cy.get('#dodajKontakt').click()
-            cy.wait(100)
-            cy.get('#backButtonOtherProfile').click()
-            cy.wait(200)
 
             //Odpri hitre kontakte
             cy.get('#hitri').click()
