@@ -266,11 +266,11 @@ describe('Testiranje Dog walkers', () => {
         KREIRANJE OGLASA:                           0
         UREJANJE OGLASA:                            0
         BRISANJE OGLASA:                            0
-        ODZIV NA OGLAS:                             2 (še ne moreš)
+        ODZIV NA OGLAS:                             0
         OCENA PROFILA:                              0
         KOMENTIRANJE PROFILA:                       0  
         BRISANJE KOMENTARJEV PROFILA:               0
-        DODAJANJE UPORABNIKA MED HITRE KONTAKTE:    2
+        DODAJANJE UPORABNIKA MED HITRE KONTAKTE:    0
         OGLED HITRIH KONTAKTOV:                     0
         ODSTRANITEV IZ HITRIH KONTAKTOV:            0
         PREGLED LOKACIJE PREVZEMA:                  0
@@ -860,6 +860,51 @@ describe('Testiranje Dog walkers', () => {
 
 
     })
+
+    /* Zakomentirano ker še ni funkcionalnosti
+    // TESTI: ODZIV NA OGLAS
+    context('Odziv na oglas', () => {
+
+        it('Odziv na oglas - uspešen', () => {
+
+            cy.loginOther()
+
+            // Poskusi se odzvati na oglas
+            cy.get('#oglasButton').first().click()
+            cy.wait(100)
+            cy.get('#odziv').click()
+            cy.wait(100)
+
+            // Vpiši odziv
+            cy.get("#odzivPolje").invoke('val','Hej, rad bi se zmenil za sprehajanje.')
+            cy.get('#poslji').click()
+            cy.wait(100)
+
+            // Preveri alert
+            cy.on('window:alert', (str) => {
+                expect(str).to.equal('Sporočilo poslano!')
+            })
+        })
+
+        it('Odziv na oglas - neuspešen', () => {
+            // Vstopi kot gost
+            cy.get('#gostBtn').click()
+            cy.wait(50)
+
+            // Poskusi se odzvati na oglas
+            cy.get('#oglasButton').first().click()
+            cy.wait(100)
+            cy.get('#odziv').click()
+
+            // Preveri alert
+            cy.on('window:alert', (str) => {
+                expect(str).to.equal('Odziv je mogoč le prijavljenim uporabnikom!')
+            })
+        })
+
+    })
+
+    */
 
     // TE TESTE SE IZVAJA ZADNJE, KER PRIDE DO SPREMEMBE GESLA IN TO ZJEBE LOGIN:
     // TESTI: UREJANJE UPORABNIŠKEGA PROFILA
