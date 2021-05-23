@@ -274,7 +274,7 @@ describe('Testiranje Dog walkers', () => {
         OGLED HITRIH KONTAKTOV:                     0
         ODSTRANITEV IZ HITRIH KONTAKTOV:            0
         PREGLED LOKACIJE PREVZEMA:                  0
-        PRETVORBA VALUTE:                           2 (še ne moreš)
+        PRETVORBA VALUTE:                           0
 
     */
 
@@ -903,7 +903,25 @@ describe('Testiranje Dog walkers', () => {
         })
 
     })
+    */
 
+    /* Zakomentirano ker še ni funkcionalnosti
+    // TESTI: PRETVORBA VALUTE
+    context('Pretvorba valute', () => {
+
+        it('Pretvorba valute', () => {
+
+            cy.loginOther()
+
+            // Odpri oglas
+            cy.get('#oglasButton').first().click()
+            cy.wait(100)
+
+            // Preveri če je cena v dolarjih
+            cy.get("#cenaOglasa").contains('$').should('exist')
+        })
+
+    })
     */
 
     // TE TESTE SE IZVAJA ZADNJE, KER PRIDE DO SPREMEMBE GESLA IN TO ZJEBE LOGIN:
@@ -934,7 +952,7 @@ describe('Testiranje Dog walkers', () => {
         })
 
         it('Urejanje profila - neuspešen', () => {
-            
+
             cy.login()
             cy.get('#userProfileButton').click()
             cy.wait(50)
@@ -951,5 +969,5 @@ describe('Testiranje Dog walkers', () => {
         })
 
     })
-    
+
 })
