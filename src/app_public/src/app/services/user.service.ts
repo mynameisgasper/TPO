@@ -133,7 +133,7 @@ export class UserService {
       .catch(this.obdelajNapako)
   }
 
-  public addContact(idUser: string): Promise<string> {
+  public addContact(idUser: string): Promise<AuthenticationResult> {
     const url: string = this.apiUrl+'/contact?userId='+`${idUser}`
     console.log("url:" + url)
     console.log(this.authService.vrniZeton())
@@ -146,11 +146,11 @@ export class UserService {
     return this.http
       .post(url, {}, httpHeaders)
       .toPromise()
-      .then(odgovor => odgovor as string)
+      .then(odgovor => odgovor as AuthenticationResult)
       .catch(this.obdelajNapako)
   }
 
-  public deleteContact(idUser: string): Promise<User> {
+  public deleteContact(idUser: string): Promise<AuthenticationResult> {
     const url: string = this.apiUrl+'/contact?userId='+`${idUser}`
     console.log("url:" + url)
     console.log(idUser)
@@ -162,7 +162,7 @@ export class UserService {
     return this.http
       .delete(url, httpHeaders)
       .toPromise()
-      .then(odgovor => odgovor as User)
+      .then(odgovor => odgovor as AuthenticationResult)
       .catch(this.obdelajNapako)
   }
 

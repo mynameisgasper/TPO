@@ -20,6 +20,7 @@ export class User{
   address: string
   country: string
   email: string
+  contacts: string[]
   role: number
 }
 

@@ -4,6 +4,7 @@ import {Comment} from 'src/app/Models/Comment'
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import {UserService} from "../../services/user.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import {AuthenticationResult} from "../../Classes/authenticationResult";
 
 @Component({
   selector: 'app-ogled-profila',
@@ -121,7 +122,8 @@ export class OgledProfilaComponent implements OnInit {
 
   dodajPodHitreKontakte(){
     if(this.currentUser.role > 1){
-      this.userService.addContact(this.id).then((result:string)=>{
+      this.userService.addContact(this.id).then((result: AuthenticationResult) => {
+        this.authService.shraniZeton(result.jwt)
         window.location.reload()
       }).catch(err => {
         alert("Kontakt ze obstaja.")
@@ -134,12 +136,15 @@ export class OgledProfilaComponent implements OnInit {
   }
 
   brisiIzHitrihKontaktov(){
-    this.userService.deleteContact(this.id).then((result:User)=>{
+    if(this.currentUser.role > 1){
+      this.userService.deleteContact(this.id).then((result: AuthenticationResult) => {
+      this.authService.shraniZeton(result.jwt)
       window.location.reload()
     }).catch(err => {
       alert("Kontakt ne obstaja.")
       console.error(err)
     })
+   }
   }
 
 }

@@ -120,7 +120,7 @@ const addContact = (req, res) => {
                 if (err) {
                     return res.status(500).json({ "message": "internal server error" })
                 } else {
-                    return res.status(200).json({ "messge": "kontakt uspešno dodan" })
+                    return res.status(200).json({ "jwt": user.generirajJwt()  })
                 }
             })
         }
@@ -143,7 +143,7 @@ const deleteContact = (req, res) => {
                 if (err) {
                     return res.status(500).json({ "message": "internal server error" })
                 } else {
-                    return res.status(204).json({ "messge": "kontakt uspešno izbrisan" })
+                    return res.status(200).json({"jwt": user.generirajJwt()})
                 }
             })
         }
