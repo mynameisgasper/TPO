@@ -8,3 +8,14 @@ Vsaka skupina, ki je sestavljena iz 4 oz. 5 članov, mora razviti lastni projekt
 * **4. LP** - [Implementacija](src).
 
 # Projekt dostopen na https://dogwalkers1.herokuapp.com/
+
+# Uporabniki
+## persistent uporabniki:
+| uporabniško ime   |    geslo   | vloga |
+| :----------------- | :---------- | :---- |
+| **marica.petkovsek@hotmail.com** | test | *navaden uporabnik* |
+| **joze.fistrovic@hotmail.com** | test | *premium uporabnik* |
+| **ad.min@hotmail.com** | admin | *administrator* |
+
+# Testi
+Testi se nahajajo v mapi /test. Poročilo se nahaja na lokaciji /test/pokritost/lcov-report/index.html
