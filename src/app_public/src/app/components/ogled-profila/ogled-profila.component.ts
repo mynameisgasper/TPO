@@ -120,12 +120,17 @@ export class OgledProfilaComponent implements OnInit {
   }
 
   dodajPodHitreKontakte(){
-    this.userService.addContact(this.id).then((result:string)=>{
-      window.location.reload()
-    }).catch(err => {
-      alert("Kontakt ze obstaja.")
-      console.error(err)
-    })
+    if(this.currentUser.role > 1){
+      this.userService.addContact(this.id).then((result:string)=>{
+        window.location.reload()
+      }).catch(err => {
+        alert("Kontakt ze obstaja.")
+        console.error(err)
+      })
+    } else {
+      alert("Ta funkcionalnost je navoljo le premium uporabnikom")
+    }
+
   }
 
   brisiIzHitrihKontaktov(){
