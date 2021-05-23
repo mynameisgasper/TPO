@@ -3,6 +3,8 @@ import {Oglas} from "../../../Models/Oglas";
 import {UserService} from "../../../services/user.service";
 import {User, UserPublic} from "../../../Models/User";
 import {Router} from "@angular/router";
+import {AuthenticationResult} from "../../../Classes/authenticationResult";
+import {AuthenticationService} from "../../../services/authentication.service";
 
 @Component({
   selector: 'app-kontakt',
@@ -11,7 +13,7 @@ import {Router} from "@angular/router";
 })
 export class KontaktComponent implements OnInit {
   @Input("contact") contact:string;
-  constructor(private userService: UserService, private router: Router) { }
+  constructor(private userService: UserService, private router: Router, private authService:AuthenticationService) { }
 
   ime:string
   priimek:string
@@ -19,7 +21,7 @@ export class KontaktComponent implements OnInit {
 
   ngOnInit(): void {
     this.pridobiPodatkeUporabnika(this.contact)
-
+    //console.log(this.contact)
 
 
 
@@ -38,6 +40,16 @@ export class KontaktComponent implements OnInit {
 
   linkToProfile(){
     this.router.navigate(['/ogled-profila/' + this.contact])
+  }
+
+  brisiIzHitrihKontaktov(){
+    this.userService.deleteContact(this.contact).then((result: AuthenticationResult) => {
+      this.authService.shraniZeton(result.jwt)
+      window.location.reload()
+    }).catch(err => {
+      alert("Kontakt ne obstaja.")
+      console.error(err)
+    })
   }
 
 }

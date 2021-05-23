@@ -816,7 +816,7 @@ describe('Testiranje Dog walkers', () => {
 
     // TESTI: ODSTRANITEV IZ HITRIH KONTAKTOV:
     context('Odstranitev iz hitrih kontaktov', () => {
-        it('Odstranitev iz hitrih kontaktov', () => {
+        it('Odstranitev iz hitrih kontaktov preko profila', () => {
             cy.loginPremium()
 
             //Odpri hitre kontakte
@@ -835,6 +835,30 @@ describe('Testiranje Dog walkers', () => {
             cy.get('#backButtonOtherProfile').click()
             cy.get('#profileButton').should('not.exist')
         })
+
+        it('Odstranitev iz hitrih kontaktov preko kontaktov', () => {
+            cy.loginPremium()
+
+            //Najprej dodaj profil med hitre kontakte
+            cy.get('#profileButton').first().click()
+            cy.get('#dodajKontakt').click()
+            cy.wait(100)
+            cy.get('#backButtonOtherProfile').click()
+            cy.wait(200)
+
+            //Odpri hitre kontakte
+            cy.get('#hitri').click()
+            cy.wait(100)
+
+            //Izbriši profil iz hitrih kontaktov
+            cy.get('#removeUserBtn').first().click()
+            cy.wait(200)
+
+            //Poglej če se je izbrisal
+            cy.get('#profileButton').should('not.exist')
+        })
+
+
     })
 
     // TE TESTE SE IZVAJA ZADNJE, KER PRIDE DO SPREMEMBE GESLA IN TO ZJEBE LOGIN:
