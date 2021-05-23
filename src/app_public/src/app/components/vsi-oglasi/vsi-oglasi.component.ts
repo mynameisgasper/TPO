@@ -93,7 +93,7 @@ export class VsiOglasiComponent implements OnInit {
   }
 
   searchTest() {
-    let inputCheck = new RegExp("^[a-zA-ZčćžđšČĆŽĐŠ ]+$");
+    let inputCheck = new RegExp("^[a-zA-ZčćžđšČĆŽĐŠ ]*$");
     let inputTest = inputCheck.test(this.searchString);
     if (inputTest) {
       return true
